@@ -1,0 +1,21 @@
+[
+    {
+        "counselorID": 1,
+        "firstName":"Bob",
+        "lastName":"Aller",
+        "Email":"BobAller@xxxxx.com",
+        "phoneNumber":"555-555-5555",
+        "password":"1234567",
+        "birthday":"10/26/2001",
+        "medInfo": "grass allergy"
+    },  {
+        "counselorID": 2,
+        "firstName":"Veronica",
+        "lastName":"Johnson",
+        "Email":"VJohnson@xxxxx.com",
+        "phoneNumber":"555-555-5555",
+        "password":"1234567",
+        "birthday":"12/19/2002",
+        "medInfo": "Type I diabetic"
+    }
+]

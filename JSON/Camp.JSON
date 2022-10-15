@@ -1,0 +1,11 @@
+[
+    {
+        "campID": 1,
+        "time": "12:30",
+        "price": 255.99,
+        "groupID": "1,2",
+        "childIDs": "1,2,3,4",
+        "counselorIDs": "1,2"
+    }
+
+]

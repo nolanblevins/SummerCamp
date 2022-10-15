@@ -1,0 +1,18 @@
+[
+    {
+        "groupID": 1,
+        "groupName": "Wildcats",
+        "cabin": 1,
+        "groupSize": 2,
+        "counselorID": 1,
+        "childIDs": "1,2"
+    },{
+        "groupID": 2,
+        "groupName": "Vipers",
+        "cabin": 2,
+        "groupSize": 2,
+        "counselorID": 2,
+        "childIDs": "3,4"
+    }
+
+]

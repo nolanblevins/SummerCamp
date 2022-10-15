@@ -1,0 +1,31 @@
+[
+    {
+        "childID": 1,
+        "firstName":"Tammy",
+        "lastName":"Snow",
+        "notes": "got in fight with Oliver",
+        "birthday": "03/01/2012",
+        "medInfo": "asthma, needs inhaler"
+    },{
+        "childID": 2,
+        "firstName":"Oliver",
+        "lastName":"Sun",
+        "notes":"got in fight with Tammy",
+        "birthday": "05/19/2012",
+        "medInfo": "ADD"
+    },{
+        "childID": 3,
+        "firstName": "Justin",
+        "lastName": "Snow",
+        "notes": "scared of water",
+        "birthday":"03/12/2011",
+        "medInfo": "peanut allergy"
+    },{
+        "childID": 4,
+        "firstName": "Tom",
+        "lastName": "Snow",
+        "notes": "hates kayaking",
+        "birthday":"07/19/2011",
+        "medInfo": "cat allergy"
+    }
+]

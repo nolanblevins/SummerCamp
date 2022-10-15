@@ -1,0 +1,19 @@
+[
+    {
+        "userID": 1,
+        "firstName":"John",
+        "lastName":"Snow",
+        "Email":"JohnSnow@xxxxx.com",
+        "phoneNumber":"555-555-5555",
+        "password":"1234567",
+        "children":"Tammy, Justin, Tom"
+    },{
+        "userID": 2,
+        "firstName":"Erika",
+        "lastName":"Sun",
+        "Email":"ErikaSun@xxxxx.com",
+        "phoneNumber":"555-555-5555",
+        "password":"7654321",
+        "children":"Albert, Oliver, Jessica"
+    }
+]

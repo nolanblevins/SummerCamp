@@ -1,0 +1,24 @@
+[
+    {
+        "activityID": 1,
+        "title": "Kayaking",
+        "time": "9:30",
+        "day": "Monday",
+        "description": "Group kayaking on river",
+        "location": "river"
+    },{
+        "activityID": 2,
+        "title": "Volleyball",
+        "time": "16:45",
+        "day": "Tuesday",
+        "description": "Team volleyball on grassy field",
+        "location": "camp field"
+    },{
+        "activityID": 3,
+        "title": "Hiking",
+        "time": "10:15",
+        "day": "Wednesday",
+        "description": "hiking up Mt. Everest",
+        "location": "Mt. Everest"
+    }
+]
