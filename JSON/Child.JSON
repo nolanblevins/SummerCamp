@@ -5,7 +5,10 @@
         "lastName":"Snow",
         "notes": "got in fight with Oliver",
         "birthday": "03/01/2012",
-        "medInfo": "asthma, needs inhaler"
+        "allergies":["peanut butter", "gluten"],
+        "emergency_contacts":[{"first_name":"amy",
+                                "last_name": "smith"},
+                            {}]
     },{
         "childID": 2,
         "firstName":"Oliver",

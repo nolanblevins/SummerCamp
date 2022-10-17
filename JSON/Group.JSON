@@ -5,7 +5,7 @@
         "cabin": 1,
         "groupSize": 2,
         "counselorID": 1,
-        "childIDs": "1,2"
+        "childIDs": ["1","2"]
     },{
         "groupID": 2,
         "groupName": "Vipers",
