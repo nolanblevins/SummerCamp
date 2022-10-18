@@ -1,57 +1,13 @@
 
-public class DataConstants {
-    DataConstants dataConstants;
-    String[] userData;
-    String[] rUData;
-    String[] counselorData;
-    String[] campData;
-    String[] groupData;
-    String[] childData;
-    String[] activityData;
-
-    private DataConstants(){
-        this.setUserData();
-        this.setrUData();
-        this.setCounselorData();
-        this.setCampData();
-        this.setGroupData();
-        this.setChildData();
-        this.setActivityData();
-    }
-
-    private DataConstants getInstance(){
-        if(this.dataConstants == null){
-            this.dataConstants = new DataConstants();
-        }
-        return this.dataConstants;
-    }
-
-    private void setUserData(){
-
-    }
-
-    private void setrUData(){
-
-    }
-
-    private void setCounselorData(){
-
-    }
-
-    private void setCampData(){
-
-    }
-
-    private void setGroupData(){
-
-    }
-
-    private void setChildData(){
-
-    }
-
-    private void setActivityData(){
-
-    }
-
+public abstract class DataConstants {
+    public static final String UUID = "UUID";
+    public static final String USER_TYPE = "userType";
+    public static final String USER_FIRST_NAME = "firstName";
+    public static final String USER_LAST_NAME = "lastName";
+    public static final String USER_EMAIL = "email";
+    public static final String USER_PHONE_NUMBER = "phoneNumber";
+    public static final String USER_PASSWORD = "password";
+    public static final String USER_CHILDREN = "children";
+    public static final String USER_BIRTHDAY = "birthday";
+    public static final String USER_MEDICAL_INFO = "medInfo";
 }

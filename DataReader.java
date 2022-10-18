@@ -1,13 +1,6 @@
 import java.util.ArrayList;
 
-public class DataReader {
-    ArrayList<User> userList;
-    ArrayList<Camp> campList;
-    ArrayList<Group> groupList;
-    ArrayList<Child> childList;
-    ArrayList<Activity> activityList;
-
-    DataConstants dataConstants;
+public class DataReader extends DataConstants{
 
     public static ArrayList<User> getAllUsers(){
         return null;

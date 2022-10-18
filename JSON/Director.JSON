@@ -3,14 +3,14 @@
         "directorID": 1,
         "firstName":"Jim",
         "lastName":"Allenson",
-        "Email":"JAllenson@xxxxx.com",
+        "email":"JAllenson@xxxxx.com",
         "phoneNumber":"555-555-5555",
         "password":"1234567"
     },{
         "directorID": 2,
         "firstName":"Jessica",
         "lastName":"Roberts",
-        "Email":"JessicaRoberts@xxxxx.com",
+        "email":"JessicaRoberts@xxxxx.com",
         "phoneNumber":"555-555-5555",
         "password":"7654321"
     }

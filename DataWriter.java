@@ -1,2 +1,2 @@
-public class DataWriter {
+public class DataWriter extends DataConstants{
 }
