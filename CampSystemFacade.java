@@ -26,23 +26,19 @@ public class CampSystemFacade {
     }
 
     public Director loginDirector(String email, String password) {
-        Director director;
-        return director;
+        return null;
     }
 
     public Counselor loginCounselor(String email, String password) {
-        Counselor counselor;
-        return counselor;
+        return null;
     }
 
     public RegisteredUser loginRegisteredUser(String email, String password) {
-        RegisteredUser registeredUser;
-        return registeredUser;
+        return null;
     }
 
     public User logOff() {
-        User user;
-        return user;
+        return null;
     }
 
     public void changeInfo() {
