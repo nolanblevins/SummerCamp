@@ -73,8 +73,8 @@ public class CampSystemFacade {
 
     }
 
-    public void addQtoFAQ(String question) {
-
+    public void addToFAQ(String question) {
+        FAQ.add(question);
     }
 
     public String getMedicalInfo() {
