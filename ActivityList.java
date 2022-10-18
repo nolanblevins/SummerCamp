@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class ActivityList {
-    private ArrayList<Activity> activites;
+    private ArrayList<Activity> activities;
     private ActivityList activityList;
 
     private ActivityList ActivityList() {
