@@ -10,7 +10,7 @@ public Contact(String name, String phoneNumber, String relationship) {
     this.relationship = relationship;
 }
 
-public getContact() {
+public Contact getContact() {
     return this;
 }
 
