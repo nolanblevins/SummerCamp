@@ -4,7 +4,16 @@ public class User {
     protected String email;
     protected String phoneNumber;
     protected String password;
-    
+
+    /**
+     * Constructs the user with all required parameters
+     * 
+     * @param firstName   The first name of the user
+     * @param lastName    The last name of the user
+     * @param email       The email of the user
+     * @param phoneNumber The phone number of the user
+     * @param password    The password of the user
+     */
     public User(String firstName, String lastName, String email, String phoneNumber, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -13,6 +22,4 @@ public class User {
         this.password = password;
     }
 
-    
-    
 }
