@@ -79,7 +79,7 @@ public class Counselor extends User {
      */
     public ArrayList<Child> getChildren() {
         ArrayList<Child> children;
-        return children;
+        return null;
     }
 
     /**

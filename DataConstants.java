@@ -1,5 +1,6 @@
 
 public abstract class DataConstants {
+    public static final String USER_FILE_NAME = "./JSON/User.JSON";
     public static final String UUID = "UUID";
     public static final String USER_TYPE = "userType";
     public static final String USER_FIRST_NAME = "firstName";

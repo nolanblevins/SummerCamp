@@ -4,7 +4,7 @@ public class GroupList {
     private static GroupList groupList;
 
     private GroupList(){
-        this.groups = DataReader.getAllGroups();
+        this.groups = DataReader.loadGroups();
     }
 
     public static GroupList getInstance(){

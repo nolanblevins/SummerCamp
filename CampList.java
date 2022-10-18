@@ -4,7 +4,7 @@ public class CampList {
     private static CampList campList;
 
     private CampList(){
-        camps = DataReader.getAllCamps();
+        camps = DataReader.loadCamps();
     }
 
     public static CampList getInstance(){
