@@ -3,12 +3,12 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Child {
-    protected UUID id;
-    protected String firstName;
-    protected String lastName;
-    protected ArrayList<String> notes;
-    protected MedicalInfo medicalInfo;
-    protected Date birthday;
+    private UUID id;
+    private String firstName;
+    private String lastName;
+    private ArrayList<String> notes;
+    private MedicalInfo medicalInfo;
+    private Date birthday;
     
     public Child(String firstName, String lastName, MedicalInfo medicalInfo, Date birthday) {
         this.id = UUID.randomUUID();
@@ -25,5 +25,26 @@ public class Child {
         this.medicalInfo = medicalInfo;
         this.birthday = birthday;
     }
+
+    public void addNote(String note) {
+        notes.add(note);
+    }
+
+    public String getMedInfo() {
+        return "med Info";
+    }
+
+    
+    /**
+     * A concatenated toString of Child values
+     * 
+     * @return will return a concatenated 
+     */
+    public String toString() {
+        return "Child [firstName=" + firstName + ", lastName=" + lastName + ", medicalInfo=" + medicalInfo
+                + ", birthday=" + birthday + "]";
+    }
+    
+
     
 }
