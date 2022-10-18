@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Group {
     private String groupName;
@@ -7,11 +8,20 @@ public class Group {
     private ArrayList<Child> campers;
     private int groupSize;
     private Counselor counselor;
+    private UUID id;
     
     public Group(String groupName, int cabin, int groupSize) {
         this.groupName = groupName;
         this.cabin = cabin;
         this.groupSize = groupSize;
+        this.id = UUID.randomUUID();
+    }
+
+    public Group(UUID id, String groupName, int cabin, int groupSize) {
+        this.groupName = groupName;
+        this.cabin = cabin;
+        this.groupSize = groupSize;
+        this.id = id;
     }
     
 }
