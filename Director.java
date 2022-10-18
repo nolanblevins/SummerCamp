@@ -1,5 +1,6 @@
 import java.util.UUID;
-public class Director extends User{
+
+public class Director extends User {
 
     private UUID id;
 
@@ -12,5 +13,19 @@ public class Director extends User{
         super(firstName, lastName, email, phoneNumber, password);
         this.id = id;
     }
-    
+
+    /**
+     * Creates a new activity and returns it
+     * 
+     * @param title       The name of the activity
+     * @param time        The time of the activity
+     * @param description A description of the activity
+     * @param location    The location of the activity
+     * @return Activty    The overall activity class is returned
+     */
+    public Activity addActivity(String title, String time, String description, String location) {
+        Activity activity = new Activity(title, time, description, location);
+        return activity;
+    }
+
 }
