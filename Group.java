@@ -29,7 +29,10 @@ public class Group {
     }
 
     public String toString() {
-        return null;
+        return "Group [groupName=" + groupName + ", schedule=" + schedule + ", cabin=" + cabin + ", campers=" + campers
+                + ", groupSize=" + groupSize + ", counselor=" + counselor + ", id=" + id + "]";
     }
+
+   
     
 }
