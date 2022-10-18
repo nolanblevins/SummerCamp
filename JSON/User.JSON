@@ -1,0 +1,62 @@
+[
+  {
+    "UUID": 1,
+    "userType": "RegisteredUser",
+    "firstName": "John",
+    "lastName": "Snow",
+    "Email": "JohnSnow@xxxxx.com",
+    "phoneNumber": "555-555-5555",
+    "password": "1234567",
+    "children": "Tammy, Justin, Tom"
+  },
+  {
+    "UUID": 2,
+    "userType": "RegisteredUser",
+    "firstName": "Erika",
+    "lastName": "Sun",
+    "Email": "ErikaSun@xxxxx.com",
+    "phoneNumber": "555-555-5555",
+    "password": "7654321",
+    "children": "Albert, Oliver, Jessica"
+  },
+  {
+    "UUID": 1,
+    "userType": "Counselor",
+    "firstName": "Bob",
+    "lastName": "Aller",
+    "Email": "BobAller@xxxxx.com",
+    "phoneNumber": "555-555-5555",
+    "password": "1234567",
+    "birthday": "10/26/2001",
+    "medInfo": "grass allergy"
+  },
+  {
+    "UUID": 2,
+    "userType": "Counselor",
+    "firstName": "Veronica",
+    "lastName": "Johnson",
+    "Email": "VJohnson@xxxxx.com",
+    "phoneNumber": "555-555-5555",
+    "password": "1234567",
+    "birthday": "12/19/2002",
+    "medInfo": "Type I diabetic"
+  },
+  {
+    "UUID": 1,
+    "userType": "Director",
+    "firstName": "Jim",
+    "lastName": "Allenson",
+    "Email": "JAllenson@xxxxx.com",
+    "phoneNumber": "555-555-5555",
+    "password": "1234567"
+  },
+  {
+    "UUID": 2,
+    "userType": "Director",
+    "firstName": "Jessica",
+    "lastName": "Roberts",
+    "Email": "JessicaRoberts@xxxxx.com",
+    "phoneNumber": "555-555-5555",
+    "password": "7654321"
+  }
+]
