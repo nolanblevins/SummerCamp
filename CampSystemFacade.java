@@ -11,6 +11,10 @@ public class CampSystemFacade {
         this.user = user;
         this.campInfo = campInfo;
     }
+
+    public addToFAQ(String question, String answer) {
+        FAQ.add(answer);
+    }
     
 
 

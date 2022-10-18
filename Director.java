@@ -28,4 +28,8 @@ public class Director extends User {
         return activity;
     }
 
+    public void addQtoFAQ(String question) {
+        CampSystemFacade.faq.add();
+    }
+
 }
