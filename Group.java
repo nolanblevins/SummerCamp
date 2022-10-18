@@ -23,5 +23,13 @@ public class Group {
         this.groupSize = groupSize;
         this.id = id;
     }
+
+    public Schedule getSchedule() {
+        return null;
+    }
+
+    public String toString() {
+        return null;
+    }
     
 }
