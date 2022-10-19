@@ -1,6 +1,6 @@
 [
   {
-    "UUID": 1,
+    "UUID": "737ed040-e71e-412b-8c7b-5656a9424d6a",
     "userType": "RegisteredUser",
     "firstName": "John",
     "lastName": "Snow",
@@ -10,7 +10,7 @@
     "children": "Tammy, Justin, Tom"
   },
   {
-    "UUID": 2,
+    "UUID": "dcee5cca-3a48-4fb5-8cc7-6e5733e57ffe",
     "userType": "RegisteredUser",
     "firstName": "Erika",
     "lastName": "Sun",
@@ -20,7 +20,7 @@
     "children": "Albert, Oliver, Jessica"
   },
   {
-    "UUID": 1,
+    "UUID": "938907c4-fe75-43a1-bb98-25a7bd84fc7a",
     "userType": "Counselor",
     "firstName": "Bob",
     "lastName": "Aller",
@@ -31,7 +31,7 @@
     "medInfo": "grass allergy"
   },
   {
-    "UUID": 2,
+    "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
     "userType": "Counselor",
     "firstName": "Veronica",
     "lastName": "Johnson",
@@ -42,7 +42,7 @@
     "medInfo": "Type I diabetic"
   },
   {
-    "UUID": 1,
+    "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
     "userType": "Director",
     "firstName": "Jim",
     "lastName": "Allenson",
@@ -51,7 +51,7 @@
     "password": "1234567"
   },
   {
-    "UUID": 2,
+    "UUID": "9d2fc696-912d-4dc0-a9b0-75df33d8dcec",
     "userType": "Director",
     "firstName": "Jessica",
     "lastName": "Roberts",

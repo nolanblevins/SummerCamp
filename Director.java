@@ -29,7 +29,7 @@ public class Director extends User {
     }
 
     public void addQtoFAQ(String question) {
-        CampSystemFacade.faq.add();
+        // CampSystemFacade.faq.add();
     }
 
 }

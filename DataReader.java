@@ -1,8 +1,12 @@
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import java.util.UUID;
+import java.util.Date;
 
 public class DataReader extends DataConstants{
     public static void main(String[] args){
@@ -21,7 +25,7 @@ public class DataReader extends DataConstants{
 
             for(int i = 0; i < usersJSON.size(); i++){
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
-                String uuid = (String)userJSON.get(UUID);
+                UUID uuid = UUID.fromString((String)userJSON.get(LIST_UUID));
                 String userType = (String)userJSON.get(USER_TYPE);
                 String firstName = (String)userJSON.get(USER_FIRST_NAME);
                 String lastName = (String)userJSON.get(USER_LAST_NAME);
@@ -30,6 +34,12 @@ public class DataReader extends DataConstants{
                 String password = (String)userJSON.get(USER_PASSWORD);
                 if(userType.equals("Director")){
                     users.add(new Director(firstName, lastName, email, phoneNumber, password));
+                }
+                else if(userType.equals("Counselor")){
+                    Date birthday =new SimpleDateFormat("dd/MM/yyyy").parse(
+                            (String)userJSON.get(USER_BIRTHDAY));
+                    users.add(new Counselor(uuid, firstName, lastName, email,
+                            phoneNumber, password, birthday));
                 }
             }
         } catch(Exception e){
