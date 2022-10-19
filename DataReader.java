@@ -29,26 +29,24 @@ public class DataReader extends DataConstants{
 
         try{
             FileReader reader = new FileReader(USER_FILE_NAME);
-            JSONParser parser = new JSONParser();
             JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 
-            for(int i = 0; i < usersJSON.size(); i++){
-                JSONObject userJSON = (JSONObject)usersJSON.get(i);
-                UUID uuid = UUID.fromString((String)userJSON.get(LIST_UUID));
-                String userType = (String)userJSON.get(USER_TYPE);
-                String firstName = (String)userJSON.get(FIRST_NAME);
-                String lastName = (String)userJSON.get(LAST_NAME);
-                String email = (String)userJSON.get(USER_EMAIL);
-                String phoneNumber = (String)userJSON.get(USER_PHONE_NUMBER);
-                String password = (String)userJSON.get(USER_PASSWORD);
-                if(userType.equals("Director")){
+            for (Object userObject : usersJSON) {
+                JSONObject userJSON = (JSONObject)userObject;
+                UUID uuid = UUID.fromString((String) userJSON.get(LIST_UUID));
+                String userType = (String) userJSON.get(USER_TYPE);
+                String firstName = (String) userJSON.get(FIRST_NAME);
+                String lastName = (String) userJSON.get(LAST_NAME);
+                String email = (String) userJSON.get(USER_EMAIL);
+                String phoneNumber = (String) userJSON.get(USER_PHONE_NUMBER);
+                String password = (String) userJSON.get(USER_PASSWORD);
+                if (userType.equals("Director")) {
                     users.add(new Director(firstName, lastName, email, phoneNumber, password));
-                }
-                else if(userType.equals("Counselor")){
+                } else if (userType.equals("Counselor")) {
                     Date birthday = objectToBirthday(userJSON.get(BIRTHDAY));
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday));
-                }else if(userType.equals("RegisteredUser")){
+                } else if (userType.equals("RegisteredUser")) {
                     // ArrayList<Child> ruChildren = getRUChildren(userJSON);
                     users.add(new RegisteredUser(firstName, lastName, email, phoneNumber,
                             password));
@@ -74,7 +72,26 @@ public class DataReader extends DataConstants{
     }
 
     public static ArrayList<Child> loadChild(){
-        return null;
+        ArrayList<Child> children = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader(CHILD_FILE_NAME);
+            JSONArray childrenJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object childObject : childrenJSON){
+                JSONObject childJSON = (JSONObject)childObject;
+                UUID uuid = UUID.fromString((String)childJSON.get(LIST_UUID));
+                String firstName = (String)childJSON.get(FIRST_NAME);
+                String lastName = (String)childJSON.get(LAST_NAME);
+                Date birthday = objectToBirthday(childJSON.get(BIRTHDAY));
+
+
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return children;
     }
 
     /**

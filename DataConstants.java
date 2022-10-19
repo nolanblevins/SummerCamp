@@ -18,9 +18,8 @@ public abstract class DataConstants {
 
 
     // Child Data Constants
+    public static final String CHILD_FILE_NAME = "./JSON/Child.JSON";
     public static final String CHILD_NOTES = "notes";
     public static final String CHILD_ALLERGIES = "allergies";
     public static final String EMERGENCY_CONTACT = "emergencyContact";
-
-
 }
