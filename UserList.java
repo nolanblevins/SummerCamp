@@ -4,7 +4,7 @@ public class UserList {
     private static UserList userList;
 
     private UserList(){
-
+        this.users = DataReader.loadUsers();
     }
 
     public static UserList getInstance(){

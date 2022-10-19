@@ -1,4 +1,38 @@
 import java.util.ArrayList;
-public class ChildList{
+import java.util.UUID;
 
+public class ChildList{
+    private ArrayList<Child> children;
+    private static ChildList childList;
+
+    private ChildList(){
+        this.children = DataReader.loadChild();
+    }
+
+    private static ChildList getInstance(){
+        if(childList == null){
+            childList = new ChildList();
+        }
+        return childList;
+    }
+
+    public void addChild(){
+
+    }
+
+    public Child getChild(String name){
+        return null;
+    }
+
+    public Child getChild(UUID uuid){
+        return null;
+    }
+
+    public void editUser(Child child){
+
+    }
+
+    public void saveUsers(){
+
+    }
 }

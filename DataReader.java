@@ -36,10 +36,12 @@ public class DataReader extends DataConstants{
                     users.add(new Director(firstName, lastName, email, phoneNumber, password));
                 }
                 else if(userType.equals("Counselor")){
-                    Date birthday =new SimpleDateFormat("dd/MM/yyyy").parse(
+                    Date birthday = new SimpleDateFormat("dd/MM/yyyy").parse(
                             (String)userJSON.get(USER_BIRTHDAY));
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday));
+                }else if(userType.equals("RegisteredUser")){
+
                 }
             }
         } catch(Exception e){
@@ -58,6 +60,16 @@ public class DataReader extends DataConstants{
     }
 
     public static ArrayList<Activity> loadActivities(){
+        return null;
+    }
+
+    public static ArrayList<Child> loadChild(){
+        return null;
+    }
+
+    private static ArrayList<Child> getRUChildren(JSONObject userJSON, String[] uuids){
+
+
         return null;
     }
 }
