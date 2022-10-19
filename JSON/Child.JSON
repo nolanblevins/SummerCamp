@@ -5,8 +5,11 @@
         "lastName":"Snow",
         "notes": "got in fight with Oliver",
         "birthday": "03/01/2012",
-        "allergies":["peanut butter", "gluten"],
-        "emergency_contacts":[{"first_name":"amy",
+        "allergies":[
+            "peanut butter",
+            "gluten"
+        ],
+        "emergencyContacts":[{"first_name":"amy",
                                 "last_name": "smith"},
                             {}]
     },{
@@ -15,6 +18,7 @@
         "lastName":"Sun",
         "notes":"got in fight with Tammy",
         "birthday": "05/19/2012",
+
         "medInfo": "ADD"
     },{
         "UUID": "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",

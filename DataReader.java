@@ -16,6 +16,14 @@ public class DataReader extends DataConstants{
         }
     }
     // TODO Add medical info functionality
+    // TODO Add Children functionality
+    /**
+     * Iterates through the file User.JSON, determines the type of the user,
+     * then based on the type of the user, will construct that user and add it
+     * to the ArrayList of users which is returned at the end
+     *
+     * @return  An ArrayList containing all the users
+     */
     public static ArrayList<User> loadUsers(){
         ArrayList<User> users = new ArrayList<>();
 
@@ -28,8 +36,8 @@ public class DataReader extends DataConstants{
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
                 UUID uuid = UUID.fromString((String)userJSON.get(LIST_UUID));
                 String userType = (String)userJSON.get(USER_TYPE);
-                String firstName = (String)userJSON.get(USER_FIRST_NAME);
-                String lastName = (String)userJSON.get(USER_LAST_NAME);
+                String firstName = (String)userJSON.get(FIRST_NAME);
+                String lastName = (String)userJSON.get(LAST_NAME);
                 String email = (String)userJSON.get(USER_EMAIL);
                 String phoneNumber = (String)userJSON.get(USER_PHONE_NUMBER);
                 String password = (String)userJSON.get(USER_PASSWORD);
@@ -37,8 +45,7 @@ public class DataReader extends DataConstants{
                     users.add(new Director(firstName, lastName, email, phoneNumber, password));
                 }
                 else if(userType.equals("Counselor")){
-                    Date birthday = new SimpleDateFormat("dd/MM/yyyy").parse(
-                            (String)userJSON.get(USER_BIRTHDAY));
+                    Date birthday = objectToBirthday(userJSON.get(BIRTHDAY));
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday));
                 }else if(userType.equals("RegisteredUser")){
@@ -87,5 +94,22 @@ public class DataReader extends DataConstants{
             ruChildren.add(childList.getChild(uuid));
         }
         return ruChildren;
+    }
+
+    /**
+     * Takes in the input of a jsonObject representing a bday, and
+     * returns that object as a Date object
+     *
+     * @param bdayObject    Beginning format of the birthday
+     * @return              The birthday as a Date object
+     */
+    private static Date objectToBirthday(Object bdayObject){
+        try {
+            return new SimpleDateFormat("dd/MM/yyyy").parse(
+                    (String) bdayObject);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
