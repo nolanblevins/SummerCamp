@@ -9,7 +9,7 @@ public class ChildList{
         this.children = DataReader.loadChild();
     }
 
-    private static ChildList getInstance(){
+    public static ChildList getInstance(){
         if(childList == null){
             childList = new ChildList();
         }

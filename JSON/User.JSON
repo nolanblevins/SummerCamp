@@ -7,7 +7,11 @@
     "email": "JohnSnow@xxxxx.com",
     "phoneNumber": "555-555-5555",
     "password": "1234567",
-    "children": "Tammy, Justin, Tom"
+    "children": [
+      "Tammy",
+      "Justin",
+      "Tom"
+    ]
   },
   {
     "UUID": "dcee5cca-3a48-4fb5-8cc7-6e5733e57ffe",
@@ -17,7 +21,11 @@
     "email": "ErikaSun@xxxxx.com",
     "phoneNumber": "555-555-5555",
     "password": "7654321",
-    "children": "Albert, Oliver, Jessica"
+    "children": [
+      "Albert",
+      "Oliver",
+      "Jessica"
+    ]
   },
   {
     "UUID": "938907c4-fe75-43a1-bb98-25a7bd84fc7a",

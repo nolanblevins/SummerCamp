@@ -15,6 +15,7 @@ public class DataReader extends DataConstants{
             System.out.println(u);
         }
     }
+    // TODO Add medical info functionality
     public static ArrayList<User> loadUsers(){
         ArrayList<User> users = new ArrayList<>();
 
@@ -41,7 +42,9 @@ public class DataReader extends DataConstants{
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday));
                 }else if(userType.equals("RegisteredUser")){
-
+                    // ArrayList<Child> ruChildren = getRUChildren(userJSON);
+                    users.add(new RegisteredUser(firstName, lastName, email, phoneNumber,
+                            password));
                 }
             }
         } catch(Exception e){
@@ -67,9 +70,22 @@ public class DataReader extends DataConstants{
         return null;
     }
 
-    private static ArrayList<Child> getRUChildren(JSONObject userJSON, String[] uuids){
+    /**
+     * Gets an instance of the ChildList, then uses UUIDs from the userJSON
+     * object to find those children and add them to an array to be returned
+     *
+     * @param userJSON  The current User that is being looked at
+     * @return          An ArrayList of the User's children
+     */
+    private static ArrayList<Child> getRUChildren(JSONObject userJSON){
+        ChildList childList = ChildList.getInstance();
+        ArrayList<Child> ruChildren = new ArrayList<>();
+        JSONArray uuids = (JSONArray)userJSON.get(USER_CHILDREN);
 
-
-        return null;
+        for(Object uuidObject : uuids){
+            UUID uuid = UUID.fromString((String)uuidObject);
+            ruChildren.add(childList.getChild(uuid));
+        }
+        return ruChildren;
     }
 }
