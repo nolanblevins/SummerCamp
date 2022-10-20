@@ -46,6 +46,7 @@ public class CampSystemFacade {
 
     public void generateSchedules(Camp camp, ArrayList<Activity> activityList) {
 
+
     }
 
     public String viewSchedule() {

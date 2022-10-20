@@ -17,6 +17,7 @@ public class Child {
      * @param lastName    childs last name
      * @param medicalInfo childs med info
      * @param birthday    child bday
+     * @param notes     childs notes
      */
     public Child(String firstName, String lastName, MedicalInfo medicalInfo, Date birthday) {
         this.id = UUID.randomUUID();
@@ -35,6 +36,7 @@ public class Child {
      * @param lastName    childs last name
      * @param medicalInfo childs med info
      * @param birthday    child bday
+     * @param notes
      */
     public Child(UUID id, String firstName, String lastName, MedicalInfo medicalInfo, Date birthday, ArrayList<String> notes) {
         this.id = id;
