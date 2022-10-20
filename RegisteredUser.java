@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.Date;
 
 public class RegisteredUser extends User{
     protected ArrayList<Child> children;
@@ -48,7 +49,7 @@ public class RegisteredUser extends User{
         else if(userChoice == 1) {
             System.out.println("Enter new last name:");
             String newLastName = in.nextLine();
-            new RegisteredUser(firstName, newLastName, email, username, password)
+            new RegisteredUser(firstName, newLastName, email, username, password);
         }
         else if(userChoice == 2) {
             System.out.println("Enter new email:");
@@ -69,19 +70,20 @@ public class RegisteredUser extends User{
     }
 
     public String viewSchedule(int cabin) {
-        return Group.getSchedule();
+        return null;
+        //return Group.getSchedule();
     }
 
     public void registerChild(String firstName, String lastName, Date birthday, String medicalInfo, Camp camp) {
         // prompt for information
         // Create child
         // Add child
-        children.add(firstName, lastName, birthday, medicalInfo, camp);
+        //children.add(firstName, lastName, birthday, medicalInfo, camp);
     }
 
     public void removeChild(String firstName, String lastName) {
         // prompt child's name
-        children.remove(firstName,lastName);
+        //children.remove(firstName,lastName);
     }
 
     public String viewChildNotes(String firstName, String lastName) {

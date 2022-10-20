@@ -13,7 +13,7 @@ public class Schedule {
     }
 
     public ArrayList<Activity> generateSchedule() {
-        new Activity("Breakfast", null, null, null)
+        new Activity("Breakfast", -1, null, null);
         Random rand;
         ActivityList ActivityList = new ActivityList();
         schedule = new ArrayList<Activity>();

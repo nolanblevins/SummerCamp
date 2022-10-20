@@ -43,8 +43,9 @@ public class DataReader extends DataConstants{
                     users.add(new Director(firstName, lastName, email, phoneNumber, password));
                 } else if (userType.equals("Counselor")) {
                     Date birthday = objectToBirthday(userJSON.get(BIRTHDAY));
+                    MedicalInfo medicalInfo = getMedInfo(userJSON);
                     users.add(new Counselor(uuid, firstName, lastName, email,
-                            phoneNumber, password, birthday));
+                            phoneNumber, password, birthday, medicalInfo));
                 } else if (userType.equals("RegisteredUser")) {
                     // ArrayList<Child> ruChildren = getRUChildren(userJSON);
                     users.add(new RegisteredUser(firstName, lastName, email, phoneNumber,
@@ -84,13 +85,7 @@ public class DataReader extends DataConstants{
                 String lastName = (String)childJSON.get(LAST_NAME);
                 ArrayList<String> notes = parseStringList(childJSON, NOTES);
                 Date birthday = objectToBirthday(childJSON.get(BIRTHDAY));
-                ArrayList<String> allergies = parseStringList(childJSON, ALLERGIES);
-                Contact contact = getContact(childJSON);
-                String address = (String)childJSON.get(ADDRESS);
-                ArrayList<String> conditions = parseStringList(childJSON, CONDITIONS);
-
-                MedicalInfo medicalInfo = new MedicalInfo(contact, address,
-                        allergies, conditions);
+                MedicalInfo medicalInfo = getMedInfo(childJSON);
 
                 Child child = new Child(uuid, firstName, lastName, medicalInfo,
                         birthday, notes);
@@ -139,6 +134,18 @@ public class DataReader extends DataConstants{
         String relationship = (String)ecJSON.get(EC_RELATIONSHIP);
 
         return new Contact(firstName, lastName, phoneNumber, relationship);
+    }
+
+    private static MedicalInfo getMedInfo(JSONObject jsonObject){
+        ArrayList<String> allergies = parseStringList(jsonObject, ALLERGIES);
+        Contact contact = getContact(jsonObject);
+        String address = (String)jsonObject.get(ADDRESS);
+        ArrayList<String> conditions = parseStringList(jsonObject, CONDITIONS);
+
+        MedicalInfo medicalInfo = new MedicalInfo(contact, address,
+                allergies, conditions);
+
+        return medicalInfo;
     }
 
     /**
