@@ -87,8 +87,8 @@ public class Counselor extends User {
      * 
      * @return will return counselors med info
      */
-    public String getMedInfo() {
-        return "med info";
+    public MedicalInfo getMedInfo() {
+        return medicalInfo;
     }
 
     /**
@@ -96,8 +96,9 @@ public class Counselor extends User {
      * 
      * @return will return child med info
      */
-    public String getChildMedInfo(Child child) {
-        return "child med info";
+    public MedicalInfo getChildMedInfo(Child child) {
+        return child.getMedInfo();
+        
     }
 
 }

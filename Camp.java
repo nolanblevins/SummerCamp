@@ -12,6 +12,7 @@ public class Camp {
         this.time = time;
         this.price = price;
     }
+    
 
     /**
      * Returns the camp's ArrayList of type Group

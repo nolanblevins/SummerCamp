@@ -24,7 +24,7 @@ public class Group {
         this.id = id;
     }
 
-    public Schedule getSchedule() {
+    public String getSchedule() {
         return null;
     }
 
