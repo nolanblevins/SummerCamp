@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.io.Console;
+
 
 public class CampUI {
 
@@ -44,19 +46,20 @@ public class CampUI {
         		createAccountMenu();
         	}
         	else if(menuSelection == 2) {
+				loginPortal();
         		
         	}
         	else if(menuSelection == 3) {
-        		
+        		campInfo();
         	}
         	else if(menuSelection == 4) {
-        		
+        		displayFAQ();
         	}
         	else if(menuSelection == 5) {
-        		
+				break;
         	}
         	else {
-        		invalidInput = true;
+
         	}
         	
         	
@@ -76,4 +79,24 @@ public class CampUI {
 		System.out.flush();
 	}
     
+
+	private static void loginPortal(){
+		clearScreen();
+		return;
+	}
+
+	private static void campInfo() {
+		clearScreen();
+		return;
+	}
+
+	private static void displayFAQ() {
+		clearScreen();
+		return;
+	}
+
+
+
 }
+
+
