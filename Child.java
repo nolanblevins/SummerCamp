@@ -24,6 +24,7 @@ public class Child {
         this.lastName = lastName;
         this.medicalInfo = medicalInfo;
         this.birthday = birthday;
+        notes = new ArrayList<>();
     }
 
     /**
@@ -41,6 +42,7 @@ public class Child {
         this.lastName = lastName;
         this.medicalInfo = medicalInfo;
         this.birthday = birthday;
+        this.notes = notes;
     }
 
     /**
@@ -57,9 +59,10 @@ public class Child {
      * 
      * @return will return child med info
      */
-    public String getMedInfo() {
-        return "med Info";
+    public MedicalInfo getMedInfo() {
+        return medicalInfo;
     }
+
 
     /**
      * A concatenated toString of Child values
