@@ -1,6 +1,6 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.UUID;
-import java.util.*;
 
 public class RegisteredUser extends User{
     protected ArrayList<Child> children;
@@ -69,7 +69,7 @@ public class RegisteredUser extends User{
     }
 
     public String viewSchedule(int cabin) {
-        return Group.getSchedule;
+        return Group.getSchedule();
     }
 
     public void registerChild(String firstName, String lastName, Date birthday, String medicalInfo, Camp camp) {

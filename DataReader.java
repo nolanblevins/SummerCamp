@@ -1,6 +1,5 @@
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,9 +9,9 @@ import java.util.Date;
 
 public class DataReader extends DataConstants{
     public static void main(String[] args){
-        ArrayList<User> users = loadUsers();
-        for(User u : users){
-            System.out.println(u);
+        ArrayList<Child> children = loadChild();
+        for(Child c : children){
+            System.out.println(c);
         }
     }
     // TODO Add medical info functionality
@@ -38,7 +37,7 @@ public class DataReader extends DataConstants{
                 String firstName = (String) userJSON.get(FIRST_NAME);
                 String lastName = (String) userJSON.get(LAST_NAME);
                 String email = (String) userJSON.get(USER_EMAIL);
-                String phoneNumber = (String) userJSON.get(USER_PHONE_NUMBER);
+                String phoneNumber = (String) userJSON.get(PHONE_NUMBER);
                 String password = (String) userJSON.get(USER_PASSWORD);
                 if (userType.equals("Director")) {
                     users.add(new Director(firstName, lastName, email, phoneNumber, password));
@@ -83,9 +82,20 @@ public class DataReader extends DataConstants{
                 UUID uuid = UUID.fromString((String)childJSON.get(LIST_UUID));
                 String firstName = (String)childJSON.get(FIRST_NAME);
                 String lastName = (String)childJSON.get(LAST_NAME);
+                ArrayList<String> notes = parseStringList(childJSON, NOTES);
                 Date birthday = objectToBirthday(childJSON.get(BIRTHDAY));
+                ArrayList<String> allergies = parseStringList(childJSON, ALLERGIES);
+                Contact contact = getContact(childJSON);
+                String address = (String)childJSON.get(ADDRESS);
+                ArrayList<String> conditions = parseStringList(childJSON, CONDITIONS);
 
+                MedicalInfo medicalInfo = new MedicalInfo(contact, address,
+                        allergies, conditions);
 
+                Child child = new Child(uuid, firstName, lastName, medicalInfo,
+                        birthday, notes);
+
+                children.add(child);
             }
         } catch(Exception e){
             e.printStackTrace();
@@ -114,6 +124,24 @@ public class DataReader extends DataConstants{
     }
 
     /**
+     * Takes in a JSONObject then gets the emergency contact object from that. Parses
+     * through the emergency contact information, creates a contact object, and returns
+     * the Contact
+     *
+     * @param jsonObject    The jsonObject that contains the emergency contact
+     * @return              Returns a completed contact object
+     */
+    private static Contact getContact(JSONObject jsonObject){
+        JSONObject ecJSON = (JSONObject)jsonObject.get(EMERGENCY_CONTACT);
+        String firstName = (String)ecJSON.get(FIRST_NAME);
+        String lastName = (String)ecJSON.get(LAST_NAME);
+        String phoneNumber = (String)ecJSON.get(PHONE_NUMBER);
+        String relationship = (String)ecJSON.get(EC_RELATIONSHIP);
+
+        return new Contact(firstName, lastName, phoneNumber, relationship);
+    }
+
+    /**
      * Takes in the input of a jsonObject representing a bday, and
      * returns that object as a Date object
      *
@@ -128,5 +156,23 @@ public class DataReader extends DataConstants{
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * This object takes in a jsonObject, then accesses a jsonArray based on a dataConstant
+     * label that is inputted. Then it iterates through the array of objects, casts
+     * them to a string, and adds it to the return ArrayList
+     *
+     * @param jsonObject    The object that is currently being looked at
+     * @param dataConstant  Which part of the object will be accessed
+     * @return              Returns an ArrayList containing the parts of the array
+     */
+    private static ArrayList<String> parseStringList(JSONObject jsonObject, String dataConstant){
+        ArrayList<String> ret = new ArrayList<>();
+        JSONArray strings = (JSONArray)jsonObject.get(dataConstant);
+        for(Object string : strings){
+            ret.add((String)string);
+        }
+        return ret;
     }
 }

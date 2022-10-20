@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class MedicalInfo {
     private ArrayList<String> allergies;
-    private String guardian;
     private Contact emergencyContact;
     private String address;
     private ArrayList<String> conditions;
@@ -13,14 +12,12 @@ public class MedicalInfo {
     //TODO add waiver functionality??
     /**
      * Initializes the medical information for the user
-     * 
-     * @param guardian  who is in charge of the child
+     *
      * @param emergencyContact  who would the camp call if there's an emergency
      * @param address   where the child lives
      */
-    public MedicalInfo(String guardian, Contact emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions) {
+    public MedicalInfo(Contact emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions) {
         this.allergies = allergies;
-        this.guardian = guardian;
         this.emergencyContact = emergencyContact;
         this.address = address;
         this.conditions = conditions;
@@ -33,7 +30,7 @@ public class MedicalInfo {
      * @return String   a summarized version of medical info
      */
     public String toString() {
-        return "Allergies: "+this.allergies+" Guardian: "+ this.guardian+" Emergency Contact: "+this.emergencyContact+" Address: "+this.address;
+        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address;
     }
     
 }
