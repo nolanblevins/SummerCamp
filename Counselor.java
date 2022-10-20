@@ -19,10 +19,11 @@ public class Counselor extends User {
      * @param birthday Counselor bday
      */
     public Counselor(String firstName, String lastName, String email, String phoneNumber, String password,
-            Date birthday) {
+            Date birthday, MedicalInfo medicalInfo) {
         super(firstName, lastName, email, phoneNumber, password);
         this.id = UUID.randomUUID();
         this.birthday = birthday;
+        this.medicalInfo = medicalInfo;
     }
 
     /**
@@ -37,10 +38,11 @@ public class Counselor extends User {
      * @param birthday Counselor bday
      */
     public Counselor(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
-            Date birthday) {
+            Date birthday, MedicalInfo medicalInfo) {
         super(firstName, lastName, email, phoneNumber, password);
         this.id = id;
         this.birthday = birthday;
+        this.medicalInfo = medicalInfo;
     }
 
     /**

@@ -1,18 +1,18 @@
 public class Activity {
     private String title;
-    private String time;
+    private int duration;
     private String description;
     private String location;
     
-    public Activity(String title, String time, String description, String location) {
+    public Activity(String title, int duration, String description, String location) {
         this.title = title;
-        this.time = time;
+        this.duration = duration;
         this.description = description;
         this.location = location;
     }
 
     public String toString() {
-        return "Activity [title=" + title + ", time=" + time + ", description=" + description + ", location=" + location
+        return "Activity [title=" + title + ", time=" + duration + ", description=" + description + ", location=" + location
                 + "]";
     }
     
