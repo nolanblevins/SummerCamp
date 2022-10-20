@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.*;
 
 public class RegisteredUser extends User{
     protected ArrayList<Child> children;
@@ -16,6 +17,19 @@ public class RegisteredUser extends User{
     }
 
     public void changeInfo(String username) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter email:"
+        
+                            
+
+
+
+        
+        
+        );
+        String infoChange = in.nextLine();
+        
+
 
     }
 
