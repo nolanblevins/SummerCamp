@@ -36,7 +36,7 @@ public class Child {
      * @param medicalInfo childs med info
      * @param birthday    child bday
      */
-    public Child(UUID id, String firstName, String lastName, MedicalInfo medicalInfo, Date birthday) {
+    public Child(UUID id, String firstName, String lastName, MedicalInfo medicalInfo, Date birthday, ArrayList<String> notes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
