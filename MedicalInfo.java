@@ -5,7 +5,9 @@ public class MedicalInfo {
     private String guardian;
     private String emergencyContact;
     private String address;
-    
+
+    //TODO Changed emergencyContact to contact
+    //TODO add allergies to constructor
     /**
      * Initializes the medical information for the user
      * 
