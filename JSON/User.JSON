@@ -34,7 +34,22 @@
     "phoneNumber": "555-555-5555",
     "password": "1234567",
     "birthday": "10/26/2001",
-    "medInfo": "grass allergy"
+    "notes": [
+      "hates kayaking"
+    ],
+    "allergies": [
+
+    ],
+    "emergencyContact": {
+      "first_name":"amy",
+      "last_name": "smith",
+      "phoneNumber": "123-123-1234",
+      "relationship": "Mother"
+    },
+    "address": "123 Fake Address Court",
+    "conditions": [
+      "History of passing out"
+    ]
   },
   {
     "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
@@ -45,7 +60,22 @@
     "phoneNumber": "555-555-5555",
     "password": "1234567",
     "birthday": "12/19/2002",
-    "medInfo": "Type I diabetic"
+    "notes": [
+      "hates kayaking"
+    ],
+    "allergies": [
+
+    ],
+    "emergencyContact": {
+      "first_name":"amy",
+      "last_name": "smith",
+      "phoneNumber": "123-123-1234",
+      "relationship": "Mother"
+    },
+    "address": "123 Fake Address Court",
+    "conditions": [
+      "History of passing out"
+    ]
   },
   {
     "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",

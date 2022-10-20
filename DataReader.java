@@ -9,6 +9,10 @@ import java.util.Date;
 
 public class DataReader extends DataConstants{
     public static void main(String[] args){
+        ArrayList<User> users = loadUsers();
+        for(User u : users){
+            System.out.println(u);
+        }
         ArrayList<Child> children = loadChild();
         for(Child c : children){
             System.out.println(c);
