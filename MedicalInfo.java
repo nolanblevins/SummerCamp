@@ -10,6 +10,7 @@ public class MedicalInfo {
     //TODO Changed emergencyContact to contact :)
     //TODO add allergies to constructor :)
     //TODO add some kind of "other" medical info
+    //TODO add waiver functionality??
     /**
      * Initializes the medical information for the user
      * 
