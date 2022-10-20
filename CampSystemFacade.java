@@ -22,7 +22,6 @@ public class CampSystemFacade {
     }
 
     public void createAccount(String name, String phoneNumber, String email, String password) {
-        
     }
 
     public Director loginDirector(String email, String password) {
