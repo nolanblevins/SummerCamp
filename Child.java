@@ -65,6 +65,9 @@ public class Child {
         return medicalInfo;
     }
 
+    public UUID getUUID(){
+        return this.id;
+    }
 
     /**
      * A concatenated toString of Child values
