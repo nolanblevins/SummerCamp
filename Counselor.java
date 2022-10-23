@@ -94,6 +94,10 @@ public class Counselor extends User {
         return medicalInfo;
     }
 
+    public UUID getUUID(){
+        return this.id;
+    }
+
     /**
      * method to get child med info
      * 

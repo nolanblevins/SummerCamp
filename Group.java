@@ -1,7 +1,13 @@
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class Group {
+
+    /*********************
+     * DO WE NEED AN AGE RANGE
+     *********************/
+
     private String groupName;
     private Schedule schedule;
     private int cabin;
@@ -15,6 +21,7 @@ public class Group {
         this.cabin = cabin;
         this.groupSize = groupSize;
         this.id = UUID.randomUUID();
+        this.campers = new ArrayList<>();
     }
 
     public Group(UUID id, String groupName, int cabin, int groupSize) {
@@ -22,6 +29,16 @@ public class Group {
         this.cabin = cabin;
         this.groupSize = groupSize;
         this.id = id;
+        this.campers = new ArrayList<>();
+    }
+
+    public Group(UUID id, String groupName, int cabin, int groupSize, User counselor, ArrayList<Child> campers) {
+        this.groupName = groupName;
+        this.cabin = cabin;
+        this.groupSize = groupSize;
+        this.id = id;
+        this.campers = campers;
+        this.counselor = (Counselor) counselor;
     }
 
     public String getSchedule() {
