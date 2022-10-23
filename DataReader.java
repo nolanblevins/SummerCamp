@@ -17,6 +17,11 @@ public class DataReader extends DataConstants{
         for(Child c : children){
             System.out.println(c);
         }
+
+        ArrayList<Group> groups = loadGroups();
+        for(Group g : groups){
+            System.out.println(g);
+        }
     }
     // TODO Add medical info functionality
     // TODO Add Children functionality
@@ -51,7 +56,7 @@ public class DataReader extends DataConstants{
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday, medicalInfo));
                 } else if (userType.equals("RegisteredUser")) {
-                     ArrayList<Child> ruChildren = getRUChildren(userJSON);
+                    ArrayList<Child> ruChildren = getChildren(userJSON);
                     users.add(new RegisteredUser(uuid, firstName, lastName, email, phoneNumber,
                             password, ruChildren));
                 }
@@ -68,7 +73,30 @@ public class DataReader extends DataConstants{
     }
 
     public static ArrayList<Group> loadGroups(){
-        return null;
+        ArrayList<Group> groups = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader(GROUP_FILE_NAME);
+            JSONArray groupsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object groupObject : groupsJSON){
+                JSONObject groupJSON = (JSONObject)groupObject;
+                UUID uuid = UUID.fromString((String) groupJSON.get(LIST_UUID));
+                String groupName = (String)groupJSON.get(GROUP_NAME);
+                long cabinL = (long)groupJSON.get(GROUP_CABIN);
+                int cabin = (int)cabinL;
+                long groupSizeL = (long)groupJSON.get(GROUP_SIZE);
+                int groupSize = (int)groupSizeL;
+                User counselor = getCounselor(groupJSON);
+                ArrayList<Child> campers = getChildren(groupJSON);
+
+                groups.add(new Group(uuid, groupName, cabin, groupSize, counselor, campers));
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return groups;
     }
 
     public static ArrayList<Activity> loadActivities(){
@@ -104,16 +132,16 @@ public class DataReader extends DataConstants{
     }
 
     /**
-     * Gets an instance of the ChildList, then uses UUIDs from the userJSON
+     * Gets an instance of the ChildList, then uses UUIDs from the jsonObject
      * object to find those children and add them to an array to be returned
      *
-     * @param userJSON  The current User that is being looked at
+     * @param jsonObject  The current User that is being looked at
      * @return          An ArrayList of the User's children
      */
-    private static ArrayList<Child> getRUChildren(JSONObject userJSON){
+    private static ArrayList<Child> getChildren(JSONObject jsonObject){
         ChildList childList = ChildList.getInstance();
         ArrayList<Child> ruChildren = new ArrayList<>();
-        JSONArray uuids = (JSONArray)userJSON.get(USER_CHILDREN);
+        JSONArray uuids = (JSONArray)jsonObject.get(CHILDREN);
 
         for(Object uuidObject : uuids){
             UUID uuid = UUID.fromString((String)uuidObject);
@@ -185,5 +213,11 @@ public class DataReader extends DataConstants{
             ret.add((String)string);
         }
         return ret;
+    }
+
+    private static User getCounselor(JSONObject groupJSON) {
+        UUID uuid = UUID.fromString((String)groupJSON.get(GROUP_COUNSELOR));
+        UserList userList = UserList.getInstance();
+        return userList.getCounselor(uuid);
     }
 }

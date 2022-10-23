@@ -11,6 +11,7 @@ public abstract class DataConstants {
     public static final String EMERGENCY_CONTACT = "emergencyContact";
     public static final String CONDITIONS = "conditions";
     public static final String ADDRESS = "address";
+    public static final String CHILDREN = "children";
 
     // User Data Constants
     public static final String USER_FILE_NAME = "./JSON/User.JSON";
@@ -18,7 +19,6 @@ public abstract class DataConstants {
 
     public static final String USER_EMAIL = "email";
     public static final String USER_PASSWORD = "password";
-    public static final String USER_CHILDREN = "children";
 
 
     // Child Data Constants
@@ -26,4 +26,11 @@ public abstract class DataConstants {
 
     // Emergency Contact Data Constants
     public static final String EC_RELATIONSHIP = "relationship";
+
+    // Group Data Constants
+    public static final String GROUP_FILE_NAME = "./JSON/Group.JSON";
+    public static final String GROUP_NAME = "groupName";
+    public static final String GROUP_CABIN = "cabin";
+    public static final String GROUP_SIZE = "groupSize";
+    public static final String GROUP_COUNSELOR = "counselorID";
 }

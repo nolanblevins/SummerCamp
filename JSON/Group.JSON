@@ -1,18 +1,24 @@
 [
     {
-        "groupID": 1,
+        "UUID": "d06ea8de-a4e1-4f12-86d7-c0ebe4978ec2",
         "groupName": "Wildcats",
         "cabin": 1,
         "groupSize": 2,
-        "counselorID": 1,
-        "childIDs": ["1","2"]
+        "counselorID": "938907c4-fe75-43a1-bb98-25a7bd84fc7a",
+        "children": [
+            "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
+            "8aa8050e-0528-40a7-8184-4f9efb6fc0db"
+        ]
     },{
-        "groupID": 2,
+        "UUID": "4d96aade-1674-4116-a41d-0aec6f22cbaa",
         "groupName": "Vipers",
         "cabin": 2,
         "groupSize": 2,
-        "counselorID": 2,
-        "childIDs": "3,4"
+        "counselorID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
+        "children": [
+            "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",
+            "c7f76c3f-62d8-4dad-9383-75d2f63fba35"
+        ]
     }
 
 ]
