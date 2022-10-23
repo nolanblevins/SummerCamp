@@ -44,16 +44,16 @@ public class DataReader extends DataConstants{
                 String phoneNumber = (String) userJSON.get(PHONE_NUMBER);
                 String password = (String) userJSON.get(USER_PASSWORD);
                 if (userType.equals("Director")) {
-                    users.add(new Director(firstName, lastName, email, phoneNumber, password));
+                    users.add(new Director(uuid, firstName, lastName, email, phoneNumber, password));
                 } else if (userType.equals("Counselor")) {
                     Date birthday = objectToBirthday(userJSON.get(BIRTHDAY));
                     MedicalInfo medicalInfo = getMedInfo(userJSON);
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday, medicalInfo));
                 } else if (userType.equals("RegisteredUser")) {
-                    // ArrayList<Child> ruChildren = getRUChildren(userJSON);
-                    users.add(new RegisteredUser(firstName, lastName, email, phoneNumber,
-                            password));
+                     ArrayList<Child> ruChildren = getRUChildren(userJSON);
+                    users.add(new RegisteredUser(uuid, firstName, lastName, email, phoneNumber,
+                            password, ruChildren));
                 }
             }
         } catch(Exception e){

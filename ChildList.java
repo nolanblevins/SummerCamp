@@ -25,7 +25,14 @@ public class ChildList{
     }
 
     public Child getChild(UUID uuid){
-        return null;
+        Child ret = null;
+        for(Child c : children){
+            if(c.getUUID().compareTo(uuid) == 0){
+                ret = c;
+                break;
+            }
+        }
+        return ret;
     }
 
     public void editUser(Child child){
