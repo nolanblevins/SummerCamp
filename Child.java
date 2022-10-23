@@ -64,7 +64,12 @@ public class Child {
     public MedicalInfo getMedInfo() {
         return medicalInfo;
     }
-
+    
+    /**
+     * Accesses Child UUID
+     * 
+     * @return will return the child UUID
+     */
     public UUID getUUID(){
         return this.id;
     }

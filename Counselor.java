@@ -61,6 +61,7 @@ public class Counselor extends User {
      * @return will return the full daily schedule
      */
     public String viewSchedule() {
+        
         return "schedule";
     }
 

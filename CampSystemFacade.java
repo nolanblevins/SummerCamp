@@ -10,8 +10,8 @@ public class CampSystemFacade {
     private ActivityList activityList;
     private ChildList childList;
 
-    
-    public CampSystemFacade(String campName, User user, String campInfo) {
+    public CampSystemFacade(String campName, User user, String campInfo, CampList campList,
+            UserList userList, ActivityList activityList, ChildList childList) {
         this.campName = campName;
         this.user = user;
         this.campInfo = campInfo;
@@ -22,6 +22,7 @@ public class CampSystemFacade {
     }
 
     public void createAccount(String name, String phoneNumber, String email, String password) {
+
     }
 
     public Director loginDirector(String email, String password) {
@@ -46,7 +47,6 @@ public class CampSystemFacade {
 
     public void generateSchedules(Camp camp, ArrayList<Activity> activityList) {
 
-
     }
 
     public String viewSchedule() {
@@ -55,14 +55,14 @@ public class CampSystemFacade {
 
     public String viewGroup() {
         return null;
-    } 
+    }
 
     public String viewCounselors() {
         return null;
     }
 
     public void addActivity(String title, int time, String description) {
-     
+
     }
 
     public void registerChild() {
@@ -80,17 +80,5 @@ public class CampSystemFacade {
     public String getMedicalInfo() {
         return null;
     }
-
-
-
-
-
-
-
-
-    
-
-
-    
 
 }
