@@ -1,6 +1,9 @@
 import java.util.UUID;
 
 public class Director extends User {
+    /*
+     * need a create camp method
+     */
 
     private UUID id;
 
