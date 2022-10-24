@@ -60,9 +60,10 @@ public class Counselor extends User {
      * 
      * @return will return the full daily schedule
      */
-    public String viewSchedule() {
-        
-        return "schedule";
+    public Schedule viewSchedule(WeekDay weekDay) {
+        Schedule dailySchedule = new Schedule(null, null);
+        dailySchedule = dailySchedule.getDailySchedule(weekDay);
+        return dailySchedule;
     }
 
     /**
