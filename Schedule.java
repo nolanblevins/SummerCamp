@@ -54,17 +54,40 @@ public class Schedule {
         }
         return weeklySchedule;
     }
-    public ArrayList<Activity> getDailySchedule(WeekDay weekDay) {
+    public Schedule getDailySchedule(WeekDay weekDay) {
+        ArrayList<Schedule> weeklySchedule = new ArrayList<Schedule>();
+        Schedule dailySchedule = new Schedule(schedule, weekDay);
+        weeklySchedule = generateSchedule();
         if(weekDay == WeekDay.SUNDAY) {
-            //return weeklySchedule.get(0);
+            dailySchedule = weeklySchedule.get(0);
         }
-        return null;
+        if(weekDay == WeekDay.MONDAY) {
+            dailySchedule = weeklySchedule.get(1);
+        }
+        if(weekDay == WeekDay.TUESDAY) {
+            dailySchedule = weeklySchedule.get(2);
+        }
+        if(weekDay == WeekDay.WEDNESDAY) {
+            dailySchedule = weeklySchedule.get(3);
+        }
+        if(weekDay == WeekDay.THURSDAY) {
+            dailySchedule = weeklySchedule.get(4);
+        }
+        if(weekDay == WeekDay.FRIDAY) {
+            dailySchedule = weeklySchedule.get(5);
+        }
+        if(weekDay == WeekDay.SATURDAY) {
+            dailySchedule = weeklySchedule.get(6);
+        }
+        return dailySchedule;
         
     }
 
     public String toString() {
-        return null;
+        return "Schedule:" + schedule + " day:" + day;
     }
+
+   
 
    
     
