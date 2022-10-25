@@ -16,7 +16,6 @@ public class CampUI {
         
         menuSelect();
     
-    
     }
     
     private static void headerIntro() {
@@ -167,20 +166,53 @@ public class CampUI {
 				validLoginOption = true;
 			}
 			
-			if(loginChoice == 1) {
-				
-			}
-			else if(loginChoice == 2) {
-				
-			}
-			else if(loginChoice == 3) {
-				
-			}
-			else if(loginChoice == 4) {
-				
-			}
-			
 		}while(!validLoginOption);
+
+		String emailInput;
+		String passwordInput;
+
+		if(loginChoice == 1) {
+			System.out.println("***** Counselor Login Portal *****");
+			System.out.print("Email: ");
+			emailInput = keyboard.nextLine();
+			System.out.println("Password: ");
+			passwordInput = keyboard.nextLine();
+
+			campSystem.loginCounselor(emailInput, passwordInput);
+
+			conselorPortal();
+
+		}
+		else if(loginChoice == 2) {
+			System.out.println("***** Director Login Portal *****");
+			System.out.print("Email: ");
+			emailInput = keyboard.nextLine();
+			System.out.println("Password: ");
+			passwordInput = keyboard.nextLine();
+
+			campSystem.loginDirector(emailInput, passwordInput);
+
+			directorPortal();
+			
+		}
+		else if(loginChoice == 3) {
+			System.out.println("***** Camper Login Portal *****");
+			System.out.print("Email: ");
+			emailInput = keyboard.nextLine();
+			System.out.println("Password: ");
+			passwordInput = keyboard.nextLine();
+
+			campSystem.loginRegisteredUser(emailInput, passwordInput); // DO WE NEED loginCamper method in facade?
+
+			camperPortal();
+			
+		}
+		else if(loginChoice == 4) {
+
+			headerIntro();
+			menuSelect();
+			
+		}
 		
 	}
 
@@ -197,6 +229,18 @@ public class CampUI {
 	private static void clearScreen() {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
+	}
+
+	private static void conselorPortal() {
+
+	}
+
+	private static void directorPortal() {
+
+	}
+
+	private static void camperPortal() {
+
 	}
 
 
