@@ -12,27 +12,34 @@ public class CampUI {
 
 		//DataReader dataReader = new DataReader();
         
+		loadingScreen();
+
         menuSelect();
     
     }
 
 	private static void loadingScreen() {
 
-		for(int i=0;i<10;i++) {
-			System.out.println("           (                 ,&&&.");
-			System.out.println("            )                .,.&&");
-			System.out.println("           (  (              \\=__/");
-			System.out.println("               )             ,'-'.");
-			System.out.println("         (    (  ,,      _.__|/ /|");
-			System.out.println("          ) /\\ -((------((_|___/ |");
-			System.out.println("        (  // | (`'      ((  `'--|");
-			System.out.println("      _ -.;_/ \\\\--._      \\\\ \\-._/.");
-			System.out.println("     (_;-// | \\ \\-'.\\    <_,\\_\\`--'|");
-			System.out.println("     ( `.__ _  ___,')      <_,-'__,'");
-			System.out.println("      `'(_ )_)(_)_)'");
-			System.out.println('#'*i);
-			sleep(200);
+		System.out.println("           (                 ,&&&.");
+		System.out.println("            )                .,.&&");
+		System.out.println("           (  (              \\=__/");
+		System.out.println("               )             ,'-'.");
+		System.out.println("         (    (  ,,      _.__|/ /|");
+		System.out.println("          ) /\\ -((------((_|___/ |");
+		System.out.println("        (  // | (`'      ((  `'--|");
+		System.out.println("      _ -.;_/ \\\\--._      \\\\ \\-._/.");
+		System.out.println("     (_;-// | \\ \\-'.\\    <_,\\_\\`--'|");
+		System.out.println("     ( `.__ _  ___,')      <_,-'__,'");
+		System.out.println("      `'(_ )_)(_)_)'");
+		for(int i=0;i<100;i++) {
+			System.out.print((i+1)+"%");
+			sleep(24);
+			System.out.print("\b\b\b\b\b");
 		}
+		
+		System.out.println("LOADED");
+		sleep(224);
+		clearScreen();
 	}
     
     private static void menuSelect() {
@@ -75,7 +82,7 @@ public class CampUI {
 				break;
         	}
         	else {
-
+				
         	}
         	
         	
