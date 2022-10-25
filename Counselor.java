@@ -19,7 +19,7 @@ public class Counselor extends User {
      * @param birthday Counselor bday
      */
     public Counselor(String firstName, String lastName, String email, String phoneNumber, String password,
-            Date birthday, MedicalInfo medicalInfo, UserType userType) {
+            Date birthday, MedicalInfo medicalInfo) {
         super(firstName, lastName, email, phoneNumber, password, UserType.COUNSELOR);
         this.id = UUID.randomUUID();
         this.birthday = birthday;
@@ -84,7 +84,7 @@ public class Counselor extends User {
      */
     public ArrayList<Child> getChildren() {
         ArrayList<Child> children;
-        
+
         return null;
     }
 

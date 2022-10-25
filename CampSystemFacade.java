@@ -27,28 +27,31 @@ public class CampSystemFacade {
     }
 
     public void loginDirector(String email, String password) {
-        user = new Director(user.firstName, user.lastName, email, user.phoneNumber, password, null);
+        user = new Director(user.firstName, user.lastName, email, user.phoneNumber, password);
         
     }
 
     public void loginCounselor(String email, String password) {
-        user = new Counselor(user.firstName, user.lastName, email, user.phoneNumber, password, null, null, null)
+        user = new Counselor(user.firstName, user.lastName, email, user.phoneNumber, password, null, null);
     }
 
     public void loginRegisteredUser(String email, String password) {
-        user = new reg
+        user = new RegisteredUser(user.firstName, user.lastName, email, user.phoneNumber, password);
     }
 
-    public User logOff() {
-        return null;
+    public void logOff() {
+        user = null;
     }
 
     public void changeInfo() {
 
     }
 
-    public void generateSchedules(Camp camp, ArrayList<Activity> activityList) {
-
+    public void generateSchedules(Camp camp) {
+        ArrayList<Group> groups = camp.getGroups();
+        for(int i = 0; i < groups.size(); i++) {
+            groups.get(i).getSchedule();
+        }
     }
 
     public String viewSchedule() {
@@ -63,15 +66,21 @@ public class CampSystemFacade {
         return null;
     }
 
-    public void addActivity(String title, int time, String description) {
-
+    public void addActivity(String title, int duration, String description, String location) {
+        Activity activity = new Activity(title, duration, description, location);
+        ActivityList activityList = new ActivityList();
+        activityList.getInstance();
+        activityList.addActivity(activity);
     }
 
     public void registerChild() {
 
     }
 
-    public void addNotes() {
+    public void addNotes(String note) {
+        Child child = new Child(campName, campInfo, null, null);
+        child.addNote(note);
+
 
     }
 
@@ -79,8 +88,13 @@ public class CampSystemFacade {
         FAQ.add(question);
     }
 
-    public String getMedicalInfo() {
-        return null;
+    public String getChildMedicalInfo() {
+        Child child = new Child(campName, campInfo, null, null);
+        return child.getMedInfo().toString();
+    }
+    public String getCounselorMedInfo() {
+        Counselor counselor = new Counselor(campInfo, campInfo, campInfo, campName, campInfo, null, null);
+        return counselor.getMedInfo().toString();
     }
 
 }
