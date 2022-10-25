@@ -32,5 +32,20 @@ public class MedicalInfo {
     public String toString() {
         return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address;
     }
-    
+
+    public ArrayList<String> getAllergies() {
+        return allergies;
+    }
+
+    public Contact getEmergencyContact() {
+        return emergencyContact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public ArrayList<String> getConditions() {
+        return conditions;
+    }
 }
