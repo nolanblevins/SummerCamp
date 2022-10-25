@@ -41,8 +41,11 @@ public class Group {
         this.counselor = (Counselor) counselor;
     }
 
-    public String getSchedule() {
-        return null;
+    public ArrayList<Schedule> getSchedule() {
+        ArrayList<Schedule> schedule = new ArrayList<>();
+        Schedule sc = new Schedule(null, null);
+        schedule = sc.generateSchedule();
+        return schedule;
     }
 
     public String toString() {
