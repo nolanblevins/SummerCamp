@@ -21,7 +21,15 @@ public class UserList {
     }
 
     public User getUser(String email){
-        return null;
+        User ret = null;
+        for(User u : users) {
+            if(u instanceof User && u.getEmail().compareTo(email)== 0) {
+                ret = u;
+                break;
+            }
+
+        }
+        return ret;
     }
 
     public User getCounselor(UUID uuid){
@@ -42,4 +50,6 @@ public class UserList {
     public void saveUsers(){
 
     }
+
+    
 }

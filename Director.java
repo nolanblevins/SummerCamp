@@ -7,7 +7,7 @@ public class Director extends User {
 
     private UUID id;
 
-    public Director(String firstName, String lastName, String email, String phoneNumber, String password, UserType userType) {
+    public Director(String firstName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, lastName, email, phoneNumber, password, UserType.DIRECTOR);
         this.id = UUID.randomUUID();
     }
@@ -33,6 +33,10 @@ public class Director extends User {
 
     public void addtoFAQ(String question, String answer) {
         new FAQ(question, answer);
+    }
+
+    public UserType getUserType() {
+        return UserType.DIRECTOR;
     }
 
 }

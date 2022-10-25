@@ -30,4 +30,8 @@ public class User {
                 + phoneNumber + ", password=" + password + "]";
     }
 
+    public String getEmail() {
+        return email;
+    }
+
 }

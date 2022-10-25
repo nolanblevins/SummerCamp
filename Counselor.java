@@ -83,8 +83,8 @@ public class Counselor extends User {
      * @return will return the ArrayList of children in the counselors group
      */
     public ArrayList<Child> getChildren() {
-
-        //ArrayList<Child> children = new ;
+        ArrayList<Child> children;
+        
         return null;
     }
 
@@ -109,6 +109,10 @@ public class Counselor extends User {
     public MedicalInfo getChildMedInfo(Child child) {
         return child.getMedInfo();
         
+    }
+
+    public UserType getUserType() {
+        return UserType.COUNSELOR;
     }
 
 }

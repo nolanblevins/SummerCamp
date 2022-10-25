@@ -22,19 +22,21 @@ public class CampSystemFacade {
     }
 
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
+        user = new User(firstName, lastName, email, phoneNumber, password, null);
 
     }
 
-    public Director loginDirector(String email, String password) {
-        return null;
+    public void loginDirector(String email, String password) {
+        user = new Director(user.firstName, user.lastName, email, user.phoneNumber, password, null);
+        
     }
 
-    public Counselor loginCounselor(String email, String password) {
-        return null;
+    public void loginCounselor(String email, String password) {
+        user = new Counselor(user.firstName, user.lastName, email, user.phoneNumber, password, null, null, null)
     }
 
-    public RegisteredUser loginRegisteredUser(String email, String password) {
-        return null;
+    public void loginRegisteredUser(String email, String password) {
+        user = new reg
     }
 
     public User logOff() {
