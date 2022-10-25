@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.UUID;
+
 public class GroupList {
     private ArrayList<Group> groups;
     private static GroupList groupList;
@@ -18,7 +20,12 @@ public class GroupList {
 
     }
 
-    public Group getGroup(){
+    public Group getGroup(UUID uuid){
+        for(Group g : groups){
+            if(g.getUUID().compareTo(uuid) == 0){
+                return g;
+            }
+        }
         return null;
     }
 

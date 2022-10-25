@@ -22,6 +22,11 @@ public class DataReader extends DataConstants{
         for(Group g : groups){
             System.out.println(g);
         }
+
+        ArrayList<Camp> camps = loadCamps();
+        for(Camp c : camps){
+            System.out.println(c);
+        }
     }
     // TODO Add medical info functionality
     // TODO Add Children functionality
@@ -51,7 +56,7 @@ public class DataReader extends DataConstants{
                 if (userType.equals("Director")) {
                     users.add(new Director(uuid, firstName, lastName, email, phoneNumber, password));
                 } else if (userType.equals("Counselor")) {
-                    Date birthday = objectToBirthday(userJSON.get(BIRTHDAY));
+                    Date birthday = objectToDate(userJSON.get(BIRTHDAY));
                     MedicalInfo medicalInfo = getMedInfo(userJSON);
                     users.add(new Counselor(uuid, firstName, lastName, email,
                             phoneNumber, password, birthday, medicalInfo));
@@ -69,7 +74,27 @@ public class DataReader extends DataConstants{
     }
 
     public static ArrayList<Camp> loadCamps(){
-        return null;
+        ArrayList<Camp> camps = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader(CAMP_FILE_NAME);
+            JSONArray campsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object campObject : campsJSON){
+                JSONObject campJSON = (JSONObject)campObject;
+                UUID uuid = UUID.fromString((String)campJSON.get(LIST_UUID));
+                Date date = objectToDate(campJSON.get(CAMP_DATE));
+                String theme = (String)campJSON.get(CAMP_THEME);
+                double price = (double)campJSON.get(CAMP_PRICE);
+                ArrayList<Group> groups = getGroups(campJSON);
+
+                camps.add(new Camp(uuid, date, theme, price, groups));
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return camps;
     }
 
     public static ArrayList<Group> loadGroups(){
@@ -116,7 +141,7 @@ public class DataReader extends DataConstants{
                 String firstName = (String)childJSON.get(FIRST_NAME);
                 String lastName = (String)childJSON.get(LAST_NAME);
                 ArrayList<String> notes = parseStringList(childJSON, NOTES);
-                Date birthday = objectToBirthday(childJSON.get(BIRTHDAY));
+                Date birthday = objectToDate(childJSON.get(BIRTHDAY));
                 MedicalInfo medicalInfo = getMedInfo(childJSON);
 
                 Child child = new Child(uuid, firstName, lastName, medicalInfo,
@@ -150,6 +175,19 @@ public class DataReader extends DataConstants{
         return ruChildren;
     }
 
+    private static ArrayList<Group> getGroups(JSONObject jsonObject){
+        GroupList groupList = GroupList.getInstance();
+        ArrayList<Group> groups = new ArrayList<>();
+        JSONArray uuids = (JSONArray)jsonObject.get(CAMP_GROUP_ID);
+
+        for(Object uuidObject : uuids){
+            UUID uuid = UUID.fromString((String)uuidObject);
+            groups.add(groupList.getGroup(uuid));
+        }
+
+        return groups;
+    }
+
     /**
      * Takes in a JSONObject then gets the emergency contact object from that. Parses
      * through the emergency contact information, creates a contact object, and returns
@@ -181,16 +219,16 @@ public class DataReader extends DataConstants{
     }
 
     /**
-     * Takes in the input of a jsonObject representing a bday, and
+     * Takes in the input of a jsonObject representing a date, and
      * returns that object as a Date object
      *
-     * @param bdayObject    Beginning format of the birthday
+     * @param dateObject    Beginning format of the birthday
      * @return              The birthday as a Date object
      */
-    private static Date objectToBirthday(Object bdayObject){
+    private static Date objectToDate(Object dateObject){
         try {
             return new SimpleDateFormat("dd/MM/yyyy").parse(
-                    (String) bdayObject);
+                    (String) dateObject);
         } catch(Exception e) {
             e.printStackTrace();
         }

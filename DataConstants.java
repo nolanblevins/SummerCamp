@@ -33,4 +33,11 @@ public abstract class DataConstants {
     public static final String GROUP_CABIN = "cabin";
     public static final String GROUP_SIZE = "groupSize";
     public static final String GROUP_COUNSELOR = "counselorID";
+
+    // Camp Data Constants
+    public static final String CAMP_FILE_NAME = "./JSON/Camp.JSON";
+    public static final String CAMP_DATE = "date";
+    public static final String CAMP_THEME = "theme";
+    public static final String CAMP_PRICE = "price";
+    public static final String CAMP_GROUP_ID = "groupID";
 }
