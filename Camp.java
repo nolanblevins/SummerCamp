@@ -9,9 +9,10 @@ public class Camp {
     private ArrayList<Group> groups;
     private UUID uuid;
 
-    public Camp(Date date, double price) {
+    public Camp(Date date, double price, String theme) {
         this.date = date;
         this.price = price;
+        this.theme = theme;
     }
 
     public Camp(UUID uuid, Date date, String theme, double price,
