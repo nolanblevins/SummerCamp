@@ -48,6 +48,10 @@ public class Group {
         return schedule;
     }
 
+    public UUID getUUID(){
+        return this.id;
+    }
+
     public String toString() {
         return "Group [groupName=" + groupName + ", schedule=" + schedule + ", cabin=" + cabin + ", campers=" + campers
                 + ", groupSize=" + groupSize + ", counselor=" + counselor + ", id=" + id + "]";

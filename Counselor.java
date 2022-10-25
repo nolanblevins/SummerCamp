@@ -84,7 +84,7 @@ public class Counselor extends User {
      */
     public ArrayList<Child> getChildren() {
 
-        ArrayList<Child> children = new ;
+        //ArrayList<Child> children = new ;
         return null;
     }
 
