@@ -298,6 +298,71 @@ public class CampUI {
 	private static void directorPortal() {
 		clearScreen();
 
+		Scanner keyboard = new Scanner(System.in);
+		
+		int option;
+		boolean validOption = false;
+
+		do {
+			
+			System.out.println("1. Add new Activity");
+			System.out.println("2. Generate New Schedule");
+			System.out.println("3. Add new FAQ");
+			System.out.println("4. Edit User Information");
+			System.out.println("5. Log out");
+			
+			option = keyboard.nextInt();
+			keyboard.nextLine();
+			
+			if(option > 4 || option < 1) {
+				validOption = false;
+			}
+			else {
+				validOption = true;
+			}
+			
+		}while(!validOption);
+
+		if(option == 1){
+			
+			//todo error checking
+			System.out.println("****** Adding New Activity ******");
+			System.out.println("Please enter the following information: ");
+			System.out.print("Title: ");
+			String Title = keyboard.nextLine();
+			System.out.print("Duration: " );
+			int Duration = keyboard.nextInt();
+			System.out.print("Description ");
+			String Description = keyboard.nextLine();
+			System.out.print("Location : ");
+			String Location = keyboard.nextLine();
+			campSystem.addActivity(Title, Duration, Description, Location);
+
+
+			System.out.println("You have succesfully added an activity");
+		}
+
+		else if(option ==2){
+
+			}
+
+		else if(option ==3){
+			
+			System.out.println("Adding new FAQ");
+			String FAQquestion = keyboard.nextLine();
+
+			campSystem.addToFAQ(FAQquestion);
+		}
+
+		// can director edit their infos?
+		else if(option ==4){
+
+		}
+		
+		else if(option ==5){
+			loginPortal();
+		}
+		
 	}
 
 	private static void camperPortal() {
