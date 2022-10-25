@@ -115,4 +115,12 @@ public class Counselor extends User {
     public UUID getID(){
         return this.id;
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
 }
