@@ -4,33 +4,25 @@ import java.io.Console;
 
 public class CampUI {
 
-    private static final int menuLength = 5;
-
 	static CampSystemFacade campSystem = new CampSystemFacade(null, null, null, null, null, null, null);
 
 	public static void main(String[] args) {
 
 		//DataReader dataReader = new DataReader();
-
-        headerIntro();
         
         menuSelect();
-    
-    }
-    
-    private static void headerIntro() {
-    
-        System.out.println("Welcome to GoofyGobbler Summercamp!\n\n************ Main Menu ************");
-        String[] menuOptions = {"Create an account", "Login", "Information on our camp", "FAQ", "Exit"};
-        for(int i=0;i<menuOptions.length;i++) {
-            System.out.println((i+1)+". "+menuOptions[i]);
-        }
     
     }
     
     private static void menuSelect() {
     	
     	Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("Welcome to GoofyGobbler Summercamp!\n\n************ Main Menu ************");
+        String[] menuOptions = {"Create an account", "Login", "Information on our camp", "FAQ", "Exit"};
+        for(int i=0;i<menuOptions.length;i++) {
+            System.out.println((i+1)+". "+menuOptions[i]);
+        }
         
         int menuSelection;
         
@@ -66,7 +58,7 @@ public class CampUI {
         	}
         	
         	
-        } while(menuSelection > (menuLength) || menuSelection < 1);
+        } while(menuSelection > (menuOptions.length) || menuSelection < 1);
     
     }
     
@@ -126,7 +118,7 @@ public class CampUI {
 		if(!badPhoneNum) {
 			campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
 			System.out.println("You have successfully created an account.");
-			headerIntro();
+
         	menuSelect();
 
 		}
@@ -209,7 +201,6 @@ public class CampUI {
 		}
 		else if(loginChoice == 4) {
 
-			headerIntro();
 			menuSelect();
 			
 		}
