@@ -128,6 +128,7 @@ public class CampUI {
     	
 		if(!badPhoneNum) {
 			campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
+			System.out.println("You have successfully created an account.");
 		}
 
     	errorMessage = true;
@@ -135,12 +136,6 @@ public class CampUI {
     	} while(badPhoneNum);
     	
     }
-    
-    private static void clearScreen() {
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
-	}
-    
 
 	private static void loginPortal(){
 		clearScreen();
@@ -155,6 +150,11 @@ public class CampUI {
 	private static void displayFAQ() {
 		clearScreen();
 		return;
+	}
+
+	private static void clearScreen() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 
 
