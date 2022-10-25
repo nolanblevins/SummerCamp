@@ -147,6 +147,7 @@ public class RegisteredUser extends User{
 
         Child newChild = new Child(fName, lName, mInfo, bday);
         ChildList childList = ChildList.getInstance();
+        //TODO make add child
         //ChildList.addChild(newChild);
     }
 
