@@ -175,5 +175,9 @@ public class RegisteredUser extends User{
     public String toString() {
         return "RegisteredUser [children=" + children + ", id=" + id + "]";
     }
+
+    public UUID getID(){
+        return this.id;
+    }
     
 }

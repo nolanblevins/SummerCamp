@@ -112,4 +112,7 @@ public class Counselor extends User {
         
     }
 
+    public UUID getID(){
+        return this.id;
+    }
 }
