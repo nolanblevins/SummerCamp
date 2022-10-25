@@ -15,12 +15,13 @@ public class User {
      * @param phoneNumber The phone number of the user
      * @param password    The password of the user
      */
-    public User(String firstName, String lastName, String email, String phoneNumber, String password) {
+    public User(String firstName, String lastName, String email, String phoneNumber, String password, UserType userType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.userType = userType;
     }
 
     
