@@ -7,13 +7,13 @@ public class Director extends User {
 
     private UUID id;
 
-    public Director(String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
+    public Director(String firstName, String lastName, String email, String phoneNumber, String password, UserType userType) {
+        super(firstName, lastName, email, phoneNumber, password, UserType.DIRECTOR);
         this.id = UUID.randomUUID();
     }
 
     public Director(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
+        super(firstName, lastName, email, phoneNumber, password, UserType.DIRECTOR);
         this.id = id;
     }
 
