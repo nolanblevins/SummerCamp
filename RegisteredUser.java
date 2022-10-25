@@ -172,12 +172,15 @@ public class RegisteredUser extends User{
 
     }
 
+    public UUID getID(){
+        return this.id;
+    }
+
+    public ArrayList<Child> getChildren(){
+        return this.children;
+    }
     public String toString() {
         return "RegisteredUser [children=" + children + ", id=" + id + "]";
     }
 
-    public UUID getID(){
-        return this.id;
-    }
-    
 }
