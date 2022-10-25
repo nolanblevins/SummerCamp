@@ -8,31 +8,6 @@ import java.util.UUID;
 import java.util.Date;
 
 public class DataReader extends DataConstants{
-    public static void main(String[] args){
-        ArrayList<User> users = loadUsers();
-        for(User u : users){
-            System.out.println(u);
-        }
-        ArrayList<Child> children = loadChild();
-        for(Child c : children){
-            System.out.println(c);
-        }
-
-        ArrayList<Group> groups = loadGroups();
-        for(Group g : groups){
-            System.out.println(g);
-        }
-
-        ArrayList<Camp> camps = loadCamps();
-        for(Camp c : camps){
-            System.out.println(c);
-        }
-
-        ArrayList<Activity> activities = loadActivities();
-        for(Activity a : activities){
-            System.out.println(a);
-        }
-    }
     // TODO Add medical info functionality
     // TODO Add Children functionality
     /**
