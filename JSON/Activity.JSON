@@ -1,23 +1,20 @@
 [
     {
-        "activityID": 1,
+        "UUID": "7985b6fd-bcd5-4895-b572-5804f5b9d58a",
         "title": "Kayaking",
-        "time": "9:30",
-        "day": "Monday",
+        "duration": 1,
         "description": "Group kayaking on river",
         "location": "river"
     },{
-        "activityID": 2,
+        "UUID": "00d676f0-f2fd-4030-8d78-058ecfb3c6d0",
         "title": "Volleyball",
-        "time": "16:45",
-        "day": "Tuesday",
+        "duration": 1,
         "description": "Team volleyball on grassy field",
         "location": "camp field"
     },{
-        "activityID": 3,
+        "UUID": "23cb8442-f5c1-48be-a43d-a2a22655d9ab",
         "title": "Hiking",
-        "time": "10:15",
-        "day": "Wednesday",
+        "duration": 1,
         "description": "hiking up Mt. Everest",
         "location": "Mt. Everest"
     }

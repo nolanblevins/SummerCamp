@@ -27,6 +27,11 @@ public class DataReader extends DataConstants{
         for(Camp c : camps){
             System.out.println(c);
         }
+
+        ArrayList<Activity> activities = loadActivities();
+        for(Activity a : activities){
+            System.out.println(a);
+        }
     }
     // TODO Add medical info functionality
     // TODO Add Children functionality
@@ -125,7 +130,28 @@ public class DataReader extends DataConstants{
     }
 
     public static ArrayList<Activity> loadActivities(){
-        return null;
+        ArrayList<Activity> activities = new ArrayList<>();
+        try{
+            FileReader reader = new FileReader(ACTIVITY_FILE_NAME);
+            JSONArray activitiesJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object activityObject : activitiesJSON){
+                JSONObject activityJSON = (JSONObject)activityObject;
+                UUID uuid = UUID.fromString((String) activityJSON.get(LIST_UUID));
+                String title = (String)activityJSON.get(ACTIVITY_TITLE);
+                int duration = (int)(long)activityJSON.get(ACTIVITY_DURATION);
+                String description = (String)activityJSON.get(ACTIVITY_DESCRIPTION);
+                String location = (String)activityJSON.get(ACTIVITY_LOCATION);
+
+                activities.add(new Activity(uuid, title, duration, description,
+                        location));
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return activities;
     }
 
     public static ArrayList<Child> loadChild(){

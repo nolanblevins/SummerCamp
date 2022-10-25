@@ -40,4 +40,11 @@ public abstract class DataConstants {
     public static final String CAMP_THEME = "theme";
     public static final String CAMP_PRICE = "price";
     public static final String CAMP_GROUP_ID = "groupID";
+
+    // Activity Data Constants
+    public static final String ACTIVITY_FILE_NAME = "./JSON/Activity.JSON";
+    public static final String ACTIVITY_TITLE = "title";
+    public static final String ACTIVITY_DURATION = "duration";
+    public static final String ACTIVITY_DESCRIPTION = "description";
+    public static final String ACTIVITY_LOCATION = "location";
 }
