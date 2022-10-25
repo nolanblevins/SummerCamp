@@ -8,9 +8,10 @@ public class Camp {
     private ArrayList<Child> children;
     private ArrayList<Counselor> counselors;
 
-    public Camp(String time, double price) {
+    public Camp(String time, double price, String theme) {
         this.time = time;
         this.price = price;
+        this.theme = theme;
     }
     
 
@@ -22,6 +23,8 @@ public class Camp {
     public ArrayList<Group> getGroups() {
         return this.groups;
     }
+
+    
 
     /**
      * Returns a string that summarizes the important attributes of the camp

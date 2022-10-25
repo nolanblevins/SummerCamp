@@ -87,7 +87,7 @@ public class RegisteredUser extends User{
 
     public String viewSchedule(int cabin) {
         return null;
-        //return Group.getSchedule();
+        
     }
 
     public void registerChild(String firstName, String lastName, Date birthday, String medicalInfo, Camp camp) {
@@ -112,6 +112,18 @@ public class RegisteredUser extends User{
 
     public String toString() {
         return "RegisteredUser [children=" + children + ", id=" + id + "]";
+    }
+
+    public ArrayList<Child> getChildren() {
+        return children;
+    }
+
+    public UUID getId() {
+        return this.id;
+    }
+
+    public UserType getUserType() {
+        return UserType.REGISTERED_USER;
     }
     
 }
