@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.io.Console;
+import java.lang.Thread;
+import java.util.concurrent.TimeUnit;
 
 
 public class CampUI {
@@ -13,6 +15,25 @@ public class CampUI {
         menuSelect();
     
     }
+
+	private static void loadingScreen() {
+
+		for(int i=0;i<10;i++) {
+			System.out.println("           (                 ,&&&.");
+			System.out.println("            )                .,.&&");
+			System.out.println("           (  (              \\=__/");
+			System.out.println("               )             ,'-'.");
+			System.out.println("         (    (  ,,      _.__|/ /|");
+			System.out.println("          ) /\\ -((------((_|___/ |");
+			System.out.println("        (  // | (`'      ((  `'--|");
+			System.out.println("      _ -.;_/ \\\\--._      \\\\ \\-._/.");
+			System.out.println("     (_;-// | \\ \\-'.\\    <_,\\_\\`--'|");
+			System.out.println("     ( `.__ _  ___,')      <_,-'__,'");
+			System.out.println("      `'(_ )_)(_)_)'");
+			System.out.println('#'*i);
+			sleep(200);
+		}
+	}
     
     private static void menuSelect() {
     	
@@ -253,6 +274,14 @@ public class CampUI {
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
+
+	private static void sleep(int num) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(num);
+        } catch (Exception e) {
+            System.out.println("Timmer error");
+        }
+    }
 
 	private static void conselorPortal() {
 		clearScreen();
