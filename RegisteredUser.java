@@ -11,6 +11,7 @@ public class RegisteredUser extends User{
         super(firstName, lastName, email, phoneNumber, password);
         this.children = new ArrayList<>();
         this.id = UUID.randomUUID();
+
     }
 
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password,
@@ -18,11 +19,13 @@ public class RegisteredUser extends User{
         super(firstName, lastName, email, phoneNumber, password);
         this.children = children;
         this.id = UUID.randomUUID();
+        this.userType = UserType.REGISTERED_USER;
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, lastName, email, phoneNumber, password);
         this.id = id;
+        this.userType = UserType.REGISTERED_USER;
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
@@ -30,6 +33,7 @@ public class RegisteredUser extends User{
         super(firstName, lastName, email, phoneNumber, password);
         this.children = children;
         this.id = id;
+        this.userType = UserType.REGISTERED_USER;
     }
 
     public void changeInfo(String username) {
