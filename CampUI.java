@@ -209,12 +209,44 @@ public class CampUI {
 
 	private static void campInfo() {
 		clearScreen();
-		return;
+
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("***** Information on Our Camp *****");
+		//	show camp info from JSON
+
+		System.out.println("Enter 1 to go back to main menu");
+
+		String input;
+		while(true){
+			input = keyboard.nextLine();
+			if(input.equals("1")) {
+				break;
+			}
+		}
+		menuSelect();
+
 	}
 
 	private static void displayFAQ() {
 		clearScreen();
-		return;
+
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("***** Frequently Asked Questions *****");
+		//	show camp FAQs from JSON
+
+		System.out.println("Enter 1 to go back to main menu");
+
+		String input;
+		while(true){
+			input = keyboard.nextLine();
+			if(input.equals("1")) {
+				break;
+			}
+		}
+		menuSelect();
+		
 	}
 
 	private static void clearScreen() {
@@ -223,14 +255,17 @@ public class CampUI {
 	}
 
 	private static void conselorPortal() {
-
+		clearScreen();
+		
 	}
 
 	private static void directorPortal() {
+		clearScreen();
 
 	}
 
 	private static void camperPortal() {
+		clearScreen();
 
 	}
 
