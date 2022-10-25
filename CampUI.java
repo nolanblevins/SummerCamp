@@ -90,8 +90,6 @@ public class CampUI {
     	
     	System.out.println("************ Account Registration ************\n");
     	System.out.println("Please enter the following information: ");
-    	System.out.print("Username: ");
-    	String username = keyboard.nextLine();
     	System.out.print("First name: ");
     	String firstname = keyboard.nextLine();
     	System.out.print("Last name: ");
@@ -129,6 +127,9 @@ public class CampUI {
 		if(!badPhoneNum) {
 			campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
 			System.out.println("You have successfully created an account.");
+			headerIntro();
+        	menuSelect();
+
 		}
 
     	errorMessage = true;
@@ -139,7 +140,48 @@ public class CampUI {
 
 	private static void loginPortal(){
 		clearScreen();
-		return;
+
+		Scanner keyboard = new Scanner(System.in);
+    	
+		clearScreen();
+		System.out.println("***** Log in *****");
+		
+		boolean validLoginOption = false;
+		
+		int loginChoice;
+		
+		do {
+			
+			System.out.println("1. Counselor login");
+			System.out.println("2. Director login");
+			System.out.println("3. Camper login");
+			System.out.println("4. Go back to previous page");
+			
+			loginChoice = keyboard.nextInt();
+			keyboard.nextLine();
+			
+			if(loginChoice > 4 || loginChoice < 1) {
+				validLoginOption = false;
+			}
+			else {
+				validLoginOption = true;
+			}
+			
+			if(loginChoice == 1) {
+				
+			}
+			else if(loginChoice == 2) {
+				
+			}
+			else if(loginChoice == 3) {
+				
+			}
+			else if(loginChoice == 4) {
+				
+			}
+			
+		}while(!validLoginOption);
+		
 	}
 
 	private static void campInfo() {
