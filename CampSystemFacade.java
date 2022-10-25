@@ -21,7 +21,7 @@ public class CampSystemFacade {
         this.childList = childList;
     }
 
-    public void createAccount(String name, String phoneNumber, String email, String password) {
+    public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
 
     }
 
