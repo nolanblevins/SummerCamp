@@ -75,7 +75,19 @@ public class CampUI {
     	
     	Scanner keyboard = new Scanner(System.in);
     	
+    	boolean badPhoneNum;
+    	boolean errorMessage = false;
+    	
+    	do {
+    	
     	clearScreen();
+    	
+    	if(errorMessage) {
+    		System.out.println("Invalid phone number. Please try again...\n ");
+    	}
+    	
+    	errorMessage = false;
+    	
     	System.out.println("************ Account Registration ************\n");
     	System.out.println("Please enter the following information: ");
     	System.out.print("Username: ");
@@ -86,12 +98,41 @@ public class CampUI {
     	String lastname = keyboard.nextLine();
     	System.out.print("Email: ");
     	String email = keyboard.nextLine();
-    	System.out.print("Phone number: ");
+    	System.out.print("Phone number (###-###-####) : ");
     	String phoneNumber = keyboard.nextLine();
     	System.out.print("Password: ");
     	String password = keyboard.nextLine();
+    	
+    	badPhoneNum = false;
+    	
+    	if(phoneNumber.length() != 12) {
+    		badPhoneNum = true;
+    	}
+    	else {
+    		for(int i=0;i<phoneNumber.length();i++) {
+    			if(phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1' 
+    					&& phoneNumber.charAt(i) != '2' && phoneNumber.charAt(i) != '3' 
+    					&& phoneNumber.charAt(i) != '4' && phoneNumber.charAt(i) != '5'
+    					&& phoneNumber.charAt(i) != '6' && phoneNumber.charAt(i) != '7'
+    					&& phoneNumber.charAt(i) != '8' && phoneNumber.charAt(i) != '9'
+    					&& phoneNumber.charAt(i) != '-')  {
+    				badPhoneNum = true;
+    			}
+    		}
+    		
+    		if(phoneNumber.charAt(3) != '-' && phoneNumber.charAt(7) != '-') {
+    			badPhoneNum = true;
+    		}
+    		
+    	}
+    	
+		if(!badPhoneNum) {
+			campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
+		}
 
-		campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
+    	errorMessage = true;
+    	
+    	} while(badPhoneNum);
     	
     }
     
