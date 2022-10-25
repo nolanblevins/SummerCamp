@@ -6,7 +6,11 @@ public class CampUI {
 
     private static final int menuLength = 5;
 
+	static CampSystemFacade campSystem = new CampSystemFacade(null, null, null, null, null, null, null);
+
 	public static void main(String[] args) {
+
+		//DataReader dataReader = new DataReader();
 
         headerIntro();
         
@@ -69,8 +73,25 @@ public class CampUI {
     
     private static void createAccountMenu() {
     	
+    	Scanner keyboard = new Scanner(System.in);
+    	
     	clearScreen();
-    	System.out.println("************ Account Registration ************");
+    	System.out.println("************ Account Registration ************\n");
+    	System.out.println("Please enter the following information: ");
+    	System.out.print("Username: ");
+    	String username = keyboard.nextLine();
+    	System.out.print("First name: ");
+    	String firstname = keyboard.nextLine();
+    	System.out.print("Last name: ");
+    	String lastname = keyboard.nextLine();
+    	System.out.print("Email: ");
+    	String email = keyboard.nextLine();
+    	System.out.print("Phone number: ");
+    	String phoneNumber = keyboard.nextLine();
+    	System.out.print("Password: ");
+    	String password = keyboard.nextLine();
+
+		campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
     	
     }
     
