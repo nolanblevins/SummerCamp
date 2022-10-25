@@ -9,26 +9,26 @@ public class RegisteredUser extends User{
     protected UUID id;
     
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
+        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
         this.children = new ArrayList<>();
         this.id = UUID.randomUUID();
     }
 
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
-        super(firstName, lastName, email, phoneNumber, password);
+        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
         this.children = children;
         this.id = UUID.randomUUID();
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
+        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
         this.id = id;
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
-        super(firstName, lastName, email, phoneNumber, password);
+        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
         this.children = children;
         this.id = id;
     }
