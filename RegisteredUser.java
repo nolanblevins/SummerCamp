@@ -97,7 +97,7 @@ public class RegisteredUser extends User{
         System.out.println("Enter child's last name:");
         String lName = in.nextLine();
         System.out.println("Enter child's birthday (MM/DD/YYYY):");
-        Date bday;
+        Date bday = null;
         try {
         bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
         }
@@ -119,7 +119,7 @@ public class RegisteredUser extends User{
         System.out.println("Enter child's address:");
         String address = in.nextLine();
         boolean add = true;
-        ArrayList<String> allergies = new ArrayList<String>;
+        ArrayList<String> allergies = new ArrayList<String>();
         while(add) {
         System.out.println("Add allergies for child, once done enter 'done'");
         String allergy = in.nextLine();
@@ -130,7 +130,7 @@ public class RegisteredUser extends User{
         }
 
         add = true;
-        ArrayList<String> conditions = new ArrayList<String>;
+        ArrayList<String> conditions = new ArrayList<String>();
         while(add) {
         System.out.println("Add allergies for child, once done enter 'done'");
         String condition = in.nextLine();
