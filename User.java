@@ -4,6 +4,7 @@ public class User {
     protected String email;
     protected String phoneNumber;
     protected String password;
+    protected UserType userType;
 
     /**
      * Constructs the user with all required parameters
