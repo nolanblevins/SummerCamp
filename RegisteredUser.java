@@ -2,33 +2,33 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class RegisteredUser extends User{
     protected ArrayList<Child> children;
     protected UUID id;
     
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
+        super(firstName, lastName, email, phoneNumber, password);
         this.children = new ArrayList<>();
         this.id = UUID.randomUUID();
-
     }
 
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
-        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
+        super(firstName, lastName, email, phoneNumber, password);
         this.children = children;
         this.id = UUID.randomUUID();
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
+        super(firstName, lastName, email, phoneNumber, password);
         this.id = id;
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
-        super(firstName, lastName, email, phoneNumber, password, UserType.REGISTERED_USER);
+        super(firstName, lastName, email, phoneNumber, password);
         this.children = children;
         this.id = id;
     }
@@ -87,18 +87,75 @@ public class RegisteredUser extends User{
 
     public String viewSchedule(int cabin) {
         return null;
-        
+        //return Group.getSchedule();
     }
 
     public void registerChild(String firstName, String lastName, Date birthday, String medicalInfo, Camp camp) {
-        // prompt for information
-        // Create child
-        // Add child
-        //children.add(firstName, lastName, birthday, medicalInfo, camp);
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter child's first name:");
+        String fName = in.nextLine();
+        System.out.println("Enter child's last name:");
+        String lName = in.nextLine();
+        System.out.println("Enter child's birthday (MM/DD/YYYY):");
+        Date bday;
+        try {
+        bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            //TODO add error message
+        }
+        System.out.println("Enter child's emergency contact first name:");
+        String eFirstName = in.nextLine();
+        System.out.println("Enter child's emergency contact last name:");
+        String eLastName = in.nextLine();
+        System.out.println("Enter child's emergency contact phone number (XXX-XXX-XXXX):");
+        String ePhoneNumber = in.nextLine();
+        System.out.println("Enter child's emergency contact relationship:");
+        String eRelationship = in.nextLine();
+        Contact childEmergencyContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
+
+        System.out.println("Enter child's address:");
+        String address = in.nextLine();
+        boolean add = true;
+        ArrayList<String> allergies = new ArrayList<String>;
+        while(add) {
+        System.out.println("Add allergies for child, once done enter 'done'");
+        String allergy = in.nextLine();
+        if(allergy.equalsIgnoreCase("done"))
+            add = false;
+        else
+            allergies.add(allergy);
+        }
+
+        add = true;
+        ArrayList<String> conditions = new ArrayList<String>;
+        while(add) {
+        System.out.println("Add allergies for child, once done enter 'done'");
+        String condition = in.nextLine();
+        if(condition.equalsIgnoreCase("done"))
+            add = false;
+        else
+            conditions.add(condition);
+        }
+
+        MedicalInfo mInfo = new MedicalInfo(childEmergencyContact, address, allergies, conditions);
+
+        System.out.println("Enter what camp child will be in:");
+        //TODO enter what camps are available
+
+        Child newChild = new Child(fName, lName, mInfo, bday);
+        ChildList childList = ChildList.getInstance();
+        //ChildList.addChild(newChild);
     }
 
     public void removeChild(String firstName, String lastName) {
-        // prompt child's name
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter child's first name:");
+        String fName = in.nextLine();
+        System.out.println("Enter child's last name:");
+        String lName = in.nextLine();
         //children.remove(firstName,lastName);
     }
 
@@ -112,18 +169,6 @@ public class RegisteredUser extends User{
 
     public String toString() {
         return "RegisteredUser [children=" + children + ", id=" + id + "]";
-    }
-
-    public ArrayList<Child> getChildren() {
-        return children;
-    }
-
-    public UUID getId() {
-        return this.id;
-    }
-
-    public UserType getUserType() {
-        return UserType.REGISTERED_USER;
     }
     
 }
