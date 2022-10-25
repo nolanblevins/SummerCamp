@@ -20,6 +20,9 @@ public class UserList {
 
     }
 
+    public ArrayList<User> getUsers(){
+        return this.users;
+    }
     public User getUser(String email){
         User ret = null;
         for(User u : users) {
