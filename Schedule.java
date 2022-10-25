@@ -57,7 +57,6 @@ public class Schedule {
             //return weeklySchedule.get(0);
         }
         return null;
-        
     }
 
     public String toString() {
