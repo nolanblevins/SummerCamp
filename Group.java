@@ -40,10 +40,6 @@ public class Group {
         this.campers = campers;
         this.counselor = (Counselor) counselor;
     }
-    public void createGroups() {
-        
-
-    }
 
     public ArrayList<Schedule> getSchedule() {
         ArrayList<Schedule> schedule = new ArrayList<>();
