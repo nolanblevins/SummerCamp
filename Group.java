@@ -59,6 +59,7 @@ public class Group {
                 return groups.get(i);
             }
         }
+        return null;
     }
 
     public UUID getUUID(){
