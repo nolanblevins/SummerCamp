@@ -8,18 +8,6 @@ import java.util.UUID;
 import java.util.Date;
 
 public class DataReader extends DataConstants{
-
-    public static void main(String[] args){
-        ArrayList<User> users = loadUsers();
-        ArrayList<Child> children = loadChild();
-        for(User u : users){
-            System.out.println(u);
-        }
-
-        for(Child c : children){
-            System.out.println(c);
-        }
-    }
     // TODO Add schedule to group
     /**
      * Iterates through the file User.JSON, determines the type of the user,
