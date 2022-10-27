@@ -65,6 +65,7 @@ public class CampSystemFacade {
     }
 
     public String viewCounselors() {
+        
         return null;
     }
 

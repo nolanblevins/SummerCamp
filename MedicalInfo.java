@@ -6,6 +6,7 @@ public class MedicalInfo {
     private String address;
     private ArrayList<String> conditions;
     private Pediatrician pediatrician;
+    private ArrayList<String> ChildMedicationAndAdministration;
 
   
     //TODO add waiver functionality??
@@ -21,6 +22,8 @@ public class MedicalInfo {
         this.address = address;
         this.conditions = conditions;
         this.pediatrician = pediatrician;
+        this.ChildMedicationAndAdministration = ChildMedicationAndAdministration;
+        
 
     }
 
@@ -38,6 +41,9 @@ public class MedicalInfo {
 
     public ArrayList<String> getConditions() {
         return conditions;
+    }
+    public ArrayList<String> getMedicationAndAdministration() {
+        return ChildMedicationAndAdministration;
     }
 
     /**
