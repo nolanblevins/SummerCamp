@@ -89,7 +89,13 @@ public class RegisteredUser extends User{
         
     }
 
-    public String viewSchedule(int cabin) {
+    public String getSchedule(int cabin, ArrayList<Activity> activity, WeekDay day) {
+        ArrayList<Schedule> schedule = new ArrayList<>();
+        Schedule sc = new Schedule(activity, day);
+        schedule = sc.generateSchedule();
+        for(int i = 0; i < schedule.size(); i++) {
+            
+        }
         return null;
         //return Group.getSchedule();
     }
@@ -102,14 +108,25 @@ public class RegisteredUser extends User{
         String lName = in.nextLine();
         System.out.println("Enter child's birthday (MM/DD/YYYY):");
         Date bday = null;
-        try {
-        bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+        boolean next = true;
+        while(next) {
+            try {
+            bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            next = false;
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+                System.out.println("Incorrect format or date");
+            }
         }
-        catch (Exception e)
+        ArrayList<Contact> emergencyContact = new ArrayList<Contact>();
+        boolean yes = true;
+        while(yes) {
+        System.out.println("Would you like to add an emergency contact? (y/n)");
+        String answer = in.nextLine();
+        if(answer.equalsIgnoreCase("y"))
         {
-            e.printStackTrace();
-            //TODO add error message
-        }
         System.out.println("Enter child's emergency contact first name:");
         String eFirstName = in.nextLine();
         System.out.println("Enter child's emergency contact last name:");
@@ -118,7 +135,14 @@ public class RegisteredUser extends User{
         String ePhoneNumber = in.nextLine();
         System.out.println("Enter child's emergency contact relationship:");
         String eRelationship = in.nextLine();
-        Contact childEmergencyContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
+        Contact childContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
+        emergencyContact.add(childContact);
+        }
+        else if(answer.equalsIgnoreCase("n"))
+            yes = false;
+        else
+            System.out.println("Invalid response, try again");
+        }
 
         System.out.println("Enter child's address:");
         String address = in.nextLine();
@@ -144,7 +168,7 @@ public class RegisteredUser extends User{
             conditions.add(condition);
         }
 
-        MedicalInfo mInfo = new MedicalInfo(childEmergencyContact, address, allergies, conditions);
+        MedicalInfo mInfo = new MedicalInfo(emergencyContact, address, allergies, conditions);
 
         System.out.println("Enter what camp child will be in:");
         //TODO enter what camps are available

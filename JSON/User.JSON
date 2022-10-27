@@ -37,12 +37,20 @@
     "allergies": [
 
     ],
-    "emergencyContact": {
-      "firstName":"amy",
-      "lastName": "smith",
-      "phoneNumber": "123-123-1234",
-      "relationship": "Mother"
-    },
+    "emergencyContact": [
+      {
+        "firstName":"amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
     "address": "123 Fake Address Court",
     "conditions": [
       "History of passing out"
@@ -60,12 +68,20 @@
     "allergies": [
 
     ],
-    "emergencyContact": {
-      "firstName":"amy",
-      "lastName": "smith",
-      "phoneNumber": "123-123-1234",
-      "relationship": "Mother"
-    },
+    "emergencyContact": [
+      {
+        "firstName":"amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
     "address": "123 Fake Address Court",
     "conditions": [
       "History of passing out"

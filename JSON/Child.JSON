@@ -1,88 +1,120 @@
 [
-    {
-        "UUID": "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
-        "firstName":"Tammy",
-        "lastName":"Snow",
-        "notes": [
-            "Got in fight with Oliver"
-        ],
-        "birthday": "03/01/2012",
-        "allergies":[
-            "peanut butter",
-            "gluten"
-        ],
-        "emergencyContact": {
-                "first_name":"amy",
-                "last_name": "smith",
-                "phoneNumber": "123-123-1234",
-                "relationship": "Mother"
-        },
-        "address": "123 Fake Address Court",
-        "conditions": [
-            "History of passing out"
-        ]
-    },{
-        "UUID": "8aa8050e-0528-40a7-8184-4f9efb6fc0db",
-        "firstName":"Oliver",
-        "lastName":"Sun",
-        "notes":[
-            "Got in fight with Tammy"
-        ],
-        "birthday": "05/19/2012",
-        "allergies": [
-
-        ],
-        "emergencyContact": {
-            "first_name":"amy",
-            "last_name": "smith",
-            "phoneNumber": "123-123-1234",
-            "relationship": "Mother"
-        },
-        "address": "123 Fake Address Court",
-        "conditions": [
-            "History of passing out"
-        ]
-    },{
-        "UUID": "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",
-        "firstName": "Justin",
-        "lastName": "Snow",
-        "notes": [
-            "scared of water"
-        ],
-        "birthday":"03/12/2010",
-        "allergies": [
-
-        ],
-        "emergencyContact": {
-            "first_name":"amy",
-            "last_name": "smith",
-            "phoneNumber": "123-123-1234",
-            "relationship": "Mother"
-        },
-        "address": "123 Fake Address Court",
-        "conditions": [
-            "History of passing out"
-        ]
-    },{
-        "UUID": "c7f76c3f-62d8-4dad-9383-75d2f63fba35",
-        "firstName": "Tom",
-        "lastName": "Snow",
-        "notes": [
-            "hates kayaking"
-        ],
-        "birthday":"07/19/2010",
-        "allergies": [
-
-        ],
-        "emergencyContact": {
-            "first_name":"amy",
-            "last_name": "smith",
-            "phoneNumber": "123-123-1234",
-            "relationship": "Mother"
-        },
-        "address": "123 Fake Address Court",
-        "conditions": [
-            "History of passing out"
-        ]
-    }
+  {
+    "UUID": "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
+    "firstName": "Tammy",
+    "lastName": "Snow",
+    "notes": [
+      "Got in fight with Oliver"
+    ],
+    "birthday": "03:01:2012",
+    "allergies": [
+      "peanut butter",
+      "gluten"
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "address": "123 Fake Address Court",
+    "conditions": [
+      "History of passing out"
+    ]
+  },
+  {
+    "UUID": "8aa8050e-0528-40a7-8184-4f9efb6fc0db",
+    "firstName": "Oliver",
+    "lastName": "Sun",
+    "notes": [
+      "Got in fight with Tammy"
+    ],
+    "birthday": "05:19:2012",
+    "allergies": [
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "address": "123 Fake Address Court",
+    "conditions": [
+      "History of passing out"
+    ]
+  },
+  {
+    "UUID": "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",
+    "firstName": "Justin",
+    "lastName": "Snow",
+    "notes": [
+      "scared of water"
+    ],
+    "birthday": "03:12:2010",
+    "allergies": [
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "address": "123 Fake Address Court",
+    "conditions": [
+      "History of passing out"
+    ]
+  },
+  {
+    "UUID": "c7f76c3f-62d8-4dad-9383-75d2f63fba35",
+    "firstName": "Tom",
+    "lastName": "Snow",
+    "notes": [
+      "hates kayaking"
+    ],
+    "birthday": "07:19:2010",
+    "allergies": [
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "address": "123 Fake Address Court",
+    "conditions": [
+      "History of passing out"
+    ]
+  }
 ]
