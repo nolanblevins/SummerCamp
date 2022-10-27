@@ -4,25 +4,38 @@ import java.util.Date;
 
 public class Camp {
     // add array of themes
+    /**
+    * Hawaiin
+    * Rockstars
+    * Ninja Warriors
+    * Willy Wonka
+    * Hollywood
+    * Legos
+    * Cops and Robbers
+    * Shark Tank
+    * Smores
+    */
     private Date date;
     private double price;
-    private String theme;
+    private ArrayList<String> theme;
     private ArrayList<Group> groups;
     private UUID uuid;
 
-    public Camp(Date date, double price, String theme) {
+    public Camp(Date date, double price, ArrayList<String> theme) {
         this.date = date;
         this.price = price;
         this.theme = theme;
     }
 
-    public Camp(UUID uuid, Date date, String theme, double price,
+    public Camp(UUID uuid, Date date, ArrayList<String> theme, double price,
                 ArrayList<Group> groups){
         this.uuid = uuid;
         this.date = date;
         this.theme = theme;
         this.price = price;
         this.groups = groups;
+    
+    
     }
 
     /**

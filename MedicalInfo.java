@@ -16,7 +16,7 @@ public class MedicalInfo {
      * @param emergencyContact  who would the camp call if there's an emergency
      * @param address   where the child lives
      */
-    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions, Pediatrician pediatrician) {
+    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions, Pediatrician pediatrician, ArrayList<String> ChildMedicationAndAdministration) {
         this.allergies = allergies;
         this.emergencyContact = emergencyContact;
         this.address = address;
@@ -25,6 +25,9 @@ public class MedicalInfo {
         this.ChildMedicationAndAdministration = ChildMedicationAndAdministration;
         
 
+    }
+    public ArrayList<String> getMedAndAdmin() {
+        return this.ChildMedicationAndAdministration;
     }
 
     public ArrayList<String> getAllergies() {
