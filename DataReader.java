@@ -8,8 +8,7 @@ import java.util.UUID;
 import java.util.Date;
 
 public class DataReader extends DataConstants{
-    // TODO Add medical info functionality
-    // TODO Add Children functionality
+    // TODO Add schedule to group
     /**
      * Iterates through the file User.JSON, determines the type of the user,
      * then based on the type of the user, will construct that user and add it
@@ -166,14 +165,14 @@ public class DataReader extends DataConstants{
      */
     private static ArrayList<Child> getChildren(JSONObject jsonObject){
         ChildList childList = ChildList.getInstance();
-        ArrayList<Child> ruChildren = new ArrayList<>();
+        ArrayList<Child> children = new ArrayList<>();
         JSONArray uuids = (JSONArray)jsonObject.get(CHILDREN);
 
         for(Object uuidObject : uuids){
             UUID uuid = UUID.fromString((String)uuidObject);
-            ruChildren.add(childList.getChild(uuid));
+            children.add(childList.getChild(uuid));
         }
-        return ruChildren;
+        return children;
     }
 
     private static ArrayList<Group> getGroups(JSONObject jsonObject){
@@ -228,7 +227,7 @@ public class DataReader extends DataConstants{
      */
     private static Date objectToDate(Object dateObject){
         try {
-            return new SimpleDateFormat("dd/MM/yyyy").parse(
+            return new SimpleDateFormat("dd:MM:yyyy").parse(
                     (String) dateObject);
         } catch(Exception e) {
             e.printStackTrace();

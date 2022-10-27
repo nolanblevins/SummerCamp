@@ -36,6 +36,10 @@ public class ChildList{
         return ret;
     }
 
+    public ArrayList<Child> getChildren(){
+        return this.children;
+    }
+
     public void editUser(Child child){
 
     }

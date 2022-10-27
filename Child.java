@@ -64,7 +64,23 @@ public class Child {
     public MedicalInfo getMedInfo() {
         return medicalInfo;
     }
-    
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public ArrayList<String> getNotes() {
+        return notes;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
     /**
      * Accesses Child UUID
      * 
