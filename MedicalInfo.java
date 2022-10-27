@@ -52,7 +52,7 @@ public class MedicalInfo {
      * @return String   a summarized version of medical info
      */
     public String toString() {
-        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.conditions+" Pediatrician: "+this.pediatrician;
+        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.conditions+" Pediatrician: "+this.pediatrician +" Medication and Administration"+ this.ChildMedicationAndAdministration;
     }
     
 }
