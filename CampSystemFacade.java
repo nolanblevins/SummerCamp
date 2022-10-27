@@ -70,8 +70,7 @@ public class CampSystemFacade {
 
     public void addActivity(String title, int duration, String description, String location) {
         Activity activity = new Activity(title, duration, description, location);
-        ActivityList activityList = new ActivityList();
-        activityList.getInstance();
+        ActivityList activityList = ActivityList.getInstance();
         activityList.addActivity(activity);
     }
 
