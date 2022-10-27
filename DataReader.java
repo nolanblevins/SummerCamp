@@ -196,23 +196,28 @@ public class DataReader extends DataConstants{
      * @param jsonObject    The jsonObject that contains the emergency contact
      * @return              Returns a completed contact object
      */
-    private static Contact getContact(JSONObject jsonObject){
-        JSONObject ecJSON = (JSONObject)jsonObject.get(EMERGENCY_CONTACT);
-        String firstName = (String)ecJSON.get(FIRST_NAME);
-        String lastName = (String)ecJSON.get(LAST_NAME);
-        String phoneNumber = (String)ecJSON.get(PHONE_NUMBER);
-        String relationship = (String)ecJSON.get(EC_RELATIONSHIP);
+    private static ArrayList<Contact> getContacts(JSONObject jsonObject){
+        ArrayList<Contact> contacts = new ArrayList<>();
+        JSONArray ecArray = (JSONArray)jsonObject.get(EMERGENCY_CONTACT);
 
-        return new Contact(firstName, lastName, phoneNumber, relationship);
+        for(Object o : ecArray) {
+            JSONObject ecJSON = (JSONObject)o;
+            String firstName = (String) ecJSON.get(FIRST_NAME);
+            String lastName = (String) ecJSON.get(LAST_NAME);
+            String phoneNumber = (String) ecJSON.get(PHONE_NUMBER);
+            String relationship = (String) ecJSON.get(EC_RELATIONSHIP);
+            contacts.add(new Contact(firstName, lastName, phoneNumber, relationship));
+        }
+        return contacts;
     }
 
     private static MedicalInfo getMedInfo(JSONObject jsonObject){
         ArrayList<String> allergies = parseStringList(jsonObject, ALLERGIES);
-        Contact contact = getContact(jsonObject);
+        ArrayList<Contact> contacts = getContacts(jsonObject);
         String address = (String)jsonObject.get(ADDRESS);
         ArrayList<String> conditions = parseStringList(jsonObject, CONDITIONS);
 
-        MedicalInfo medicalInfo = new MedicalInfo(contact, address,
+        MedicalInfo medicalInfo = new MedicalInfo(contacts, address,
                 allergies, conditions);
 
         return medicalInfo;

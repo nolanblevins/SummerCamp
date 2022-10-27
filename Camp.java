@@ -3,6 +3,7 @@ import java.util.UUID;
 import java.util.Date;
 
 public class Camp {
+    // add array of themes
     private Date date;
     private double price;
     private String theme;

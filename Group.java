@@ -47,6 +47,19 @@ public class Group {
         schedule = sc.generateSchedule();
         return schedule;
     }
+    public Counselor getCounselor() {
+        return this.counselor;
+    }
+    public Group getGroupByCounselor(Counselor counselor) {
+        Camp c = new Camp(null, 0, null);
+        ArrayList<Group> groups = new ArrayList<Group>();
+        groups = c.getGroups();
+        for(int i = 0; i < groups.size(); i++) {
+            if(groups.get(i).getCounselor()==counselor) {
+                return groups.get(i);
+            }
+        }
+    }
 
     public UUID getUUID(){
         return this.id;
