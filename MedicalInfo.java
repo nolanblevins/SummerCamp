@@ -2,13 +2,11 @@ import java.util.ArrayList;
 
 public class MedicalInfo {
     private ArrayList<String> allergies;
-    private Contact emergencyContact;
+    private ArrayList<Contact> emergencyContact;
     private String address;
     private ArrayList<String> conditions;
 
-    //TODO Changed emergencyContact to contact :)
-    //TODO add allergies to constructor :)
-    //TODO add some kind of "other" medical info
+  
     //TODO add waiver functionality??
     /**
      * Initializes the medical information for the user
@@ -16,7 +14,7 @@ public class MedicalInfo {
      * @param emergencyContact  who would the camp call if there's an emergency
      * @param address   where the child lives
      */
-    public MedicalInfo(Contact emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions) {
+    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions) {
         this.allergies = allergies;
         this.emergencyContact = emergencyContact;
         this.address = address;
@@ -32,20 +30,5 @@ public class MedicalInfo {
     public String toString() {
         return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address;
     }
-
-    public ArrayList<String> getAllergies() {
-        return allergies;
-    }
-
-    public Contact getEmergencyContact() {
-        return emergencyContact;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public ArrayList<String> getConditions() {
-        return conditions;
-    }
+    
 }
