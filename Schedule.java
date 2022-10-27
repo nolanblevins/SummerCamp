@@ -26,10 +26,9 @@ public class Schedule {
          * 9 pm - 10 pm : bedtime
          */
         Random rand = new Random();
-        ActivityList ActivityList = new ActivityList();
-        ActivityList = ActivityList.getInstance();
+        ActivityList activityList = ActivityList.getInstance();
         ArrayList<Activity> allActivities = new ArrayList<Activity>();
-        allActivities = ActivityList.getAllActivities();
+        allActivities = activityList.getAllActivities();
         ArrayList<Schedule> weeklySchedule = new ArrayList<Schedule>();
         for (WeekDay day : WeekDay.values()) {
             ArrayList<Activity> activities = new ArrayList<Activity>();

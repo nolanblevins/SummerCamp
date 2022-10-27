@@ -84,6 +84,7 @@ public class Counselor extends User {
      * @return will return the ArrayList of children in the counselors group
      */
     public ArrayList<Child> getChildren() {
+
         ArrayList<Child> children;
 
         return null;

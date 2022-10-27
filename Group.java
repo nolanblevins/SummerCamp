@@ -50,6 +50,10 @@ public class Group {
     public Counselor getCounselor() {
         return this.counselor;
     }
+    public ArrayList<Child> getCampers() {
+        return this.campers;
+
+    }
     public Group getGroupByCounselor(Counselor counselor) {
         Camp c = new Camp(null, 0, null);
         ArrayList<Group> groups = new ArrayList<Group>();
@@ -59,6 +63,18 @@ public class Group {
                 return groups.get(i);
             }
         }
+        return null;
+    }
+    public Group getGroupByChild(Child child) {
+        Camp c = new Camp(null, 0, null);
+        ArrayList<Group> groups = new ArrayList<Group>();
+        groups = c.getGroups();
+        for(int i = 0; i < groups.size(); i++) {
+            if(groups.get(i).getCampers().contains(child)) {
+                return groups.get(i);
+            }
+        }
+        return null;
     }
 
     public UUID getUUID(){
