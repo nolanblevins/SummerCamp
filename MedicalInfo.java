@@ -5,6 +5,7 @@ public class MedicalInfo {
     private ArrayList<Contact> emergencyContact;
     private String address;
     private ArrayList<String> conditions;
+    private Pediatrician pediatrician;
 
   
     //TODO add waiver functionality??
@@ -14,11 +15,12 @@ public class MedicalInfo {
      * @param emergencyContact  who would the camp call if there's an emergency
      * @param address   where the child lives
      */
-    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions) {
+    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions, Pediatrician pediatrician) {
         this.allergies = allergies;
         this.emergencyContact = emergencyContact;
         this.address = address;
         this.conditions = conditions;
+        this.pediatrician = pediatrician;
 
     }
 
@@ -28,7 +30,7 @@ public class MedicalInfo {
      * @return String   a summarized version of medical info
      */
     public String toString() {
-        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address;
+        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.conditions+" Pediatrician: "+this.pediatrician;
     }
     
 }
