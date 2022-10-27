@@ -48,12 +48,13 @@ public class RegisteredUser extends User{
         }
         System.out.println("Enter password:");
         String userPass = in.nextLine();
-        if(userPass != this.password) {
+        while(userPass != this.password) {
             System.out.println("Password is incorrect");
             System.out.println("Enter password:");
             userPass = in.nextLine();
         }
-
+        boolean next = true;
+        while(next) {
         System.out.println("What information would you like to change?"+
                             "\n"+"\t"+"First Name(0)"+
                             "\n"+"\t"+"Last Name(1)"+
@@ -86,6 +87,17 @@ public class RegisteredUser extends User{
             String newPassword = in.nextLine();
             new RegisteredUser(firstName, lastName, email, username, newPassword);
         }
+        else {
+            System.out.println("Invalid input, enter again");
+            continue;
+        }
+        System.out.println("Would you like to change any other information? (y/n)");
+        String answer = in.nextLine();
+        if(answer.equalsIgnoreCase("y"))
+            continue;
+        else
+            next = false;
+    }
         
     }
 
