@@ -179,8 +179,17 @@ public class RegisteredUser extends User{
         else
             conditions.add(condition);
         }
+        System.out.println("Enter child's pediatrician first name:");
+        String pFirstName = in.nextLine();
+        System.out.println("Enter child's pediatrician last name:");
+        String pLastName = in.nextLine();
+        System.out.println("Enter child's pediatrician phone number (XXX-XXX-XXXX):");
+        String pPhoneNumber = in.nextLine();
+        System.out.println("Enter child's pediatrician business:");
+        String pBusiness = in.nextLine();
+        Pediatrician childPediatrician = new Pediatrician(pFirstName, pLastName, pPhoneNumber, pBusiness);
 
-        MedicalInfo mInfo = new MedicalInfo(emergencyContact, address, allergies, conditions);
+        MedicalInfo mInfo = new MedicalInfo(emergencyContact, address, allergies, conditions, childPediatrician);
 
         System.out.println("Enter what camp child will be in:");
         //TODO enter what camps are available
