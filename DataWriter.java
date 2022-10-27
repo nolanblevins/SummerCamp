@@ -3,10 +3,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import java.text.SimpleDateFormat;
 
 public class DataWriter extends DataConstants{
+    public static final String pattern = "dd:MM:yyyy";
     public static void main(String[] args){
-        saveUsers();
+        saveChildren();
     }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
@@ -27,7 +29,21 @@ public class DataWriter extends DataConstants{
     }
 
     public static void saveChildren(){
+        ChildList childList = ChildList.getInstance();
+        ArrayList<Child> children = childList.getChildren();
+        JSONArray jsonChildren = new JSONArray();
 
+        for(Child c : children){
+            jsonChildren.add(getChildJSON(c));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonChildren.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void saveCamps(){
@@ -56,10 +72,12 @@ public class DataWriter extends DataConstants{
             userDetails.put(LIST_UUID, ru.getID().toString());
         }
         else if(user.getUserType() == UserType.COUNSELOR){
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             Counselor counselor = ((Counselor)user);
             userDetails.put(LIST_UUID, counselor.getId().toString());
             userDetails.put(USER_TYPE, "Counselor");
-            userDetails.put(BIRTHDAY, counselor.getBirthday().toString());
+            userDetails.put(BIRTHDAY, simpleDateFormat.format(
+                    counselor.getBirthday()));
             userDetails.put(ALLERGIES, stringsToArray(
                     counselor.getMedInfo().getAllergies()));
             userDetails.put(ADDRESS, counselor.getMedInfo().getAddress());
@@ -74,6 +92,24 @@ public class DataWriter extends DataConstants{
             userDetails.put(LIST_UUID, director.getID().toString());
         }
         return userDetails;
+    }
+
+    private static JSONObject getChildJSON(Child child){
+        JSONObject childDetails = new JSONObject();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        childDetails.put(LIST_UUID, child.getUUID().toString());
+        childDetails.put(FIRST_NAME, child.getFirstName());
+        childDetails.put(LAST_NAME, child.getLastName());
+        childDetails.put(BIRTHDAY, simpleDateFormat.format(
+                child.getBirthday()));
+        childDetails.put(ADDRESS, child.getMedInfo().getAddress());
+        childDetails.put(NOTES, arrayToStrings(child.getNotes()));
+        childDetails.put(ALLERGIES, arrayToStrings(
+                child.getMedInfo().getAllergies()));
+        childDetails.put(EMERGENCY_CONTACT, getContactObject(
+                child.getMedInfo().getEmergencyContact()));
+        childDetails.put(CONDITIONS, child.getMedInfo().getConditions());
+        return childDetails;
     }
 
     private static JSONArray getChildrenIDS(ArrayList<Child> children){
@@ -94,12 +130,25 @@ public class DataWriter extends DataConstants{
         return jsonStrings;
     }
 
-    private static JSONObject getContactObject(Contact contact){
-        JSONObject jsonContact = new JSONObject();
-        jsonContact.put(FIRST_NAME, contact.getFirstName());
-        jsonContact.put(LAST_NAME, contact.getLastName());
-        jsonContact.put(PHONE_NUMBER, contact.getPhoneNumber());
-        jsonContact.put(EC_RELATIONSHIP, contact.getRelationship());
-        return jsonContact;
+    private static JSONArray getContactObject(ArrayList<Contact> contacts){
+        JSONArray contactArray = new JSONArray();
+        for(Contact c : contacts){
+            JSONObject jsonContact = new JSONObject();
+            jsonContact.put(FIRST_NAME, c.getFirstName());
+            jsonContact.put(LAST_NAME, c.getLastName());
+            jsonContact.put(PHONE_NUMBER, c.getPhoneNumber());
+            jsonContact.put(EC_RELATIONSHIP, c.getRelationship());
+            contactArray.add(jsonContact);
+        }
+        return contactArray;
+    }
+
+    private static JSONArray arrayToStrings(ArrayList<String> strings){
+        JSONArray jsonArray = new JSONArray();
+        for(String s : strings){
+            jsonArray.add(s);
+        }
+
+        return jsonArray;
     }
 }
