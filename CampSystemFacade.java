@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CampSystemFacade {
     private String campName;
@@ -44,6 +45,7 @@ public class CampSystemFacade {
     }
 
     public void changeInfo() {
+        
 
     }
 
@@ -72,7 +74,12 @@ public class CampSystemFacade {
         activityList.addActivity(activity);
     }
 
-    public void registerChild() {
+    public void registerChild(String fName, String lName, MedicalInfo mInfo, Date bDay) {
+        Child child = new Child(fName, lName, mInfo, bDay);
+        ChildList childList = ChildList.getInstance();
+        childList.addChild(child);
+        
+        
 
     }
 

@@ -16,7 +16,7 @@ public class ChildList{
         return childList;
     }
 
-    public void addChild(){
+    public void addChild(Child child){
 
     }
     
