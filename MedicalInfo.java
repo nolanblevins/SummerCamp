@@ -22,6 +22,22 @@ public class MedicalInfo {
 
     }
 
+    public ArrayList<String> getAllergies() {
+        return allergies;
+    }
+
+    public ArrayList<Contact> getEmergencyContact() {
+        return emergencyContact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public ArrayList<String> getConditions() {
+        return conditions;
+    }
+
     /**
      * Returns a description of the user's medical information
      * 
