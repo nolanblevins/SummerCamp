@@ -21,7 +21,12 @@ public class MedicalInfo {
         this.address = address;
         this.conditions = conditions;
         this.pediatrician = pediatrician;
-
+    }
+    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions) {
+        this.allergies = allergies;
+        this.emergencyContact = emergencyContact;
+        this.address = address;
+        this.conditions = conditions;
     }
 
     public ArrayList<String> getAllergies() {
