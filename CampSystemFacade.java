@@ -23,11 +23,8 @@ public class CampSystemFacade {
     }
 
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
-<<<<<<< HEAD
-        user = new User(firstName, lastName, email, phoneNumber, password, null); //does not work
-=======
+        //user = new User(firstName, lastName, email, phoneNumber, password, null); //does not work
         user = new RegisteredUser(firstName, lastName, email, phoneNumber, password);
->>>>>>> f85836a66b98c0bdbd49b9ba37232dac1776efd3
 
     }
 
