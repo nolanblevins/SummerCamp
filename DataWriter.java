@@ -1,5 +1,4 @@
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class DataWriter extends DataConstants{
     public static final String pattern = "dd:MM:yyyy";
     public static void main(String[] args){
-        saveChildren();
+        saveUsers();
     }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
@@ -82,9 +81,11 @@ public class DataWriter extends DataConstants{
                     counselor.getMedInfo().getAllergies()));
             userDetails.put(ADDRESS, counselor.getMedInfo().getAddress());
             userDetails.put(CONDITIONS, stringsToArray(
-                    counselor.getMedInfo().getConditions()));
+                    counselor.getMedInfo().getMedNotes()));
             userDetails.put(EMERGENCY_CONTACT, getContactObject(
                     counselor.getMedInfo().getEmergencyContact()));
+            userDetails.put(PEDIATRICIAN, getPediatricianObject(
+                    counselor.getMedInfo().getPediatrician()));
         }
         else{
             Director director = ((Director)user);
@@ -108,7 +109,9 @@ public class DataWriter extends DataConstants{
                 child.getMedInfo().getAllergies()));
         childDetails.put(EMERGENCY_CONTACT, getContactObject(
                 child.getMedInfo().getEmergencyContact()));
-        childDetails.put(CONDITIONS, child.getMedInfo().getConditions());
+        childDetails.put(CONDITIONS, child.getMedInfo().getMedNotes());
+        childDetails.put(PEDIATRICIAN, getPediatricianObject(
+                child.getMedInfo().getPediatrician()));
         return childDetails;
     }
 
@@ -141,6 +144,15 @@ public class DataWriter extends DataConstants{
             contactArray.add(jsonContact);
         }
         return contactArray;
+    }
+
+    private static JSONObject getPediatricianObject(Pediatrician pediatrician){
+        JSONObject pJSON = new JSONObject();
+        pJSON.put(FIRST_NAME, pediatrician.getFirstName());
+        pJSON.put(LAST_NAME, pediatrician.getLastName());
+        pJSON.put(PHONE_NUMBER, pediatrician.getPhoneNumber());
+        pJSON.put(PEDIATRICIAN_BUSINESS, pediatrician.getBusiness());
+        return pJSON;
     }
 
     private static JSONArray arrayToStrings(ArrayList<String> strings){

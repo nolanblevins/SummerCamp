@@ -54,7 +54,13 @@
     "address": "123 Fake Address Court",
     "conditions": [
       "History of passing out"
-    ]
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
   },
   {
     "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
@@ -85,7 +91,13 @@
     "address": "123 Fake Address Court",
     "conditions": [
       "History of passing out"
-    ]
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
   },
   {
     "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",

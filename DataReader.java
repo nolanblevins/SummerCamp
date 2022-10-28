@@ -215,10 +215,10 @@ public class DataReader extends DataConstants{
         ArrayList<String> allergies = parseStringList(jsonObject, ALLERGIES);
         ArrayList<Contact> contacts = getContacts(jsonObject);
         String address = (String)jsonObject.get(ADDRESS);
-        ArrayList<String> conditions = parseStringList(jsonObject, CONDITIONS);
-
+        ArrayList<String> medNotes = parseStringList(jsonObject, CONDITIONS);
+        Pediatrician pediatrician = getPediatrician((JSONObject)jsonObject.get(PEDIATRICIAN));
         MedicalInfo medicalInfo = new MedicalInfo(contacts, address,
-                allergies, conditions);
+                allergies, medNotes, pediatrician);
 
         return medicalInfo;
     }
@@ -262,5 +262,13 @@ public class DataReader extends DataConstants{
         UUID uuid = UUID.fromString((String)groupJSON.get(GROUP_COUNSELOR));
         UserList userList = UserList.getInstance();
         return userList.getCounselor(uuid);
+    }
+
+    private static Pediatrician getPediatrician(JSONObject pJSON){
+        String firstName = (String)pJSON.get(FIRST_NAME);
+        String lastName = (String)pJSON.get(LAST_NAME);
+        String phoneNumber = (String)pJSON.get(PHONE_NUMBER);
+        String business = (String)pJSON.get(PEDIATRICIAN_BUSINESS);
+        return new Pediatrician(firstName, lastName, phoneNumber, business);
     }
 }

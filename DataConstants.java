@@ -12,6 +12,7 @@ public abstract class DataConstants {
     public static final String CONDITIONS = "conditions";
     public static final String ADDRESS = "address";
     public static final String CHILDREN = "children";
+    public static final String PEDIATRICIAN = "pediatrician";
 
     // User Data Constants
     public static final String USER_FILE_NAME = "./JSON/User.JSON";
@@ -23,6 +24,7 @@ public abstract class DataConstants {
 
     // Child Data Constants
     public static final String CHILD_FILE_NAME = "./JSON/Child.JSON";
+
 
     // Emergency Contact Data Constants
     public static final String EC_RELATIONSHIP = "relationship";
@@ -47,4 +49,7 @@ public abstract class DataConstants {
     public static final String ACTIVITY_DURATION = "duration";
     public static final String ACTIVITY_DESCRIPTION = "description";
     public static final String ACTIVITY_LOCATION = "location";
+
+    // Pediatrician Data Constants
+    public static final String PEDIATRICIAN_BUSINESS = "business";
 }
