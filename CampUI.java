@@ -286,7 +286,7 @@ public class CampUI {
         try {
             TimeUnit.MILLISECONDS.sleep(num);
         } catch (Exception e) {
-            System.out.println("Timmer error");
+            System.out.println("timer error");
         }
     }
 
