@@ -2,7 +2,7 @@ import java.util.UUID;
 public class Activity {
     private UUID uuid;
     private String title;
-    private int duration;
+    private int duration; // units ?
     private String description;
     private String location;
     
@@ -23,7 +23,7 @@ public class Activity {
     }
 
     public String toString() {
-        return "Activity [title=" + title + ", time=" + duration + ", description=" + description + ", location=" + location
+        return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description + ", location= " + location
                 + "]";
     }
     

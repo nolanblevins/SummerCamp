@@ -373,7 +373,7 @@ public class CampUI {
 			System.out.println("Please enter the following information: ");
 			System.out.print("Title: ");
 			String Title = keyboard.nextLine();
-			System.out.print("Duration: " );
+			System.out.print("Duration (minutes): " );
 			int Duration = keyboard.nextInt();
 			System.out.print("Description ");
 			String Description = keyboard.nextLine();
