@@ -9,6 +9,11 @@ public class MedicalInfo {
 
   
     //TODO add waiver functionality??
+
+    public Pediatrician getPediatrician() {
+        return pediatrician;
+    }
+
     /**
      * Initializes the medical information for the user
      *
