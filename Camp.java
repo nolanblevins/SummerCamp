@@ -17,17 +17,17 @@ public class Camp {
     */
     private Date date;
     private double price;
-    private ArrayList<String> theme;
+    private String theme;
     private ArrayList<Group> groups;
     private UUID uuid;
 
-    public Camp(Date date, double price, ArrayList<String> theme) {
+    public Camp(Date date, double price, String theme) {
         this.date = date;
         this.price = price;
         this.theme = theme;
     }
 
-    public Camp(UUID uuid, Date date, ArrayList<String> theme, double price,
+    public Camp(UUID uuid, Date date, String theme, double price,
                 ArrayList<Group> groups){
         this.uuid = uuid;
         this.date = date;
