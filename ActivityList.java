@@ -2,22 +2,27 @@ import java.util.ArrayList;
 
 public class ActivityList {
     private ArrayList<Activity> activities;
-    private ActivityList activityList;
+    private static ActivityList activityList;
 
-    private ActivityList ActivityList() {
-        return null;
+    private ActivityList() {
+        activities = DataReader.loadActivities();
     }
 
-    public ActivityList getInstance() {
-        return null;
+    public static ActivityList getInstance() {
+        if(activityList == null) {
+            activityList = new ActivityList();
+
+        }
+        return activityList;
     }
 
     public void addActivity(Activity activity) {
 
+
     }
 
     public ArrayList<Activity> getAllActivities() {
-        return null;
+        return this.activities;
     }
 
     public void editActivity(Activity activity) {

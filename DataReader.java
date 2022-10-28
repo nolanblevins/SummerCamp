@@ -8,8 +8,7 @@ import java.util.UUID;
 import java.util.Date;
 
 public class DataReader extends DataConstants{
-    // TODO Add medical info functionality
-    // TODO Add Children functionality
+    // TODO Add schedule to group
     /**
      * Iterates through the file User.JSON, determines the type of the user,
      * then based on the type of the user, will construct that user and add it
@@ -166,14 +165,14 @@ public class DataReader extends DataConstants{
      */
     private static ArrayList<Child> getChildren(JSONObject jsonObject){
         ChildList childList = ChildList.getInstance();
-        ArrayList<Child> ruChildren = new ArrayList<>();
+        ArrayList<Child> children = new ArrayList<>();
         JSONArray uuids = (JSONArray)jsonObject.get(CHILDREN);
 
         for(Object uuidObject : uuids){
             UUID uuid = UUID.fromString((String)uuidObject);
-            ruChildren.add(childList.getChild(uuid));
+            children.add(childList.getChild(uuid));
         }
-        return ruChildren;
+        return children;
     }
 
     private static ArrayList<Group> getGroups(JSONObject jsonObject){
@@ -197,23 +196,28 @@ public class DataReader extends DataConstants{
      * @param jsonObject    The jsonObject that contains the emergency contact
      * @return              Returns a completed contact object
      */
-    private static Contact getContact(JSONObject jsonObject){
-        JSONObject ecJSON = (JSONObject)jsonObject.get(EMERGENCY_CONTACT);
-        String firstName = (String)ecJSON.get(FIRST_NAME);
-        String lastName = (String)ecJSON.get(LAST_NAME);
-        String phoneNumber = (String)ecJSON.get(PHONE_NUMBER);
-        String relationship = (String)ecJSON.get(EC_RELATIONSHIP);
+    private static ArrayList<Contact> getContacts(JSONObject jsonObject){
+        ArrayList<Contact> contacts = new ArrayList<>();
+        JSONArray ecArray = (JSONArray)jsonObject.get(EMERGENCY_CONTACT);
 
-        return new Contact(firstName, lastName, phoneNumber, relationship);
+        for(Object o : ecArray) {
+            JSONObject ecJSON = (JSONObject)o;
+            String firstName = (String) ecJSON.get(FIRST_NAME);
+            String lastName = (String) ecJSON.get(LAST_NAME);
+            String phoneNumber = (String) ecJSON.get(PHONE_NUMBER);
+            String relationship = (String) ecJSON.get(EC_RELATIONSHIP);
+            contacts.add(new Contact(firstName, lastName, phoneNumber, relationship));
+        }
+        return contacts;
     }
 
     private static MedicalInfo getMedInfo(JSONObject jsonObject){
         ArrayList<String> allergies = parseStringList(jsonObject, ALLERGIES);
-        Contact contact = getContact(jsonObject);
+        ArrayList<Contact> contacts = getContacts(jsonObject);
         String address = (String)jsonObject.get(ADDRESS);
         ArrayList<String> conditions = parseStringList(jsonObject, CONDITIONS);
 
-        MedicalInfo medicalInfo = new MedicalInfo(contact, address,
+        MedicalInfo medicalInfo = new MedicalInfo(contacts, address,
                 allergies, conditions);
 
         return medicalInfo;
@@ -228,7 +232,7 @@ public class DataReader extends DataConstants{
      */
     private static Date objectToDate(Object dateObject){
         try {
-            return new SimpleDateFormat("dd/MM/yyyy").parse(
+            return new SimpleDateFormat("dd:MM:yyyy").parse(
                     (String) dateObject);
         } catch(Exception e) {
             e.printStackTrace();

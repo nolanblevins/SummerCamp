@@ -20,16 +20,15 @@ public class Schedule {
          * 9 am - 10 am: Breakfast
          * 10 am - 12 pm: activities
          * 12 pm - 1pm: lunch
+         *
          * 1 pm - 6pm: activities
          * 6 pm - 7 pm: dinner
          * 7 pm - 9 pm: activities
          * 9 pm - 10 pm : bedtime
          */
         Random rand = new Random();
-        ActivityList ActivityList = new ActivityList();
-        ActivityList = ActivityList.getInstance();
-        ArrayList<Activity> allActivities = new ArrayList<Activity>();
-        allActivities = ActivityList.getAllActivities();
+        ActivityList activityList = ActivityList.getInstance();
+        ArrayList<Activity> allActivities = activityList.getAllActivities();
         ArrayList<Schedule> weeklySchedule = new ArrayList<Schedule>();
         for (WeekDay day : WeekDay.values()) {
             ArrayList<Activity> activities = new ArrayList<Activity>();

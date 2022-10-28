@@ -9,6 +9,7 @@ public class Child {
     private ArrayList<String> notes;
     private MedicalInfo medicalInfo;
     private Date birthday;
+    
 
     /**
      * Parameterized constructor that generates Random UUID
@@ -64,7 +65,23 @@ public class Child {
     public MedicalInfo getMedInfo() {
         return medicalInfo;
     }
-    
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public ArrayList<String> getNotes() {
+        return notes;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
     /**
      * Accesses Child UUID
      * 

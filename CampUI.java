@@ -293,11 +293,126 @@ public class CampUI {
 	private static void conselorPortal() {
 		clearScreen();
 		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int option;
+		boolean validOption = false;
+
+		do {
+			
+			System.out.println("1. View Group");
+			System.out.println("2. Edit Medical Info");
+			System.out.println("3. View Schedule");
+			System.out.println("4. Edit User Information");
+			System.out.println("5. Log out");
+			
+			option = keyboard.nextInt();
+			keyboard.nextLine();
+			
+			if(option > 5 || option < 1) {
+				validOption = false;
+			}
+			else {
+				validOption = true;
+			}
+			
+		}while(!validOption);
+
+		if(option == 1){
+		// view group
+			System.out.println(campSystem.viewGroup().toString());
+	}
+		else if(option ==2){
+			// edit med info
+		}
+
+		else if(option ==3){
+			//view schedule
+			campSystem.viewSchedule();
+		}
+
+		else if (option ==4){
+			// edit info
+			campSystem.changeInfo();
+		}
+			campSystem.logOff();
 	}
 
 	private static void directorPortal() {
 		clearScreen();
 
+		Scanner keyboard = new Scanner(System.in);
+		
+		int option;
+		boolean validOption = false;
+
+		do {
+			
+			System.out.println("1. Add new Activity");
+			System.out.println("2. Generate New Schedule");
+			System.out.println("3. Add new FAQ");
+			System.out.println("4. Edit User Information");
+			System.out.println("5. Create new Camp");
+			System.out.println("6. Log out");
+			option = keyboard.nextInt();
+			keyboard.nextLine();
+			
+			if(option > 6 || option < 1) {
+				validOption = false;
+			}
+			else {
+				validOption = true;
+			}
+			
+		}while(!validOption);
+
+		if(option == 1){
+			
+			//todo error checking
+			System.out.println("****** Adding New Activity ******");
+			System.out.println("Please enter the following information: ");
+			System.out.print("Title: ");
+			String Title = keyboard.nextLine();
+			System.out.print("Duration: " );
+			int Duration = keyboard.nextInt();
+			System.out.print("Description ");
+			String Description = keyboard.nextLine();
+			System.out.print("Location : ");
+			String Location = keyboard.nextLine();
+			campSystem.addActivity(Title, Duration, Description, Location);
+
+
+			System.out.println("You have succesfully added an activity");
+		}
+
+		else if(option ==2){
+			// generate schedule
+			
+			}
+
+		else if(option ==3){
+			
+			System.out.println("Adding new FAQ");
+			String FAQquestion = keyboard.nextLine();
+
+			campSystem.addToFAQ(FAQquestion);
+		}
+
+		
+		else if(option ==4){
+			campSystem.changeInfo();
+		}
+		
+
+		// create new theme scenerio
+		else if(option ==5){
+
+		}
+
+		else if(option ==6){
+			campSystem.logOff();
+		}
+		
 	}
 
 	private static void camperPortal() {

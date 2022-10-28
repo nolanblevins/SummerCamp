@@ -48,12 +48,13 @@ public class RegisteredUser extends User{
         }
         System.out.println("Enter password:");
         String userPass = in.nextLine();
-        if(userPass != this.password) {
+        while(userPass != this.password) {
             System.out.println("Password is incorrect");
             System.out.println("Enter password:");
             userPass = in.nextLine();
         }
-
+        boolean next = true;
+        while(next) {
         System.out.println("What information would you like to change?"+
                             "\n"+"\t"+"First Name(0)"+
                             "\n"+"\t"+"Last Name(1)"+
@@ -86,10 +87,27 @@ public class RegisteredUser extends User{
             String newPassword = in.nextLine();
             new RegisteredUser(firstName, lastName, email, username, newPassword);
         }
+        else {
+            System.out.println("Invalid input, enter again");
+            continue;
+        }
+        System.out.println("Would you like to change any other information? (y/n)");
+        String answer = in.nextLine();
+        if(answer.equalsIgnoreCase("y"))
+            continue;
+        else
+            next = false;
+    }
         
     }
 
-    public String viewSchedule(int cabin) {
+    public String getSchedule(int cabin, ArrayList<Activity> activity, WeekDay day) {
+        ArrayList<Schedule> schedule = new ArrayList<>();
+        Schedule sc = new Schedule(activity, day);
+        schedule = sc.generateSchedule();
+        for(int i = 0; i < schedule.size(); i++) {
+            
+        }
         return null;
         //return Group.getSchedule();
     }
@@ -102,14 +120,25 @@ public class RegisteredUser extends User{
         String lName = in.nextLine();
         System.out.println("Enter child's birthday (MM/DD/YYYY):");
         Date bday = null;
-        try {
-        bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+        boolean next = true;
+        while(next) {
+            try {
+            bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+            next = false;
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+                System.out.println("Incorrect format or date");
+            }
         }
-        catch (Exception e)
+        ArrayList<Contact> emergencyContact = new ArrayList<Contact>();
+        boolean yes = true;
+        while(yes) {
+        System.out.println("Would you like to add an emergency contact? (y/n)");
+        String answer = in.nextLine();
+        if(answer.equalsIgnoreCase("y"))
         {
-            e.printStackTrace();
-            //TODO add error message
-        }
         System.out.println("Enter child's emergency contact first name:");
         String eFirstName = in.nextLine();
         System.out.println("Enter child's emergency contact last name:");
@@ -118,7 +147,14 @@ public class RegisteredUser extends User{
         String ePhoneNumber = in.nextLine();
         System.out.println("Enter child's emergency contact relationship:");
         String eRelationship = in.nextLine();
-        Contact childEmergencyContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
+        Contact childContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
+        emergencyContact.add(childContact);
+        }
+        else if(answer.equalsIgnoreCase("n"))
+            yes = false;
+        else
+            System.out.println("Invalid response, try again");
+        }
 
         System.out.println("Enter child's address:");
         String address = in.nextLine();
@@ -143,8 +179,17 @@ public class RegisteredUser extends User{
         else
             conditions.add(condition);
         }
+        System.out.println("Enter child's pediatrician first name:");
+        String pFirstName = in.nextLine();
+        System.out.println("Enter child's pediatrician last name:");
+        String pLastName = in.nextLine();
+        System.out.println("Enter child's pediatrician phone number (XXX-XXX-XXXX):");
+        String pPhoneNumber = in.nextLine();
+        System.out.println("Enter child's pediatrician business:");
+        String pBusiness = in.nextLine();
+        Pediatrician childPediatrician = new Pediatrician(pFirstName, pLastName, pPhoneNumber, pBusiness);
 
-        MedicalInfo mInfo = new MedicalInfo(childEmergencyContact, address, allergies, conditions);
+        MedicalInfo mInfo = new MedicalInfo(emergencyContact, address, allergies, conditions, childPediatrician);
 
         System.out.println("Enter what camp child will be in:");
         //TODO enter what camps are available

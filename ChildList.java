@@ -16,7 +16,7 @@ public class ChildList{
         return childList;
     }
 
-    public void addChild(){
+    public void addChild(Child child){
 
     }
     
@@ -34,6 +34,10 @@ public class ChildList{
             }
         }
         return ret;
+    }
+
+    public ArrayList<Child> getChildren(){
+        return this.children;
     }
 
     public void editUser(Child child){

@@ -33,16 +33,24 @@
     "email": "BobAller@xxxxx.com",
     "phoneNumber": "555-555-5555",
     "password": "1234567",
-    "birthday": "10/26/2001",
+    "birthday": "10:26:2001",
     "allergies": [
 
     ],
-    "emergencyContact": {
-      "firstName":"amy",
-      "lastName": "smith",
-      "phoneNumber": "123-123-1234",
-      "relationship": "Mother"
-    },
+    "emergencyContact": [
+      {
+        "firstName":"amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
     "address": "123 Fake Address Court",
     "conditions": [
       "History of passing out"
@@ -56,16 +64,24 @@
     "email": "VJohnson@xxxxx.com",
     "phoneNumber": "555-555-5555",
     "password": "1234567",
-    "birthday": "12/19/2002",
+    "birthday": "12:19:2002",
     "allergies": [
 
     ],
-    "emergencyContact": {
-      "firstName":"amy",
-      "lastName": "smith",
-      "phoneNumber": "123-123-1234",
-      "relationship": "Mother"
-    },
+    "emergencyContact": [
+      {
+        "firstName":"amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
     "address": "123 Fake Address Court",
     "conditions": [
       "History of passing out"
