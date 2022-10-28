@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class DataWriter extends DataConstants{
     public static final String pattern = "dd:MM:yyyy";
     public static void main(String[] args){
-        saveUsers();
+        saveActivies();
     }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
@@ -54,7 +54,21 @@ public class DataWriter extends DataConstants{
     }
 
     public static void saveActivies(){
+        ActivityList activityList = ActivityList.getInstance();
+        ArrayList<Activity> activities = activityList.getAllActivities();
+        JSONArray jsonActivity = new JSONArray();
 
+        for(Activity a : activities){
+            jsonActivity.add(getActivityJSON(a));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonActivity.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private static JSONObject getUserJSON(User user){
@@ -113,6 +127,17 @@ public class DataWriter extends DataConstants{
         childDetails.put(PEDIATRICIAN, getPediatricianObject(
                 child.getMedInfo().getPediatrician()));
         return childDetails;
+    }
+
+    private static JSONObject getActivityJSON(Activity activity){
+        JSONObject activityJSON = new JSONObject();
+        activityJSON.put(LIST_UUID, activity.getUuid().toString());
+        activityJSON.put(ACTIVITY_TITLE, activity.getTitle());
+        activityJSON.put(ACTIVITY_DURATION, activity.getDuration());
+        activityJSON.put(ACTIVITY_DESCRIPTION, activity.getDescription());
+        activityJSON.put(ACTIVITY_LOCATION, activity.getLocation());
+
+        return activityJSON;
     }
 
     private static JSONArray getChildrenIDS(ArrayList<Child> children){

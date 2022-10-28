@@ -22,6 +22,26 @@ public class Activity {
         this.location = location;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
     public String toString() {
         return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description + ", location= " + location
                 + "]";
