@@ -418,6 +418,60 @@ public class CampUI {
 	private static void camperPortal() {
 		clearScreen();
 
+		Scanner keyboard = new Scanner(System.in);
+
+		int option;
+		boolean validOption = false;
+
+		do {
+		System.out.println();
+
+		System.out.println("1. View Camper");
+		System.out.println("2. Register Camper");
+		System.out.println("3. Unregister Camper");
+		System.out.println("4. Remove Camper");
+		System.out.println("5. Go back to previous page");
+
+		System.out.print("Please enter your option: ");
+
+		option = keyboard.nextInt();
+		keyboard.nextLine();
+
+		if(option > 5 || option < 1) {
+			validOption = false;
+		}
+		else {
+			validOption = true;
+		}
+
+		}while(!validOption);
+
+		
+		if(option == 1) {
+			// view camper
+
+
+		}
+		else if(option == 2) {
+			// register camper
+
+
+		}
+		else if(option == 3) {
+			// unregister camper
+
+
+		}
+		else if(option == 4) {
+			// remove camper
+
+
+		}
+		else if(option == 5) {
+			// go back to login portal
+			loginPortal();
+		}
+
 	}
 
 
