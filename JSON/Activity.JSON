@@ -1,21 +1,86 @@
 [
-    {
-        "UUID": "7985b6fd-bcd5-4895-b572-5804f5b9d58a",
-        "title": "Kayaking",
-        "duration": 1,
-        "description": "Group kayaking on river",
-        "location": "river"
-    },{
-        "UUID": "00d676f0-f2fd-4030-8d78-058ecfb3c6d0",
-        "title": "Volleyball",
-        "duration": 1,
-        "description": "Team volleyball on grassy field",
-        "location": "camp field"
-    },{
-        "UUID": "23cb8442-f5c1-48be-a43d-a2a22655d9ab",
-        "title": "Hiking",
-        "duration": 1,
-        "description": "hiking up Mt. Everest",
-        "location": "Mt. Everest"
-    }
+  {
+    "UUID": "7985b6fd-bcd5-4895-b572-5804f5b9d58a",
+    "title": "Kayaking",
+    "duration": 1,
+    "description": "Group kayaking on river",
+    "location": "river"
+  },
+  {
+    "UUID": "00d676f0-f2fd-4030-8d78-058ecfb3c6d0",
+    "title": "Volleyball",
+    "duration": 1,
+    "description": "Team volleyball on grassy field",
+    "location": "camp field"
+  },
+  {
+    "UUID": "23cb8442-f5c1-48be-a43d-a2a22655d9ab",
+    "title": "Hiking",
+    "duration": 1,
+    "description": "hiking up Mt. Everest",
+    "location": "Mt. Everest"
+  },
+  {
+    "UUID": "53d0395b-72b8-4932-9aeb-6d5231d306a5",
+    "title": "Rock Climbing",
+    "duration": 1,
+    "description": "Climbing up the rock wall",
+    "location": "The rock wall by the main pavilion"
+  },
+  {
+    "UUID": "2e6a507f-61cf-4d7a-a813-b993ca30cc7c",
+    "title": "Soccer",
+    "duration": 1,
+    "description": "Teams will compete in a game of soccer",
+    "location": "Soccer pitch"
+  },
+  {
+    "UUID": "17f68738-559b-4daa-8d75-e0eafd5652f3",
+    "title": "Ninja Warrior Course",
+    "duration": 1,
+    "description": "Going through a mock ninja warrior course",
+    "location": "Ninja Warrior Course"
+  },
+  {
+    "UUID": "728a0d34-8dfc-405c-a71c-7deddb6a06e2",
+    "title": "Card Games",
+    "duration": 1,
+    "description": "Playing multiple different card games",
+    "location": "Main Pavilion"
+  },
+  {
+    "UUID": "4e4866de-3202-4241-be39-5fd1636f29dc",
+    "title": "Camp Olympics",
+    "duration": 1,
+    "description": "Compete Against Previous Weeks' records",
+    "location": "Soccer Pitch"
+  },
+  {
+    "UUID": "88ab056e-904d-4e2f-9833-55c956aa607b",
+    "title": "Free Time",
+    "duration": 1,
+    "description": "Chill out and do what you want",
+    "location": "At/around cabins"
+  },
+  {
+    "UUID": "11b7bd9c-59c9-450f-ba96-0c44f970ffa3",
+    "title": "Breakfast",
+    "duration": 1,
+    "description": "Eat breakfast with the rest of camp",
+    "location": "Main Pavilion"
+  },
+  {
+    "UUID": "4e901f3d-b1e6-4632-91fd-8a200f3dba02",
+    "title": "Lunch",
+    "duration": 1,
+    "description": "Eat lunch with the rest of camp",
+    "location": "Main Pavilion"
+  },
+  {
+    "UUID": "aa389f82-b7f5-4276-aa1b-d107a79137a6",
+    "title": "Dinner",
+    "duration": 1,
+    "description": "Eat dinner with the rest of camp",
+    "location": "Main Pavilion"
+  }
 ]
