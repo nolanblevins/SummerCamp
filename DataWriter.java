@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class DataWriter extends DataConstants{
     public static final String pattern = "dd:MM:yyyy";
     public static void main(String[] args){
-        saveActivies();
+        saveCamps();
     }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
@@ -46,7 +46,21 @@ public class DataWriter extends DataConstants{
     }
 
     public static void saveCamps(){
+        CampList campList = CampList.getInstance();
+        ArrayList<Camp> camps = campList.getAllCamps();
+        JSONArray jsonChildren = new JSONArray();
 
+        for(Camp c : camps){
+            jsonChildren.add(getCampJSON(c));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonChildren.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void saveGroups(){
@@ -111,11 +125,11 @@ public class DataWriter extends DataConstants{
 
     private static JSONObject getChildJSON(Child child){
         JSONObject childDetails = new JSONObject();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
         childDetails.put(LIST_UUID, child.getUUID().toString());
         childDetails.put(FIRST_NAME, child.getFirstName());
         childDetails.put(LAST_NAME, child.getLastName());
-        childDetails.put(BIRTHDAY, simpleDateFormat.format(
+        childDetails.put(BIRTHDAY, new SimpleDateFormat(pattern).format(
                 child.getBirthday()));
         childDetails.put(ADDRESS, child.getMedInfo().getAddress());
         childDetails.put(NOTES, arrayToStrings(child.getNotes()));
@@ -140,10 +154,29 @@ public class DataWriter extends DataConstants{
         return activityJSON;
     }
 
+    private static JSONObject getCampJSON(Camp camp){
+        JSONObject campJSON = new JSONObject();
+        campJSON.put(LIST_UUID, camp.getUuid().toString());
+        campJSON.put(CAMP_DATE, new SimpleDateFormat(pattern).format(
+                camp.getDate()));
+        campJSON.put(CAMP_THEME, camp.getTheme());
+        campJSON.put(CAMP_PRICE, camp.getPrice());
+        campJSON.put(CAMP_GROUP_ID, getGroupIDS(camp.getGroups()));
+
+        return campJSON;
+    }
     private static JSONArray getChildrenIDS(ArrayList<Child> children){
         JSONArray uuids = new JSONArray();
         for(Child c : children){
             uuids.add(c.getUUID().toString());
+        }
+        return uuids;
+    }
+
+    private static JSONArray getGroupIDS(ArrayList<Group> groups){
+        JSONArray uuids = new JSONArray();
+        for(Group g : groups){
+            uuids.add(g.getUUID().toString());
         }
         return uuids;
     }

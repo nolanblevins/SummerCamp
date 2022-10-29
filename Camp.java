@@ -47,6 +47,22 @@ public class Camp {
         return this.groups;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
     /**
      * Returns a string that summarizes the important attributes of the camp
      * 
