@@ -93,8 +93,9 @@ public class DataReader extends DataConstants{
                 int groupSize = (int)groupSizeL;
                 User counselor = getCounselor(groupJSON);
                 ArrayList<Child> campers = getChildren(groupJSON);
+                ArrayList<Schedule> schedule = getSchedules(groupJSON);
 
-                groups.add(new Group(uuid, groupName, cabin, groupSize, counselor, campers));
+                groups.add(new Group(uuid, groupName, cabin, groupSize, counselor, campers, schedule));
             }
 
         } catch (Exception e){
@@ -209,6 +210,24 @@ public class DataReader extends DataConstants{
             contacts.add(new Contact(firstName, lastName, phoneNumber, relationship));
         }
         return contacts;
+    }
+
+    private static ArrayList<Schedule> getSchedules(JSONObject groupJSON){
+        ActivityList activitylist = ActivityList.getInstance();
+        ArrayList<Schedule> schedules = new ArrayList<>();
+        JSONObject scheduleJSON = (JSONObject)groupJSON.get(GROUP_SCHEDULE);
+
+        for(String day : SCHEDULE_DAYS){
+            ArrayList<Activity> activities = new ArrayList<>();
+            JSONArray scheduleJA = (JSONArray)scheduleJSON.get(day);
+            for(Object o : scheduleJA){
+                activities.add(activitylist.getActivity(
+                        UUID.fromString((String)o)));
+            }
+            schedules.add(new Schedule(activities, WeekDay.valueOf(day)));
+        }
+
+        return schedules;
     }
 
     private static MedicalInfo getMedInfo(JSONObject jsonObject){

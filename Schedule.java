@@ -37,21 +37,21 @@ public class Schedule {
             activities.add(new Activity("Wakeup", 1, "Children get out of bed and get ready", "Cabin"));
             activities.add(new Activity("Breakfast", 1, "Meal eaten in morning", "Dining Hall"));
             // 10am - 12pm
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 activities.add(allActivities.get(rand.nextInt(allActivities.size())));
             }
             // 12pm - 1pm
             activities.add(new Activity("Lunch", 1, "Meal eaten in afternoon", "Dining Hall"));
 
             // 1pm - 6pm
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 5; i++) {
                 activities.add(allActivities.get(rand.nextInt(allActivities.size())));
             }
             // 6pm - 7pm
             activities.add(new Activity("Dinner", 1, "Meal eaten at night", "Dining Hall"));
 
             // 7pm - 9pm
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 activities.add(allActivities.get(rand.nextInt(allActivities.size())));
             }
             // 9pm - 10pm
@@ -89,6 +89,14 @@ public class Schedule {
         }
         return dailySchedule;
 
+    }
+
+    public ArrayList<Activity> getSchedule() {
+        return schedule;
+    }
+
+    public WeekDay getDay() {
+        return day;
     }
 
     public String toString() {

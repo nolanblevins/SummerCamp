@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class DataWriter extends DataConstants{
     public static final String pattern = "dd:MM:yyyy";
     public static void main(String[] args){
-        saveCamps();
+        saveGroups();
     }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
@@ -64,7 +64,21 @@ public class DataWriter extends DataConstants{
     }
 
     public static void saveGroups(){
+        GroupList groupList = GroupList.getInstance();
+        ArrayList<Group> groups = groupList.getAllGroups();
+        JSONArray jsonGroups = new JSONArray();
 
+        for(Group g : groups){
+            jsonGroups.add(getGroupJSON(g));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonGroups.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void saveActivies(){
@@ -132,8 +146,8 @@ public class DataWriter extends DataConstants{
         childDetails.put(BIRTHDAY, new SimpleDateFormat(pattern).format(
                 child.getBirthday()));
         childDetails.put(ADDRESS, child.getMedInfo().getAddress());
-        childDetails.put(NOTES, arrayToStrings(child.getNotes()));
-        childDetails.put(ALLERGIES, arrayToStrings(
+        childDetails.put(NOTES, stringsToArray(child.getNotes()));
+        childDetails.put(ALLERGIES, stringsToArray(
                 child.getMedInfo().getAllergies()));
         childDetails.put(EMERGENCY_CONTACT, getContactObject(
                 child.getMedInfo().getEmergencyContact()));
@@ -165,6 +179,19 @@ public class DataWriter extends DataConstants{
 
         return campJSON;
     }
+
+    private static JSONObject getGroupJSON(Group group){
+        JSONObject groupJSON = new JSONObject();
+        groupJSON.put(LIST_UUID, group.getUUID().toString());
+        groupJSON.put(GROUP_NAME, group.getGroupName());
+        groupJSON.put(GROUP_CABIN, group.getCabin());
+        groupJSON.put(GROUP_SIZE, group.getGroupSize());
+        groupJSON.put(GROUP_COUNSELOR, group.getCounselor().getUUID().toString());
+        groupJSON.put(CHILDREN, getChildrenIDS(group.getCampers()));
+        groupJSON.put(GROUP_SCHEDULE, getSchedule(group.getSchedule()));
+
+        return groupJSON;
+    }
     private static JSONArray getChildrenIDS(ArrayList<Child> children){
         JSONArray uuids = new JSONArray();
         for(Child c : children){
@@ -180,6 +207,21 @@ public class DataWriter extends DataConstants{
         }
         return uuids;
     }
+
+    private static JSONObject getSchedule(ArrayList<Schedule> schedules){
+        JSONObject scheduleJSON = new JSONObject();
+
+        for(Schedule s : schedules){
+            JSONArray dayJSON = new JSONArray();
+            for(Activity a : s.getSchedule()){
+                dayJSON.add(a.getUuid().toString());
+            }
+            scheduleJSON.put(s.getDay().toString(), dayJSON);
+        }
+
+        return scheduleJSON;
+    }
+
 
     private static JSONArray stringsToArray(ArrayList<String> strings){
         JSONArray jsonStrings = new JSONArray();
@@ -211,14 +253,5 @@ public class DataWriter extends DataConstants{
         pJSON.put(PHONE_NUMBER, pediatrician.getPhoneNumber());
         pJSON.put(PEDIATRICIAN_BUSINESS, pediatrician.getBusiness());
         return pJSON;
-    }
-
-    private static JSONArray arrayToStrings(ArrayList<String> strings){
-        JSONArray jsonArray = new JSONArray();
-        for(String s : strings){
-            jsonArray.add(s);
-        }
-
-        return jsonArray;
     }
 }

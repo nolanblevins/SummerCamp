@@ -29,6 +29,10 @@ public class GroupList {
         return null;
     }
 
+    public ArrayList<Group> getAllGroups(){
+        return groups;
+    }
+
     public void editGroup(Group group){
 
     }

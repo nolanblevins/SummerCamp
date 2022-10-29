@@ -5,11 +5,11 @@ import java.util.UUID;
 public class Group {
 
     /*********************
-     * DO WE NEED AN AGE RANGE
+     * TODO add age range
      *********************/
 
     private String groupName;
-    private Schedule schedule;
+    private ArrayList<Schedule> schedule;
     private int cabin;
     private ArrayList<Child> campers;
     private int groupSize;
@@ -32,19 +32,18 @@ public class Group {
         this.campers = new ArrayList<>();
     }
 
-    public Group(UUID id, String groupName, int cabin, int groupSize, User counselor, ArrayList<Child> campers) {
+    public Group(UUID id, String groupName, int cabin, int groupSize, User counselor,
+                 ArrayList<Child> campers, ArrayList<Schedule> schedule) {
         this.groupName = groupName;
         this.cabin = cabin;
         this.groupSize = groupSize;
         this.id = id;
         this.campers = campers;
         this.counselor = (Counselor) counselor;
+        this.schedule = schedule;
     }
 
     public ArrayList<Schedule> getSchedule() {
-        ArrayList<Schedule> schedule = new ArrayList<>();
-        Schedule sc = new Schedule(null, null);
-        schedule = sc.generateSchedule();
         return schedule;
     }
     public Counselor getCounselor() {
@@ -79,6 +78,22 @@ public class Group {
 
     public UUID getUUID(){
         return this.id;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public int getCabin() {
+        return cabin;
+    }
+
+    public int getGroupSize() {
+        return groupSize;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public String toString() {

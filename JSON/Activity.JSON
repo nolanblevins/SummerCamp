@@ -82,5 +82,26 @@
     "duration": 1,
     "description": "Eat dinner with the rest of camp",
     "location": "Main Pavilion"
+  },
+  {
+    "UUID": "64702f3a-45ee-4b26-acd7-37e210495240",
+    "title": "Bedtime",
+    "duration": 1,
+    "description": "Get ready to go to bed",
+    "location": "Cabin"
+  },
+  {
+    "UUID": "6140890d-2586-4d81-85ca-e894f5179795",
+    "title": "Wakeup",
+    "duration": 1,
+    "description": "Get up and ready for the day",
+    "location": "Cabin"
+  },
+  {
+    "UUID": "2b9c8cd4-6d07-40fe-a19b-4202e7691652",
+    "title": "Manhunt",
+    "duration": 1,
+    "description": "Everyone plays a fun game of manhunt",
+    "location": "The Woods"
   }
 ]
