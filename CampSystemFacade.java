@@ -46,7 +46,8 @@ public class CampSystemFacade {
     }
 
     public void changeInfo() {
-        user = new User(campInfo, campInfo, campInfo, campName, campInfo)
+        // huh???
+        user = new User(campInfo, campInfo, campInfo, campName, campInfo);
         userList.editUser(user);
         
 
