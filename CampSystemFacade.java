@@ -23,7 +23,8 @@ public class CampSystemFacade {
     }
 
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
-        user = new RegisteredUser(firstName, lastName, email, phoneNumber, password);
+        user = new User(firstName, lastName, email, phoneNumber, password);
+        userList.addUser(user);
 
     }
 
@@ -45,6 +46,8 @@ public class CampSystemFacade {
     }
 
     public void changeInfo() {
+        user = new User(campInfo, campInfo, campInfo, campName, campInfo)
+        userList.editUser(user);
         
 
     }

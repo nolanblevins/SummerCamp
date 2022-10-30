@@ -16,7 +16,7 @@ public class UserList {
         return userList;
     }
 
-    public void addUser(){
+    public void addUser(User user){
 
     }
 

@@ -21,12 +21,22 @@ public class Camp {
     private ArrayList<Group> groups;
     private UUID uuid;
 
+    /**
+     * @param date Start date of camp
+     * @param price cost to attend camp
+     * @param theme theme of camp
+     */
     public Camp(Date date, double price, ArrayList<String> theme) {
         this.date = date;
         this.price = price;
         this.theme = theme;
     }
-
+    /**
+     * @param UUID generated UUID for camp
+     * @param date Start date of camp
+     * @param price cost to attend camp
+     * @param theme theme of camp
+     */
     public Camp(UUID uuid, Date date, ArrayList<String> theme, double price,
                 ArrayList<Group> groups){
         this.uuid = uuid;
