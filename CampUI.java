@@ -97,7 +97,7 @@ public class CampUI {
     	
     	boolean badPhoneNum;
     	boolean errorMessage = false;
-    	
+    	boolean emailValid = false;
     	do {
     	
     	clearScreen();
@@ -115,17 +115,47 @@ public class CampUI {
     	System.out.print("Last name: ");
     	String lastname = keyboard.nextLine();
     	System.out.print("Email: ");
-    	String email = keyboard.nextLine();
+    	String emailInput = keyboard.nextLine();
     	System.out.print("Phone number (###-###-####) : ");
     	String phoneNumber = keyboard.nextLine();
     	System.out.print("Password: ");
     	String password = keyboard.nextLine();
     	
-    	badPhoneNum = false;
+    
+    	if(!isEmailValid(emailInput)){
+			emailValid = false;
+			System.out.println("Invalid Email Address, please try again");
+		}
+			emailValid = true; 
+	
+		if(!isPhoneValid(phoneNumber)){
+			badPhoneNum = true;
+			System.out.println("Invalid Phone Number, please try again");
+		}
+			badPhoneNum = false;
+	
+		if(badPhoneNum && emailValid){
+			errorMessage = false;
+			campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
+			System.out.println("You have succesfully created an account");
+		}
+
     	
-    	if(phoneNumber.length() != 12) {
-    		badPhoneNum = true;
+
+
+    	errorMessage = true;
+    	
+	 } while(errorMessage);
+	}
+
+    
+	public static boolean isPhoneValid(String phoneNumber){
+		
+		
+		if(phoneNumber.length() != 12) {
+    			return false;
     	}
+
     	else {
     		for(int i=0;i<phoneNumber.length();i++) {
     			if(phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1' 
@@ -134,29 +164,18 @@ public class CampUI {
     					&& phoneNumber.charAt(i) != '6' && phoneNumber.charAt(i) != '7'
     					&& phoneNumber.charAt(i) != '8' && phoneNumber.charAt(i) != '9'
     					&& phoneNumber.charAt(i) != '-')  {
-    				badPhoneNum = true;
+    				return false;
     			}
     		}
     		
     		if(phoneNumber.charAt(3) != '-' && phoneNumber.charAt(7) != '-') {
-    			badPhoneNum = true;
+    			return true;
     		}
     		
     	}
-    	
-		if(!badPhoneNum) {
-			campSystem.createAccount(firstname, lastname, phoneNumber, email, password);
-			System.out.println("You have successfully created an account.");
-
-        	menuSelect();
-
-		}
-
-    	errorMessage = true;
-    	
-    	} while(badPhoneNum);
-    	
-    }
+			return true;
+			
+	}
 
 	private static void loginPortal(){
 		clearScreen();
@@ -260,7 +279,7 @@ public class CampUI {
 
 	private static void displayFAQ() {
 		clearScreen();
-
+		
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("***** Frequently Asked Questions *****");
@@ -335,7 +354,9 @@ public class CampUI {
 
 		else if (option ==4){
 			// edit info
-			campSystem.changeInfo();
+			System.out.println("Enter your Username to proceed to the next step:");
+			String username = keyboard.nextLine();
+			campSystem.changeInfo(username);
 		}
 			campSystem.logOff();
 	}
@@ -402,7 +423,7 @@ public class CampUI {
 
 		
 		else if(option ==4){
-			campSystem.changeInfo();
+			//campSystem.changeInfo();
 		}
 		
 
@@ -451,33 +472,48 @@ public class CampUI {
 		
 		if(option == 1) {
 			// view camper
-
+				
 
 		}
 		else if(option == 2) {
 			// register camper
-			
+
 				
 		}
 		else if(option == 3) {
 			// unregister camper
-
-
 		}
+		
+		
 		else if(option == 4) {
-			// remove camper
+			System.out.println("****** Removing Camper ******");
+			System.out.println("Please enter the following information");
+			
+			System.out.println("First Name");
+			String firstName = keyboard.nextLine();
+			System.out.println("Last Name");
+			String lastName = keyboard.nextLine();
+			campSystem.removeChild(firstName, lastName);
 
-
+			System.out.println("You have successfully removed camper "+firstName+" "+lastName+".");
 		}
-		else if(option == 5) {
-			// go back to login portal
-			loginPortal();
+			
+
+			else if(option == 5) {
+				// go back to login portal
+				loginPortal();
+			}
 		}
-
-	}
-
-
+	
+		public static boolean isEmailValid(String emailInput) {
+			return emailInput.matches("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
+		}
 
 }
+
+
+
+
+
 
 
