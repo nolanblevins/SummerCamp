@@ -35,15 +35,14 @@ public class UserList {
         return ret;
     }
 
-    public User getCounselor(UUID uuid){
-        User ret = null;
+
+    public User getUser(UUID uuid){
         for(User u : users){
-            if(u instanceof Counselor && ((Counselor) u).getID().compareTo(uuid) == 0){
-                ret = u;
-                break;
+            if(uuid.compareTo(u.getID()) == 0){
+                return u;
             }
         }
-        return ret;
+        return null;
     }
 
     public void editUser(User user){
