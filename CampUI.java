@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CampUI {
 
-	static CampSystemFacade campSystem = new CampSystemFacade(null, null, null, null, null, null, null);
+	static CampSystemFacade campSystem = new CampSystemFacade(null, null, null);
 
 	public static void main(String[] args) {
 
@@ -222,7 +222,7 @@ public class CampUI {
 			System.out.println("Password: ");
 			passwordInput = keyboard.nextLine();
 
-			campSystem.loginRegisteredUser(emailInput, passwordInput); // DO WE NEED loginCamper method in facade?
+			campSystem.loginRegisteredUser(emailInput, passwordInput); // Campers will never log in
 
 			camperPortal();
 			

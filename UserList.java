@@ -23,16 +23,15 @@ public class UserList {
     public ArrayList<User> getUsers(){
         return this.users;
     }
-    public User getUser(String email){
-        User ret = null;
-        for(User u : users) {
-            if(u instanceof User && u.getEmail().compareTo(email)== 0) {
-                ret = u;
-                break;
+    public User getUser(String email, String password){
+        for(User u : users){
+            if(email.equals(u.getEmail())){
+                if(password.equals(u.getPassword())){
+                    return u;
+                }
             }
-
         }
-        return ret;
+        return null;
     }
 
 

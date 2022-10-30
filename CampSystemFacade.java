@@ -11,15 +11,14 @@ public class CampSystemFacade {
     private ActivityList activityList;
     private ChildList childList;
 
-    public CampSystemFacade(String campName, User user, String campInfo, CampList campList,
-            UserList userList, ActivityList activityList, ChildList childList) {
+    public CampSystemFacade(String campName, User user, String campInfo) {
         this.campName = campName;
         this.user = user;
         this.campInfo = campInfo;
-        this.campList = campList;
-        this.userList = userList;
-        this.activityList = activityList;
-        this.childList = childList;
+        this.campList = CampList.getInstance();
+        this.userList = UserList.getInstance();
+        this.activityList = ActivityList.getInstance();
+        this.childList = ChildList.getInstance();
     }
 
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
@@ -38,7 +37,7 @@ public class CampSystemFacade {
     }
 
     public void loginRegisteredUser(String email, String password) {
-        user = new RegisteredUser(user.firstName, user.lastName, email, user.phoneNumber, password);
+        user = userList.getUser(email, password);
     }
 
     public void logOff() {

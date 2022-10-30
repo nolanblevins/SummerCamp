@@ -215,7 +215,18 @@ public class RegisteredUser extends User{
         return this.children;
     }
     public String toString() {
-        return "RegisteredUser [children=" + children + "]";
+        return "Name: " + this.firstName + " " + this.lastName + "\n" +
+                "Email: " + this.email + "\n" +
+                "Phone Number: " + this.phoneNumber + "\n" +
+                "Children: \n" + this.getChildrenStrings();
+    }
+
+    private String getChildrenStrings(){
+        String childString = "";
+        for(Child c : this.children){
+            childString += "\t" + c.toString() + "\n";
+        }
+        return childString;
     }
 
 }
