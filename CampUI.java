@@ -455,19 +455,8 @@ public class CampUI {
 		}
 		else if(option == 2) {
 			// register camper
-					System.out.println("****** Registrating Camper ******");
-					System.out.print("Please enter the following information");
-					System.out.print("First Name: ");
-					String Fname = keyboard.nextLine();
-					System.out.print("Last Name: " );
-					String Lname = keyboard.nextLine();
-					System.out.print("Medical Information:");
-					String MInfo = keyboard.nextLine();
-					System.out.print("Birthday : ");
-					String Bday = keyboard.nextLine();
-					campSystem.registerChild(Fname, Lname, null, null);
-
-					System.out.println("You have succesfully registered for camper "+Fname+" "+Lname);
+			
+				
 		}
 		else if(option == 3) {
 			// unregister camper
