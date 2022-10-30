@@ -62,7 +62,7 @@ public class User {
     }
 
     public UserType getUserType() {
-        return userType;
+        return this.userType;
     }
 
     public UUID getID(){

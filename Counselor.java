@@ -3,7 +3,6 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Counselor extends User {
-    protected UUID id;
     protected Date birthday;
     protected MedicalInfo medicalInfo;
     protected Group group;
@@ -105,14 +104,6 @@ public class Counselor extends User {
     public MedicalInfo getChildMedInfo(Child child) {
         return child.getMedInfo();
         
-    }
-
-    public UUID getID(){
-        return this.id;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public Date getBirthday() {
