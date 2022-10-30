@@ -1,8 +1,8 @@
 import java.util.Scanner;
-import java.io.Console;
 import java.lang.Thread;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.*;
 
 
 public class CampUI {
@@ -98,6 +98,7 @@ public class CampUI {
     	boolean badPhoneNum;
     	boolean errorMessage = false;
     	boolean emailValid = false;
+		boolean passwordValid = false;
     	do {
     	
     	clearScreen();
@@ -133,23 +134,33 @@ public class CampUI {
 			System.out.println("Invalid Phone Number, please try again");
 		}
 			badPhoneNum = false;
-	
+
+		if(!isValidPassword(password)){
+			passwordValid = false;
+			System.out.println("Invalid Password, please try again");
+			String[] passwordRequire = {"8 characters and at most 20 character",
+										"one digit", "one upper case alphabet", "one lower case alphabet",
+										"one special character which includes !@#$%&*()-+=^."};
+			for(int i=0;i<passwordRequire.length; i++ ){
+				System.out.println((i+1)+"It contains at least "+passwordRequire[i]);
+			}
+		}
+			passwordValid = true;
+
 		if(badPhoneNum && emailValid){
 			errorMessage = false;
 			campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
 			System.out.println("You have succesfully created an account");
 		}
-
-    	
-
-
+ 	
     	errorMessage = true;
     	
 	 } while(errorMessage);
+		
 	}
 
     
-	public static boolean isPhoneValid(String phoneNumber){
+	public static boolean isPhoneValid(String phoneNumber)	{
 		
 		
 		if(phoneNumber.length() != 12) {
@@ -158,7 +169,8 @@ public class CampUI {
 
     	else {
     		for(int i=0;i<phoneNumber.length();i++) {
-    			if(phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1' 
+    				
+					if(phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1' 
     					&& phoneNumber.charAt(i) != '2' && phoneNumber.charAt(i) != '3' 
     					&& phoneNumber.charAt(i) != '4' && phoneNumber.charAt(i) != '5'
     					&& phoneNumber.charAt(i) != '6' && phoneNumber.charAt(i) != '7'
@@ -176,6 +188,32 @@ public class CampUI {
 			return true;
 			
 	}
+	
+	public static boolean isEmailValid(String emailInput) {
+		
+		return emailInput.matches("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
+	
+	}
+
+	public static boolean isValidPassword(String password)
+    {
+  
+        String regex = "^(?=.*[0-9])"
+                       + "(?=.*[a-z])(?=.*[A-Z])"
+                       + "(?=.*[@#$%^&+=])"
+                       + "(?=\\S+$).{8,20}$";
+  
+        Pattern p = Pattern.compile(regex);
+  
+        if (password == null) {
+            return false;
+        }
+  
+        Matcher m = p.matcher(password);
+  
+        return m.matches();
+    }
+  
 
 	private static void loginPortal(){
 		clearScreen();
@@ -353,10 +391,7 @@ public class CampUI {
 		}
 
 		else if (option ==4){
-			// edit info
-			System.out.println("Enter your Username to proceed to the next step:");
-			String username = keyboard.nextLine();
-			campSystem.changeInfo(username);
+			campSystem.changeInfo();
 		}
 			campSystem.logOff();
 	}
@@ -415,15 +450,19 @@ public class CampUI {
 
 		else if(option ==3){
 			
-			System.out.println("Adding new FAQ");
+			System.out.println("****** Adding new FAQ ******");
+			
+			System.out.print("Enter question:");
 			String FAQquestion = keyboard.nextLine();
-
-			campSystem.addToFAQ(FAQquestion);
+			System.out.print("Enter answer:");
+			String FAQanswer = keyboard.nextLine();
+			
+			campSystem.addToFAQ(FAQquestion, FAQanswer);
 		}
 
 		
 		else if(option ==4){
-			//campSystem.changeInfo();
+			campSystem.changeInfo();
 		}
 		
 
@@ -476,7 +515,7 @@ public class CampUI {
 
 		}
 		else if(option == 2) {
-			// register camper
+			// register
 
 				
 		}
@@ -486,16 +525,7 @@ public class CampUI {
 		
 		
 		else if(option == 4) {
-			System.out.println("****** Removing Camper ******");
-			System.out.println("Please enter the following information");
-			
-			System.out.println("First Name");
-			String firstName = keyboard.nextLine();
-			System.out.println("Last Name");
-			String lastName = keyboard.nextLine();
-			campSystem.removeChild(firstName, lastName);
-
-			System.out.println("You have successfully removed camper "+firstName+" "+lastName+".");
+			// remove camper
 		}
 			
 
@@ -505,9 +535,6 @@ public class CampUI {
 			}
 		}
 	
-		public static boolean isEmailValid(String emailInput) {
-			return emailInput.matches("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
-		}
 
 }
 
