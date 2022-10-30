@@ -17,7 +17,7 @@ public class UserList {
     }
 
     public void addUser(User user){
-
+        this.users.add(user);
     }
 
     public ArrayList<User> getUsers(){
@@ -38,7 +38,7 @@ public class UserList {
     public User getCounselor(UUID uuid){
         User ret = null;
         for(User u : users){
-            if(u instanceof Counselor && ((Counselor) u).getUUID().compareTo(uuid) == 0){
+            if(u instanceof Counselor && ((Counselor) u).getID().compareTo(uuid) == 0){
                 ret = u;
                 break;
             }
@@ -47,11 +47,16 @@ public class UserList {
     }
 
     public void editUser(User user){
-
+        for(User u : users){
+            if(user.getID().compareTo(u.getID()) == 0){
+                u = user;
+                return;
+            }
+        }
     }
 
     public void saveUsers(){
-
+        DataWriter.saveUsers();
     }
 
     

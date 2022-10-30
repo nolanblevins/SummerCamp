@@ -15,7 +15,7 @@ public class CampList {
     }
 
     public void addCamp(Camp camp){
-
+        this.camps.add(camp);
     }
 
     //TODO determine how to access camps
@@ -28,11 +28,16 @@ public class CampList {
     }
 
     public void editCamp(Camp camp){
-
+        for(Camp c : camps){
+            if(camp.getUuid().compareTo(c.getUuid()) == 0){
+                c = camp;
+                return;
+            }
+        }
     }
 
     public void saveCamps(){
-
+        DataWriter.saveCamps();
     }
 
 }

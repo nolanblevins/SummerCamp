@@ -16,8 +16,8 @@ public class GroupList {
         return groupList;
     }
 
-    public void addGroup(){
-
+    public void addGroup(Group group){
+        this.groups.add(group);
     }
 
     public Group getGroup(UUID uuid){
@@ -34,11 +34,16 @@ public class GroupList {
     }
 
     public void editGroup(Group group){
-
+        for(Group g : groups){
+            if(group.getUUID().compareTo(g.getUUID()) == 0){
+                g = group;
+                return;
+            }
+        }
     }
 
     public void saveGroups(){
-
+        DataWriter.saveGroups();
     }
 }
 

@@ -17,11 +17,18 @@ public class ChildList{
     }
 
     public void addChild(Child child){
-
+        this.children.add(child);
     }
     
 
     public Child getChild(String name){
+        String[] names = name.split(" ");
+        for(Child c : children){
+            if(names[0].equalsIgnoreCase(c.getFirstName()) && names[1].equalsIgnoreCase(c.getLastName())){
+                return c;
+            }
+        }
+
         return null;
     }
 
@@ -41,10 +48,15 @@ public class ChildList{
     }
 
     public void editUser(Child child){
-
+        for(Child c : children){
+            if(child.getUUID().compareTo(c.getUUID()) == 0){
+                c = child;
+                return;
+            }
+        }
     }
 
-    public void saveUsers(){
-
+    public void saveChildren(){
+        DataWriter.saveChildren();
     }
 }
