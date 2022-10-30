@@ -24,20 +24,30 @@ public class CampSystemFacade {
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
         user = new User(firstName, lastName, email, phoneNumber, password);
         userList.addUser(user);
-
     }
 
-    public void loginDirector(String email, String password) {
-        user = new Director(user.firstName, user.lastName, email, user.phoneNumber, password);
-        
-    }
-
-    public void loginCounselor(String email, String password) {
-        user = new Counselor(user.firstName, user.lastName, email, user.phoneNumber, password, null, null);
-    }
-
-    public void loginRegisteredUser(String email, String password) {
+    public boolean loginDirector(String email, String password) {
         user = userList.getUser(email, password);
+        if(user == null){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean loginCounselor(String email, String password) {
+        user = userList.getUser(email, password);
+        if(user == null){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean loginRegisteredUser(String email, String password) {
+        user = userList.getUser(email, password);
+        if(user == null){
+            return false;
+        }
+        return true;
     }
 
     public void logOff() {

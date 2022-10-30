@@ -223,15 +223,16 @@ public class CampUI {
 			System.out.println("Password: ");
 			passwordInput = keyboard.nextLine();
 
-			campSystem.loginRegisteredUser(emailInput, passwordInput); // Campers will never log in
-
-			camperPortal();
-			
+			if(!campSystem.loginRegisteredUser(emailInput, passwordInput)){
+				//TODO Write the rest of the error checking functionality
+				System.out.println("Invalid Email or Password, returning to login portal");
+			}
+			else{
+				camperPortal();
+			}
 		}
 		else if(loginChoice == 4) {
-
 			menuSelect();
-			
 		}
 		
 	}
