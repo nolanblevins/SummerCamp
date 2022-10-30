@@ -1,12 +1,13 @@
 import java.util.Scanner;
 import java.io.Console;
 import java.lang.Thread;
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
 
 public class CampUI {
 
-	static CampSystemFacade campSystem = new CampSystemFacade(null, null, null, null, null, null, null);
+	static CampSystemFacade campSystem = new CampSystemFacade(null, null, null);
 
 	public static void main(String[] args) {
 
@@ -222,15 +223,16 @@ public class CampUI {
 			System.out.println("Password: ");
 			passwordInput = keyboard.nextLine();
 
-			campSystem.loginRegisteredUser(emailInput, passwordInput); // DO WE NEED loginCamper method in facade?
-
-			camperPortal();
-			
+			if(!campSystem.loginRegisteredUser(emailInput, passwordInput)){
+				//TODO Write the rest of the error checking functionality
+				System.out.println("Invalid Email or Password, returning to login portal");
+			}
+			else{
+				camperPortal();
+			}
 		}
 		else if(loginChoice == 4) {
-
 			menuSelect();
-			
 		}
 		
 	}
@@ -454,8 +456,8 @@ public class CampUI {
 		}
 		else if(option == 2) {
 			// register camper
-
-
+			
+				
 		}
 		else if(option == 3) {
 			// unregister camper

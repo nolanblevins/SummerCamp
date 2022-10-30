@@ -280,7 +280,7 @@ public class DataReader extends DataConstants{
     private static User getCounselor(JSONObject groupJSON) {
         UUID uuid = UUID.fromString((String)groupJSON.get(GROUP_COUNSELOR));
         UserList userList = UserList.getInstance();
-        return userList.getCounselor(uuid);
+        return userList.getUser(uuid);
     }
 
     private static Pediatrician getPediatrician(JSONObject pJSON){

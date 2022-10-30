@@ -3,7 +3,6 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Counselor extends User {
-    protected UUID id;
     protected Date birthday;
     protected MedicalInfo medicalInfo;
     protected Group group;
@@ -21,7 +20,6 @@ public class Counselor extends User {
     public Counselor(String firstName, String lastName, String email, String phoneNumber, String password,
             Date birthday, MedicalInfo medicalInfo) {
         super(firstName, lastName, email, phoneNumber, password);
-        this.id = UUID.randomUUID();
         this.birthday = birthday;
         this.medicalInfo = medicalInfo;
         this.userType = UserType.COUNSELOR;
@@ -40,8 +38,7 @@ public class Counselor extends User {
      */
     public Counselor(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
             Date birthday, MedicalInfo medicalInfo) {
-        super(firstName, lastName, email, phoneNumber, password);
-        this.id = id;
+        super(id, firstName, lastName, email, phoneNumber, password);
         this.birthday = birthday;
         this.medicalInfo = medicalInfo;
         this.userType = UserType.COUNSELOR;
@@ -99,10 +96,6 @@ public class Counselor extends User {
         return medicalInfo;
     }
 
-    public UUID getUUID(){
-        return this.id;
-    }
-
     /**
      * method to get child med info
      * 
@@ -111,14 +104,6 @@ public class Counselor extends User {
     public MedicalInfo getChildMedInfo(Child child) {
         return child.getMedInfo();
         
-    }
-
-    public UUID getID(){
-        return this.id;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public Date getBirthday() {

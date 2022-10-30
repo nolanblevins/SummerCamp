@@ -17,41 +17,44 @@ public class UserList {
     }
 
     public void addUser(User user){
-
+        this.users.add(user);
     }
 
     public ArrayList<User> getUsers(){
         return this.users;
     }
-    public User getUser(String email){
-        User ret = null;
-        for(User u : users) {
-            if(u instanceof User && u.getEmail().compareTo(email)== 0) {
-                ret = u;
-                break;
+    public User getUser(String email, String password){
+        for(User u : users){
+            if(email.equals(u.getEmail())){
+                if(password.equals(u.getPassword())){
+                    return u;
+                }
             }
-
         }
-        return ret;
+        return null;
     }
 
-    public User getCounselor(UUID uuid){
-        User ret = null;
+
+    public User getUser(UUID uuid){
         for(User u : users){
-            if(u instanceof Counselor && ((Counselor) u).getUUID().compareTo(uuid) == 0){
-                ret = u;
-                break;
+            if(uuid.compareTo(u.getID()) == 0){
+                return u;
             }
         }
-        return ret;
+        return null;
     }
 
     public void editUser(User user){
-
+        for(User u : users){
+            if(user.getID().compareTo(u.getID()) == 0){
+                u = user;
+                return;
+            }
+        }
     }
 
     public void saveUsers(){
-
+        DataWriter.saveUsers();
     }
 
     

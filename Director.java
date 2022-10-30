@@ -5,17 +5,13 @@ public class Director extends User {
      * need a create camp method
      */
 
-    private UUID id;
-
     public Director(String firstName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, lastName, email, phoneNumber, password);
-        this.id = UUID.randomUUID();
         this.userType = UserType.DIRECTOR;
     }
 
     public Director(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
-        this.id = id;
+        super(id, firstName, lastName, email, phoneNumber, password);
         this.userType = UserType.DIRECTOR;
     }
 
@@ -35,10 +31,6 @@ public class Director extends User {
 
     public void addtoFAQ(String question, String answer) {
         new FAQ(question, answer);
-    }
-
-    public UUID getID(){
-        return this.id;
     }
 
 }

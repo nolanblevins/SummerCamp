@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat;
 
 public class DataWriter extends DataConstants{
     public static final String pattern = "dd:MM:yyyy";
-    public static void main(String[] args){
-        saveGroups();
-    }
+//    public static void main(String[] args){
+//        saveUsers();
+//    }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
@@ -115,7 +115,7 @@ public class DataWriter extends DataConstants{
         else if(user.getUserType() == UserType.COUNSELOR){
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             Counselor counselor = ((Counselor)user);
-            userDetails.put(LIST_UUID, counselor.getId().toString());
+            userDetails.put(LIST_UUID, counselor.getID().toString());
             userDetails.put(USER_TYPE, "Counselor");
             userDetails.put(BIRTHDAY, simpleDateFormat.format(
                     counselor.getBirthday()));
@@ -186,7 +186,7 @@ public class DataWriter extends DataConstants{
         groupJSON.put(GROUP_NAME, group.getGroupName());
         groupJSON.put(GROUP_CABIN, group.getCabin());
         groupJSON.put(GROUP_SIZE, group.getGroupSize());
-        groupJSON.put(GROUP_COUNSELOR, group.getCounselor().getUUID().toString());
+        groupJSON.put(GROUP_COUNSELOR, group.getCounselor().getID().toString());
         groupJSON.put(CHILDREN, getChildrenIDS(group.getCampers()));
         groupJSON.put(GROUP_SCHEDULE, getSchedule(group.getSchedule()));
 

@@ -1,3 +1,4 @@
+import java.util.UUID;
 public class User {
     protected String firstName;
     protected String lastName;
@@ -5,6 +6,7 @@ public class User {
     protected String phoneNumber;
     protected String password;
     protected UserType userType;
+    protected UUID uuid;
 
     /**
      * Constructs the user with all required parameters
@@ -16,6 +18,16 @@ public class User {
      * @param password    The password of the user
      */
     public User(String firstName, String lastName, String email, String phoneNumber, String password) {
+        this.uuid = UUID.randomUUID();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
+
+    public User(UUID uuid, String firstName, String lastName, String email, String phoneNumber, String password) {
+        this.uuid = uuid;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -50,7 +62,11 @@ public class User {
     }
 
     public UserType getUserType() {
-        return userType;
+        return this.userType;
+    }
+
+    public UUID getID(){
+        return this.uuid;
     }
 
 }

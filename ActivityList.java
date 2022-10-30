@@ -12,14 +12,12 @@ public class ActivityList {
     public static ActivityList getInstance() {
         if(activityList == null) {
             activityList = new ActivityList();
-
         }
         return activityList;
     }
 
     public void addActivity(Activity activity) {
-
-
+        this.activities.add(activity);
     }
 
     public ArrayList<Activity> getAllActivities() {
@@ -36,10 +34,15 @@ public class ActivityList {
     }
 
     public void editActivity(Activity activity) {
-
+        for(Activity a : activities){
+            if(activity.getUuid().compareTo(a.getUuid()) == 0){
+                a = activity;
+                return;
+            }
+        }
     }
 
     public void saveActivity() {
-
+        DataWriter.saveActivies();
     }
 }
