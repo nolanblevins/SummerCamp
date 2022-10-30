@@ -286,13 +286,56 @@ public class CampUI {
         try {
             TimeUnit.MILLISECONDS.sleep(num);
         } catch (Exception e) {
-            System.out.println("Timmer error");
+            System.out.println("timer error");
         }
     }
 
 	private static void conselorPortal() {
 		clearScreen();
 		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int option;
+		boolean validOption = false;
+
+		do {
+			
+			System.out.println("1. View Group");
+			System.out.println("2. Edit Medical Info");
+			System.out.println("3. View Schedule");
+			System.out.println("4. Edit User Information");
+			System.out.println("5. Log out");
+			
+			option = keyboard.nextInt();
+			keyboard.nextLine();
+			
+			if(option > 5 || option < 1) {
+				validOption = false;
+			}
+			else {
+				validOption = true;
+			}
+			
+		}while(!validOption);
+
+		if(option == 1){
+		// view group
+			System.out.println(campSystem.viewGroup().toString());
+	}
+		else if(option ==2){
+			// edit med info
+		}
+
+		else if(option ==3){
+			//view schedule
+			campSystem.viewSchedule();
+		}
+
+		else if (option ==4){
+			// edit info
+			campSystem.changeInfo();
+		}
+			campSystem.logOff();
 	}
 
 	private static void directorPortal() {
@@ -309,12 +352,12 @@ public class CampUI {
 			System.out.println("2. Generate New Schedule");
 			System.out.println("3. Add new FAQ");
 			System.out.println("4. Edit User Information");
-			System.out.println("5. Log out");
-			
+			System.out.println("5. Create new Camp");
+			System.out.println("6. Log out");
 			option = keyboard.nextInt();
 			keyboard.nextLine();
 			
-			if(option > 4 || option < 1) {
+			if(option > 6 || option < 1) {
 				validOption = false;
 			}
 			else {
@@ -330,7 +373,7 @@ public class CampUI {
 			System.out.println("Please enter the following information: ");
 			System.out.print("Title: ");
 			String Title = keyboard.nextLine();
-			System.out.print("Duration: " );
+			System.out.print("Duration (minutes): " );
 			int Duration = keyboard.nextInt();
 			System.out.print("Description ");
 			String Description = keyboard.nextLine();
@@ -343,7 +386,8 @@ public class CampUI {
 		}
 
 		else if(option ==2){
-
+			// generate schedule
+			
 			}
 
 		else if(option ==3){
@@ -354,19 +398,79 @@ public class CampUI {
 			campSystem.addToFAQ(FAQquestion);
 		}
 
-		// can director edit their infos?
+		
 		else if(option ==4){
-
+			campSystem.changeInfo();
 		}
 		
+
+		// create new theme scenerio
 		else if(option ==5){
-			loginPortal();
+
+		}
+
+		else if(option ==6){
+			campSystem.logOff();
 		}
 		
 	}
 
 	private static void camperPortal() {
 		clearScreen();
+
+		Scanner keyboard = new Scanner(System.in);
+
+		int option;
+		boolean validOption = false;
+
+		do {
+		System.out.println();
+
+		System.out.println("1. View Camper");
+		System.out.println("2. Register Camper");
+		System.out.println("3. Unregister Camper");
+		System.out.println("4. Remove Camper");
+		System.out.println("5. Go back to previous page");
+
+		System.out.print("Please enter your option: ");
+
+		option = keyboard.nextInt();
+		keyboard.nextLine();
+
+		if(option > 5 || option < 1) {
+			validOption = false;
+		}
+		else {
+			validOption = true;
+		}
+
+		}while(!validOption);
+
+		
+		if(option == 1) {
+			// view camper
+
+
+		}
+		else if(option == 2) {
+			// register camper
+
+
+		}
+		else if(option == 3) {
+			// unregister camper
+
+
+		}
+		else if(option == 4) {
+			// remove camper
+
+
+		}
+		else if(option == 5) {
+			// go back to login portal
+			loginPortal();
+		}
 
 	}
 

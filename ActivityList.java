@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ActivityList {
     private ArrayList<Activity> activities;
@@ -23,6 +24,15 @@ public class ActivityList {
 
     public ArrayList<Activity> getAllActivities() {
         return this.activities;
+    }
+
+    public Activity getActivity(UUID uuid){
+        for(Activity activity : activities){
+            if(uuid.compareTo(activity.getUuid()) == 0){
+                return activity;
+            }
+        }
+        return null;
     }
 
     public void editActivity(Activity activity) {

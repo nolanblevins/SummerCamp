@@ -1,5 +1,4 @@
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class DataWriter extends DataConstants{
     public static final String pattern = "dd:MM:yyyy";
     public static void main(String[] args){
-        saveChildren();
+        saveGroups();
     }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
@@ -47,15 +46,57 @@ public class DataWriter extends DataConstants{
     }
 
     public static void saveCamps(){
+        CampList campList = CampList.getInstance();
+        ArrayList<Camp> camps = campList.getAllCamps();
+        JSONArray jsonChildren = new JSONArray();
 
+        for(Camp c : camps){
+            jsonChildren.add(getCampJSON(c));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonChildren.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void saveGroups(){
+        GroupList groupList = GroupList.getInstance();
+        ArrayList<Group> groups = groupList.getAllGroups();
+        JSONArray jsonGroups = new JSONArray();
 
+        for(Group g : groups){
+            jsonGroups.add(getGroupJSON(g));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonGroups.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void saveActivies(){
+        ActivityList activityList = ActivityList.getInstance();
+        ArrayList<Activity> activities = activityList.getAllActivities();
+        JSONArray jsonActivity = new JSONArray();
 
+        for(Activity a : activities){
+            jsonActivity.add(getActivityJSON(a));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonActivity.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private static JSONObject getUserJSON(User user){
@@ -82,9 +123,11 @@ public class DataWriter extends DataConstants{
                     counselor.getMedInfo().getAllergies()));
             userDetails.put(ADDRESS, counselor.getMedInfo().getAddress());
             userDetails.put(CONDITIONS, stringsToArray(
-                    counselor.getMedInfo().getConditions()));
+                    counselor.getMedInfo().getMedNotes()));
             userDetails.put(EMERGENCY_CONTACT, getContactObject(
                     counselor.getMedInfo().getEmergencyContact()));
+            userDetails.put(PEDIATRICIAN, getPediatricianObject(
+                    counselor.getMedInfo().getPediatrician()));
         }
         else{
             Director director = ((Director)user);
@@ -96,22 +139,59 @@ public class DataWriter extends DataConstants{
 
     private static JSONObject getChildJSON(Child child){
         JSONObject childDetails = new JSONObject();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
         childDetails.put(LIST_UUID, child.getUUID().toString());
         childDetails.put(FIRST_NAME, child.getFirstName());
         childDetails.put(LAST_NAME, child.getLastName());
-        childDetails.put(BIRTHDAY, simpleDateFormat.format(
+        childDetails.put(BIRTHDAY, new SimpleDateFormat(pattern).format(
                 child.getBirthday()));
         childDetails.put(ADDRESS, child.getMedInfo().getAddress());
-        childDetails.put(NOTES, arrayToStrings(child.getNotes()));
-        childDetails.put(ALLERGIES, arrayToStrings(
+        childDetails.put(NOTES, stringsToArray(child.getNotes()));
+        childDetails.put(ALLERGIES, stringsToArray(
                 child.getMedInfo().getAllergies()));
         childDetails.put(EMERGENCY_CONTACT, getContactObject(
                 child.getMedInfo().getEmergencyContact()));
-        childDetails.put(CONDITIONS, child.getMedInfo().getConditions());
+        childDetails.put(CONDITIONS, child.getMedInfo().getMedNotes());
+        childDetails.put(PEDIATRICIAN, getPediatricianObject(
+                child.getMedInfo().getPediatrician()));
         return childDetails;
     }
 
+    private static JSONObject getActivityJSON(Activity activity){
+        JSONObject activityJSON = new JSONObject();
+        activityJSON.put(LIST_UUID, activity.getUuid().toString());
+        activityJSON.put(ACTIVITY_TITLE, activity.getTitle());
+        activityJSON.put(ACTIVITY_DURATION, activity.getDuration());
+        activityJSON.put(ACTIVITY_DESCRIPTION, activity.getDescription());
+        activityJSON.put(ACTIVITY_LOCATION, activity.getLocation());
+
+        return activityJSON;
+    }
+
+    private static JSONObject getCampJSON(Camp camp){
+        JSONObject campJSON = new JSONObject();
+        campJSON.put(LIST_UUID, camp.getUuid().toString());
+        campJSON.put(CAMP_DATE, new SimpleDateFormat(pattern).format(
+                camp.getDate()));
+        campJSON.put(CAMP_THEME, camp.getTheme());
+        campJSON.put(CAMP_PRICE, camp.getPrice());
+        campJSON.put(CAMP_GROUP_ID, getGroupIDS(camp.getGroups()));
+
+        return campJSON;
+    }
+
+    private static JSONObject getGroupJSON(Group group){
+        JSONObject groupJSON = new JSONObject();
+        groupJSON.put(LIST_UUID, group.getUUID().toString());
+        groupJSON.put(GROUP_NAME, group.getGroupName());
+        groupJSON.put(GROUP_CABIN, group.getCabin());
+        groupJSON.put(GROUP_SIZE, group.getGroupSize());
+        groupJSON.put(GROUP_COUNSELOR, group.getCounselor().getUUID().toString());
+        groupJSON.put(CHILDREN, getChildrenIDS(group.getCampers()));
+        groupJSON.put(GROUP_SCHEDULE, getSchedule(group.getSchedule()));
+
+        return groupJSON;
+    }
     private static JSONArray getChildrenIDS(ArrayList<Child> children){
         JSONArray uuids = new JSONArray();
         for(Child c : children){
@@ -119,6 +199,29 @@ public class DataWriter extends DataConstants{
         }
         return uuids;
     }
+
+    private static JSONArray getGroupIDS(ArrayList<Group> groups){
+        JSONArray uuids = new JSONArray();
+        for(Group g : groups){
+            uuids.add(g.getUUID().toString());
+        }
+        return uuids;
+    }
+
+    private static JSONObject getSchedule(ArrayList<Schedule> schedules){
+        JSONObject scheduleJSON = new JSONObject();
+
+        for(Schedule s : schedules){
+            JSONArray dayJSON = new JSONArray();
+            for(Activity a : s.getSchedule()){
+                dayJSON.add(a.getUuid().toString());
+            }
+            scheduleJSON.put(s.getDay().toString(), dayJSON);
+        }
+
+        return scheduleJSON;
+    }
+
 
     private static JSONArray stringsToArray(ArrayList<String> strings){
         JSONArray jsonStrings = new JSONArray();
@@ -143,12 +246,12 @@ public class DataWriter extends DataConstants{
         return contactArray;
     }
 
-    private static JSONArray arrayToStrings(ArrayList<String> strings){
-        JSONArray jsonArray = new JSONArray();
-        for(String s : strings){
-            jsonArray.add(s);
-        }
-
-        return jsonArray;
+    private static JSONObject getPediatricianObject(Pediatrician pediatrician){
+        JSONObject pJSON = new JSONObject();
+        pJSON.put(FIRST_NAME, pediatrician.getFirstName());
+        pJSON.put(LAST_NAME, pediatrician.getLastName());
+        pJSON.put(PHONE_NUMBER, pediatrician.getPhoneNumber());
+        pJSON.put(PEDIATRICIAN_BUSINESS, pediatrician.getBusiness());
+        return pJSON;
     }
 }

@@ -4,28 +4,37 @@ public class MedicalInfo {
     private ArrayList<String> allergies;
     private ArrayList<Contact> emergencyContact;
     private String address;
-    private ArrayList<String> conditions;
+    private ArrayList<String> medNotes;
     private Pediatrician pediatrician;
 
   
     //TODO add waiver functionality??
+
+    public Pediatrician getPediatrician() {
+        return pediatrician;
+    }
+
     /**
      * Initializes the medical information for the user
      *
      * @param emergencyContact  who would the camp call if there's an emergency
      * @param address   where the child lives
      */
-    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> conditions, Pediatrician pediatrician, ArrayList<String> ChildMedicationAndAdministration) {
+    public MedicalInfo(ArrayList<Contact> emergencyContact, String address, ArrayList<String> allergies, ArrayList<String> medNotes, Pediatrician pediatrician) {
         this.allergies = allergies;
         this.emergencyContact = emergencyContact;
         this.address = address;
-        this.conditions = conditions;
+        this.medNotes = medNotes;
         this.pediatrician = pediatrician;
 
     }
-    public ArrayList<String> getMedAndAdmin() {
-        return this.ChildMedicationAndAdministration;
-    }
+
+    /******************
+     * Lets just change conditions to medNotes
+     ******************/
+//    public ArrayList<String> getMedAndAdmin() {
+//        return this.ChildMedicationAndAdministration;
+//    }
 
     public ArrayList<String> getAllergies() {
         return allergies;
@@ -39,8 +48,8 @@ public class MedicalInfo {
         return address;
     }
 
-    public ArrayList<String> getConditions() {
-        return conditions;
+    public ArrayList<String> getMedNotes() {
+        return medNotes;
     }
 
     /**
@@ -49,7 +58,7 @@ public class MedicalInfo {
      * @return String   a summarized version of medical info
      */
     public String toString() {
-        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.conditions+" Pediatrician: "+this.pediatrician;
+        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.medNotes+" Pediatrician: "+this.pediatrician;
     }
     
 }
