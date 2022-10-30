@@ -21,7 +21,6 @@ public class Counselor extends User {
     public Counselor(String firstName, String lastName, String email, String phoneNumber, String password,
             Date birthday, MedicalInfo medicalInfo) {
         super(firstName, lastName, email, phoneNumber, password);
-        this.id = UUID.randomUUID();
         this.birthday = birthday;
         this.medicalInfo = medicalInfo;
         this.userType = UserType.COUNSELOR;
@@ -40,8 +39,7 @@ public class Counselor extends User {
      */
     public Counselor(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
             Date birthday, MedicalInfo medicalInfo) {
-        super(firstName, lastName, email, phoneNumber, password);
-        this.id = id;
+        super(id, firstName, lastName, email, phoneNumber, password);
         this.birthday = birthday;
         this.medicalInfo = medicalInfo;
         this.userType = UserType.COUNSELOR;
@@ -97,10 +95,6 @@ public class Counselor extends User {
      */
     public MedicalInfo getMedInfo() {
         return medicalInfo;
-    }
-
-    public UUID getUUID(){
-        return this.id;
     }
 
     /**

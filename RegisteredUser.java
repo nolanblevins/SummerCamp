@@ -6,34 +6,29 @@ import java.text.SimpleDateFormat;
 
 public class RegisteredUser extends User{
     protected ArrayList<Child> children;
-    protected UUID id;
+    protected UserType userType;
     
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, lastName, email, phoneNumber, password);
         this.children = new ArrayList<>();
-        this.id = UUID.randomUUID();
-        this.userType = UserType.REGISTERED_USER;
     }
 
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
         super(firstName, lastName, email, phoneNumber, password);
         this.children = children;
-        this.id = UUID.randomUUID();
         this.userType = UserType.REGISTERED_USER;
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
-        super(firstName, lastName, email, phoneNumber, password);
-        this.id = id;
+        super(id, firstName, lastName, email, phoneNumber, password);
         this.userType = UserType.REGISTERED_USER;
     }
 
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
-        super(firstName, lastName, email, phoneNumber, password);
+        super(id, firstName, lastName, email, phoneNumber, password);
         this.children = children;
-        this.id = id;
         this.userType = UserType.REGISTERED_USER;
     }
 
@@ -217,15 +212,11 @@ public class RegisteredUser extends User{
 
     }
 
-    public UUID getID(){
-        return this.id;
-    }
-
     public ArrayList<Child> getChildren(){
         return this.children;
     }
     public String toString() {
-        return "RegisteredUser [children=" + children + ", id=" + id + "]";
+        return "RegisteredUser [children=" + children + "]";
     }
 
 }
