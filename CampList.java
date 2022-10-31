@@ -22,6 +22,17 @@ public class CampList {
     public Camp getCamp(String theme){
         return null;
     }
+    public Camp getCamp(Child child){
+        for(Camp c : camps){
+            ArrayList<Group> groups = c.getGroups();
+            for(Group g : groups){
+                if(g.getGroupByChild(child) != null){
+                    return c;
+                }
+            }
+        }
+        return null;
+    }
 
     public ArrayList<Camp> getAllCamps(){
         return this.camps;
