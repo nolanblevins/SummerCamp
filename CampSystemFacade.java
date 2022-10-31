@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+// TODO Have director input a list of themes for a camp, instantiate camp based on that
 public class CampSystemFacade {
     private String campName;
     private User user;

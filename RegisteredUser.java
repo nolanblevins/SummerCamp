@@ -102,6 +102,7 @@ public class RegisteredUser extends User {
         //return Group.getSchedule();
     }
 
+    // TODO Move the prints to the UI
     public Child registerChild() {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter child's first name:");
