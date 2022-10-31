@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Camp {
     private Date date;
@@ -91,7 +92,11 @@ public class Camp {
      * @return String   is a breif description of the camp's data
      */
     public String toString() {
-        return ("Date: " + this.date + " Price: " + this.price);
+        String pattern = "MM/dd/yyyy";
+        return "Camp:" +
+                "\n\tDate: " + new SimpleDateFormat(pattern).format(this.date) +
+                "\n\tPrice: " + this.price +
+                "\n\tTheme: " + this.theme;
     }
 
     

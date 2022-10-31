@@ -58,7 +58,14 @@ public class MedicalInfo {
      * @return String   a summarized version of medical info
      */
     public String toString() {
-        return "Allergies: "+this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.medNotes+" Pediatrician: "+this.pediatrician;
+        String ret = "Medical Info:";
+        ret += "\tAllergies: ";
+        for(String s : allergies){
+            ret += s + ", ";
+        }
+        ret += "\n\t" + emergencyContact.toString();
+        // "Allergies: " + this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.medNotes+" Pediatrician: "+this.pediatrician;
+        return ret;
     }
     
 }

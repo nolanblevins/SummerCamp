@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
+import java.text.SimpleDateFormat;
 
 public class Child {
     private UUID id;
@@ -18,7 +19,6 @@ public class Child {
      * @param lastName    childs last name
      * @param medicalInfo childs med info
      * @param birthday    child bday
-     * @param notes     childs notes
      */
     public Child(String firstName, String lastName, MedicalInfo medicalInfo, Date birthday) {
         this.id = UUID.randomUUID();
@@ -97,8 +97,9 @@ public class Child {
      * @return will return a concatenated
      */
     public String toString() {
-        return "Child [firstName=" + firstName + ", lastName=" + lastName + ", medicalInfo=" + medicalInfo
-                + ", birthday=" + birthday + "]";
+        String pattern = "dd/MM/yyyy";
+        return "Name: " + firstName + " " + lastName +
+                "\nBirthday: " + new SimpleDateFormat(pattern).format(birthday);
     }
 
 }

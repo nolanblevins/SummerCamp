@@ -146,14 +146,18 @@ public class CampSystemFacade {
         return "";
     }
 
-    public String viewCamper(){
+    public String viewCamperRegistration(){
         String ret = "";
 
         for(Child c : ((RegisteredUser) user).getChildren()){
             ret += c.toString() + "\n";
-            ret += campList.getCamp(c).toString() + "\n";
-            ret += "\n";
+            ArrayList<Camp> camps = campList.getCamp(c);
+            for(Camp camp : camps){
+                ret += camp.toString();
+            }
+            ret += "\n\n";
         }
+        ret += "Hit Enter to return to User Portal";
 
         return ret;
     }

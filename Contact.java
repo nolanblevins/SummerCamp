@@ -31,4 +31,12 @@ public Contact getContact() {
     public String getRelationship() {
         return relationship;
     }
+
+    public String toString(){
+        String ret = "Emergency Contact: ";
+        ret += "\n\tName: " + firstName + " " + lastName;
+        ret += "\n\tRelationship: " + relationship;
+        ret += "\n\tPhone Number: " + phoneNumber;
+        return ret;
+    }
 }

@@ -12,11 +12,11 @@ public class CampUI {
 	public static void main(String[] args) {
 
 		//DataReader dataReader = new DataReader();
-        
+
 		loadingScreen();
 
         menuSelect();
-    
+
     }
 
 	private static void loadingScreen() {
@@ -37,14 +37,14 @@ public class CampUI {
 			sleep(24);
 			System.out.print("\b\b\b\b\b");
 		}
-		
+
 		System.out.println("LOADED");
 		sleep(224);
 		clearScreen();
 	}
-    
+
     private static void menuSelect() {
-    	
+
     	Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("Welcome to GoofyGobbler Summercamp!\n\n************ Main Menu ************");
@@ -52,26 +52,26 @@ public class CampUI {
         for(int i=0;i<menuOptions.length;i++) {
             System.out.println((i+1)+". "+menuOptions[i]);
         }
-        
+
         int menuSelection;
-        
+
         boolean invalidInput = false;
-        
+
         do {
-        	
+
         	if(invalidInput) {
         		System.out.println("Menu option not valid, choose again...");
         	}
-        	
+
         	menuSelection = keyboard.nextInt();
         	keyboard.nextLine();
-        	
+
         	if(menuSelection == 1) {
         		createAccountMenu();
         	}
         	else if(menuSelection == 2) {
 				loginPortal();
-        		
+
         	}
         	else if(menuSelection == 3) {
         		campInfo();
@@ -83,32 +83,32 @@ public class CampUI {
 				break;
         	}
         	else {
-				
+
         	}
-        	
-        	
+
+
         } while(menuSelection > (menuOptions.length) || menuSelection < 1);
-    
+
     }
-    
+
     private static void createAccountMenu() {
-    	
+
     	Scanner keyboard = new Scanner(System.in);
-    	
+
     	boolean badPhoneNum;
     	boolean errorMessage = false;
     	boolean emailValid = false;
 		boolean passwordValid = false;
     	do {
-    	
+
     	clearScreen();
-    	
+
     	if(errorMessage) {
     		System.out.println("Invalid phone number. Please try again...\n ");
     	}
-    	
+
     	errorMessage = false;
-    	
+
     	System.out.println("************ Account Registration ************\n");
     	System.out.println("Please enter the following information: ");
     	System.out.print("First name: ");
@@ -121,14 +121,14 @@ public class CampUI {
     	String phoneNumber = keyboard.nextLine();
     	System.out.print("Password: ");
     	String password = keyboard.nextLine();
-    	
-    
+
+
     	if(!isEmailValid(emailInput)){
 			emailValid = false;
 			System.out.println("Invalid Email Address, please try again");
 		}
-			emailValid = true; 
-	
+			emailValid = true;
+
 		if(!isPhoneValid(phoneNumber)){
 			badPhoneNum = true;
 			System.out.println("Invalid Phone Number, please try again");
@@ -152,26 +152,26 @@ public class CampUI {
 			campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
 			System.out.println("You have succesfully created an account");
 		}
- 	
+
     	errorMessage = true;
-    	
+
 	 } while(errorMessage);
-		
+
 	}
 
-    
+
 	public static boolean isPhoneValid(String phoneNumber)	{
-		
-		
+
+
 		if(phoneNumber.length() != 12) {
     			return false;
     	}
 
     	else {
     		for(int i=0;i<phoneNumber.length();i++) {
-    				
-					if(phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1' 
-    					&& phoneNumber.charAt(i) != '2' && phoneNumber.charAt(i) != '3' 
+
+					if(phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1'
+    					&& phoneNumber.charAt(i) != '2' && phoneNumber.charAt(i) != '3'
     					&& phoneNumber.charAt(i) != '4' && phoneNumber.charAt(i) != '5'
     					&& phoneNumber.charAt(i) != '6' && phoneNumber.charAt(i) != '7'
     					&& phoneNumber.charAt(i) != '8' && phoneNumber.charAt(i) != '9'
@@ -179,73 +179,74 @@ public class CampUI {
     				return false;
     			}
     		}
-    		
+
     		if(phoneNumber.charAt(3) != '-' && phoneNumber.charAt(7) != '-') {
     			return true;
     		}
-    		
+
     	}
 			return true;
-			
+
 	}
-	
+
 	public static boolean isEmailValid(String emailInput) {
-		
+
 		return emailInput.matches("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
-	
+
 	}
 
 	public static boolean isValidPassword(String password)
     {
-  
+
         String regex = "^(?=.*[0-9])"
                        + "(?=.*[a-z])(?=.*[A-Z])"
                        + "(?=.*[@#$%^&+=])"
                        + "(?=\\S+$).{8,20}$";
-  
+
         Pattern p = Pattern.compile(regex);
-  
+
         if (password == null) {
             return false;
         }
-  
+
         Matcher m = p.matcher(password);
-  
+
         return m.matches();
     }
-  
+
 
 	private static void loginPortal(){
 		clearScreen();
 
 		Scanner keyboard = new Scanner(System.in);
-    	
+
 		clearScreen();
 		System.out.println("***** Log in *****");
-		
+
 		boolean validLoginOption = false;
-		
+
 		int loginChoice;
-		
+
 		do {
-			
+
 			System.out.println("1. Counselor login");
 			System.out.println("2. Director login");
 			System.out.println("3. Camper login");
 			System.out.println("4. Go back to previous page");
-			
+
 			loginChoice = keyboard.nextInt();
 			keyboard.nextLine();
-			
+
 			if(loginChoice > 4 || loginChoice < 1) {
 				validLoginOption = false;
 			}
 			else {
 				validLoginOption = true;
 			}
-			
+
 		}while(!validLoginOption);
 
+		clearScreen();
 		String emailInput;
 		String passwordInput;
 
@@ -263,6 +264,7 @@ public class CampUI {
 				loginPortal();
 			}
 			else{
+				clearScreen();
 				conselorPortal();
 			}
 		}
@@ -280,6 +282,7 @@ public class CampUI {
 				loginPortal();
 			}
 			else{
+				clearScreen();
 				directorPortal();
 			}
 		}
@@ -297,6 +300,7 @@ public class CampUI {
 				loginPortal();
 			}
 			else{
+				clearScreen();
 				camperPortal();
 			}
 		}
@@ -328,7 +332,7 @@ public class CampUI {
 
 	private static void displayFAQ() {
 		clearScreen();
-		
+
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("***** Frequently Asked Questions *****");
@@ -344,7 +348,7 @@ public class CampUI {
 			}
 		}
 		menuSelect();
-		
+
 	}
 
 	private static void clearScreen() {
@@ -362,30 +366,30 @@ public class CampUI {
 
 	private static void conselorPortal() {
 		clearScreen();
-		
+
 		Scanner keyboard = new Scanner(System.in);
-		
+
 		int option;
 		boolean validOption = false;
 
 		do {
-			
+
 			System.out.println("1. View Group");
 			System.out.println("2. Edit Medical Info");
 			System.out.println("3. View Schedule");
 			System.out.println("4. Edit User Information");
 			System.out.println("5. Log out");
-			
+
 			option = keyboard.nextInt();
 			keyboard.nextLine();
-			
+
 			if(option > 5 || option < 1) {
 				validOption = false;
 			}
 			else {
 				validOption = true;
 			}
-			
+
 		}while(!validOption);
 
 		if(option == 1){
@@ -411,12 +415,12 @@ public class CampUI {
 		clearScreen();
 
 		Scanner keyboard = new Scanner(System.in);
-		
+
 		int option;
 		boolean validOption = false;
 
 		do {
-			
+
 			System.out.println("1. Add new Activity");
 			System.out.println("2. Generate New Schedule");
 			System.out.println("3. Add new FAQ");
@@ -425,18 +429,18 @@ public class CampUI {
 			System.out.println("6. Log out");
 			option = keyboard.nextInt();
 			keyboard.nextLine();
-			
+
 			if(option > 6 || option < 1) {
 				validOption = false;
 			}
 			else {
 				validOption = true;
 			}
-			
+
 		}while(!validOption);
 
 		if(option == 1){
-			
+
 			//todo error checking
 			System.out.println("****** Adding New Activity ******");
 			System.out.println("Please enter the following information: ");
@@ -456,26 +460,26 @@ public class CampUI {
 
 		else if(option ==2){
 			// generate schedule
-			
+
 			}
 
 		else if(option ==3){
-			
+
 			System.out.println("****** Adding new FAQ ******");
-			
+
 			System.out.print("Enter question:");
 			String FAQquestion = keyboard.nextLine();
 			System.out.print("Enter answer:");
 			String FAQanswer = keyboard.nextLine();
-			
+
 			// campSystem.addToFAQ(FAQquestion, FAQanswer);
 		}
 
-		
+
 		else if(option ==4){
 			campSystem.changeInfo(null, null, null, null, null);
 		}
-		
+
 
 		// create new theme scenerio
 		else if(option ==5){
@@ -485,7 +489,7 @@ public class CampUI {
 		else if(option ==6){
 			campSystem.logOff();
 		}
-		
+
 	}
 
 	private static void camperPortal() {
@@ -499,18 +503,20 @@ public class CampUI {
 		do {
 		System.out.println();
 
-		System.out.println("1. View Camper");
-		System.out.println("2. Register Camper");
+		System.out.println("****** User Portal ******");
+		System.out.println("1. View Camper Registration Info");
+		System.out.println("2. View Camper Medical Info");
+		System.out.println("3. Register Camper");
 		System.out.println("3. Unregister Camper");
-		System.out.println("4. Remove Camper");
-		System.out.println("5. Log Out");
+		System.out.println("5. Remove Camper");
+		System.out.println("6. Log Out");
 
 		System.out.print("Please enter your option: ");
 
 		option = keyboard.nextInt();
 		keyboard.nextLine();
 
-		if(option > 5 || option < 1) {
+		if(option > 6 || option < 1) {
 			validOption = false;
 		}
 		else {
@@ -519,31 +525,38 @@ public class CampUI {
 
 		}while(!validOption);
 
-		
+
 		if(option == 1) {
-			System.out.println(campSystem.viewCamper());
+			clearScreen();
+			System.out.println("****** Camper Registration Info ******");
+			System.out.println(campSystem.viewCamperRegistration());
+			keyboard.nextLine();
+			camperPortal();
 		}
-		else if(option == 2) {
+        else if(option == 2){
+            // med info
+        }
+		else if(option == 3) {
 			// register
 
-				
+
 		}
-		else if(option == 3) {
+		else if(option == 4) {
 			// unregister camper
 		}
-		
-		
-		else if(option == 4) {
+
+
+		else if(option == 5) {
 			// remove camper
 		}
-			
 
-			else if(option == 5) {
+
+		else if(option == 6) {
 				// go back to login portal
-				loginPortal();
-			}
+			loginPortal();
 		}
-	
+    }
+
 
 }
 
