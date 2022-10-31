@@ -15,7 +15,7 @@ public class Group {
     private int groupSize;
     private Counselor counselor;
     private UUID id;
-    
+
     public Group(String groupName, int cabin, int groupSize) {
         this.groupName = groupName;
         this.cabin = cabin;
@@ -33,7 +33,7 @@ public class Group {
     }
 
     public Group(UUID id, String groupName, int cabin, int groupSize, User counselor,
-                 ArrayList<Child> campers, ArrayList<Schedule> schedule) {
+            ArrayList<Child> campers, ArrayList<Schedule> schedule) {
         this.groupName = groupName;
         this.cabin = cabin;
         this.groupSize = groupSize;
@@ -43,40 +43,48 @@ public class Group {
         this.schedule = schedule;
     }
 
+    public void createSchedule() {
+        Schedule s = new Schedule(null, null);
+        this.schedule = s.generateSchedule();
+    }
+
     public ArrayList<Schedule> getSchedule() {
         return schedule;
     }
+
     public Counselor getCounselor() {
         return this.counselor;
     }
+
     public ArrayList<Child> getCampers() {
         return this.campers;
-
     }
+
     public Group getGroupByCounselor(Counselor counselor) {
         Camp c = new Camp(null, 0, null);
         ArrayList<Group> groups = new ArrayList<Group>();
         groups = c.getGroups();
-        for(int i = 0; i < groups.size(); i++) {
-            if(groups.get(i).getCounselor()==counselor) {
-                return groups.get(i);
-            }
-        }
-        return null;
-    }
-    public Group getGroupByChild(Child child) {
-        Camp c = new Camp(null, 0, null);
-        ArrayList<Group> groups = new ArrayList<Group>();
-        groups = c.getGroups();
-        for(int i = 0; i < groups.size(); i++) {
-            if(groups.get(i).getCampers().contains(child)) {
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i).getCounselor() == counselor) {
                 return groups.get(i);
             }
         }
         return null;
     }
 
-    public UUID getUUID(){
+    public Group getGroupByChild(Child child) {
+        Camp c = new Camp(null, 0, null);
+        ArrayList<Group> groups = new ArrayList<Group>();
+        groups = c.getGroups();
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i).getCampers().contains(child)) {
+                return groups.get(i);
+            }
+        }
+        return null;
+    }
+
+    public UUID getUUID() {
         return this.id;
     }
 
@@ -101,6 +109,4 @@ public class Group {
                 + ", groupSize=" + groupSize + ", counselor=" + counselor + ", id=" + id + "]";
     }
 
-   
-    
 }

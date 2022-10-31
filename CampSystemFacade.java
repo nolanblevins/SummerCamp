@@ -21,6 +21,13 @@ public class CampSystemFacade {
         this.childList = ChildList.getInstance();
     }
 
+    public Camp intializeCamp(Date date, int price, String campInfo, String theme) {
+        Camp camp = new Camp(date, price, campInfo);
+        camp.generateGroupSchedules();
+        camp.setTheme(theme);        
+        return camp;
+    }
+
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
         user = new User(firstName, lastName, email, phoneNumber, password);
         userList.addUser(user);
@@ -28,7 +35,7 @@ public class CampSystemFacade {
 
     public boolean loginDirector(String email, String password) {
         user = userList.getUser(email, password);
-        if(user == null){
+        if (user == null) {
             return false;
         }
         return true;
@@ -36,7 +43,7 @@ public class CampSystemFacade {
 
     public boolean loginCounselor(String email, String password) {
         user = userList.getUser(email, password);
-        if(user == null){
+        if (user == null) {
             return false;
         }
         return true;
@@ -44,7 +51,7 @@ public class CampSystemFacade {
 
     public boolean loginRegisteredUser(String email, String password) {
         user = userList.getUser(email, password);
-        if(user == null){
+        if (user == null) {
             return false;
         }
         return true;
@@ -54,32 +61,35 @@ public class CampSystemFacade {
         user = null;
     }
 
-    public void changeInfo() {
-        // huh???
-        user = new User(campInfo, campInfo, campInfo, campName, campInfo);
+    public void changeInfo(String firstName, String lastName, String phoneNumber, String email, String password) {
+        user = new User(firstName, lastName, phoneNumber, email, password);
         userList.editUser(user);
-        
 
     }
 
     public void generateSchedules(Camp camp) {
         ArrayList<Group> groups = camp.getGroups();
-        for(int i = 0; i < groups.size(); i++) {
+        for (int i = 0; i < groups.size(); i++) {
             groups.get(i).getSchedule();
         }
     }
 
-    public String viewSchedule() {
-        return null;
+    public ArrayList<Schedule> viewSchedule() {
+        Group group = new Group(campName, 0, 0);
+
+        return group.getSchedule();
     }
 
-    public String viewGroup() {
-        return null;
+    public ArrayList<Group> viewGroups(Camp camp) {
+        ArrayList<Group> groups = new ArrayList<>();
+        groups = camp.getGroups();
+        return groups;
     }
 
     public String viewCounselors() {
-        
+        ArrayList<User> users = userList.getUsers();
         return null;
+
     }
 
     public void addActivity(String title, int duration, String description, String location) {
@@ -92,15 +102,12 @@ public class CampSystemFacade {
         Child child = new Child(fName, lName, mInfo, bDay);
         ChildList childList = ChildList.getInstance();
         childList.addChild(child);
-        
-        
 
     }
 
     public void addNotes(String note) {
         Child child = new Child(campName, campInfo, null, null);
         child.addNote(note);
-
 
     }
 
@@ -112,6 +119,7 @@ public class CampSystemFacade {
         Child child = new Child(campName, campInfo, null, null);
         return child.getMedInfo().toString();
     }
+
     public String getCounselorMedInfo() {
         Counselor counselor = new Counselor(campInfo, campInfo, campInfo, campName, campInfo, null, null);
         return counselor.getMedInfo().toString();

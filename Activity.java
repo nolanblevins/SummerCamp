@@ -2,7 +2,7 @@ import java.util.UUID;
 public class Activity {
     private UUID uuid;
     private String title;
-    private int duration; // units ?
+    private int duration; // in hours
     private String description;
     private String location;
     

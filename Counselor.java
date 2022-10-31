@@ -10,12 +10,12 @@ public class Counselor extends User {
     /**
      * Parameterized constructor that also generates random UUID
      * 
-     * @param firstName Counselor first name
-     * @param lastName Counselor last name
-     * @param email Counselor email
+     * @param firstName   Counselor first name
+     * @param lastName    Counselor last name
+     * @param email       Counselor email
      * @param phoneNumber Counselor phoneNumber
-     * @param password Counselor password
-     * @param birthday Counselor bday
+     * @param password    Counselor password
+     * @param birthday    Counselor bday
      */
     public Counselor(String firstName, String lastName, String email, String phoneNumber, String password,
             Date birthday, MedicalInfo medicalInfo) {
@@ -28,13 +28,13 @@ public class Counselor extends User {
     /**
      * Parameterized constructor that also generates sets ID
      * 
-     * @param id randomly generated UUID
-     * @param firstName Counselor first name
-     * @param lastName Counselor last name
-     * @param email Counselor email
+     * @param id          randomly generated UUID
+     * @param firstName   Counselor first name
+     * @param lastName    Counselor last name
+     * @param email       Counselor email
      * @param phoneNumber Counselor phoneNumber
-     * @param password Counselor password
-     * @param birthday Counselor bday
+     * @param password    Counselor password
+     * @param birthday    Counselor bday
      */
     public Counselor(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
             Date birthday, MedicalInfo medicalInfo) {
@@ -80,11 +80,8 @@ public class Counselor extends User {
      * 
      * @return will return the ArrayList of children in the counselors group
      */
-    public ArrayList<Child> getChildren() {
-
-        ArrayList<Child> children;
-
-        return null;
+    public ArrayList<Child> getChildren(Group group) {
+        return group.getCampers();
     }
 
     /**
@@ -103,7 +100,7 @@ public class Counselor extends User {
      */
     public MedicalInfo getChildMedInfo(Child child) {
         return child.getMedInfo();
-        
+
     }
 
     public Date getBirthday() {

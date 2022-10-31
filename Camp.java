@@ -1,20 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 import java.util.Date;
 
 public class Camp {
-    /**
-     * Theme Examples
-     * Hawaiin
-     * Rockstars
-     * Ninja Warriors
-     * Willy Wonka
-     * Hollywood
-     * Legos
-     * Cops and Robbers
-     * Shark Tank
-     * Smores
-     */
     private Date date;
     private double price;
     private String theme;
@@ -50,6 +39,18 @@ public class Camp {
 
 
     }
+    public void setTheme(String theme) {
+        ArrayList<String> themeList  = new ArrayList<String>(
+            Arrays.asList("Hawaiin", "Rockstars","Ninja Warriors", "Willy Wonka", "Hollywood",
+                                "Legos", "Cops and Robbers", "Shark Tank", "Smores"));
+        if(themeList.contains(theme)){
+            this.theme = theme;
+        }
+        else{
+            this.theme = null;
+        }
+        
+    }
 
     /**
      * Returns the camp's ArrayList of type Group
@@ -58,6 +59,14 @@ public class Camp {
      */
     public ArrayList<Group> getGroups() {
         return this.groups;
+    }
+    public void generateGroupSchedules() {
+        for(int i = 0; i < groups.size(); i++) {
+            groups.get(i).createSchedule();
+        }
+    }
+    public void createGroups() {
+        
     }
 
     public Date getDate() {
@@ -84,6 +93,8 @@ public class Camp {
     public String toString() {
         return ("Date: " + this.date + " Price: " + this.price);
     }
+
+    
 
 
 }
