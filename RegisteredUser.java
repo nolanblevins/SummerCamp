@@ -102,7 +102,7 @@ public class RegisteredUser extends User {
         //return Group.getSchedule();
     }
 
-    public void registerChild(String firstName, String lastName, Date birthday, String medicalInfo, Camp camp) {
+    public Child registerChild() {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter child's first name:");
         String fName = in.nextLine();
@@ -183,7 +183,9 @@ public class RegisteredUser extends User {
         Child newChild = new Child(fName, lName, mInfo, bday);
         ChildList childList = ChildList.getInstance();
         //TODO make add child
-        //ChildList.addChild(newChild);
+        childList.addChild(newChild);
+        children.add(newChild);
+        return newChild;
     }
 
     public void removeChild(String firstName, String lastName) {

@@ -565,7 +565,7 @@ public class CampUI {
         }
 		else if(option == 3) {
 			System.out.println("****** Register a Camper ******");
-
+			campSystem.registerChild(null, null, null, null);
 		}
 		else if(option == 4) {
 			// unregister camper

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 public class CampSystemFacade {
     private String campName;
@@ -116,9 +117,15 @@ public class CampSystemFacade {
     }
 
     public void registerChild(String fName, String lName, MedicalInfo mInfo, Date bDay) {
-        Child child = new Child(fName, lName, mInfo, bDay);
-        ChildList childList = ChildList.getInstance();
-        childList.addChild(child);
+        Child child = ((RegisteredUser)user).registerChild();
+        ArrayList<Camp> camps = new ArrayList<>();
+        System.out.println("Select a camp to enroll " + child.getFirstName() +
+                " " + child.getLastName() + " in.");
+        for(int i = 0; i < camps.size(); i++){
+            System.out.print(i + " - ");
+            System.out.println(camps.get(i).toString());
+        }
+        Scanner keyboard = new Scanner(System.in);
     }
 
     public void addNotes(String note) {
