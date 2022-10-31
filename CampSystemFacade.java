@@ -21,10 +21,22 @@ public class CampSystemFacade {
         this.childList = ChildList.getInstance();
     }
 
+    public ArrayList<Camp> viewAllCamps() {
+        ArrayList<Camp> camps = campList.getAllCamps();
+        return camps;
+    }
+
     public Camp intializeCamp(Date date, int price, String campInfo, String theme) {
         Camp camp = new Camp(date, price, campInfo);
         camp.generateGroupSchedules();
-        camp.setTheme(theme);        
+        camp.setTheme(theme);    
+        /**
+         * TODO:
+         * create groups/organize by age
+         * 
+         * 
+         */
+          
         return camp;
     }
 
