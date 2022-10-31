@@ -145,4 +145,16 @@ public class CampSystemFacade {
     public String viewGroup() {
         return "";
     }
+
+    public String viewCamper(){
+        String ret = "";
+
+        for(Child c : ((RegisteredUser) user).getChildren()){
+            ret += c.toString() + "\n";
+            ret += campList.getCamp(c).toString() + "\n";
+            ret += "\n";
+        }
+
+        return ret;
+    }
 }

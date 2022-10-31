@@ -521,8 +521,7 @@ public class CampUI {
 
 		
 		if(option == 1) {
-			// view camper
-
+			System.out.println(campSystem.viewCamper());
 		}
 		else if(option == 2) {
 			// register

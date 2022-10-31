@@ -18,7 +18,6 @@ public class CampList {
         this.camps.add(camp);
     }
 
-    //TODO determine how to access camps
     public Camp getCamp(String theme){
         return null;
     }
