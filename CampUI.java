@@ -534,11 +534,13 @@ public class CampUI {
 			camperPortal();
 		}
         else if(option == 2){
-            // med info
+            System.out.println("****** Camper Medical Info ******");
+			System.out.println(campSystem.viewCamperMedInfo());
+			keyboard.nextLine();
+			camperPortal();
         }
 		else if(option == 3) {
-			// register
-
+			System.out.println("****** Register a Camper ******");
 
 		}
 		else if(option == 4) {

@@ -119,7 +119,6 @@ public class CampSystemFacade {
         Child child = new Child(fName, lName, mInfo, bDay);
         ChildList childList = ChildList.getInstance();
         childList.addChild(child);
-
     }
 
     public void addNotes(String note) {
@@ -155,6 +154,19 @@ public class CampSystemFacade {
             for(Camp camp : camps){
                 ret += camp.toString();
             }
+            ret += "\n\n";
+        }
+        ret += "Hit Enter to return to User Portal";
+
+        return ret;
+    }
+
+    public String viewCamperMedInfo(){
+        String ret = "";
+
+        for(Child c : ((RegisteredUser) user).getChildren()){
+            ret += c.toString() + "\n";
+            ret += c.getMedInfo().toString();
             ret += "\n\n";
         }
         ret += "Hit Enter to return to User Portal";

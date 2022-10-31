@@ -30,4 +30,12 @@ public Pediatrician getPediatrician() {
     public String getBusiness() {
         return business;
     }
+
+    public String toString(){
+        String ret = "Pediatrician: ";
+        ret += "\n\tName: " + firstName + " " + lastName;
+        ret += "\n\tBusiness: " + business;
+        ret += "\n\tPhone Number: " + phoneNumber;
+        return ret;
+    }
 }

@@ -59,11 +59,21 @@ public class MedicalInfo {
      */
     public String toString() {
         String ret = "Medical Info:";
-        ret += "\tAllergies: ";
+        ret += "\n\tAllergies: ";
         for(String s : allergies){
             ret += s + ", ";
         }
-        ret += "\n\t" + emergencyContact.toString();
+
+        for(Contact c : emergencyContact){
+            ret += "\n\t" + c.toString();
+        }
+
+        ret += "\n\tAddress: " + this.address;
+        ret += "\n\tConditions: ";
+        for(String s : medNotes){
+            ret += s + ", ";
+        }
+        ret += "\n\t" + pediatrician.toString();
         // "Allergies: " + this.allergies + "Emergency Contact: "+this.emergencyContact+" Address: "+this.address+" Conditions: "+this.medNotes+" Pediatrician: "+this.pediatrician;
         return ret;
     }
