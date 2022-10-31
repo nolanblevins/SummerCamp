@@ -403,6 +403,19 @@ public class CampUI {
 		else if(option ==3){
 			//view schedule
 			campSystem.viewSchedule();
+						
+			// option to print out
+			System.out.println("Do you want to print this schedule out?");
+			System.out.println("1. Yes \n 2. No");
+			int choice = keyboard.nextInt();
+			if(choice == 1){
+				// convert to txt method
+			} else if(choice ==2){
+				conselorPortal();	
+			}
+				System.out.println("Invalid input, please try again");
+						
+						
 		}
 
 		else if (option ==4){
@@ -483,7 +496,18 @@ public class CampUI {
 
 		// create new theme scenerio
 		else if(option ==5){
+			System.out.println("****** Create-a-camp ******");
+			
+			System.out.println("Date");
+			Date date = null;
+			System.out.print("Price");
+			int Price = keyboard.nextInt();
+			System.out.println("Information on Camp:");
+			String CampInfo = keyboard.nextLine();
+			System.out.println("Theme");
+			String theme = keyboard.nextLine();
 
+			campSystem.intializeCamp(date, Price, CampInfo, theme);
 		}
 
 		else if(option ==6){
@@ -507,7 +531,7 @@ public class CampUI {
 		System.out.println("1. View Camper Registration Info");
 		System.out.println("2. View Camper Medical Info");
 		System.out.println("3. Register Camper");
-		System.out.println("3. Unregister Camper");
+		System.out.println("4. Unregister Camper");
 		System.out.println("5. Remove Camper");
 		System.out.println("6. Log Out");
 
