@@ -253,36 +253,48 @@ public class CampUI {
 			System.out.println("***** Counselor Login Portal *****");
 			System.out.print("Email: ");
 			emailInput = keyboard.nextLine();
-			System.out.println("Password: ");
+			System.out.print("Password: ");
 			passwordInput = keyboard.nextLine();
 
-			campSystem.loginCounselor(emailInput, passwordInput);
-
-			conselorPortal();
-
+			if(!campSystem.loginCounselor(emailInput, passwordInput)){
+				clearScreen();
+				System.out.println("Invalid Email, Password, or usertype\nReturning to login portal...");
+				sleep(2000);
+				loginPortal();
+			}
+			else{
+				conselorPortal();
+			}
 		}
 		else if(loginChoice == 2) {
 			System.out.println("***** Director Login Portal *****");
 			System.out.print("Email: ");
 			emailInput = keyboard.nextLine();
-			System.out.println("Password: ");
+			System.out.print("Password: ");
 			passwordInput = keyboard.nextLine();
 
-			campSystem.loginDirector(emailInput, passwordInput);
-
-			directorPortal();
-			
+			if(!campSystem.loginDirector(emailInput, passwordInput)){
+				clearScreen();
+				System.out.println("Invalid Email, Password, or Usertype\nReturning to login portal...");
+				sleep(2000);
+				loginPortal();
+			}
+			else{
+				directorPortal();
+			}
 		}
 		else if(loginChoice == 3) {
 			System.out.println("***** Camper Login Portal *****");
 			System.out.print("Email: ");
 			emailInput = keyboard.nextLine();
-			System.out.println("Password: ");
+			System.out.print("Password: ");
 			passwordInput = keyboard.nextLine();
 
 			if(!campSystem.loginRegisteredUser(emailInput, passwordInput)){
-				//TODO Write the rest of the error checking functionality
-				System.out.println("Invalid Email or Password, returning to login portal");
+				clearScreen();
+				System.out.println("Invalid Email, Password, or usertype\nReturning to login portal...");
+				sleep(2000);
+				loginPortal();
 			}
 			else{
 				camperPortal();
@@ -291,7 +303,6 @@ public class CampUI {
 		else if(loginChoice == 4) {
 			menuSelect();
 		}
-		
 	}
 
 	private static void campInfo() {
@@ -379,7 +390,7 @@ public class CampUI {
 
 		if(option == 1){
 		// view group
-			System.out.println(campSystem.viewGroup().toString());
+			System.out.println(campSystem.viewGroup());
 	}
 		else if(option ==2){
 			// edit med info
@@ -391,7 +402,7 @@ public class CampUI {
 		}
 
 		else if (option ==4){
-			campSystem.changeInfo();
+			campSystem.changeInfo(null, null, null, null, null);
 		}
 			campSystem.logOff();
 	}
@@ -457,12 +468,12 @@ public class CampUI {
 			System.out.print("Enter answer:");
 			String FAQanswer = keyboard.nextLine();
 			
-			campSystem.addToFAQ(FAQquestion, FAQanswer);
+			// campSystem.addToFAQ(FAQquestion, FAQanswer);
 		}
 
 		
 		else if(option ==4){
-			campSystem.changeInfo();
+			campSystem.changeInfo(null, null, null, null, null);
 		}
 		
 
@@ -492,7 +503,7 @@ public class CampUI {
 		System.out.println("2. Register Camper");
 		System.out.println("3. Unregister Camper");
 		System.out.println("4. Remove Camper");
-		System.out.println("5. Go back to previous page");
+		System.out.println("5. Log Out");
 
 		System.out.print("Please enter your option: ");
 
@@ -511,7 +522,6 @@ public class CampUI {
 		
 		if(option == 1) {
 			// view camper
-				
 
 		}
 		else if(option == 2) {

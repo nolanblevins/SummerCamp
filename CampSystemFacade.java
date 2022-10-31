@@ -10,6 +10,7 @@ public class CampSystemFacade {
     private UserList userList;
     private ActivityList activityList;
     private ChildList childList;
+    private GroupList groupList;
 
     public CampSystemFacade(String campName, User user, String campInfo) {
         this.campName = campName;
@@ -19,6 +20,7 @@ public class CampSystemFacade {
         this.userList = UserList.getInstance();
         this.activityList = ActivityList.getInstance();
         this.childList = ChildList.getInstance();
+        this.groupList = GroupList.getInstance();
     }
 
     public Camp intializeCamp(Date date, int price, String campInfo, String theme) {
@@ -35,7 +37,8 @@ public class CampSystemFacade {
 
     public boolean loginDirector(String email, String password) {
         user = userList.getUser(email, password);
-        if (user == null) {
+        if (user == null || user.getUserType() != UserType.DIRECTOR) {
+            user = null;
             return false;
         }
         return true;
@@ -43,7 +46,8 @@ public class CampSystemFacade {
 
     public boolean loginCounselor(String email, String password) {
         user = userList.getUser(email, password);
-        if (user == null) {
+        if (user == null || user.getUserType() != UserType.COUNSELOR) {
+            user = null;
             return false;
         }
         return true;
@@ -51,7 +55,8 @@ public class CampSystemFacade {
 
     public boolean loginRegisteredUser(String email, String password) {
         user = userList.getUser(email, password);
-        if (user == null) {
+        if (user == null || user.getUserType() != UserType.REGISTERED_USER) {
+            user = null;
             return false;
         }
         return true;
@@ -125,4 +130,7 @@ public class CampSystemFacade {
         return counselor.getMedInfo().toString();
     }
 
+    public String viewGroup() {
+        return "";
+    }
 }
