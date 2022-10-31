@@ -5,10 +5,10 @@ import org.json.simple.JSONObject;
 import java.text.SimpleDateFormat;
 
 public class DataWriter extends DataConstants{
-    public static final String pattern = "dd:MM:yyyy";
-//    public static void main(String[] args){
-//        saveUsers();
-//    }
+    public static final String pattern = "MM:dd:yyyy";
+    public static void main(String[] args){
+        saveChildren();
+    }
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();

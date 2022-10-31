@@ -8,7 +8,6 @@ import java.util.UUID;
 import java.util.Date;
 
 public class DataReader extends DataConstants{
-    // TODO Add schedule to group
     /**
      * Iterates through the file User.JSON, determines the type of the user,
      * then based on the type of the user, will construct that user and add it
@@ -251,7 +250,7 @@ public class DataReader extends DataConstants{
      */
     private static Date objectToDate(Object dateObject){
         try {
-            return new SimpleDateFormat("dd:MM:yyyy").parse(
+            return new SimpleDateFormat("MM:dd:yyyy").parse(
                     (String) dateObject);
         } catch(Exception e) {
             e.printStackTrace();
