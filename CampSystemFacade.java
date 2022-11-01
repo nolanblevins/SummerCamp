@@ -166,7 +166,6 @@ public class CampSystemFacade {
             }
             ret += "\n\n";
         }
-        ret += "Hit Enter to return to User Portal";
 
         return ret;
     }
@@ -179,7 +178,6 @@ public class CampSystemFacade {
             ret += c.getMedInfo().toString();
             ret += "\n\n";
         }
-        ret += "Hit Enter to return to User Portal";
 
         return ret;
     }

@@ -404,14 +404,13 @@ public class CampUI {
 
     //TODO Don't call camperPortal Recursively
     private static void camperPortal() {
-        clearScreen();
-
         Scanner keyboard = new Scanner(System.in);
 
         int option;
         boolean validOption = false;
 
         do {
+            clearScreen();
             System.out.println();
 
             System.out.println("****** User Portal ******");
@@ -422,45 +421,75 @@ public class CampUI {
             System.out.println("5. Remove Camper");
             System.out.println("6. Log Out");
 
-            System.out.print("Please enter your option: ");
+            option = getValidInput(6);
 
-            option = keyboard.nextInt();
-            keyboard.nextLine();
-
-            if (option > 6 || option < 1) {
-                validOption = false;
-            } else {
-                validOption = true;
+            if (option == 1) {
+                clearScreen();
+                System.out.println("****** Camper Registration Info ******");
+                System.out.println(campSystem.viewCamperRegistration());
+                System.out.println("Hit Enter to return to User Portal");
+                keyboard.nextLine();
+            } else if (option == 2) {
+                clearScreen();
+                System.out.println("****** Camper Medical Info ******");
+                System.out.println(campSystem.viewCamperMedInfo());
+                System.out.println("Hit Enter to return to User Portal");
+                keyboard.nextLine();
+            } else if (option == 3) {
+                clearScreen();
+                System.out.println("****** Register a Camper ******");
+                campSystem.registerChild(null, null, null, null);
+            } else if (option == 4) {
+                // unregister camper
+            } else if (option == 5) {
+                // remove camper
+            } else if (option == 6) {
+                campSystem.logOff();
+                break;
             }
+        } while (true);
 
-        } while (!validOption);
 
-
-        if (option == 1) {
-            clearScreen();
-            System.out.println("****** Camper Registration Info ******");
-            System.out.println(campSystem.viewCamperRegistration());
-            keyboard.nextLine();
-            camperPortal();
-        } else if (option == 2) {
-            System.out.println("****** Camper Medical Info ******");
-            System.out.println(campSystem.viewCamperMedInfo());
-            keyboard.nextLine();
-            camperPortal();
-        } else if (option == 3) {
-            System.out.println("****** Register a Camper ******");
-            campSystem.registerChild(null, null, null, null);
-        } else if (option == 4) {
-            // unregister camper
-        } else if (option == 5) {
-            // remove camper
-        } else if (option == 6) {
-            // go back to login portal
-            loginPortal();
-        }
+//        if (option == 1) {
+//            clearScreen();
+//            System.out.println("****** Camper Registration Info ******");
+//            System.out.println(campSystem.viewCamperRegistration());
+//            keyboard.nextLine();
+//            camperPortal();
+//        } else if (option == 2) {
+//            System.out.println("****** Camper Medical Info ******");
+//            System.out.println(campSystem.viewCamperMedInfo());
+//            keyboard.nextLine();
+//            camperPortal();
+//        } else if (option == 3) {
+//            System.out.println("****** Register a Camper ******");
+//            campSystem.registerChild(null, null, null, null);
+//        } else if (option == 4) {
+//            // unregister camper
+//        } else if (option == 5) {
+//            // remove camper
+//        } else if (option == 6) {
+//            // go back to login portal
+//            loginPortal();
+//        }
     }
 
-
+    private static int getValidInput(int num){
+        Scanner keyboard = new Scanner(System.in);
+        int input = -1;
+        while(input < 1 || input > num){
+            // Could be rephrased
+            System.out.print("Please enter the number you'd like to visit: ");
+            try{
+                input = keyboard.nextInt();
+                keyboard.nextLine();
+            } catch(Exception e){
+                keyboard.nextLine();
+                System.out.println("Invalid input...");
+            }
+        }
+        return input;
+    }
 }
 
 
