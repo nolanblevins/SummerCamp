@@ -42,15 +42,15 @@ public class Camp {
     }
     public void setTheme(String theme) {
         ArrayList<String> themeList  = new ArrayList<String>(
-            Arrays.asList("Hawaiin", "Rockstars","Ninja Warriors", "Willy Wonka", "Hollywood",
-                                "Legos", "Cops and Robbers", "Shark Tank", "Smores"));
+                Arrays.asList("Hawaiin", "Rockstars","Ninja Warriors", "Willy Wonka", "Hollywood",
+                        "Legos", "Cops and Robbers", "Shark Tank", "Smores"));
         if(themeList.contains(theme)){
             this.theme = theme;
         }
         else{
             this.theme = null;
         }
-        
+
     }
 
     /**
@@ -67,7 +67,7 @@ public class Camp {
         }
     }
     public void createGroups() {
-        
+
     }
 
     public Date getDate() {
@@ -121,7 +121,7 @@ public class Camp {
                 "\n\tTheme: " + this.theme;
     }
 
-    
+
 
 
 }

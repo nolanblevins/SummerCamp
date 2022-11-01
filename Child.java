@@ -97,7 +97,7 @@ public class Child {
      * @return will return a concatenated
      */
     public String toString() {
-        String pattern = "dd/MM/yyyy";
+        String pattern = "MM/dd/yyyy";
         return "Name: " + firstName + " " + lastName +
                 "\nBirthday: " + new SimpleDateFormat(pattern).format(birthday);
     }

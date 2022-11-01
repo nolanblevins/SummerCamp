@@ -5,7 +5,7 @@ public class Activity {
     private int duration; // in hours
     private String description;
     private String location;
-    
+
     /**
      * @param title Name of activity
      * @param duration Length of time in hours of activity
@@ -59,6 +59,6 @@ public class Activity {
         return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description + ", location= " + location
                 + "]";
     }
-    
-    
+
+
 }
