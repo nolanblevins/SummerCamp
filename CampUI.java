@@ -1,7 +1,6 @@
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.lang.Thread;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -205,7 +204,7 @@ public class CampUI {
                 loginPortal();
             } else {
                 clearScreen();
-                camperPortal();
+                userPortal();
             }
         } else if (loginChoice == 4) {
             menuSelect();
@@ -403,7 +402,7 @@ public class CampUI {
 
     }
 
-    private static void camperPortal() {
+    private static void userPortal() {
         Scanner keyboard = new Scanner(System.in);
 
         int option;
