@@ -343,12 +343,11 @@ public class CampUI {
             } else if (option == 3) {
 
                 System.out.println("****** Adding new FAQ ******");
-
                 System.out.print("Enter question:");
                 String FAQquestion = keyboard.nextLine();
                 System.out.print("Enter answer:");
                 String FAQanswer = keyboard.nextLine();
-                //campSystem.addToFAQ(FAQquestion, FAQanswer);
+                campSystem.addToFAQ(FAQquestion, FAQanswer);;
             } else if (option == 4) {
                 campSystem.changeUserInfo(null, null, null, null, null);
             }

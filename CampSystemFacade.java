@@ -7,7 +7,7 @@ import java.util.regex.*;
 public class CampSystemFacade {
     private String campName;
     private User user;
-    private ArrayList<String> FAQ;
+    private ArrayList<FAQ> FAQ;
     private String campInfo;
     private CampList campList;
     private UserList userList;
@@ -139,8 +139,18 @@ public class CampSystemFacade {
 
     }
 
-    public void addToFAQ(String question) {
-        FAQ.add(question);
+    public void addToFAQ(String question, String answer) {
+        FAQ faq = new FAQ(question, answer);
+        FAQ.add(faq);
+    }
+    public String getFAQ() {
+        String ret = "";
+        for(int i = 0; i < FAQ.size(); i++) {
+            FAQ temp = FAQ.get(i);
+            ret += i + " - " + temp.toString();
+        }
+        ret += "\n\n";
+        return ret; 
     }
 
     public String getChildMedicalInfo() {

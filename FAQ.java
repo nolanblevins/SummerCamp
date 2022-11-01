@@ -5,7 +5,6 @@ public class FAQ {
         this.question = question;
         this.answer = answer;
     }
-    
     public String toString() {
         return "FAQ:" + "\n" + "\t"+ "question:" + question + "\n" + "\t" + "answer:" + answer;
     }
