@@ -86,25 +86,46 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         clearScreen();
-        // TODO Error check inputs???
         System.out.println("************ Account Registration ************\n");
         System.out.println("Please enter the following information: ");
+        
         System.out.print("First name: ");
         String firstname = keyboard.nextLine();
+        
         System.out.print("Last name: ");
         String lastname = keyboard.nextLine();
+        
         System.out.print("Email: ");
         String emailInput = keyboard.nextLine();
+        while(!campSystem.isEmailValid(emailInput)){
+            System.out.println("Invalid Email, please try again");
+            emailInput = keyboard.nextLine();
+        
+        }
+        
         System.out.print("Phone number (###-###-####) : ");
         String phoneNumber = keyboard.nextLine();
-        System.out.print("Password: ");
+        while(!campSystem.isPhoneValid(phoneNumber)){
+            System.out.println("Invalid Email, please try again");
+            phoneNumber = keyboard.nextLine();
+        }
+   
+        System.out.print("Password reqs: \n+ contains at least 8 characters and at most 20 characters ");
+        System.out.println("+ contains one digit, one upperCase alphabet, one special character (!@#$%&*()-+=^.)");
+        System.out.println("Password:");
         String password = keyboard.nextLine();
+        while(!campSystem.isValidPassword(password)){
+            System.out.println("Invalid Email, please try again");
+            password = keyboard.nextLine();
+        }
 
         campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
         clearScreen();
         System.out.println("****** Account Creation Success ******");
         System.out.println("Hit enter to continue...");
         keyboard.nextLine();
+        }
+        
     }
 
     private static void loginPortal() {
