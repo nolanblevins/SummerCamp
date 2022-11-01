@@ -16,7 +16,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveGroups();
+        DataWriter.saveUsers();
     }
 
     private static void loadingScreen() {
@@ -47,10 +47,9 @@ public class CampUI {
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Welcome to GoofyGobbler Summercamp!\n\n");
-
         do {
             clearScreen();
+            System.out.println("Welcome to GoofyGobbler Summercamp!\n");
             System.out.println("************ Main Menu ************");
             String[] menuOptions = {"Create an account", "Login", "Information on our camp", "FAQ", "Exit"};
             for (int i = 0; i < menuOptions.length; i++) {
@@ -78,37 +77,26 @@ public class CampUI {
     private static void createAccountMenu() {
         Scanner keyboard = new Scanner(System.in);
 
-        boolean errorMessage = false;
+        clearScreen();
+        // TODO Error check inputs???
+        System.out.println("************ Account Registration ************\n");
+        System.out.println("Please enter the following information: ");
+        System.out.print("First name: ");
+        String firstname = keyboard.nextLine();
+        System.out.print("Last name: ");
+        String lastname = keyboard.nextLine();
+        System.out.print("Email: ");
+        String emailInput = keyboard.nextLine();
+        System.out.print("Phone number (###-###-####) : ");
+        String phoneNumber = keyboard.nextLine();
+        System.out.print("Password: ");
+        String password = keyboard.nextLine();
 
-        do {
-
-            clearScreen();
-
-            errorMessage = false;
-
-            System.out.println("************ Account Registration ************\n");
-            System.out.println("Please enter the following information: ");
-            System.out.print("First name: ");
-            String firstname = keyboard.nextLine();
-            System.out.print("Last name: ");
-            String lastname = keyboard.nextLine();
-            System.out.print("Email: ");
-            String emailInput = keyboard.nextLine();
-            System.out.print("Phone number (###-###-####) : ");
-            String phoneNumber = keyboard.nextLine();
-            System.out.print("Password: ");
-            String password = keyboard.nextLine();
-
-            if (campSystem.isValidPassword(password) && campSystem.isEmailValid(emailInput)
-                    && campSystem.isPhoneValid(phoneNumber)) {
-                errorMessage = true;
-                campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
-                System.out.println("You have succesfully created an account");
-            }
-            errorMessage = false;
-
-        } while (errorMessage);
-
+        campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
+        clearScreen();
+        System.out.println("****** Account Creation Success ******");
+        System.out.println("Hit enter to continue...");
+        keyboard.nextLine();
     }
 
     private static void loginPortal() {
