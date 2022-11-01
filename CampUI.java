@@ -16,7 +16,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveChildren();
+        DataWriter.saveUsers();
     }
 
     private static void loadingScreen() {
@@ -290,7 +290,7 @@ public class CampUI {
             System.out.println("Invalid input, please try again");
 
         } else if (option == 4) {
-            campSystem.changeInfo(null, null, null, null, null);
+            campSystem.changeUserInfo(null, null, null, null, null);
         }
         campSystem.logOff();
     }
@@ -345,7 +345,7 @@ public class CampUI {
             String FAQanswer = keyboard.nextLine();
              //campSystem.addToFAQ(FAQquestion, FAQanswer);
         } else if (option == 4) {
-            campSystem.changeInfo(null, null, null, null, null);
+            campSystem.changeUserInfo(null, null, null, null, null);
         }
 
         // create new theme scenerio
@@ -375,16 +375,15 @@ public class CampUI {
 
         do {
             clearScreen();
-            System.out.println();
-
             System.out.println("****** User Portal ******");
             System.out.println("1. View Camper Registration Info");
             System.out.println("2. View Camper Medical Info");
             System.out.println("3. Register Camper");
             System.out.println("4. Remove Camper");
-            System.out.println("5. Log Out");
+            System.out.println("5. Change User Information");
+            System.out.println("6. Log Out");
 
-            option = getValidInput(5);
+            option = getValidInput(6);
 
             if (option == 1) {
                 clearScreen();
@@ -428,7 +427,10 @@ public class CampUI {
                     continue;
                 }
                 campSystem.removeChild(input);
-            } else if (option == 5) {
+            }
+            else if(option == 5){
+                changeInfo();
+            }else if (option == 6) {
                 campSystem.logOff();
                 break;
             }
@@ -458,57 +460,47 @@ public class CampUI {
         // }
     }
 
-    private static void changeInfo(String username) {
+    private static void changeInfo() {
+        clearScreen();
+        System.out.println("****** Change Information ******");
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter email:");
-        String userEmail = in.nextLine();
-        while (userEmail != .get(email)) {
-            System.out.println("Email is incorrect");
-            System.out.println("Enter email:");
-            userEmail = in.nextLine();
-        }
-        System.out.println("Enter password:");
-        String userPass = in.nextLine();
-        while (userPass != .get(password)) {
-            System.out.println("Password is incorrect");
-            System.out.println("Enter password:");
-            userPass = in.nextLine();
-        }
+
         boolean next = true;
         while (next) {
             System.out.println("What information would you like to change?" +
-                    "\n" + "\t" + "First Name(0)" +
-                    "\n" + "\t" + "Last Name(1)" +
-                    "\n" + "\t" + "Email(2)" +
-                    "\n" + "\t" + "Username(3)" +
-                    "\n" + "\t" + "Password(4)");
-            int userChoice = in.nextInt();
-            ;
-            if (userChoice == 0) {
+                    "\n" + "\t" + "1 - First Name" +
+                    "\n" + "\t" + "2 - Last Name" +
+                    "\n" + "\t" + "3 - Email" +
+                    "\n" + "\t" + "4 - Phone Number" +
+                    "\n" + "\t" + "5 - Password");
+
+            int userChoice = getValidInput(5);
+            if (userChoice == 1) {
                 System.out.println("Enter new first name:");
                 String newFirstName = in.nextLine();
-            } else if (userChoice == 1) {
+                campSystem.changeUserInfo(newFirstName, null, null, null, null);
+            } else if (userChoice == 2) {
                 System.out.println("Enter new last name:");
                 String newLastName = in.nextLine();
-            } else if (userChoice == 2) {
+                campSystem.changeUserInfo(null, newLastName, null, null, null);
+            } else if (userChoice == 3) {
                 System.out.println("Enter new email:");
                 String newEmail = in.nextLine();
-            } else if (userChoice == 3) {
-                System.out.println("Enter new username:");
-                String newUsername = in.nextLine();
+                campSystem.changeUserInfo(null, null, null, newEmail, null);
             } else if (userChoice == 4) {
+                System.out.println("Enter new Phone Number:");
+                String newPhoneNumber = in.nextLine();
+                campSystem.changeUserInfo(null, null, newPhoneNumber, null, null);
+            } else if (userChoice == 5) {
                 System.out.println("Enter new password:");
                 String newPassword = in.nextLine();
-            } else {
-                System.out.println("Invalid input, enter again");
-                continue;
+                campSystem.changeUserInfo(null, null, null, null, newPassword);
             }
             System.out.println("Would you like to change any other information? (y/n)");
             String answer = in.nextLine();
-            if (answer.equalsIgnoreCase("y"))
-                continue;
-            else
+            if (!answer.equalsIgnoreCase("y")) {
                 next = false;
+            }
         }
     }
 

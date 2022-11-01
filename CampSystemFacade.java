@@ -82,10 +82,8 @@ public class CampSystemFacade {
         user = null;
     }
 
-    public void changeInfo(String firstName, String lastName, String phoneNumber, String email, String password) {
-        user = new User(firstName, lastName, phoneNumber, email, password);
-        userList.editUser(user);
-
+    public void changeUserInfo(String firstName, String lastName, String phoneNumber, String email, String password) {
+        user.changeInfo(firstName, lastName, phoneNumber, email, password);
     }
 
     public void generateSchedules(Camp camp) {

@@ -69,4 +69,23 @@ public class User {
         return this.uuid;
     }
 
+    public void changeInfo(String firstName, String lastName, String phoneNumber,
+                           String email, String password){
+        if(firstName != null){
+            this.firstName = firstName;
+        }
+        if(lastName != null){
+            this.lastName = lastName;
+        }
+        if(phoneNumber != null){
+            this.phoneNumber = phoneNumber;
+        }
+        if(email != null){
+            this.email = email;
+        }
+        if(password != null){
+            this.password = password;
+        }
+    }
+
 }
