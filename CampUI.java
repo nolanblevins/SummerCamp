@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.lang.Thread;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.*;
+
 
 
 public class CampUI {
@@ -86,23 +86,15 @@ public class CampUI {
 
     }
 
-    // TODO Less flags
-    // TODO Put error messages within methods
     private static void createAccountMenu() {
 
         Scanner keyboard = new Scanner(System.in);
 
-        boolean badPhoneNum;
         boolean errorMessage = false;
-        boolean emailValid = false;
-        boolean passwordValid = false;
+
         do {
 
             clearScreen();
-
-            if (errorMessage) {
-                System.out.println("Invalid phone number. Please try again...\n ");
-            }
 
             errorMessage = false;
 
@@ -119,95 +111,18 @@ public class CampUI {
             System.out.print("Password: ");
             String password = keyboard.nextLine();
 
-
-            if (!isEmailValid(emailInput)) {
-                emailValid = false;
-                System.out.println("Invalid Email Address, please try again");
-            }
-            emailValid = true;
-
-            if (!isPhoneValid(phoneNumber)) {
-                badPhoneNum = true;
-                System.out.println("Invalid Phone Number, please try again");
-            }
-            badPhoneNum = false;
-
-            if (!isValidPassword(password)) {
-                passwordValid = false;
-                System.out.println("Invalid Password, please try again");
-                String[] passwordRequire = {"8 characters and at most 20 character",
-                        "one digit", "one upper case alphabet", "one lower case alphabet",
-                        "one special character which includes !@#$%&*()-+=^."};
-                for (int i = 0; i < passwordRequire.length; i++) {
-                    System.out.println((i + 1) + "It contains at least " + passwordRequire[i]);
-                }
-            }
-            passwordValid = true;
-
-            if (badPhoneNum && emailValid) {
-                errorMessage = false;
+            if(campSystem.isValidPassword(password) && campSystem.isEmailValid(emailInput) && campSystem.isPhoneValid(phoneNumber)){
+                errorMessage = true;
                 campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
                 System.out.println("You have succesfully created an account");
             }
-
-            errorMessage = true;
+                errorMessage = false;
 
         } while (errorMessage);
 
     }
 
-
-    public static boolean isPhoneValid(String phoneNumber) {
-
-
-        if (phoneNumber.length() != 12) {
-            return false;
-        } else {
-            for (int i = 0; i < phoneNumber.length(); i++) {
-
-                if (phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1'
-                        && phoneNumber.charAt(i) != '2' && phoneNumber.charAt(i) != '3'
-                        && phoneNumber.charAt(i) != '4' && phoneNumber.charAt(i) != '5'
-                        && phoneNumber.charAt(i) != '6' && phoneNumber.charAt(i) != '7'
-                        && phoneNumber.charAt(i) != '8' && phoneNumber.charAt(i) != '9'
-                        && phoneNumber.charAt(i) != '-') {
-                    return false;
-                }
-            }
-
-            if (phoneNumber.charAt(3) != '-' && phoneNumber.charAt(7) != '-') {
-                return true;
-            }
-
-        }
-        return true;
-
-    }
-
-    public static boolean isEmailValid(String emailInput) {
-
-        return emailInput.matches("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
-
-    }
-
-    public static boolean isValidPassword(String password) {
-
-        String regex = "^(?=.*[0-9])"
-                + "(?=.*[a-z])(?=.*[A-Z])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$";
-
-        Pattern p = Pattern.compile(regex);
-
-        if (password == null) {
-            return false;
-        }
-
-        Matcher m = p.matcher(password);
-
-        return m.matches();
-    }
-
+   
 
     private static void loginPortal() {
         clearScreen();
