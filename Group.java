@@ -111,8 +111,24 @@ public class Group {
     }
 
     public void addChild(Child child){
-        // TODO add erorr checking(camp is full)
         campers.add(child);
+    }
+
+    public boolean childFits(Child child){
+        Date bday = child.getBirthday();
+        if(max.after(bday) && min.before(bday)){
+            return true;
+        }
+        return false;
+    }
+
+    public void removeChild(Child child){
+        for(Child c : campers){
+            if(c.getUUID().compareTo(child.getUUID()) == 0){
+                campers.remove(c);
+                break;
+            }
+        }
     }
 
     public String toString() {

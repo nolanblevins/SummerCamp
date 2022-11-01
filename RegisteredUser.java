@@ -107,13 +107,8 @@ public class RegisteredUser extends User {
         children.add(child);
     }
 
-    public void removeChild(String firstName, String lastName) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter child's first name:");
-        String fName = in.nextLine();
-        System.out.println("Enter child's last name:");
-        String lName = in.nextLine();
-        //children.remove(firstName,lastName);
+    public Child removeChild(int input) {
+        return children.remove(input - 1);
     }
 
     public String viewChildNotes(String firstName, String lastName) {

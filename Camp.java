@@ -91,6 +91,23 @@ public class Camp {
         groups.get(0).addChild(child);
     }
 
+    public void removeChild(Child child){
+        for(Group g : groups){
+            if(g.getGroupByChild(child) != null){
+                g.removeChild(child);
+            }
+        }
+    }
+
+    public boolean hasOpening(Child child){
+        for(Group g : groups){
+            if(g.childFits(child)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Returns a string that summarizes the important attributes of the camp
      *

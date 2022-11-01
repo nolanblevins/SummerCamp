@@ -18,6 +18,7 @@ public class CampUI {
 
         menuSelect();
 
+        DataWriter.saveChildren();
     }
 
     private static void loadingScreen() {
@@ -402,7 +403,6 @@ public class CampUI {
 
     }
 
-    //TODO Don't call camperPortal Recursively
     private static void camperPortal() {
         Scanner keyboard = new Scanner(System.in);
 
@@ -417,11 +417,10 @@ public class CampUI {
             System.out.println("1. View Camper Registration Info");
             System.out.println("2. View Camper Medical Info");
             System.out.println("3. Register Camper");
-            System.out.println("4. Unregister Camper");
-            System.out.println("5. Remove Camper");
-            System.out.println("6. Log Out");
+            System.out.println("4. Remove Camper");
+            System.out.println("5. Log Out");
 
-            option = getValidInput(6);
+            option = getValidInput(5);
 
             if (option == 1) {
                 clearScreen();
@@ -437,19 +436,35 @@ public class CampUI {
                 keyboard.nextLine();
             } else if (option == 3) {
                 clearScreen();
-                System.out.println("****** Register a Camper ******");
+                System.out.println("****** Register a Camper ******\n" +
+                        "\nTo continue, hit enter");
+                keyboard.nextLine();
                 Child child = getChildInput();
-                Camp camp = getCampPreference();
+                Camp camp = getCampPreference(child);
+                if(camp == null){
+                    clearScreen();
+                    System.out.println("****** Child Not Registered ******\n" +
+                            "\nHit enter to return to User Portal");
+                    keyboard.nextLine();
+                    continue;
+                }
                 campSystem.registerChild(child, camp);
                 clearScreen();
                 System.out.println("****** Registration Complete ******\n" +
                         "\nHit enter to return to User Portal");
                 keyboard.nextLine();
             } else if (option == 4) {
-                // unregister camper
+                clearScreen();
+                System.out.println("****** Removing a Camper ******");
+                System.out.print(campSystem.viewCamperRegistration());
+                int numChildren = campSystem.getNumChildren();
+                System.out.println((numChildren + 1) + " - Remove no child");
+                int input = getValidInput(numChildren + 1);
+                if(input == numChildren + 1){
+                    continue;
+                }
+                campSystem.removeChild(input);
             } else if (option == 5) {
-                // remove camper
-            } else if (option == 6) {
                 campSystem.logOff();
                 break;
             }
@@ -562,15 +577,25 @@ public class CampUI {
         return new Child(fName, lName, mInfo, bday);
     }
 
-    private static Camp getCampPreference(){
+    private static Camp getCampPreference(Child child){
         clearScreen();
         System.out.println("****** Camp Preference ******");
         ArrayList<Camp> camps = campSystem.getCamps();
-        for(int i = 1; i <= camps.size(); i++){
-            System.out.println(i + " - " + camps.get(i - 1));
+        ArrayList<Camp> validCamps = new ArrayList<>();
+        int count = 1;
+        for(Camp c : camps){
+            if(c.hasOpening(child)) {
+                System.out.println(count + " - " + c);
+                validCamps.add(c);
+                count++;
+            }
         }
-        int input = getValidInput(camps.size());
-        return camps.get(input - 1);
+        System.out.println((count) + " - None of these options work for you/No options available");
+        int input = getValidInput(validCamps.size() + 1);
+        if(input == count){
+            return null;
+        }
+        return validCamps.get(input - 1);
     }
 
     private static int getValidInput(int num) {

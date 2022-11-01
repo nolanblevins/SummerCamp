@@ -120,8 +120,18 @@ public class CampSystemFacade {
     }
 
     public void registerChild(Child child, Camp camp) {
+        childList.addChild(child);
         ((RegisteredUser)user).registerChild(child);
         camp.addchild(child);
+    }
+
+    public void removeChild(int input){
+        Child child = ((RegisteredUser)user).removeChild(input);
+        ArrayList<Camp> camps = campList.getCamp(child);
+        for(Camp c : camps){
+            c.removeChild(child);
+        }
+        childList.removeChild(child);
     }
 
     public void addNotes(String note) {
@@ -150,14 +160,15 @@ public class CampSystemFacade {
 
     public String viewCamperRegistration(){
         String ret = "";
-
+        int count = 1;
         for(Child c : ((RegisteredUser) user).getChildren()){
-            ret += c.toString() + "\n";
+            ret += count + " - " + c.toString() + "\n";
             ArrayList<Camp> camps = campList.getCamp(c);
             for(Camp camp : camps){
                 ret += camp.toString();
             }
             ret += "\n\n";
+            count ++;
         }
 
         return ret;
@@ -239,6 +250,10 @@ public class CampSystemFacade {
 
     public ArrayList<Camp> getCamps(){
         return campList.getAllCamps();
+    }
+
+    public int getNumChildren(){
+        return ((RegisteredUser)user).getChildren().size();
     }
 }
 
