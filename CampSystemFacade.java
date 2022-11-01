@@ -116,10 +116,12 @@ public class CampSystemFacade {
         activityList.addActivity(activity);
     }
 
-    public void registerChild(Child child, Camp camp) {
+    public void registerChild(Child child, ArrayList<Camp> camp) {
         childList.addChild(child);
         ((RegisteredUser)user).registerChild(child);
-        camp.addChild(child);
+        for(Camp c : camp){
+            c.addChild(child);
+        }
     }
 
     public void removeChild(int input){
@@ -162,7 +164,7 @@ public class CampSystemFacade {
             ret += count + " - " + c.toString() + "\n";
             ArrayList<Camp> camps = campList.getCamp(c);
             for(Camp camp : camps){
-                ret += camp.toString();
+                ret += camp.toString() + "\n";
             }
             ret += "\n\n";
             count ++;

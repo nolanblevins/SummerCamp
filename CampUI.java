@@ -16,7 +16,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveUsers();
+        DataWriter.saveGroups();
     }
 
     private static void loadingScreen() {
@@ -380,8 +380,8 @@ public class CampUI {
                         "\nTo continue, hit enter");
                 keyboard.nextLine();
                 Child child = getChildInput();
-                Camp camp = getCampPreference(child);
-                if (camp == null) {
+                ArrayList<Camp> camp = getCampPreference(child);
+                if (camp.size() == 0) {
                     clearScreen();
                     System.out.println("****** Child Not Registered ******\n" +
                             "\nHit enter to return to User Portal");
@@ -539,8 +539,9 @@ public class CampUI {
         return new Child(fName, lName, mInfo, bday);
     }
 
-    private static Camp getCampPreference(Child child) {
+    private static ArrayList<Camp> getCampPreference(Child child) {
         clearScreen();
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Camp Preference ******");
         ArrayList<Camp> camps = campSystem.getCamps();
         ArrayList<Camp> validCamps = new ArrayList<>();
@@ -553,11 +554,31 @@ public class CampUI {
             }
         }
         System.out.println((count) + " - None of these options work for you/No options available");
-        int input = getValidInput(validCamps.size() + 1);
-        if (input == count) {
-            return null;
-        }
-        return validCamps.get(input - 1);
+        boolean moreCamps = false;
+        ArrayList<Camp> campPreferences = new ArrayList<>();
+        do {
+            moreCamps = false;
+            int input = getValidInput(validCamps.size() + 1);
+            System.out.println();
+            if (input == count) {
+                break;
+            }
+            if(campPreferences.contains(validCamps.get(input - 1))){
+                System.out.println("Child already registered for this camp...\n");
+            }
+            else {
+                campPreferences.add(validCamps.get(input - 1));
+            }
+            System.out.print("Would you like to add another camp?(y/n): ");
+            String choice = keyboard.nextLine();
+            System.out.println();
+            if(choice.equalsIgnoreCase("y")){
+                moreCamps = true;
+            }
+
+        } while(moreCamps);
+
+        return campPreferences;
     }
 
     private static int getValidInput(int num) {
