@@ -93,8 +93,10 @@ public class DataReader extends DataConstants{
                 User counselor = getCounselor(groupJSON);
                 ArrayList<Child> campers = getChildren(groupJSON);
                 ArrayList<Schedule> schedule = getSchedules(groupJSON);
+                Date max = objectToDate(groupJSON.get(GROUP_MAX));
+                Date min = objectToDate(groupJSON.get(GROUP_MIN));
 
-                groups.add(new Group(uuid, groupName, cabin, groupSize, counselor, campers, schedule));
+                groups.add(new Group(uuid, groupName, cabin, groupSize, counselor, campers, schedule, min, max));
             }
 
         } catch (Exception e){

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.*;
+
 
 // TODO Have director input a list of themes for a camp, instantiate camp based on that
 public class CampSystemFacade {
@@ -117,16 +119,19 @@ public class CampSystemFacade {
         activityList.addActivity(activity);
     }
 
-    public void registerChild(String fName, String lName, MedicalInfo mInfo, Date bDay) {
-        Child child = ((RegisteredUser)user).registerChild();
-        ArrayList<Camp> camps = new ArrayList<>();
-        System.out.println("Select a camp to enroll " + child.getFirstName() +
-                " " + child.getLastName() + " in.");
-        for(int i = 0; i < camps.size(); i++){
-            System.out.print(i + " - ");
-            System.out.println(camps.get(i).toString());
+    public void registerChild(Child child, Camp camp) {
+        childList.addChild(child);
+        ((RegisteredUser)user).registerChild(child);
+        camp.addchild(child);
+    }
+
+    public void removeChild(int input){
+        Child child = ((RegisteredUser)user).removeChild(input);
+        ArrayList<Camp> camps = campList.getCamp(child);
+        for(Camp c : camps){
+            c.removeChild(child);
         }
-        Scanner keyboard = new Scanner(System.in);
+        childList.removeChild(child);
     }
 
     public void addNotes(String note) {
@@ -155,16 +160,16 @@ public class CampSystemFacade {
 
     public String viewCamperRegistration(){
         String ret = "";
-
+        int count = 1;
         for(Child c : ((RegisteredUser) user).getChildren()){
-            ret += c.toString() + "\n";
+            ret += count + " - " + c.toString() + "\n";
             ArrayList<Camp> camps = campList.getCamp(c);
             for(Camp camp : camps){
                 ret += camp.toString();
             }
             ret += "\n\n";
+            count ++;
         }
-        ret += "Hit Enter to return to User Portal";
 
         return ret;
     }
@@ -177,8 +182,80 @@ public class CampSystemFacade {
             ret += c.getMedInfo().toString();
             ret += "\n\n";
         }
-        ret += "Hit Enter to return to User Portal";
 
         return ret;
     }
+
+    public boolean isPhoneValid(String phoneNumber) {
+
+        if (phoneNumber.length() != 12) {
+            System.out.println("Invalid Phone Number, please try again");
+            return false;
+        } else {
+            for (int i = 0; i < phoneNumber.length(); i++) {
+
+                if (phoneNumber.charAt(i) != '0' && phoneNumber.charAt(i) != '1'
+                        && phoneNumber.charAt(i) != '2' && phoneNumber.charAt(i) != '3'
+                        && phoneNumber.charAt(i) != '4' && phoneNumber.charAt(i) != '5'
+                        && phoneNumber.charAt(i) != '6' && phoneNumber.charAt(i) != '7'
+                        && phoneNumber.charAt(i) != '8' && phoneNumber.charAt(i) != '9'
+                        && phoneNumber.charAt(i) != '-') {
+                    return false;
+                }
+            }
+
+            if (phoneNumber.charAt(3) != '-' && phoneNumber.charAt(7) != '-') {
+                return true;
+            }
+
+        }
+        return true;
+
+    }
+
+    public boolean isValidPassword(String password) {
+
+        String regex = "^(?=.*[0-9])"
+                + "(?=.*[a-z])(?=.*[A-Z])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$";
+
+        Pattern p = Pattern.compile(regex);
+
+        if (password == null) {
+            
+            System.out.println("Invalid Password, please try again");
+                String[] passwordRequire = {"8 characters and at most 20 character",
+                        "one digit", "one upper case alphabet", "one lower case alphabet",
+                        "one special character which includes !@#$%&*()-+=^."};
+                
+                        for (int i = 0; i < passwordRequire.length; i++) {
+                    System.out.println((i + 1) + "It contains at least " + passwordRequire[i]); }
+                    return false;    
+        }
+
+        Matcher m = p.matcher(password);
+
+        return m.matches();
+    }
+
+    public boolean isEmailValid(String emailInput) {
+
+            if(emailInput.matches("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}")){
+                return true;
+            }
+            System.out.println("Invalid Email, please try again");
+            return false;
+        }
+
+    public ArrayList<Camp> getCamps(){
+        return campList.getAllCamps();
+    }
+
+    public int getNumChildren(){
+        return ((RegisteredUser)user).getChildren().size();
+    }
 }
+
+
+

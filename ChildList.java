@@ -56,6 +56,15 @@ public class ChildList{
         }
     }
 
+    public void removeChild(Child child){
+        for(Child c : children){
+            if(c.getUUID().compareTo(child.getUUID()) == 0){
+                children.remove(c);
+                break;
+            }
+        }
+    }
+
     public void saveChildren(){
         DataWriter.saveChildren();
     }

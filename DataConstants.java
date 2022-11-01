@@ -36,6 +36,8 @@ public abstract class DataConstants {
     public static final String GROUP_SIZE = "groupSize";
     public static final String GROUP_COUNSELOR = "counselorID";
     public static final String GROUP_SCHEDULE = "schedule";
+    public static final String GROUP_MAX = "max";
+    public static final String GROUP_MIN = "min";
 
     // Camp Data Constants
     public static final String CAMP_FILE_NAME = "./JSON/Camp.JSON";
