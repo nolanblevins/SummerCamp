@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.regex.*;
 
 
@@ -120,7 +119,7 @@ public class CampSystemFacade {
     public void registerChild(Child child, Camp camp) {
         childList.addChild(child);
         ((RegisteredUser)user).registerChild(child);
-        camp.addchild(child);
+        camp.addChild(child);
     }
 
     public void removeChild(int input){

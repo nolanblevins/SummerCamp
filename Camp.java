@@ -86,9 +86,12 @@ public class Camp {
         return uuid;
     }
 
-    public void addchild(Child child){
-        // Temporary Solution
-        groups.get(0).addChild(child);
+    public void addChild(Child child){
+        for(Group g : groups){
+            if(g.childFits(child)){
+                g.addChild(child);
+            }
+        }
     }
 
     public void removeChild(Child child){
