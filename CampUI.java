@@ -16,7 +16,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveChildren();
+        DataWriter.saveUsers();
     }
 
     private static void loadingScreen() {
@@ -48,47 +48,41 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Welcome to GoofyGobbler Summercamp!\n\n************ Main Menu ************");
-        String[] menuOptions = { "Create an account", "Login", "Information on our camp", "FAQ", "Exit" };
-        for (int i = 0; i < menuOptions.length; i++) {
-            System.out.println((i + 1) + ". " + menuOptions[i]);
-        }
 
-        int menuSelection;
 
-        boolean invalidInput = false;
+        int option = getValidInput(5);
 
         do {
+            
+            String[] menuOptions = {"Create an account", "Login", "Information on our camp", "FAQ", "Exit"};
+                for (int i = 0; i < menuOptions.length; i++) {
+            System.out.println((i + 1) + ". " + menuOptions[i]);
+            }
 
-            if (invalidInput) {
+            if (option == 1) {
+                createAccountMenu();
+            } else if (option == 2) {
+                loginPortal();
+
+            } else if (option == 3) {
+                campInfo();
+            } else if (option == 4) {
+                displayFAQ();
+            } else if (option == 5) {
+                break;
+            } else {
                 System.out.println("Menu option not valid, choose again...");
             }
 
-            menuSelection = keyboard.nextInt();
-            keyboard.nextLine();
 
-            if (menuSelection == 1) {
-                createAccountMenu();
-            } else if (menuSelection == 2) {
-                loginPortal();
-
-            } else if (menuSelection == 3) {
-                campInfo();
-            } else if (menuSelection == 4) {
-                displayFAQ();
-            } else if (menuSelection == 5) {
-                break;
-            } else {
-
-            }
-
-        } while (menuSelection > (menuOptions.length) || menuSelection < 1);
-
+        } while (true);
     }
 
     private static void createAccountMenu() {
-
+        clearScreen();
+        
         Scanner keyboard = new Scanner(System.in);
-
+        
         boolean errorMessage = false;
 
         do {
@@ -128,12 +122,11 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         clearScreen();
-        System.out.println("***** Log in *****");
+        System.out.println("***** Login Portal *****");
 
-        boolean validLoginOption = false;
-
-        int loginChoice;
-
+        int option;
+        String emailInput;
+        String passwordInput;
         do {
 
             System.out.println("1. Counselor login");
@@ -141,22 +134,11 @@ public class CampUI {
             System.out.println("3. Camper login");
             System.out.println("4. Go back to previous page");
 
-            loginChoice = keyboard.nextInt();
-            keyboard.nextLine();
-
-            if (loginChoice > 4 || loginChoice < 1) {
-                validLoginOption = false;
-            } else {
-                validLoginOption = true;
-            }
-
-        } while (!validLoginOption);
-
+    
         clearScreen();
-        String emailInput;
-        String passwordInput;
-
-        if (loginChoice == 1) {
+        option = getValidInput(4);
+        
+        if (option == 1) {
             System.out.println("***** Counselor Login Portal *****");
             System.out.print("Email: ");
             emailInput = keyboard.nextLine();
@@ -172,7 +154,8 @@ public class CampUI {
                 clearScreen();
                 conselorPortal();
             }
-        } else if (loginChoice == 2) {
+
+        } else if (option == 2) {
             System.out.println("***** Director Login Portal *****");
             System.out.print("Email: ");
             emailInput = keyboard.nextLine();
@@ -184,11 +167,13 @@ public class CampUI {
                 System.out.println("Invalid Email, Password, or Usertype\nReturning to login portal...");
                 sleep(2000);
                 loginPortal();
-            } else {
+            } 
+                else {
                 clearScreen();
                 directorPortal();
             }
-        } else if (loginChoice == 3) {
+
+        } else if (option == 3) {
             System.out.println("***** Camper Login Portal *****");
             System.out.print("Email: ");
             emailInput = keyboard.nextLine();
@@ -204,9 +189,11 @@ public class CampUI {
                 clearScreen();
                 userPortal();
             }
-        } else if (loginChoice == 4) {
+        } else if (option == 4) {
             menuSelect();
         }
+    } while (true);
+    
     }
 
     private static void campInfo() {
@@ -269,32 +256,24 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         int option;
-        boolean validOption = false;
 
         do {
-
+            System.out.println("***** Welcome to Conselor Portal ******");
             System.out.println("1. View Group");
             System.out.println("2. Edit Medical Info");
             System.out.println("3. View Schedule");
             System.out.println("4. Edit User Information");
             System.out.println("5. Log out");
 
-            option = keyboard.nextInt();
-            keyboard.nextLine();
-
-            if (option > 5 || option < 1) {
-                validOption = false;
-            } else {
-                validOption = true;
-            }
-
-        } while (!validOption);
-
+            option = getValidInput(5);
+ 
         if (option == 1) {
             // view group
             System.out.println(campSystem.viewGroup());
+       
         } else if (option == 2) {
             // edit med info
+        
         } else if (option == 3) {
             // view schedule
             campSystem.viewSchedule();
@@ -311,7 +290,7 @@ public class CampUI {
             System.out.println("Invalid input, please try again");
 
         } else if (option == 4) {
-            campSystem.changeInfo(null, null, null, null, null);
+            campSystem.changeUserInfo(null, null, null, null, null);
         }
         campSystem.logOff();
     }
@@ -322,10 +301,9 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         int option;
-        boolean validOption = false;
 
         do {
-
+            System.out.println("****** Welcome to Director Portal ******");
             System.out.println("1. Add new Activity");
             System.out.println("2. Generate New Schedule");
             System.out.println("3. Add new FAQ");
@@ -335,14 +313,8 @@ public class CampUI {
             option = keyboard.nextInt();
             keyboard.nextLine();
 
-            if (option > 6 || option < 1) {
-                validOption = false;
-            } else {
-                validOption = true;
-            }
-
-        } while (!validOption);
-
+            option = getValidInput(6);
+  
         if (option == 1) {
 
             // todo error checking
@@ -359,6 +331,7 @@ public class CampUI {
             campSystem.addActivity(Title, Duration, Description, Location);
 
             System.out.println("You have succesfully added an activity");
+
         } else if (option == 2) {
             // generate schedule
 
@@ -370,10 +343,9 @@ public class CampUI {
             String FAQquestion = keyboard.nextLine();
             System.out.print("Enter answer:");
             String FAQanswer = keyboard.nextLine();
-
-            // campSystem.addToFAQ(FAQquestion, FAQanswer);
+             //campSystem.addToFAQ(FAQquestion, FAQanswer);
         } else if (option == 4) {
-            campSystem.changeInfo(null, null, null, null, null);
+            campSystem.changeUserInfo(null, null, null, null, null);
         }
 
         // create new theme scenerio
@@ -400,20 +372,18 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         int option;
-        boolean validOption = false;
 
         do {
             clearScreen();
-            System.out.println();
-
             System.out.println("****** User Portal ******");
             System.out.println("1. View Camper Registration Info");
             System.out.println("2. View Camper Medical Info");
             System.out.println("3. Register Camper");
             System.out.println("4. Remove Camper");
-            System.out.println("5. Log Out");
+            System.out.println("5. Change User Information");
+            System.out.println("6. Log Out");
 
-            option = getValidInput(5);
+            option = getValidInput(6);
 
             if (option == 1) {
                 clearScreen();
@@ -457,7 +427,10 @@ public class CampUI {
                     continue;
                 }
                 campSystem.removeChild(input);
-            } else if (option == 5) {
+            }
+            else if(option == 5){
+                changeInfo();
+            }else if (option == 6) {
                 campSystem.logOff();
                 break;
             }
@@ -487,57 +460,47 @@ public class CampUI {
         // }
     }
 
-    private static void changeInfo(String username) {
+    private static void changeInfo() {
+        clearScreen();
+        System.out.println("****** Change Information ******");
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter email:");
-        String userEmail = in.nextLine();
-        while (userEmail != .get(email)) {
-            System.out.println("Email is incorrect");
-            System.out.println("Enter email:");
-            userEmail = in.nextLine();
-        }
-        System.out.println("Enter password:");
-        String userPass = in.nextLine();
-        while (userPass != .get(password)) {
-            System.out.println("Password is incorrect");
-            System.out.println("Enter password:");
-            userPass = in.nextLine();
-        }
+
         boolean next = true;
         while (next) {
             System.out.println("What information would you like to change?" +
-                    "\n" + "\t" + "First Name(0)" +
-                    "\n" + "\t" + "Last Name(1)" +
-                    "\n" + "\t" + "Email(2)" +
-                    "\n" + "\t" + "Username(3)" +
-                    "\n" + "\t" + "Password(4)");
-            int userChoice = in.nextInt();
-            ;
-            if (userChoice == 0) {
+                    "\n" + "\t" + "1 - First Name" +
+                    "\n" + "\t" + "2 - Last Name" +
+                    "\n" + "\t" + "3 - Email" +
+                    "\n" + "\t" + "4 - Phone Number" +
+                    "\n" + "\t" + "5 - Password");
+
+            int userChoice = getValidInput(5);
+            if (userChoice == 1) {
                 System.out.println("Enter new first name:");
                 String newFirstName = in.nextLine();
-            } else if (userChoice == 1) {
+                campSystem.changeUserInfo(newFirstName, null, null, null, null);
+            } else if (userChoice == 2) {
                 System.out.println("Enter new last name:");
                 String newLastName = in.nextLine();
-            } else if (userChoice == 2) {
+                campSystem.changeUserInfo(null, newLastName, null, null, null);
+            } else if (userChoice == 3) {
                 System.out.println("Enter new email:");
                 String newEmail = in.nextLine();
-            } else if (userChoice == 3) {
-                System.out.println("Enter new username:");
-                String newUsername = in.nextLine();
+                campSystem.changeUserInfo(null, null, null, newEmail, null);
             } else if (userChoice == 4) {
+                System.out.println("Enter new Phone Number:");
+                String newPhoneNumber = in.nextLine();
+                campSystem.changeUserInfo(null, null, newPhoneNumber, null, null);
+            } else if (userChoice == 5) {
                 System.out.println("Enter new password:");
                 String newPassword = in.nextLine();
-            } else {
-                System.out.println("Invalid input, enter again");
-                continue;
+                campSystem.changeUserInfo(null, null, null, null, newPassword);
             }
             System.out.println("Would you like to change any other information? (y/n)");
             String answer = in.nextLine();
-            if (answer.equalsIgnoreCase("y"))
-                continue;
-            else
+            if (!answer.equalsIgnoreCase("y")) {
                 next = false;
+            }
         }
     }
 

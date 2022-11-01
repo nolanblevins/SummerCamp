@@ -82,10 +82,8 @@ public class CampSystemFacade {
         user = null;
     }
 
-    public void changeInfo(String firstName, String lastName, String phoneNumber, String email, String password) {
-        user = new User(firstName, lastName, phoneNumber, email, password);
-        userList.editUser(user);
-
+    public void changeUserInfo(String firstName, String lastName, String phoneNumber, String email, String password) {
+        user.changeInfo(firstName, lastName, phoneNumber, email, password);
     }
 
     public void generateSchedules(Camp camp) {
@@ -171,17 +169,6 @@ public class CampSystemFacade {
             count ++;
         }
 
-        return ret;
-    }
-
-    public String viewCampInfo(){
-        String ret = "";
-        for(int i = 0; i < campList.getAllCamps().size(); i++) {
-            ArrayList<Camp> camp = campList.getAllCamps();
-            Camp c = camp.get(i);
-            ret += (i + 1) + " - " + c.toString() + "\n";
-        }
-        ret += "\n\n";
         return ret;
     }
 
