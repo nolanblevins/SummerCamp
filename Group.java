@@ -112,11 +112,12 @@ public class Group {
 
     public void addChild(Child child){
         campers.add(child);
+        groupSize++;
     }
 
     public boolean childFits(Child child){
         Date bday = child.getBirthday();
-        if(max.after(bday) && min.before(bday)){
+        if(groupSize <= 8 && max.after(bday) && min.before(bday)){
             return true;
         }
         return false;
@@ -126,6 +127,7 @@ public class Group {
         for(Child c : campers){
             if(c.getUUID().compareTo(child.getUUID()) == 0){
                 campers.remove(c);
+                groupSize--;
                 break;
             }
         }
