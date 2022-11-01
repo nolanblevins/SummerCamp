@@ -172,17 +172,6 @@ public class CampSystemFacade {
         return ret;
     }
 
-    public String viewCampInfo(){
-        String ret = "";
-        for(int i = 0; i < campList.getAllCamps().size(); i++) {
-            ArrayList<Camp> camp = campList.getAllCamps();
-            Camp c = camp.get(i);
-            ret += (i + 1) + " - " + c.toString() + "\n";
-        }
-        ret += "\n\n";
-        return ret;
-    }
-
     public String viewCamperMedInfo(){
         String ret = "";
 
