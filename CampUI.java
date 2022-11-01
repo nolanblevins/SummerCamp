@@ -65,7 +65,15 @@ public class CampUI {
             } else if (option == 4) {
                 displayFAQ();
             } else if (option == 5) {
-                return;
+				clearScreen();
+				System.out.println("   ____    U  ___ u   U  ___ u  ____          ____   __   __U _____ u ");
+				System.out.println("U /'___|u   \\/'_ \\/    \\/'_ \\/ |  _'\\      U | __')u \\ \\ / /\\| ___'|/ ");
+				System.out.println("\\| |  _ /   | | | |    | | | |/| | | |      \\|  _ \\/  \\ V /  |  _|'   ");
+				System.out.println(" | |_| |.-,_| |_| |.-,_| |_| |U| |_| |\\      | |_) | U_|'|_u | |___   ");
+				System.out.println("  \\____| \\_)-\\___/  \\_)-\\___/  |____/ u      |____/    |_|   |_____|  ");
+				System.out.println("  _)(|_       \\\\         \\     |||_        _|| \\\\_.-,//|(_  <<   >>  ");
+				System.out.println(" (__)__)     (__)       (__)   (__)_)      (__) (__)\\_) (__)(__) (__) ");
+				System.exit(0);
             } else {
                 System.out.println("Menu option not valid, choose again...");
             }
