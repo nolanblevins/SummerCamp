@@ -1,6 +1,7 @@
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.Date;
 
 public class Group {
 
@@ -15,6 +16,8 @@ public class Group {
     private int groupSize;
     private Counselor counselor;
     private UUID id;
+    private Date max;
+    private Date min;
 
     public Group(String groupName, int cabin, int groupSize) {
         this.groupName = groupName;
@@ -33,7 +36,7 @@ public class Group {
     }
 
     public Group(UUID id, String groupName, int cabin, int groupSize, User counselor,
-            ArrayList<Child> campers, ArrayList<Schedule> schedule) {
+            ArrayList<Child> campers, ArrayList<Schedule> schedule, Date min, Date max) {
         this.groupName = groupName;
         this.cabin = cabin;
         this.groupSize = groupSize;
@@ -41,6 +44,8 @@ public class Group {
         this.campers = campers;
         this.counselor = (Counselor) counselor;
         this.schedule = schedule;
+        this.max = max;
+        this.min = min;
     }
 
     public void createSchedule() {
@@ -97,8 +102,12 @@ public class Group {
         return groupSize;
     }
 
-    public UUID getId() {
-        return id;
+    public Date getMax(){
+        return this.max;
+    }
+
+    public Date getMin(){
+        return this.min;
     }
 
     public void addChild(Child child){
