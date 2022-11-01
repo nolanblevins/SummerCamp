@@ -139,9 +139,9 @@
   {
     "UUID": "f900e8d4-0497-424d-94d1-913da28e23db",
     "userType": "Counselor",
-    "firstName": "Caroline",
+    "firstName": "Justine",
     "lastName": "Gardener",
-    "email": "CGardener@xxxxx.com",
+    "email": "JGardener@xxxxx.com",
     "phoneNumber": "555-555-5555",
     "password": "1234567",
     "birthday": "7:19:2002",
@@ -200,6 +200,43 @@
       }
     ],
     "address": "123 Fake Address Court",
+    "conditions": [
+
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
+  },
+  {
+    "UUID": "3bd390c6-af29-454c-9b85-b7ba67b6d437",
+    "userType": "Counselor",
+    "firstName": "Jimmy",
+    "lastName": "Walah",
+    "email": "JWalah@xxxxx.com",
+    "phoneNumber": "816-554-8765",
+    "password": "1234567",
+    "birthday": "7:19:2002",
+    "allergies": [
+
+    ],
+    "emergencyContact": [
+      {
+        "firstName":"jeanine",
+        "lastName": "walah",
+        "phoneNumber": "404-126-1484",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "mark",
+        "lastName": "walah",
+        "phoneNumber": "404-843-6224",
+        "relationship": "Father"
+      }
+    ],
+    "address": "123 Blahblah Street",
     "conditions": [
 
     ],
