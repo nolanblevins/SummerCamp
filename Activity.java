@@ -1,4 +1,7 @@
 import java.util.UUID;
+/**
+ * Class to manage and create activities for the camp
+ */
 public class Activity {
     private UUID uuid;
     private String title;
@@ -35,26 +38,51 @@ public class Activity {
         this.location = location;
     }
 
+    /**
+     * Method to get activity ID
+     * 
+     * @return UUID of activity
+     */
     public UUID getUuid() {
         return uuid;
     }
-
+    /**
+     * Method to get activity title
+     * 
+     * @return title of activity
+     */
     public String getTitle() {
         return title;
     }
-
+    /**
+     * Method to get activity duration
+     * 
+     * @return duration of activity
+     */
     public int getDuration() {
         return duration;
     }
-
+    /**
+     * Method to get activity description
+     * 
+     * @return description of activity
+     */
     public String getDescription() {
         return description;
     }
-
+    /**
+     * Method to get activity location
+     * 
+     * @return location of activity
+     */
     public String getLocation() {
         return location;
     }
-
+    /**
+     * Method to return concatenated toString
+     * 
+     * @return string of concatenated activity values
+     */
     public String toString() {
         return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description + ", location= " + location
                 + "]";
