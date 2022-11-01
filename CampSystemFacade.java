@@ -119,16 +119,9 @@ public class CampSystemFacade {
         activityList.addActivity(activity);
     }
 
-    public void registerChild(String fName, String lName, MedicalInfo mInfo, Date bDay) {
-        Child child = ((RegisteredUser)user).registerChild();
-        ArrayList<Camp> camps = new ArrayList<>();
-        System.out.println("Select a camp to enroll " + child.getFirstName() +
-                " " + child.getLastName() + " in.");
-        for(int i = 0; i < camps.size(); i++){
-            System.out.print(i + " - ");
-            System.out.println(camps.get(i).toString());
-        }
-        Scanner keyboard = new Scanner(System.in);
+    public void registerChild(Child child, Camp camp) {
+        ((RegisteredUser)user).registerChild(child);
+        camp.addchild(child);
     }
 
     public void addNotes(String note) {
@@ -244,6 +237,10 @@ public class CampSystemFacade {
             return false;
         }
 
-
+    public ArrayList<Camp> getCamps(){
+        return campList.getAllCamps();
     }
+}
+
+
 

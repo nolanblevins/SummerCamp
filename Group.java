@@ -101,6 +101,11 @@ public class Group {
         return id;
     }
 
+    public void addChild(Child child){
+        // TODO add erorr checking(camp is full)
+        campers.add(child);
+    }
+
     public String toString() {
         return "Group [groupName=" + groupName + ", schedule=" + schedule + ", cabin=" + cabin + ", campers=" + campers
                 + ", groupSize=" + groupSize + ", counselor=" + counselor + ", id=" + id + "]";

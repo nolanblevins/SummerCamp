@@ -1,8 +1,9 @@
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Thread;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
-
 
 
 public class CampUI {
@@ -111,18 +112,17 @@ public class CampUI {
             System.out.print("Password: ");
             String password = keyboard.nextLine();
 
-            if(campSystem.isValidPassword(password) && campSystem.isEmailValid(emailInput) && campSystem.isPhoneValid(phoneNumber)){
+            if (campSystem.isValidPassword(password) && campSystem.isEmailValid(emailInput) && campSystem.isPhoneValid(phoneNumber)) {
                 errorMessage = true;
                 campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
                 System.out.println("You have succesfully created an account");
             }
-                errorMessage = false;
+            errorMessage = false;
 
         } while (errorMessage);
 
     }
 
-   
 
     private static void loginPortal() {
         clearScreen();
@@ -438,7 +438,13 @@ public class CampUI {
             } else if (option == 3) {
                 clearScreen();
                 System.out.println("****** Register a Camper ******");
-                campSystem.registerChild(null, null, null, null);
+                Child child = getChildInput();
+                Camp camp = getCampPreference();
+                campSystem.registerChild(child, camp);
+                clearScreen();
+                System.out.println("****** Registration Complete ******\n" +
+                        "\nHit enter to return to User Portal");
+                keyboard.nextLine();
             } else if (option == 4) {
                 // unregister camper
             } else if (option == 5) {
@@ -474,16 +480,109 @@ public class CampUI {
 //        }
     }
 
-    private static int getValidInput(int num){
+    private static Child getChildInput() {
+        clearScreen();
+        System.out.println("****** Child Information ******");
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter child's first name:");
+        String fName = in.nextLine();
+        System.out.println("Enter child's last name:");
+        String lName = in.nextLine();
+        System.out.println("Enter child's birthday (MM/DD/YYYY):");
+        java.util.Date bday = null;
+        boolean next = true;
+        while (next) {
+            try {
+                bday = new SimpleDateFormat("dd/MM/yyyy").parse(in.nextLine());
+                next = false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Incorrect format or date");
+            }
+        }
+        ArrayList<Contact> emergencyContact = new ArrayList<Contact>();
+        boolean yes = true;
+        while (yes) {
+            System.out.println("Would you like to add an emergency contact? (y/n)");
+            String answer = in.nextLine();
+            if (answer.equalsIgnoreCase("y")) {
+                System.out.println("Enter child's emergency contact first name:");
+                String eFirstName = in.nextLine();
+                System.out.println("Enter child's emergency contact last name:");
+                String eLastName = in.nextLine();
+                System.out.println("Enter child's emergency contact phone number (XXX-XXX-XXXX):");
+                String ePhoneNumber = in.nextLine();
+                System.out.println("Enter child's emergency contact relationship:");
+                String eRelationship = in.nextLine();
+                Contact childContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
+                emergencyContact.add(childContact);
+            } else if (answer.equalsIgnoreCase("n"))
+                yes = false;
+            else
+                System.out.println("Invalid response, try again");
+        }
+
+        System.out.println("Enter child's address:");
+        String address = in.nextLine();
+        boolean add = true;
+        ArrayList<String> allergies = new ArrayList<String>();
+        while (add) {
+            System.out.println("Add allergies for child, once done enter 'done'");
+            String allergy = in.nextLine();
+            if (allergy.equalsIgnoreCase("done")) {
+                add = false;
+            }
+            else {
+                allergies.add(allergy);
+            }
+        }
+
+        add = true;
+        ArrayList<String> conditions = new ArrayList<String>();
+        while (add) {
+            System.out.println("Add conditions and medical notes for child, once done enter 'done'");
+            String condition = in.nextLine();
+            if (condition.equalsIgnoreCase("done"))
+                add = false;
+            else
+                conditions.add(condition);
+        }
+        System.out.println("Enter child's pediatrician first name:");
+        String pFirstName = in.nextLine();
+        System.out.println("Enter child's pediatrician last name:");
+        String pLastName = in.nextLine();
+        System.out.println("Enter child's pediatrician phone number (XXX-XXX-XXXX):");
+        String pPhoneNumber = in.nextLine();
+        System.out.println("Enter child's pediatrician business:");
+        String pBusiness = in.nextLine();
+        Pediatrician childPediatrician = new Pediatrician(pFirstName, pLastName, pPhoneNumber, pBusiness);
+
+        MedicalInfo mInfo = new MedicalInfo(emergencyContact, address, allergies, conditions, childPediatrician);
+
+        return new Child(fName, lName, mInfo, bday);
+    }
+
+    private static Camp getCampPreference(){
+        clearScreen();
+        System.out.println("****** Camp Preference ******");
+        ArrayList<Camp> camps = campSystem.getCamps();
+        for(int i = 1; i <= camps.size(); i++){
+            System.out.println(i + " - " + camps.get(i - 1));
+        }
+        int input = getValidInput(camps.size());
+        return camps.get(input - 1);
+    }
+
+    private static int getValidInput(int num) {
         Scanner keyboard = new Scanner(System.in);
         int input = -1;
-        while(input < 1 || input > num){
+        while (input < 1 || input > num) {
             // Could be rephrased
-            System.out.print("Please enter the number you'd like to visit: ");
-            try{
+            System.out.print("Please enter the number representing your choice: ");
+            try {
                 input = keyboard.nextInt();
                 keyboard.nextLine();
-            } catch(Exception e){
+            } catch (Exception e) {
                 keyboard.nextLine();
                 System.out.println("Invalid input...");
             }

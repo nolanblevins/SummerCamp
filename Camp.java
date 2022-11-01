@@ -86,6 +86,11 @@ public class Camp {
         return uuid;
     }
 
+    public void addchild(Child child){
+        // Temporary Solution
+        groups.get(0).addChild(child);
+    }
+
     /**
      * Returns a string that summarizes the important attributes of the camp
      *
