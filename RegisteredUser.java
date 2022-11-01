@@ -115,10 +115,6 @@ public class RegisteredUser extends User {
         return "child's notes";
     }
 
-    public void cancelRegistration(Child child) {
-
-    }
-
     public ArrayList<Child> getChildren() {
         return this.children;
     }
