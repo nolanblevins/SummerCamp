@@ -9,6 +9,7 @@ public class RegisteredUser extends User {
 
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, lastName, email, phoneNumber, password);
+        this.userType = UserType.REGISTERED_USER;
         this.children = new ArrayList<>();
     }
 

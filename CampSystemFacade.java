@@ -46,8 +46,8 @@ public class CampSystemFacade {
     }
 
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
-        user = new User(firstName, lastName, email, phoneNumber, password);
-        userList.addUser(user);
+        RegisteredUser ru = new RegisteredUser(firstName, lastName, email, phoneNumber, password);
+        userList.addUser(ru);
     }
 
     public boolean loginDirector(String email, String password) {

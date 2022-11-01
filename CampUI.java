@@ -20,7 +20,7 @@ public class CampUI {
     }
 
     private static void loadingScreen() {
-
+        clearScreen();
         System.out.println("           (                 ,&&&.");
         System.out.println("            )                .,.&&");
         System.out.println("           (  (              \\=__/");
@@ -76,8 +76,6 @@ public class CampUI {
     }
 
     private static void createAccountMenu() {
-        clearScreen();
-
         Scanner keyboard = new Scanner(System.in);
 
         boolean errorMessage = false;
@@ -143,7 +141,6 @@ public class CampUI {
                     clearScreen();
                     System.out.println("Invalid Email, Password, or usertype\nReturning to login portal...");
                     sleep(2000);
-                    loginPortal();
                 } else {
                     clearScreen();
                     conselorPortal();
@@ -160,7 +157,6 @@ public class CampUI {
                     clearScreen();
                     System.out.println("Invalid Email, Password, or Usertype\nReturning to login portal...");
                     sleep(2000);
-                    loginPortal();
                 } else {
                     clearScreen();
                     directorPortal();
@@ -178,7 +174,6 @@ public class CampUI {
                     clearScreen();
                     System.out.println("Invalid Email, Password, or usertype\nReturning to login portal...");
                     sleep(2000);
-                    loginPortal();
                 } else {
                     clearScreen();
                     userPortal();
