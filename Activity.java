@@ -38,8 +38,10 @@ public class Activity {
     }
 
     
-    /**
-     * @return
+    /** 
+     * Accessor for UUID
+     * 
+     * @return UUID for activity
      */
     public UUID getUuid() {
         return uuid;
