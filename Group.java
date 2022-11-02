@@ -115,7 +115,7 @@ public class Group {
 
     public boolean childFits(Child child){
         int childAge = calculateAge(child);
-        if(groupSize <= 8 && max > (childAge) && min < (childAge)){
+        if(groupSize <= 8 && max >= (childAge) && min <= (childAge)){
             return true;
         }
         return false;
