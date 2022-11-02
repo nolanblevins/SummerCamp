@@ -132,15 +132,9 @@ public class Camp {
         return uuid;
     }
 
-    /**
-     * This method gets the schedule for each counselor
-     * 
-     * @param counselor
-     * @return an array list of the schedules of each group in the camp
-     */
-    public ArrayList<Schedule> getCounselorSchedule(Counselor counselor) {
-        for (Group g : groups) {
-            if (g.getGroupByCounselor(counselor) != null) {
+    public ArrayList<Schedule> getCounselorSchedule(Counselor counselor){
+        for(Group g : groups){
+            if(g.getGroupByCounselor(counselor) != null){
                 return g.getSchedule();
             }
         }

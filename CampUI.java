@@ -318,12 +318,15 @@ public class CampUI {
                     System.out.println(i + " - " + camps.get(i-1));
                 }
                 int input = getValidInput(camps.size());
-                ArrayList<Schedule> schedule = campSystem.getCounselorSchedule(camps.get(input - 1));
-                String scheduleString = "";
-                for(Schedule s : schedule){
-                    scheduleString += s.toString() + "\n";
-                }
+                String scheduleString = campSystem.getCounselorSchedule(camps.get(input - 1));
+                clearScreen();
+                System.out.println("****** Schedule ******");
                 System.out.println(scheduleString);
+//                String scheduleString = "";
+//                for(Schedule s : schedule){
+//                    scheduleString += s.toString() + "\n";
+//                }
+//                System.out.println(scheduleString);
 
                 printToTxt(scheduleString);
 
@@ -443,7 +446,28 @@ public class CampUI {
                 System.out.println("Hit enter to continue...");
                 keyboard.nextLine();
             } else if(option == 5){
-
+                System.out.println("****** View Group Schedule ******");
+                ArrayList<Camp> camps =campSystem.viewAllCamps();
+                for(int i = 0; i < camps.size(); i++) {
+                    System.out.println(i+1 + " - " + camps.get(i));
+                }                
+                System.out.println("What camp would you like to view a schedule for? ");
+                int campNum = keyboard.nextInt();
+                keyboard.nextLine();
+                Camp camp = camps.get(campNum);
+                ArrayList<Group> groups = camp.getGroups();
+                
+                // needs to be fixed --------------------------------------------------------------------------------------
+                for(int i = 0; i < groups.size(); i++) {
+                    System.out.println(i+1 + " - " + camp.getGroups());
+                    
+                } 
+                
+                System.out.println("What group would you like to view a schedule for? ");
+                int groupNum = keyboard.nextInt();
+                keyboard.nextLine();
+                Group group = groups.get(groupNum);
+                System.out.println(group.getSchedule());
             } else if (option == 6) {
                 campSystem.logOff();
                 return;
