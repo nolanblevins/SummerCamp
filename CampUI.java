@@ -537,7 +537,7 @@ public class CampUI {
             campSystem.changeChildInfo(childInput - 1, null, null, mInfo);
         }
         else if(changeInput == 4){
-
+            changeCampRegistration(childInput - 1);
         }
         else if(changeInput == 5){
             clearScreen();
