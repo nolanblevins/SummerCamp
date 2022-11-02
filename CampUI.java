@@ -73,7 +73,7 @@ public class CampUI {
 				System.out.println("  \\____| \\_)-\\___/  \\_)-\\___/  |____/ u      |____/    |_|   |_____|  ");
 				System.out.println("  _)(|_       \\\\         \\     |||_        _|| \\\\_.-,//|(_  <<   >>  ");
 				System.out.println(" (__)__)     (__)       (__)   (__)_)      (__) (__)\\_) (__)(__) (__) ");
-				System.exit(0);
+				return;
             } else {
                 System.out.println("Menu option not valid, choose again...");
             }
