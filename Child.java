@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 
+/*
+ * This class is the manager of a Child
+ */
 public class Child {
     private UUID id;
     private String firstName;
