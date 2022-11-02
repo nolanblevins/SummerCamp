@@ -22,6 +22,15 @@ public class Camp {
         this.date = date;
         this.price = price;
         this.theme = theme;
+        this.groups = new ArrayList<>();
+        for(int i = 0; i < 0; i++) {
+            Group group = new Group(null, i + 1, 0);
+            groups.add(group);
+        }
+        for(int i = 0; i < groups.size(); i++) {
+            groups.get(i).createSchedule();
+        }
+        
     }
 
     /**

@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -363,14 +364,20 @@ public class CampUI {
                 System.out.println("****** Create-a-camp ******");
 
                 System.out.println("Date");
-                Date date = null;
+                String strDate = keyboard.nextLine();
+                String pattern = "MM/dd/yyyy";
+                Date date = new Date();
+                try {
+                    date = new SimpleDateFormat(pattern).parse(strDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 System.out.print("Price");
                 int Price = keyboard.nextInt();
                 System.out.println("Information on Camp:");
                 String CampInfo = keyboard.nextLine();
                 System.out.println("Theme");
                 String theme = keyboard.nextLine();
-
                 campSystem.intializeCamp(date, Price, CampInfo, theme);
             } else if (option == 6) {
                 campSystem.logOff();

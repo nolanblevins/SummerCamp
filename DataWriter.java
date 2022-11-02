@@ -99,6 +99,24 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    public static void saveFAQs(){
+        FAQList faqList = FAQList.getInstance();
+        ArrayList<FAQ> faqs = faqList.getFaqs();
+        JSONArray jsonFAQs = new JSONArray();
+
+        for(FAQ f : faqs){
+            jsonFAQs.add(getFAQJSON(f));
+        }
+    }
+
+    private static JSONObject getFAQJSON(FAQ faq){
+        JSONObject faqDetails = new JSONObject();
+        faqDetails.put(FAQ_QUESTION, faq.getQuestion());
+        faqDetails.put(FAQ_ANSWER, faq.getAnswer());
+
+        return faqDetails;
+    }
+
     private static JSONObject getUserJSON(User user){
         JSONObject userDetails = new JSONObject();
         userDetails.put(FIRST_NAME, user.getFirstName());

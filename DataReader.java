@@ -158,6 +158,26 @@ public class DataReader extends DataConstants{
         return children;
     }
 
+    public static ArrayList<FAQ> loadFAQs(){
+        ArrayList<FAQ> faqs = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader(FAQ_FILE_NAME);
+            JSONArray faqsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object faqObject : faqsJSON){
+                JSONObject faqJSON = (JSONObject)faqObject;
+                String question = (String)faqJSON.get(FAQ_QUESTION);
+                String answer = (String)faqJSON.get(FAQ_ANSWER);
+
+                faqs.add(new FAQ(question, answer));
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return faqs;
+    }
     /**
      * Gets an instance of the ChildList, then uses UUIDs from the jsonObject
      * object to find those children and add them to an array to be returned

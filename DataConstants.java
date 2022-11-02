@@ -59,4 +59,9 @@ public abstract class DataConstants {
     // Schedule Data Constants
     public static final String[] SCHEDULE_DAYS= {"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY",
             "THURSDAY", "FRIDAY", "SATURDAY"};
+
+    // faq Data Constants
+    public static final String FAQ_FILE_NAME = "./JSON/faq.JSON";
+    public static final String FAQ_QUESTION = "question";
+    public static final String FAQ_ANSWER = "answer";
 }

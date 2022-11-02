@@ -61,7 +61,7 @@ public class Group {
     }
 
     public Group getGroupByCounselor(Counselor counselor) {
-        Camp c = new Camp(null, 0, null);
+        Camp c = new Camp(null, 0, null, null);
         ArrayList<Group> groups = new ArrayList<Group>();
         groups = c.getGroups();
         for (int i = 0; i < groups.size(); i++) {
