@@ -86,46 +86,25 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         clearScreen();
+        // TODO Error check inputs???
         System.out.println("************ Account Registration ************\n");
         System.out.println("Please enter the following information: ");
-        
         System.out.print("First name: ");
         String firstname = keyboard.nextLine();
-        
         System.out.print("Last name: ");
         String lastname = keyboard.nextLine();
-        
         System.out.print("Email: ");
         String emailInput = keyboard.nextLine();
-        while(!campSystem.isEmailValid(emailInput)){
-            System.out.println("Invalid Email, please try again");
-            emailInput = keyboard.nextLine();
-        
-        }
-        
         System.out.print("Phone number (###-###-####) : ");
         String phoneNumber = keyboard.nextLine();
-        while(!campSystem.isPhoneValid(phoneNumber)){
-            System.out.println("Invalid Email, please try again");
-            phoneNumber = keyboard.nextLine();
-        }
-   
-        System.out.print("Password reqs: \n+ contains at least 8 characters and at most 20 characters ");
-        System.out.println("+ contains one digit, one upperCase alphabet, one special character (!@#$%&*()-+=^.)");
-        System.out.println("Password:");
+        System.out.print("Password: ");
         String password = keyboard.nextLine();
-        while(!campSystem.isValidPassword(password)){
-            System.out.println("Invalid Email, please try again");
-            password = keyboard.nextLine();
-        }
 
         campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
         clearScreen();
         System.out.println("****** Account Creation Success ******");
         System.out.println("Hit enter to continue...");
         keyboard.nextLine();
-        }
-        
     }
 
     private static void loginPortal() {
@@ -280,7 +259,6 @@ public class CampUI {
 
             } else if (option == 3) {
                 // view schedule
-                campSystem.viewSchedule();
 
                 // option to print out
                 System.out.println("Do you want to print this schedule out?");
@@ -310,7 +288,7 @@ public class CampUI {
         do {
             System.out.println("****** Welcome to Director Portal ******");
             System.out.println("1. Add new Activity");
-            System.out.println("2. Generate New Schedule");
+            System.out.println("2. View Camp Schedule");
             System.out.println("3. Add new FAQ");
             System.out.println("4. Edit User Information");
             System.out.println("5. Create new Camp");
@@ -338,11 +316,22 @@ public class CampUI {
                 System.out.println("You have succesfully added an activity");
 
             } else if (option == 2) {
-                // generate schedule
+                // System.out.println("Enter the date of the camp would you like to generate the schedules for: ");
+                // String date = keyboard.nextLine();
+                // String pattern = "MM/dd/yyyy";
+                // new SimpleDateFormat(pattern).format(date);
+                // campSystem.getCampByDate(date);
+                
+                
+
+                
+                // add schedule return
+                
 
             } else if (option == 3) {
 
                 System.out.println("****** Adding new FAQ ******");
+
                 System.out.print("Enter question:");
                 String FAQquestion = keyboard.nextLine();
                 System.out.print("Enter answer:");
