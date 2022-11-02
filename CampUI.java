@@ -108,7 +108,7 @@ public class CampUI {
         System.out.print("Phone number (###-###-####): ");
         String phoneNumber = keyboard.nextLine();
         while (!campSystem.isPhoneValid(phoneNumber)) {
-            System.out.println("Invalid Email, please try again");
+            System.out.println("Invalid Phone Number, please try again");
             phoneNumber = keyboard.nextLine();
         }
 
@@ -256,6 +256,8 @@ public class CampUI {
     }
 
     private static void conselorPortal() {
+        clearScreen();
+
         Scanner keyboard = new Scanner(System.in);
 
         int option;
