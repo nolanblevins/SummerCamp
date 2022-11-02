@@ -10,6 +10,7 @@ public class Camp {
     private String theme;
     private ArrayList<Group> groups;
     private UUID uuid;
+    private final String groupNames [] = {"Vipers","Pythons","Turtles","Seadogs","Dolphins","Wildcats"};
 
     /**
      * @param date  Start date of camp
@@ -24,7 +25,7 @@ public class Camp {
         this.theme = theme;
         this.groups = new ArrayList<>();
         for(int i = 0; i < 6; i++) {
-            Group group = new Group(null, i + 1, 0);
+            Group group = new Group(groupNames[i], i + 1, 0);
             groups.add(group);
         }
         for(int i = 0; i < groups.size(); i++) {
@@ -76,6 +77,7 @@ public class Camp {
         }
     }
     public void createGroups() {
+
 
     }
 

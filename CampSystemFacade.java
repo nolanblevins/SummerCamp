@@ -31,19 +31,19 @@ public class CampSystemFacade {
         return camps;
     }
 
-    public Camp intializeCamp(Date date, int price, String campInfo, String theme) {
-        Camp camp = new Camp(date, price, campInfo);
-        camp.generateGroupSchedules();
-        camp.setTheme(theme);    
-        /**
-         * TODO:
-         * create groups/organize by age
-         * 
-         * 
-         */
+    // public Camp intializeCamp(Date date, int price, String campInfo, String theme) {
+    //     Camp camp = new Camp(date, price, campInfo);
+    //     camp.generateGroupSchedules();
+    //     camp.setTheme(theme);    
+    //     /**
+    //      * TODO:
+    //      * create groups/organize by age
+    //      * 
+    //      * 
+    //      */
           
-        return camp;
-    }
+    //     return camp;
+    // }
 
     public void createAccount(String firstName, String lastName, String phoneNumber, String email, String password) {
         RegisteredUser ru = new RegisteredUser(firstName, lastName, email, phoneNumber, password);
@@ -83,6 +83,11 @@ public class CampSystemFacade {
 
     public void changeUserInfo(String firstName, String lastName, String phoneNumber, String email, String password) {
         user.changeInfo(firstName, lastName, phoneNumber, email, password);
+    }
+
+    public void changeChildInfo(int childInput, String firstName, String lastName, MedicalInfo medicalInfo){
+        Child child = ((RegisteredUser)user).getChildren().get(childInput);
+        child.changeInfo(firstName, lastName, medicalInfo);
     }
 
     public String getSchedules(Camp camp) {

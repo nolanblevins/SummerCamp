@@ -94,6 +94,17 @@ public class Child {
         return this.id;
     }
 
+    public void changeInfo(String firstName, String lastName, MedicalInfo medicalInfo){
+        if(firstName != null){
+            this.firstName = firstName;
+        }
+        if(lastName != null){
+            this.lastName = lastName;
+        }
+        if(medicalInfo != null){
+            this.medicalInfo = medicalInfo;
+        }
+    }
     /**
      * A concatenated toString of Child values
      * 
