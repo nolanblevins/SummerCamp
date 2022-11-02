@@ -37,49 +37,49 @@ public class Activity {
         this.location = location;
     }
 
-    /*
-     * The method returns the UUID
-     * @param none
+    
+    /**
+     * @return
      */
     public UUID getUuid() {
         return uuid;
     }
 
-    /*
-     * The method returns the title
-     * @param none
+    
+    /**
+     * @return
      */
     public String getTitle() {
         return title;
     }
 
-    /*
-     * The method returns the duration
-     * @param none
+    
+    /**
+     * @return
      */
     public int getDuration() {
         return duration;
     }
 
-    /*
-     * The method returns the description
-     * @param none
+    
+    /**
+     * @return
      */
     public String getDescription() {
         return description;
     }
 
-    /*
-     * The method returns the location
-     * @param none
+    
+    /**
+     * @return
      */
     public String getLocation() {
         return location;
     }
 
-    /*
-     * The method returns the the string of all the parameters of activity
-     * @param none
+  
+    /**
+     * @return
      */
     public String toString() {
         return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description + ", location= " + location
