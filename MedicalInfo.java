@@ -35,19 +35,40 @@ public class MedicalInfo {
 //    public ArrayList<String> getMedAndAdmin() {
 //        return this.ChildMedicationAndAdministration;
 //    }
-
+    
+    /**
+     * Accessor for Allergies
+     * 
+     * @return users allergies
+     */
     public ArrayList<String> getAllergies() {
         return allergies;
     }
 
+    /**
+     * Accessor for Emergency Contact
+     * 
+     * @return users emergencyContact
+     */
     public ArrayList<Contact> getEmergencyContact() {
         return emergencyContact;
     }
-
+    
+    /**
+     * Accessor for Address
+     * 
+     * @return users Address
+     */
     public String getAddress() {
         return address;
     }
 
+
+    /**
+     * Accessor for Medical Notes
+     * 
+     * @return users medical Notes
+     */
     public ArrayList<String> getMedNotes() {
         return medNotes;
     }
