@@ -18,4 +18,8 @@ public class FAQList {
     public ArrayList<FAQ> getFaqs(){
         return this.faqs;
     }
+    public void addFAQ(FAQ faq){
+        this.faqs.add(faq);
+    }
+
 }
