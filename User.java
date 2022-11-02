@@ -1,4 +1,5 @@
 import java.util.UUID;
+
 public class User {
     protected String firstName;
     protected String lastName;
@@ -77,7 +78,7 @@ public class User {
         return firstName;
     }
 
-     /**
+    /**
      * Accessor for lastName
      * 
      * @return lastName for user
@@ -118,12 +119,13 @@ public class User {
      * 
      * @return UUID for user
      */
-    public UUID getID(){
+    public UUID getID() {
         return this.uuid;
     }
 
     /**
-     * This method makes sure that each parameter is not null and fills it in with the right variable
+     * This method makes sure that each parameter is not null and fills it in with
+     * the right variable
      * 
      * @param firstName   The first name of the user
      * @param lastName    The last name of the user
@@ -132,20 +134,20 @@ public class User {
      * @param password    The password of the user
      */
     public void changeInfo(String firstName, String lastName, String phoneNumber,
-                           String email, String password){
-        if(firstName != null){
+            String email, String password) {
+        if (firstName != null) {
             this.firstName = firstName;
         }
-        if(lastName != null){
+        if (lastName != null) {
             this.lastName = lastName;
         }
-        if(phoneNumber != null){
+        if (phoneNumber != null) {
             this.phoneNumber = phoneNumber;
         }
-        if(email != null){
+        if (email != null) {
             this.email = email;
         }
-        if(password != null){
+        if (password != null) {
             this.password = password;
         }
     }
