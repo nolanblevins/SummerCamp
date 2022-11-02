@@ -7,6 +7,7 @@ public class Activity {
     private String location;
 
     /**
+     * This method is a constructor for Activity
      * @param title Name of activity
      * @param duration Length of time in hours of activity
      * @param description description of what activity is
@@ -21,6 +22,7 @@ public class Activity {
     }
 
     /**
+     * The method is a constructor for Activity including the UUID
      * @param uuid generated uuid for activity
      * @param title Name of activity
      * @param duration Length of time in hours of activity
@@ -35,26 +37,50 @@ public class Activity {
         this.location = location;
     }
 
+    /*
+     * The method returns the UUID
+     * @param none
+     */
     public UUID getUuid() {
         return uuid;
     }
 
+    /*
+     * The method returns the title
+     * @param none
+     */
     public String getTitle() {
         return title;
     }
 
+    /*
+     * The method returns the duration
+     * @param none
+     */
     public int getDuration() {
         return duration;
     }
 
+    /*
+     * The method returns the description
+     * @param none
+     */
     public String getDescription() {
         return description;
     }
 
+    /*
+     * The method returns the location
+     * @param none
+     */
     public String getLocation() {
         return location;
     }
 
+    /*
+     * The method returns the the string of all the parameters of activity
+     * @param none
+     */
     public String toString() {
         return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description + ", location= " + location
                 + "]";
