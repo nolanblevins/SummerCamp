@@ -5,8 +5,8 @@ public class FAQ {
     /**
      * Constructor for FAQ
      * 
-     * @param question
-     * @param answer
+     * @param question is the question for the faq
+     * @param answer is the answer for the faq
      */
     public FAQ(String question, String answer) {
         this.question = question;
