@@ -23,7 +23,7 @@ public class Camp {
         this.price = price;
         this.theme = theme;
         this.groups = new ArrayList<>();
-        for(int i = 0; i < 0; i++) {
+        for(int i = 0; i < 6; i++) {
             Group group = new Group(null, i + 1, 0);
             groups.add(group);
         }
