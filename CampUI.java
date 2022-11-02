@@ -378,7 +378,8 @@ public class CampUI {
                 String CampInfo = keyboard.nextLine();
                 System.out.println("Theme");
                 String theme = keyboard.nextLine();
-                campSystem.intializeCamp(date, Price, CampInfo, theme);
+                Camp camp = new Camp(date, Price, theme);
+                
             } else if (option == 6) {
                 campSystem.logOff();
             }
