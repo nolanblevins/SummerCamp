@@ -17,7 +17,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveChildren();
+        DataWriter.saveGroups();
     }
 
     private static void loadingScreen() {
@@ -537,7 +537,8 @@ public class CampUI {
             campSystem.changeChildInfo(childInput - 1, null, null, mInfo);
         }
         else if(changeInput == 4){
-            changeCampRegistration(childInput - 1);
+            changeCampRegistration(campSystem.getChild(childInput - 1));
+            return;
         }
         else if(changeInput == 5){
             clearScreen();
@@ -616,8 +617,52 @@ public class CampUI {
         return mInfo;
     }
 
-    private static void changeCampRegistration(int childInput){
-
+    private static void changeCampRegistration(Child child){
+        Scanner keyboard = new Scanner(System.in);
+        clearScreen();
+        System.out.println("****** Change Child Registration ******");
+        System.out.println("What would you like to do?" +
+                "\n\t1 - Register for another camp" +
+                "\n\t2 - Unregister from camp");
+        int input = getValidInput(2);
+        if(input == 1){
+            ArrayList<Camp> camps = getCampPreference(child);
+            if(camps == null){
+                System.out.println("****** Child Not Added to a Camp ******");
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
+                return;
+            }
+            for(Camp c : camps){
+                c.addChild(child);
+            }
+            clearScreen();
+            System.out.println("****** Child Added to Camp(s) ******");
+            System.out.println("Hit enter to continue...");
+            keyboard.nextLine();
+        }else if(input == 2){
+            clearScreen();
+            ArrayList<Camp> camps = campSystem.getCampsByChild(child);
+            System.out.println("****** Removing a Child From Camp ******");
+            for(int i = 1; i <= camps.size(); i++){
+                System.out.println(i + " - " + camps.get(i-1));
+                System.out.println();
+            }
+            System.out.println((camps.size() + 1) + " - Remove child from no camps");
+            int option = getValidInput(camps.size() + 1);
+            if(option == camps.size() + 1){
+                clearScreen();
+                System.out.println("****** Child not Removed From any Camps ******");
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
+                return;
+            }
+            camps.get(option - 1).removeChild(child);
+            clearScreen();
+            System.out.println("****** Child Removed From Camp ******");
+            System.out.println("Hit enter to continue...");
+            keyboard.nextLine();
+        }
     }
 
     private static Child getChildInput() {
