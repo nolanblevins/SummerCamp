@@ -4,11 +4,6 @@ import java.util.UUID;
 import java.util.Date;
 
 public class Group {
-
-    /*********************
-     * TODO add age range
-     *********************/
-
     private String groupName;
     private ArrayList<Schedule> schedule;
     private int cabin;

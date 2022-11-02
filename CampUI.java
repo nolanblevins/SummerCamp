@@ -16,7 +16,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveUsers();
+        DataWriter.saveGroups();
     }
 
     private static void loadingScreen() {
@@ -130,6 +130,7 @@ public class CampUI {
         clearScreen();
 
         Scanner keyboard = new Scanner(System.in);
+
 
         int option;
         String emailInput;
@@ -277,7 +278,7 @@ public class CampUI {
 
             } else if (option == 3) {
                 // view schedule
-                campSystem.viewSchedule();
+                //campSystem.getSchedules();
 
                 // option to print out
                 System.out.println("Do you want to print this schedule out?");
@@ -402,22 +403,19 @@ public class CampUI {
                 keyboard.nextLine();
             } else if (option == 3) {
                 clearScreen();
-                System.out.println("****** Register a Camper ******\n" +
-                        "\nTo continue, hit enter");
+                System.out.println("****** Register a Camper ******\n" + "\nTo continue, hit enter");
                 keyboard.nextLine();
                 Child child = getChildInput();
                 ArrayList<Camp> camp = getCampPreference(child);
                 if (camp.size() == 0) {
                     clearScreen();
-                    System.out.println("****** Child Not Registered ******\n" +
-                            "\nHit enter to return to User Portal");
+                    System.out.println("****** Child Not Registered ******\n" + "\nHit enter to return to User Portal");
                     keyboard.nextLine();
                     continue;
                 }
                 campSystem.registerChild(child, camp);
                 clearScreen();
-                System.out.println("****** Registration Complete ******\n" +
-                        "\nHit enter to return to User Portal");
+                System.out.println("****** Registration Complete ******\n" + "\nHit enter to return to User Portal");
                 keyboard.nextLine();
             } else if (option == 4) {
                 clearScreen();
@@ -447,12 +445,7 @@ public class CampUI {
 
         boolean next = true;
         while (next) {
-            System.out.println("What information would you like to change?" +
-                    "\n" + "\t" + "1 - First Name" +
-                    "\n" + "\t" + "2 - Last Name" +
-                    "\n" + "\t" + "3 - Email" +
-                    "\n" + "\t" + "4 - Phone Number" +
-                    "\n" + "\t" + "5 - Password");
+            System.out.println("What information would you like to change?" + "\n" + "\t" + "1 - First Name" + "\n" + "\t" + "2 - Last Name" + "\n" + "\t" + "3 - Email" + "\n" + "\t" + "4 - Phone Number" + "\n" + "\t" + "5 - Password");
 
             int userChoice = getValidInput(5);
             if (userChoice == 1) {
@@ -520,10 +513,8 @@ public class CampUI {
                 String eRelationship = in.nextLine();
                 Contact childContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
                 emergencyContact.add(childContact);
-            } else if (answer.equalsIgnoreCase("n"))
-                yes = false;
-            else
-                System.out.println("Invalid response, try again");
+            } else if (answer.equalsIgnoreCase("n")) yes = false;
+            else System.out.println("Invalid response, try again");
         }
 
         System.out.println("Enter child's address:");
@@ -545,10 +536,8 @@ public class CampUI {
         while (add) {
             System.out.println("Add conditions and medical notes for child, once done enter 'done'");
             String condition = in.nextLine();
-            if (condition.equalsIgnoreCase("done"))
-                add = false;
-            else
-                conditions.add(condition);
+            if (condition.equalsIgnoreCase("done")) add = false;
+            else conditions.add(condition);
         }
         System.out.println("Enter child's pediatrician first name:");
         String pFirstName = in.nextLine();
