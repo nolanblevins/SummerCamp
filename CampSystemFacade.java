@@ -349,21 +349,12 @@ public class CampSystemFacade {
     }
 
     /**
-     * Method to get all of the groups
+     * Method to get a counselors group from a certain camp
      *
-     * @return will return the groups as a String
+     * @return will return the group as a String
      */
-    public String viewGroup() {
-        GroupList groupList = GroupList.getInstance();
-        ArrayList<Group> groups = groupList.getAllGroups();
-        String ret = "";
-        for (int i = 0; i < groups.size(); i++) {
-            Group g = groups.get(i);
-            ret += (i + 1) + " - " + g.toString() + "\n";
-        }
-        ret += "\n\n";
-        return ret;
-
+    public String viewGroup(Camp camp) {
+        return camp.viewCamp((Counselor)user);
     }
 
     /**

@@ -274,8 +274,20 @@ public class CampUI {
             option = getValidInput(5);
 
             if (option == 1) {
-                // view group
-                System.out.println(campSystem.viewGroup());
+                clearScreen();
+                ArrayList<Camp> camps = campSystem.getCounselorCamps();
+                System.out.println("****** View Groups ******");
+                System.out.println("Which camp do you want to view the group for?");
+                for(int i = 1; i <= camps.size(); i++){
+                    System.out.println(i + " - " + camps.get(i-1));
+                }
+                int input = getValidInput(camps.size());
+                Camp camp = camps.get(input - 1);
+                clearScreen();
+                System.out.println("****** Group " + input + " ******");
+                System.out.println(campSystem.viewGroup(camp));
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
 
             } else if (option == 2) {
                 MedicalInfo medicalInfo = getMedicalInfo();
@@ -671,15 +683,16 @@ public class CampUI {
         String fName = in.nextLine();
         System.out.println("Enter child's last name:");
         String lName = in.nextLine();
-        System.out.println("Enter child's birthday (MM/DD/YYYY):");
+
         Date bday = null;
         boolean next = true;
         while (next) {
+            System.out.println("Enter child's birthday (MM/DD/YYYY):");
             try {
                 bday = new SimpleDateFormat("MM/dd/yyyy").parse(in.nextLine());
                 next = false;
             } catch (Exception e) {
-                e.printStackTrace();
+                next = true;
                 System.out.println("Incorrect format or date");
             }
         }

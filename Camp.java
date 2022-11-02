@@ -131,6 +131,21 @@ public class Camp {
         return false;
     }
 
+    public String viewCamp(Counselor user) {
+        Group group = null;
+        for(Group g : groups){
+            if(g.getCounselor().getID().compareTo(user.getID()) == 0){
+                group = g;
+                break;
+            }
+        }
+        String ret = "";
+        ArrayList<Child> children = group.getCampers();
+        for(int i = 1; i <= children.size(); i++){
+            ret += i + " - " + children.get(i-1) + "\n";
+        }
+        return ret;
+    }
     /**
      * Returns a string that summarizes the important attributes of the camp
      *
@@ -143,8 +158,4 @@ public class Camp {
                 "\n\tPrice: " + this.price +
                 "\n\tTheme: " + this.theme;
     }
-
-
-
-
 }

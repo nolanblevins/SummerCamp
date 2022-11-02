@@ -1,4 +1,5 @@
 import java.sql.Array;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -118,8 +119,8 @@ public class Group {
 
     public int calculateAge(Child child) {
         LocalDate curDate = LocalDate.now();
-        String childBday = child.getBirthday().toString();
-        LocalDate dob = LocalDate.parse(childBday);
+        LocalDate dob = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(
+                child.getBirthday()));
         return Period.between(dob, curDate).getYears();
     }
 
