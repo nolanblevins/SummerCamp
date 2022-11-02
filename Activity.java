@@ -92,9 +92,11 @@ public class Activity {
      * @return a concatenate string of the activity properties
      */
     public String toString() {
-        return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description
-                + ", location= " + location
-                + "]";
+        String ret = "Title: " + title;
+        ret += "\n\t\tDuration: " + duration + " hours";
+        ret += "\n\t\tDescription: " + description;
+        ret += "\n\t\tLocation: " + location;
+        return ret;
     }
 
 }
