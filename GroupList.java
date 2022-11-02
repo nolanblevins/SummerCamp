@@ -10,9 +10,9 @@ public class GroupList {
     }
 
     /**
-    * Method to get an Instance of GroupList
+    * Return an Instance of list of Group
     *
-    * @return an Instance of groupList
+    * @return groupList - List of Group
     */
     public static GroupList getInstance(){
         if(groupList == null){
@@ -22,19 +22,19 @@ public class GroupList {
     }
 
     /**
-     * Method to add a new Group 
+     * Method to add Group to the list of Group
      *
-     * @param group 
+     * @param group group needed to be add
      */
     public void addGroup(Group group){
         this.groups.add(group);
     }
 
     /**
-     * Method to getGroup from UUID
+     * Return the Group associated with UUID
      *
      * @param uuid      Group UUID
-     * @return          group if the UUID matches, otherwise null
+     * @return  g       group matches with the UUID, otherwise null
      */
     public Group getGroup(UUID uuid){
         for(Group g : groups){
@@ -48,7 +48,7 @@ public class GroupList {
     /**
      * Method to get All Group in the Camp
      *
-     * @return ArrayList of groups.
+     * @return group        List of Group
      */
     public ArrayList<Group> getAllGroups(){
         return groups;
@@ -57,8 +57,8 @@ public class GroupList {
     /**
      * Method to edit Group
      * 
-     * @param group:
-     * 
+     * @param group:    group needed to be edited
+     *
      */
     public void editGroup(Group group){
         for(Group g : groups){
@@ -70,7 +70,7 @@ public class GroupList {
     }
 
     /**
-     * Method to save Group from DataWriter
+     * Call DataWriter to save Group
      */
     public void saveGroups(){
         DataWriter.saveGroups();
