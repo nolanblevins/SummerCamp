@@ -65,15 +65,15 @@ public class CampUI {
             } else if (option == 4) {
                 displayFAQ();
             } else if (option == 5) {
-                clearScreen();
-                System.out.println("   ____    U  ___ u   U  ___ u  ____          ____   __   __U _____ u ");
-                System.out.println("U /'___|u   \\/'_ \\/    \\/'_ \\/ |  _'\\      U | __')u \\ \\ / /\\| ___'|/ ");
-                System.out.println("\\| |  _ /   | | | |    | | | |/| | | |      \\|  _ \\/  \\ V /  |  _|'   ");
-                System.out.println(" | |_| |.-,_| |_| |.-,_| |_| |U| |_| |\\      | |_) | U_|'|_u | |___   ");
-                System.out.println("  \\____| \\_)-\\___/  \\_)-\\___/  |____/ u      |____/    |_|   |_____|  ");
-                System.out.println("  _)(|_       \\\\         \\     |||_        _|| \\\\_.-,//|(_  <<   >>  ");
-                System.out.println(" (__)__)     (__)       (__)   (__)_)      (__) (__)\\_) (__)(__) (__) ");
-                return;
+				clearScreen();
+				System.out.println("   ____    U  ___ u   U  ___ u  ____          ____   __   __U _____ u ");
+				System.out.println("U /'___|u   \\/'_ \\/    \\/'_ \\/ |  _'\\      U | __')u \\ \\ / /\\| ___'|/ ");
+				System.out.println("\\| |  _ /   | | | |    | | | |/| | | |      \\|  _ \\/  \\ V /  |  _|'   ");
+				System.out.println(" | |_| |.-,_| |_| |.-,_| |_| |U| |_| |\\      | |_) | U_|'|_u | |___   ");
+				System.out.println("  \\____| \\_)-\\___/  \\_)-\\___/  |____/ u      |____/    |_|   |_____|  ");
+				System.out.println("  _)(|_       \\\\         \\     |||_        _|| \\\\_.-,//|(_  <<   >>  ");
+				System.out.println(" (__)__)     (__)       (__)   (__)_)      (__) (__)\\_) (__)(__) (__) ");
+				return;
             } else {
                 System.out.println("Menu option not valid, choose again...");
             }
@@ -86,6 +86,7 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         clearScreen();
+        // TODO Error check inputs???
         System.out.println("************ Account Registration ************\n");
         System.out.println("Please enter the following information: ");
 
@@ -124,6 +125,7 @@ public class CampUI {
         System.out.println("****** Account Creation Success ******");
         System.out.println("Hit enter to continue...");
         keyboard.nextLine();
+
     }
 
     private static void loginPortal() {
@@ -278,7 +280,6 @@ public class CampUI {
 
             } else if (option == 3) {
                 // view schedule
-                //campSystem.getSchedules();
 
                 // option to print out
                 System.out.println("Do you want to print this schedule out?");
@@ -308,7 +309,7 @@ public class CampUI {
         do {
             System.out.println("****** Welcome to Director Portal ******");
             System.out.println("1. Add new Activity");
-            System.out.println("2. Generate New Schedule");
+            System.out.println("2. View Camp Schedule");
             System.out.println("3. Add new FAQ");
             System.out.println("4. Edit User Information");
             System.out.println("5. Create new Camp");
@@ -336,17 +337,27 @@ public class CampUI {
                 System.out.println("You have succesfully added an activity");
 
             } else if (option == 2) {
-                // generate schedule
+                // System.out.println("Enter the date of the camp would you like to generate the schedules for: ");
+                // String date = keyboard.nextLine();
+                // String pattern = "MM/dd/yyyy";
+                // new SimpleDateFormat(pattern).format(date);
+                // campSystem.getCampByDate(date);
+                
+                
+
+                
+                // add schedule return
+                
 
             } else if (option == 3) {
 
                 System.out.println("****** Adding new FAQ ******");
+
                 System.out.print("Enter question:");
                 String FAQquestion = keyboard.nextLine();
                 System.out.print("Enter answer:");
                 String FAQanswer = keyboard.nextLine();
-                campSystem.addToFAQ(FAQquestion, FAQanswer);
-                ;
+                campSystem.addToFAQ(FAQquestion, FAQanswer);;
             } else if (option == 4) {
                 campSystem.changeUserInfo(null, null, null, null, null);
             }
@@ -403,19 +414,22 @@ public class CampUI {
                 keyboard.nextLine();
             } else if (option == 3) {
                 clearScreen();
-                System.out.println("****** Register a Camper ******\n" + "\nTo continue, hit enter");
+                System.out.println("****** Register a Camper ******\n" +
+                        "\nTo continue, hit enter");
                 keyboard.nextLine();
                 Child child = getChildInput();
                 ArrayList<Camp> camp = getCampPreference(child);
                 if (camp.size() == 0) {
                     clearScreen();
-                    System.out.println("****** Child Not Registered ******\n" + "\nHit enter to return to User Portal");
+                    System.out.println("****** Child Not Registered ******\n" +
+                            "\nHit enter to return to User Portal");
                     keyboard.nextLine();
                     continue;
                 }
                 campSystem.registerChild(child, camp);
                 clearScreen();
-                System.out.println("****** Registration Complete ******\n" + "\nHit enter to return to User Portal");
+                System.out.println("****** Registration Complete ******\n" +
+                        "\nHit enter to return to User Portal");
                 keyboard.nextLine();
             } else if (option == 4) {
                 clearScreen();
@@ -445,7 +459,12 @@ public class CampUI {
 
         boolean next = true;
         while (next) {
-            System.out.println("What information would you like to change?" + "\n" + "\t" + "1 - First Name" + "\n" + "\t" + "2 - Last Name" + "\n" + "\t" + "3 - Email" + "\n" + "\t" + "4 - Phone Number" + "\n" + "\t" + "5 - Password");
+            System.out.println("What information would you like to change?" +
+                    "\n" + "\t" + "1 - First Name" +
+                    "\n" + "\t" + "2 - Last Name" +
+                    "\n" + "\t" + "3 - Email" +
+                    "\n" + "\t" + "4 - Phone Number" +
+                    "\n" + "\t" + "5 - Password");
 
             int userChoice = getValidInput(5);
             if (userChoice == 1) {
@@ -513,8 +532,10 @@ public class CampUI {
                 String eRelationship = in.nextLine();
                 Contact childContact = new Contact(eFirstName, eLastName, ePhoneNumber, eRelationship);
                 emergencyContact.add(childContact);
-            } else if (answer.equalsIgnoreCase("n")) yes = false;
-            else System.out.println("Invalid response, try again");
+            } else if (answer.equalsIgnoreCase("n"))
+                yes = false;
+            else
+                System.out.println("Invalid response, try again");
         }
 
         System.out.println("Enter child's address:");
@@ -536,8 +557,10 @@ public class CampUI {
         while (add) {
             System.out.println("Add conditions and medical notes for child, once done enter 'done'");
             String condition = in.nextLine();
-            if (condition.equalsIgnoreCase("done")) add = false;
-            else conditions.add(condition);
+            if (condition.equalsIgnoreCase("done"))
+                add = false;
+            else
+                conditions.add(condition);
         }
         System.out.println("Enter child's pediatrician first name:");
         String pFirstName = in.nextLine();
@@ -578,19 +601,20 @@ public class CampUI {
             if (input == count) {
                 break;
             }
-            if (campPreferences.contains(validCamps.get(input - 1))) {
+            if(campPreferences.contains(validCamps.get(input - 1))){
                 System.out.println("Child already registered for this camp...\n");
-            } else {
+            }
+            else {
                 campPreferences.add(validCamps.get(input - 1));
             }
             System.out.print("Would you like to add another camp?(y/n): ");
             String choice = keyboard.nextLine();
             System.out.println();
-            if (choice.equalsIgnoreCase("y")) {
+            if(choice.equalsIgnoreCase("y")){
                 moreCamps = true;
             }
 
-        } while (moreCamps);
+        } while(moreCamps);
 
         return campPreferences;
     }
