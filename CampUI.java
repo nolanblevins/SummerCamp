@@ -318,12 +318,15 @@ public class CampUI {
                     System.out.println(i + " - " + camps.get(i-1));
                 }
                 int input = getValidInput(camps.size());
-                ArrayList<Schedule> schedule = campSystem.getCounselorSchedule(camps.get(input - 1));
-                String scheduleString = "";
-                for(Schedule s : schedule){
-                    scheduleString += s.toString() + "\n";
-                }
+                String scheduleString = campSystem.getCounselorSchedule(camps.get(input - 1));
+                clearScreen();
+                System.out.println("****** Schedule ******");
                 System.out.println(scheduleString);
+//                String scheduleString = "";
+//                for(Schedule s : schedule){
+//                    scheduleString += s.toString() + "\n";
+//                }
+//                System.out.println(scheduleString);
 
                 printToTxt(scheduleString);
 

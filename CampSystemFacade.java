@@ -539,7 +539,7 @@ public class CampSystemFacade {
         return ((RegisteredUser) user).getChildren().size();
     }
 
-    public ArrayList<Schedule> getCounselorSchedule(Camp camp) {
+    public String getCounselorSchedule(Camp camp) {
         return camp.getCounselorSchedule(((Counselor)user));
     }
 }

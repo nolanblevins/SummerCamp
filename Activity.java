@@ -85,6 +85,10 @@ public class Activity {
         return location;
     }
 
+    public String getActLoc(){
+        return this.title + ", " + this.location;
+    }
+
     /**
      * This method returns all of the parameters for activity in the form of a
      * string

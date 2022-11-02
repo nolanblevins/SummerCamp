@@ -25,7 +25,7 @@
     "title": "Rock Climbing",
     "duration": 1,
     "description": "Climbing up the rock wall",
-    "location": "The rock wall by the main pavilion"
+    "location": "The rock wall"
   },
   {
     "UUID": "2e6a507f-61cf-4d7a-a813-b993ca30cc7c",
@@ -36,7 +36,7 @@
   },
   {
     "UUID": "17f68738-559b-4daa-8d75-e0eafd5652f3",
-    "title": "Ninja Warrior Course",
+    "title": "Ninja Warrior",
     "duration": 1,
     "description": "Going through a mock ninja warrior course",
     "location": "Ninja Warrior Course"
