@@ -50,35 +50,46 @@ public class Activity {
     }
 
     /**
-     * @return
+     * Accessor for title
+     * 
+     * @return title for activity
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     * @return
+     * Accessor for duration
+     * 
+     * @return duration for activity
      */
     public int getDuration() {
         return duration;
     }
 
     /**
-     * @return
+     * Accessor for description
+     * 
+     * @return description for activity
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * @return
+     * Accessor for location
+     * 
+     * @return location for activity
      */
     public String getLocation() {
         return location;
     }
 
     /**
-     * @return
+     * This method returns all of the parameters for activity in the form of a
+     * string
+     * 
+     * @return a concatenate string of the activity properties
      */
     public String toString() {
         return "Activity [title= " + title + ", time= " + duration + "minutes, description= " + description
