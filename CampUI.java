@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -285,10 +286,9 @@ public class CampUI {
                 Camp camp = camps.get(input - 1);
                 clearScreen();
                 System.out.println("****** Group " + input + " ******");
-                System.out.println(campSystem.viewGroup(camp));
-                System.out.println("Hit enter to continue...");
-                keyboard.nextLine();
-
+                String groupString = campSystem.viewGroup(camp);
+                System.out.println(groupString);
+                printToTxt(groupString);
             } else if (option == 2) {
                 MedicalInfo medicalInfo = getMedicalInfo();
                 campSystem.changeCounselorMedInfo(medicalInfo);
@@ -304,17 +304,14 @@ public class CampUI {
                 }
                 int input = getValidInput(camps.size());
                 ArrayList<Schedule> schedule = campSystem.getCounselorSchedule(camps.get(input - 1));
+                String scheduleString = "";
                 for(Schedule s : schedule){
-                    System.out.println(s);
+                    scheduleString += s.toString() + "\n";
                 }
+                System.out.println(scheduleString);
 
-                // option to print out
-                System.out.println("Do you want to print this schedule out?");
-                System.out.println("1. Yes \n2. No");
-                int choice = keyboard.nextInt();
-                if (choice == 1) {
-                    // convert to txt method
-                }
+                printToTxt(scheduleString);
+
             } else if (option == 4) {
                 changeInfoUser();
             } else if (option == 5) {
@@ -325,6 +322,31 @@ public class CampUI {
         } while (true);
     }
 
+    private static void printToTxt(String string){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Do you want to print this out?");
+        System.out.println("1. Yes \n2. No");
+        int choice = getValidInput(2);
+        if (choice == 1) {
+            String dir = "./TxtPrints/";
+            System.out.println("What would you like to name the .txt file?");
+            dir += keyboard.nextLine();
+            try{
+                FileWriter fileWriter = new FileWriter(dir);
+                fileWriter.write(string);
+                fileWriter.close();
+                System.out.println("Schedule written to file");
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
+                return;
+            } catch(Exception e){
+
+            }
+        }
+        System.out.println("Schedule not written to file");
+        System.out.println("Hit enter to continue...");
+        keyboard.nextLine();
+    }
     private static void directorPortal() {
         clearScreen();
 
