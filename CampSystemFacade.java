@@ -449,7 +449,6 @@ public class CampSystemFacade {
     public boolean isPhoneValid(String phoneNumber) {
 
         if (phoneNumber.length() != 12) {
-            System.out.println("Invalid Phone Number, please try again");
             return false;
         } else {
             for (int i = 0; i < phoneNumber.length(); i++) {
