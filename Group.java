@@ -47,6 +47,17 @@ public class Group {
         this.campers = new ArrayList<>();
     }
 
+    public Group(String groupName, int cabin, int groupSize,
+                 Counselor counselor, int min, int max){
+        this.id = UUID.randomUUID();
+        this.campers = new ArrayList<>();
+        this.groupName = groupName;
+        this.cabin = cabin;
+        this.groupSize = groupSize;
+        this.counselor = counselor;
+        this.min = min;
+        this.max = max;
+    }
     /**
      * This method is a constructor for Group including UUID, conselor, camps, and schedule
      *
