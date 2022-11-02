@@ -18,8 +18,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveGroups();
-        DataWriter.saveChildren();
+        campSystem.saveInformation();
     }
 
     private static void loadingScreen() {

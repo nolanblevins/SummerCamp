@@ -542,6 +542,19 @@ public class CampSystemFacade {
     public String getCounselorSchedule(Camp camp) {
         return camp.getCounselorSchedule(((Counselor)user));
     }
+
+    /**
+     * Method will call the save method, to make sure that the data
+     * is saved at the end of the program
+     */
+    public void saveInformation(){
+        DataWriter.saveChildren();
+        DataWriter.saveFAQs();
+        DataWriter.saveUsers();
+        DataWriter.saveCamps();
+        DataWriter.saveGroups();
+        DataWriter.saveActivies();
+    }
 }
 
 

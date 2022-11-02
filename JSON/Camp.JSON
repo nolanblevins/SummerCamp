@@ -1,7 +1,7 @@
 [
   {
     "UUID": "4dc53ed7-7aba-47bd-b770-9db41cee24b5",
-    "date": "6:23:2022",
+    "date": "6:25:2023",
     "theme": "Example Theme for the Week",
     "price": 255.99,
     "groupID": [
@@ -11,15 +11,6 @@
       "7b6cf128-7809-4f8c-9bf4-06be855eb41c",
       "73ceeeb3-ce1c-42db-bb64-9a3eed692016",
       "13d94936-b8ec-4003-8fdc-77bf5c2e4943"
-    ]
-  },
-  {
-    "UUID": "31813c22-84d4-4775-a0d6-a0513b247731",
-    "date": "6:1:2022",
-    "theme": "Example Theme for the Week",
-    "price": 255.99,
-    "groupID": [
-      "4d96aade-1674-4116-a41d-0aec6f22cbaa"
     ]
   }
 ]
