@@ -1,10 +1,26 @@
 [
   {
-    "Question": "Insert Question Here",
-    "Answer": "Insert answer here"
+    "question": "What type of child is successful at this camp?",
+    "answer": "Any type of child is welcome to attend these camps, as there are many different activities for each camp theme."
   },
   {
-    "Question": "Insert Question Here",
-    "Answer": "Insert answer here"
+    "question": "On average, how many kids attend each camp?",
+    "answer": "There is a maximum of 48 kids at each camp, and our camps are usually full."
+  },
+  {
+    "question": "What are your procedures and rules for keeping campers and staff safe from illness?",
+    "answer": "We do our best to keep everyone as clean as possible, by providing hand sanitizer, soap in the bathrooms, and making sure no one is openly sharing germs."
+  },
+  {
+    "question": "Is the schedule highly structured, or do kids have a lot of free choice?",
+    "answer": "The schedule is very structured, with there being certain activities every day. There will be days where the child has free time, but that is shown in the schedule."
+  },
+  {
+    "question": "What accommodations can I expect the camp to make for my child's needs?",
+    "answer": "We have a medical information section when a child is registered, and as long as the information and medical requirements are provided to the camp, then your child will be given those."
+  },
+  {
+    "question": "What does your staff do if they see a child being picked on or excluded?",
+    "answer": "We will make sure to punish the child the is being a bully if we see a child being picked on. If we see a child that is being excluded or lonely, we will encourage the child to go out and play with the other children."
   }
 ]
