@@ -131,20 +131,24 @@ public class Camp {
         return false;
     }
 
-    public String viewCamp(Counselor user) {
-        Group group = null;
-        for(Group g : groups){
-            if(g.getCounselor().getID().compareTo(user.getID()) == 0){
-                group = g;
-                break;
-            }
-        }
+    public String viewGroup(Counselor user) {
+        Group group = getGroup(user);
+
         String ret = "";
         ArrayList<Child> children = group.getCampers();
         for(int i = 1; i <= children.size(); i++){
             ret += i + " - " + children.get(i-1) + "\n";
         }
         return ret;
+    }
+
+    public Group getGroup(Counselor user){
+        for(Group g : groups){
+            if(g.getCounselor().getID().compareTo(user.getID()) == 0){
+                return g;
+            }
+        }
+        return null;
     }
     /**
      * Returns a string that summarizes the important attributes of the camp

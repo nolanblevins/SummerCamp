@@ -268,11 +268,12 @@ public class CampUI {
             System.out.println("***** Welcome to Counselor Portal ******");
             System.out.println("1. View Group");
             System.out.println("2. Edit Medical Info");
-            System.out.println("3. View Schedule");
-            System.out.println("4. Edit User Information");
-            System.out.println("5. Log out");
+            System.out.println("3. Get Group Medical Info");
+            System.out.println("4. View Schedule");
+            System.out.println("5. Edit User Information");
+            System.out.println("6. Log out");
 
-            option = getValidInput(5);
+            option = getValidInput(6);
 
             if (option == 1) {
                 clearScreen();
@@ -293,7 +294,20 @@ public class CampUI {
                 MedicalInfo medicalInfo = getMedicalInfo();
                 campSystem.changeCounselorMedInfo(medicalInfo);
 
-            } else if (option == 3) {
+            } else if(option == 3){
+                clearScreen();
+                ArrayList<Camp> camps = campSystem.getCounselorCamps();
+                System.out.println("****** View Group Medical Info ******");
+                System.out.println("Which camp do you want to view the group for?");
+                for(int i = 1; i <= camps.size(); i++){
+                    System.out.println(i + " - " + camps.get(i-1));
+                }
+                int input = getValidInput(camps.size());
+                Camp camp = camps.get(input - 1);
+                String medInfo = campSystem.viewCamperMedInfo(camp);
+                System.out.println(medInfo);
+                printToTxt(medInfo);
+            } else if (option == 4) {
                 clearScreen();
                 System.out.println("****** View Schedule ******");
                 System.out.println("Which camp do you want to view the schedule for?");
@@ -312,9 +326,9 @@ public class CampUI {
 
                 printToTxt(scheduleString);
 
-            } else if (option == 4) {
-                changeInfoUser();
             } else if (option == 5) {
+                changeInfoUser();
+            } else if (option == 6) {
                 campSystem.logOff();
                 return;
             }

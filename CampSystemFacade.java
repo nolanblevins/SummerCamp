@@ -354,7 +354,7 @@ public class CampSystemFacade {
      * @return will return the group as a String
      */
     public String viewGroup(Camp camp) {
-        return camp.viewCamp((Counselor)user);
+        return camp.viewGroup((Counselor)user);
     }
 
     /**
@@ -387,6 +387,20 @@ public class CampSystemFacade {
         String ret = "";
 
         for (Child c : ((RegisteredUser) user).getChildren()) {
+            ret += c.toString() + "\n";
+            ret += c.getMedInfo().toString();
+            ret += "\n\n";
+        }
+
+        return ret;
+    }
+
+    public String viewCamperMedInfo(Camp camp){
+        String ret = "";
+
+        Group group = camp.getGroup((Counselor)user);
+
+        for (Child c : group.getCampers()) {
             ret += c.toString() + "\n";
             ret += c.getMedInfo().toString();
             ret += "\n\n";
