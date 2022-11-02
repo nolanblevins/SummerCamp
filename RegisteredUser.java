@@ -7,24 +7,64 @@ import java.text.SimpleDateFormat;
 public class RegisteredUser extends User {
     protected ArrayList<Child> children;
 
+
+       /**
+     * This method is a constructor for RegisteredUser
+     * 
+     * @param firstName      Users First Name
+     * @param lastName       Users Last Name
+     * @param email          Users Email
+     * @param phoneNumber    Users Phone Number
+     * @param password       Users Password
+        */
+
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, lastName, email, phoneNumber, password);
         this.userType = UserType.REGISTERED_USER;
         this.children = new ArrayList<>();
     }
 
+       /**
+     * This method is a constructor for RegisteredUser including Children associated with the account
+     * 
+     * @param firstName      Users First Name
+     * @param lastName       Users Last Name
+     * @param email          Users Email
+     * @param phoneNumber    Users Phone Number
+     * @param password       Users Password
+     * @param children
+     */
     public RegisteredUser(String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
         super(firstName, lastName, email, phoneNumber, password);
         this.children = children;
         this.userType = UserType.REGISTERED_USER;
     }
-
+       
+        /**
+     * This method is a constructor for RegisteredUser including UUID
+     * @param id
+     * @param firstName      Users First Name
+     * @param lastName       Users Last Name
+     * @param email          Users Email
+     * @param phoneNumber    Users Phone Number
+     * @param password       Users Password
+     */
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password) {
         super(id, firstName, lastName, email, phoneNumber, password);
         this.userType = UserType.REGISTERED_USER;
     }
 
+        /**
+     * This method is a constructor for RegisteredUser including UUID and Children associated with the account
+     * @param id
+     * @param firstName      Users First Name
+     * @param lastName       Users Last Name
+     * @param email          Users Email
+     * @param phoneNumber    Users Phone Number
+     * @param password       Users Password
+     * @param children
+     */
     public RegisteredUser(UUID id, String firstName, String lastName, String email, String phoneNumber, String password,
                           ArrayList<Child> children) {
         super(id, firstName, lastName, email, phoneNumber, password);
@@ -32,6 +72,10 @@ public class RegisteredUser extends User {
         this.userType = UserType.REGISTERED_USER;
     }
 
+        /**
+     * Allow user to change their info
+     * @param username      Username
+        */
     public void changeInfo(String username) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter email:");
@@ -91,6 +135,13 @@ public class RegisteredUser extends User {
         }
 
     }
+       /**
+     * Accessor for Schedule for a weekday
+     * 
+     * @param cabin         cabin number
+     * @param activity      activity during the day
+     * @param day           day of the week
+        */
 
     public String getSchedule(int cabin, ArrayList<Activity> activity, WeekDay day) {
         ArrayList<Schedule> schedule = new ArrayList<>();
@@ -107,18 +158,39 @@ public class RegisteredUser extends User {
     public void registerChild(Child child) {
         children.add(child);
     }
+       /**
+     * Remove Child from Users Account
+     * 
+     * @param input      users input to choose which child to delete
+        */
 
     public Child removeChild(int input) {
         return children.remove(input - 1);
     }
+       /**
+     * Allow users to view child note
+     * 
+     * @param firstName      Users First Name
+     * @return "child's note"
+        */
 
     public String viewChildNotes(String firstName, String lastName) {
         return "child's notes";
     }
+       /**
+     * Accessor for Children
+     * @return Child associated with User
+        */
 
     public ArrayList<Child> getChildren() {
         return this.children;
     }
+    
+        /**
+     * Returns Account Information and Child info
+     * 
+     * @return String       summarized of users and child Info
+        */
 
     public String toString() {
         return "Name: " + this.firstName + " " + this.lastName + "\n" +
@@ -126,6 +198,12 @@ public class RegisteredUser extends User {
                 "Phone Number: " + this.phoneNumber + "\n" +
                 "Children: \n" + this.getChildrenStrings();
     }
+
+        /**
+     * Return all Child Info
+     * 
+     * @return childString      : child's Information
+        */
 
     private String getChildrenStrings() {
         String childString = "";
