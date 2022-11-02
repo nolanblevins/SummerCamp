@@ -375,7 +375,8 @@ public class CampUI {
             System.out.println("2. Add new FAQ");
             System.out.println("3. Edit User Information");
             System.out.println("4. Create new Camp");
-            System.out.println("5. Log out");
+            System.out.println("5. View Group Schedule");
+            System.out.println("6. Log out");
 
             option = getValidInput(6);
 
@@ -441,7 +442,9 @@ public class CampUI {
                 System.out.println("****** Camp Created ******");
                 System.out.println("Hit enter to continue...");
                 keyboard.nextLine();
-            } else if (option == 5) {
+            } else if(option == 5){
+
+            } else if (option == 6) {
                 campSystem.logOff();
                 return;
             }
