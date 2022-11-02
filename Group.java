@@ -49,6 +49,19 @@ public class Group {
         this.campers = new ArrayList<>();
     }
 
+    /**
+     * This method is a constructor for Group including UUID, conselor, camps, and
+     * schedule
+     *
+     * @param id        Group ID
+     * @param groupName Group Name
+     * @param cabin     Cabin numbers
+     * @param groupSize Size of the group
+     * @param counselor Group Counselor
+     * @param campers   Campers
+     * @param min
+     * @param max
+     */
     public Group(String groupName, int cabin, int groupSize,
             Counselor counselor, int min, int max) {
         this.id = UUID.randomUUID();
@@ -100,7 +113,7 @@ public class Group {
     /**
      * Accessor for Group Schedule
      * 
-     * @return Group Schedule
+     * @return Group Schedule for group
      */
     public ArrayList<Schedule> getSchedule() {
         return schedule;
@@ -109,7 +122,7 @@ public class Group {
     /**
      * Accessor for Group Counselor
      * 
-     * @return Group Counselor
+     * @return Group Counselor for group
      */
     public Counselor getCounselor() {
         return this.counselor;
@@ -118,7 +131,7 @@ public class Group {
     /**
      * Accessor for Campers
      * 
-     * @return Camper
+     * @return Camper for group
      */
     public ArrayList<Child> getCampers() {
         return this.campers;
@@ -127,8 +140,8 @@ public class Group {
     /**
      * Get group from userType: Registered
      * 
-     * @param child Child
-     * @return Group
+     * @param child is the children for each group
+     * @return Group for each child
      *
      */
     public Group getGroupByChild(Child child) {
@@ -144,7 +157,7 @@ public class Group {
      * Get group by Counselor user
      * 
      * @param counselor
-     * @return Group
+     * @return Group is the counselor for each group
      */
     public Group getGroupByCounselor(Counselor counselor) {
         if (this.counselor.getID().compareTo(counselor.getID()) == 0) {
@@ -156,7 +169,7 @@ public class Group {
     /**
      * Accessor for UUID
      * 
-     * @return UUID
+     * @return UUID for group
      */
     public UUID getUUID() {
         return this.id;
@@ -165,7 +178,7 @@ public class Group {
     /**
      * Accessor for Group Name
      * 
-     * @return groupName
+     * @return groupName for group
      */
     public String getGroupName() {
         return groupName;
@@ -174,7 +187,7 @@ public class Group {
     /**
      * Accessor for Cabin number
      * 
-     * @return Cabin number
+     * @return Cabin number for group
      */
     public int getCabin() {
         return cabin;
@@ -183,7 +196,7 @@ public class Group {
     /**
      * Accessor for Group Size
      * 
-     * @return Group Size
+     * @return Group Size for group
      */
     public int getGroupSize() {
         return groupSize;
@@ -192,7 +205,7 @@ public class Group {
     /**
      * Accessor for Max
      * 
-     * @return max
+     * @return max for group
      */
     public int getMax() {
         return this.max;
@@ -201,7 +214,7 @@ public class Group {
     /**
      * Accessor for Min
      * 
-     * @return Min
+     * @return Min for group
      */
     public int getMin() {
         return this.min;
@@ -210,7 +223,7 @@ public class Group {
     /**
      * Method to add Child to the Group
      * 
-     * @param child
+     * @param child child that can go into the group
      */
     public void addChild(Child child) {
         campers.add(child);
@@ -221,7 +234,7 @@ public class Group {
      * Method to check if Child fits in the Camps Age Range
      * 
      * @param child Child's Info
-     * @return boolean
+     * @return boolean checks if the child fits in the group
      */
     public boolean childFits(Child child) {
         int childAge = calculateAge(child);
@@ -247,7 +260,7 @@ public class Group {
     /**
      * Method to remove Child from Camp
      * 
-     * @param child
+     * @param child is the camper child
      */
     public void removeChild(Child child) {
         for (Child c : campers) {
@@ -270,13 +283,13 @@ public class Group {
                 "\n\tGroup Size: " + this.groupSize;
     }
 
-    public String scheduleToString(){
+    public String scheduleToString() {
         Formatter fmt = new Formatter();
         fmt.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s\n",
                 "Time", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-        for(int i = 0; i < 14; i++){
-            int num = (i+8)%12;
-            if(num == 0){
+        for (int i = 0; i < 14; i++) {
+            int num = (i + 8) % 12;
+            if (num == 0) {
                 num = 12;
             }
             fmt.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s\n",
