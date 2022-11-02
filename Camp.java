@@ -17,14 +17,14 @@ public class Camp {
      * @param theme theme of camp
      */
 
-    public Camp(Date date, double price, String theme, ArrayList<Group> groups) {
+    public Camp(Date date, double price, String theme) {
         this.uuid = UUID.randomUUID();
         this.date = date;
         this.price = price;
         this.theme = theme;
-        this.groups = groups;
+        this.groups = new ArrayList<>();
         for(int i = 0; i < 0; i++) {
-            Group group = new Group(null, 0, 0);
+            Group group = new Group(null, i + 1, 0);
             groups.add(group);
         }
         for(int i = 0; i < groups.size(); i++) {
