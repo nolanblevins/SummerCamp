@@ -126,6 +126,14 @@ public class CampSystemFacade {
         return c;
     }
 
+    public ArrayList<Camp> getCampsByChild(Child child){
+        return campList.getCamp(child);
+    }
+
+    public Child getChild(int childInput){
+        return ((RegisteredUser)user).getChildren().get(childInput);
+    }
+
     public String viewCounselors() {
         ArrayList<User> users = userList.getUsers();
         return null;

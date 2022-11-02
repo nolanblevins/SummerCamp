@@ -207,10 +207,8 @@ public class DataWriter extends DataConstants{
         groupJSON.put(GROUP_COUNSELOR, group.getCounselor().getID().toString());
         groupJSON.put(CHILDREN, getChildrenIDS(group.getCampers()));
         groupJSON.put(GROUP_SCHEDULE, getSchedule(group.getSchedule()));
-        groupJSON.put(GROUP_MAX, new SimpleDateFormat(pattern).format(
-                group.getMax()));
-        groupJSON.put(GROUP_MIN, new SimpleDateFormat(pattern).format(
-                group.getMin()));
+        groupJSON.put(GROUP_MAX, group.getMax());
+        groupJSON.put(GROUP_MIN, group.getMin());
 
         return groupJSON;
     }
