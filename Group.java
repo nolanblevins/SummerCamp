@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.UUID;
 import java.util.Date;
 
@@ -266,6 +267,49 @@ public class Group {
     public String toString() {
         return "Group [groupName=" + groupName + ", schedule=" + schedule + ", cabin=" + cabin + ", campers=" + campers
                 + ", groupSize=" + groupSize + ", counselor=" + counselor + ", id=" + id + "]";
+    }
+
+    public String scheduleToString(){
+        Formatter fmt = new Formatter();
+        fmt.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s\n",
+                "Time", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+        for(int i = 0; i < 14; i++){
+            int num = (i+8)%12;
+            if(num == 0){
+                num = 12;
+            }
+            fmt.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s\n",
+                    num + ":00",
+                    schedule.get(0).getSchedule().get(i).getTitle(),
+                    schedule.get(1).getSchedule().get(i).getTitle(),
+                    schedule.get(2).getSchedule().get(i).getTitle(),
+                    schedule.get(3).getSchedule().get(i).getTitle(),
+                    schedule.get(4).getSchedule().get(i).getTitle(),
+                    schedule.get(5).getSchedule().get(i).getTitle(),
+                    schedule.get(6).getSchedule().get(i).getTitle());
+            fmt.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s\n",
+                    " ",
+                    schedule.get(0).getSchedule().get(i).getLocation(),
+                    schedule.get(1).getSchedule().get(i).getLocation(),
+                    schedule.get(2).getSchedule().get(i).getLocation(),
+                    schedule.get(3).getSchedule().get(i).getLocation(),
+                    schedule.get(4).getSchedule().get(i).getLocation(),
+                    schedule.get(5).getSchedule().get(i).getLocation(),
+                    schedule.get(6).getSchedule().get(i).getLocation());
+
+            fmt.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s %-20s\n",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "");
+
+        }
+
+        return fmt.toString();
     }
 
 }

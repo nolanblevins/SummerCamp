@@ -100,10 +100,10 @@ public class Camp {
         return uuid;
     }
 
-    public ArrayList<Schedule> getCounselorSchedule(Counselor counselor){
+    public String getCounselorSchedule(Counselor counselor){
         for(Group g : groups){
             if(g.getGroupByCounselor(counselor) != null){
-                return g.getSchedule();
+                return g.scheduleToString();
             }
         }
         return null;
