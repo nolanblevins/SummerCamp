@@ -57,6 +57,15 @@ public class CampSystemFacade {
         userList.addUser(ru);
     }
 
+    public void createCamp(Date date, double price, String theme){
+        Camp camp = new Camp(date, price, theme);
+        campList.addCamp(camp);
+        ArrayList<Group> groups = camp.getGroups();
+        for(Group g : groups){
+            groupList.addGroup(g);
+        }
+    }
+
     /**
      * Method will change the User to a usertype of director and allow access to the
      * director portal

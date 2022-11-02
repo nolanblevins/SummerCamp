@@ -413,7 +413,7 @@ public class CampUI {
             else if (option == 4) {
                 System.out.println("****** Create-a-camp ******");
 
-                System.out.println("Date");
+                System.out.println("Date: ");
                 String strDate = keyboard.nextLine();
                 String pattern = "MM/dd/yyyy";
                 Date date = new Date();
@@ -422,14 +422,16 @@ public class CampUI {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                System.out.print("Price");
-                int Price = keyboard.nextInt();
-                System.out.println("Information on Camp:");
-                String CampInfo = keyboard.nextLine();
+                System.out.print("Price: ");
+                double price = keyboard.nextDouble();
+
                 System.out.println("Theme");
                 String theme = keyboard.nextLine();
-                Camp camp = new Camp(date, Price, theme);
-
+                campSystem.createCamp(date, price, theme);
+                clearScreen();
+                System.out.println("****** Camp Created ******");
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
             } else if (option == 5) {
                 campSystem.logOff();
             }
