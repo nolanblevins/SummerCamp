@@ -3,10 +3,10 @@
  */
 public class Contact {
 
-private String firstName;
-private String lastName;
-private String phoneNumber;
-private String relationship;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private String relationship;
 
     /**
      * Constructor for the Contact
@@ -16,21 +16,21 @@ private String relationship;
      * @param phoneNumber is the phone number of the contact
      * @param business    is the business of the contact
      */
-public Contact(String firstName, String lastName, String phoneNumber, String relationship) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phoneNumber;
-    this.relationship = relationship;
-}
+    public Contact(String firstName, String lastName, String phoneNumber, String relationship) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.relationship = relationship;
+    }
 
     /**
      * Accessor for contact
      * 
      * @return instance of a contact
      */
-public Contact getContact() {
-    return this;
-}
+    public Contact getContact() {
+        return this;
+    }
 
     /**
      * Accessor for first name
@@ -41,7 +41,7 @@ public Contact getContact() {
         return firstName;
     }
 
-        /**
+    /**
      * Accessor for last name
      * 
      * @return instance of a last name
@@ -50,7 +50,7 @@ public Contact getContact() {
         return lastName;
     }
 
-        /**
+    /**
      * Accessor for phone number
      * 
      * @return instance of a phone number
@@ -59,7 +59,7 @@ public Contact getContact() {
         return phoneNumber;
     }
 
-        /**
+    /**
      * Accessor for relationship
      * 
      * @return instance of a relationship
@@ -68,13 +68,13 @@ public Contact getContact() {
         return relationship;
     }
 
-     /**
+    /**
      * This method returns all of the parameters for contact in the form of a
      * string
      * 
      * @return a concatenate string of the contact properties
      */
-    public String toString(){
+    public String toString() {
         String ret = "Emergency Contact: ";
         ret += "\n\t\tName: " + firstName + " " + lastName;
         ret += "\n\t\tRelationship: " + relationship;
