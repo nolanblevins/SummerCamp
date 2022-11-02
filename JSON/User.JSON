@@ -1,41 +1,35 @@
 [
   {
-    "UUID": "737ed040-e71e-412b-8c7b-5656a9424d6a",
-    "userType": "RegisteredUser",
     "firstName": "John",
     "lastName": "Snow",
-    "email": "JohnSnow@xxxxx.com",
-    "phoneNumber": "555-555-5555",
     "password": "1234567",
+    "phoneNumber": "555-555-5555",
     "children": [
       "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
       "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",
       "c7f76c3f-62d8-4dad-9383-75d2f63fba35"
-    ]
+    ],
+    "userType": "RegisteredUser",
+    "UUID": "737ed040-e71e-412b-8c7b-5656a9424d6a",
+    "email": "JohnSnow@xxxxx.com"
   },
   {
-    "UUID": "dcee5cca-3a48-4fb5-8cc7-6e5733e57ffe",
-    "userType": "RegisteredUser",
-    "firstName": "Erika",
-    "lastName": "Sun",
-    "email": "ErikaSun@xxxxx.com",
+    "firstName": "Levaeh",
+    "lastName": "Davis",
+    "password": "1234567",
     "phoneNumber": "555-555-5555",
-    "password": "7654321",
     "children": [
       "8aa8050e-0528-40a7-8184-4f9efb6fc0db"
-    ]
+    ],
+    "userType": "RegisteredUser",
+    "UUID": "dcee5cca-3a48-4fb5-8cc7-6e5733e57ffe",
+    "email": "LDavis@xxxxx.com"
   },
   {
-    "UUID": "938907c4-fe75-43a1-bb98-25a7bd84fc7a",
-    "userType": "Counselor",
-    "firstName": "Bob",
-    "lastName": "Aller",
-    "email": "BobAller@xxxxx.com",
-    "phoneNumber": "555-555-5555",
-    "password": "1234567",
     "birthday": "10:26:2001",
-    "allergies": [
-    ],
+    "allergies": [],
+    "lastName": "Aller",
+    "address": "123 Fake Address Court",
     "emergencyContact": [
       {
         "firstName": "amy",
@@ -50,28 +44,27 @@
         "relationship": "Father"
       }
     ],
-    "address": "123 Fake Address Court",
-    "conditions": [
-      "History of passing out"
-    ],
     "pediatrician": {
       "firstName": "Megan",
       "lastName": "Martin",
       "phoneNumber": "803-455-6767",
       "business": "Palmetto Pediatrics"
-    }
-  },
-  {
-    "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
-    "userType": "Counselor",
-    "firstName": "Veronica",
-    "lastName": "Johnson",
-    "email": "VJohnson@xxxxx.com",
+    },
+    "firstName": "Bob",
+    "password": "1234567",
     "phoneNumber": "555-555-5555",
-    "password": "1234567",
-    "birthday": "12:19:2002",
-    "allergies": [
+    "userType": "Counselor",
+    "UUID": "938907c4-fe75-43a1-bb98-25a7bd84fc7a",
+    "conditions": [
+      "History of passing out"
     ],
+    "email": "BobAller@xxxxx.com"
+  },
+  {
+    "birthday": "12:19:2002",
+    "allergies": [],
+    "lastName": "Johnson",
+    "address": "123 Fake Address Court",
     "emergencyContact": [
       {
         "firstName": "amy",
@@ -86,28 +79,27 @@
         "relationship": "Father"
       }
     ],
-    "address": "123 Fake Address Court",
-    "conditions": [
-      "History of passing out"
-    ],
     "pediatrician": {
       "firstName": "Megan",
       "lastName": "Martin",
       "phoneNumber": "803-455-6767",
       "business": "Palmetto Pediatrics"
-    }
+    },
+    "firstName": "Veronica",
+    "password": "1234567",
+    "phoneNumber": "555-555-5555",
+    "userType": "Counselor",
+    "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
+    "conditions": [
+      "History of passing out"
+    ],
+    "email": "VJohnson@xxxxx.com"
   },
   {
-    "UUID": "5064ef97-eb56-44ce-805a-732381d35ce1",
-    "userType": "Counselor",
-    "firstName": "Grant",
-    "lastName": "Ward",
-    "email": "GrantWard@xxxxx.com",
-    "phoneNumber": "123-345-5678",
-    "password": "1234567",
     "birthday": "12:13:2001",
-    "allergies": [
-    ],
+    "allergies": [],
+    "lastName": "Ward",
+    "address": "231 Fake Address Street",
     "emergencyContact": [
       {
         "firstName": "John",
@@ -122,27 +114,58 @@
         "relationship": "mother"
       }
     ],
-    "address": "231 Fake Address Street",
-    "conditions": [
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    },
+    "firstName": "Grant",
+    "password": "1234567",
+    "phoneNumber": "123-345-5678",
+    "userType": "Counselor",
+    "UUID": "5064ef97-eb56-44ce-805a-732381d35ce1",
+    "conditions": [],
+    "email": "GrantWard@xxxxx.com"
+  },
+  {
+    "birthday": "07:19:2002",
+    "allergies": [],
+    "lastName": "Gardener",
+    "address": "123 Fake Address Court",
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
     ],
     "pediatrician": {
       "firstName": "Megan",
       "lastName": "Martin",
       "phoneNumber": "803-455-6767",
       "business": "Palmetto Pediatrics"
-    }
-  },
-  {
-    "UUID": "f900e8d4-0497-424d-94d1-913da28e23db",
-    "userType": "Counselor",
+    },
     "firstName": "Justine",
-    "lastName": "Gardener",
-    "email": "JGardener@xxxxx.com",
-    "phoneNumber": "555-555-5555",
     "password": "1234567",
-    "birthday": "7:19:2002",
-    "allergies": [
-    ],
+    "phoneNumber": "555-555-5555",
+    "userType": "Counselor",
+    "UUID": "f900e8d4-0497-424d-94d1-913da28e23db",
+    "conditions": [],
+    "email": "JGardener@xxxxx.com"
+  },
+  {
+    "birthday": "07:19:2002",
+    "allergies": [],
+    "lastName": "Gardener",
+    "address": "123 Fake Address Court",
     "emergencyContact": [
       {
         "firstName": "amy",
@@ -157,62 +180,25 @@
         "relationship": "Father"
       }
     ],
-    "address": "123 Fake Address Court",
-    "conditions": [
-    ],
     "pediatrician": {
       "firstName": "Megan",
       "lastName": "Martin",
       "phoneNumber": "803-455-6767",
       "business": "Palmetto Pediatrics"
-    }
-  },
-  {
-    "UUID": "3133803c-dce3-46e0-a3e5-57e28ed4d6a1",
-    "userType": "Counselor",
+    },
     "firstName": "Caroline",
-    "lastName": "Gardener",
-    "email": "CGardener@xxxxx.com",
-    "phoneNumber": "555-555-5555",
     "password": "1234567",
-    "birthday": "7:19:2002",
-    "allergies": [
-    ],
-    "emergencyContact": [
-      {
-        "firstName": "amy",
-        "lastName": "smith",
-        "phoneNumber": "123-123-1234",
-        "relationship": "Mother"
-      },
-      {
-        "firstName": "nick",
-        "lastName": "smith",
-        "phoneNumber": "123-456-7890",
-        "relationship": "Father"
-      }
-    ],
-    "address": "123 Fake Address Court",
-    "conditions": [
-    ],
-    "pediatrician": {
-      "firstName": "Megan",
-      "lastName": "Martin",
-      "phoneNumber": "803-455-6767",
-      "business": "Palmetto Pediatrics"
-    }
+    "phoneNumber": "555-555-5555",
+    "userType": "Counselor",
+    "UUID": "3133803c-dce3-46e0-a3e5-57e28ed4d6a1",
+    "conditions": [],
+    "email": "CGardener@xxxxx.com"
   },
   {
-    "UUID": "3bd390c6-af29-454c-9b85-b7ba67b6d437",
-    "userType": "Counselor",
-    "firstName": "Jimmy",
+    "birthday": "07:19:2002",
+    "allergies": [],
     "lastName": "Walah",
-    "email": "JWalah@xxxxx.com",
-    "phoneNumber": "816-554-8765",
-    "password": "1234567",
-    "birthday": "7:19:2002",
-    "allergies": [
-    ],
+    "address": "123 Blahblah Street",
     "emergencyContact": [
       {
         "firstName": "jeanine",
@@ -227,32 +213,36 @@
         "relationship": "Father"
       }
     ],
-    "address": "123 Blahblah Street",
-    "conditions": [
-    ],
     "pediatrician": {
       "firstName": "Megan",
       "lastName": "Martin",
       "phoneNumber": "803-455-6767",
       "business": "Palmetto Pediatrics"
-    }
+    },
+    "firstName": "Jimmy",
+    "password": "1234567",
+    "phoneNumber": "816-554-8765",
+    "userType": "Counselor",
+    "UUID": "3bd390c6-af29-454c-9b85-b7ba67b6d437",
+    "conditions": [],
+    "email": "JWalah@xxxxx.com"
   },
   {
-    "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
-    "userType": "Director",
     "firstName": "Samantha",
     "lastName": "Samuels",
-    "email": "SSamuels@xxxxx.com",
+    "password": "1234567",
     "phoneNumber": "555-555-5555",
-    "password": "1234567"
+    "userType": "Director",
+    "UUID": "87b5d27c-e66a-41aa-b7a4-c31164092e74",
+    "email": "SSamuels@xxxxx.com"
   },
   {
-    "UUID": "9d2fc696-912d-4dc0-a9b0-75df33d8dcec",
-    "userType": "Director",
     "firstName": "Jessica",
     "lastName": "Roberts",
-    "email": "JessicaRoberts@xxxxx.com",
+    "password": "7654321",
     "phoneNumber": "555-555-5555",
-    "password": "7654321"
+    "userType": "Director",
+    "UUID": "9d2fc696-912d-4dc0-a9b0-75df33d8dcec",
+    "email": "JessicaRoberts@xxxxx.com"
   }
 ]

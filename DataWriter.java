@@ -6,9 +6,7 @@ import java.text.SimpleDateFormat;
 
 public class DataWriter extends DataConstants{
     public static final String pattern = "MM:dd:yyyy";
-    public static void main(String[] args){
-        saveGroups();
-    }
+
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
@@ -214,7 +212,7 @@ public class DataWriter extends DataConstants{
         groupJSON.put(GROUP_SIZE, group.getGroupSize());
         groupJSON.put(GROUP_COUNSELOR, group.getCounselor().getID().toString());
         groupJSON.put(CHILDREN, getChildrenIDS(group.getCampers()));
-        groupJSON.put(GROUP_SCHEDULE, getSchedule(group.getSchedule()));
+        groupJSON.put(GROUP_SCHEDULE, getSchedule(group.getSchedule(), group));
         groupJSON.put(GROUP_MAX, group.getMax());
         groupJSON.put(GROUP_MIN, group.getMin());
 
@@ -236,13 +234,19 @@ public class DataWriter extends DataConstants{
         return uuids;
     }
 
-    private static JSONObject getSchedule(ArrayList<Schedule> schedules){
+    private static JSONObject getSchedule(ArrayList<Schedule> schedules, Group group){
         JSONObject scheduleJSON = new JSONObject();
 
         for(Schedule s : schedules){
             JSONArray dayJSON = new JSONArray();
             for(Activity a : s.getSchedule()){
-                dayJSON.add(a.getUuid().toString());
+                try {
+                    dayJSON.add(a.getUuid().toString());
+                }catch(Exception e){
+                    System.out.println(group.getUUID());
+                    System.out.println("");
+                    System.out.println(group.scheduleToString());
+                }
             }
             scheduleJSON.put(s.getDay().toString(), dayJSON);
         }

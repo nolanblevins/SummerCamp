@@ -117,8 +117,7 @@
     "groupName": "Wildcats",
     "min": 7,
     "children": [
-      "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
-      "8aa8050e-0528-40a7-8184-4f9efb6fc0db"
+      "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78"
     ],
     "max": 8,
     "cabin": 1,
