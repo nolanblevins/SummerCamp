@@ -18,7 +18,8 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveFAQs();
+        DataWriter.saveGroups();
+        DataWriter.saveChildren();
     }
 
     private static void loadingScreen() {
@@ -163,7 +164,7 @@ public class CampUI {
                     sleep(2000);
                 } else {
                     clearScreen();
-                    conselorPortal();
+                    counselorPortal();
                 }
 
             } else if (option == 2) {
@@ -256,7 +257,7 @@ public class CampUI {
         }
     }
 
-    private static void conselorPortal() {
+    private static void counselorPortal() {
         clearScreen();
 
         Scanner keyboard = new Scanner(System.in);
