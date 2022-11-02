@@ -14,7 +14,7 @@ public class Pediatrician {
      * @param firstName   is the first name of the pediatrician
      * @param lastName    is the last name of the pediatrician
      * @param phoneNumber is the phone number of the pediatrician
-     * @param business    is the business of the pediatrican
+     * @param business    is the business of the pediatrician
      */
     public Pediatrician(String firstName, String lastName, String phoneNumber, String business) {
         this.firstName = firstName;
