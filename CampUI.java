@@ -308,11 +308,10 @@ public class CampUI {
         do {
             System.out.println("****** Welcome to Director Portal ******");
             System.out.println("1. Add new Activity");
-            System.out.println("2. View Camp Schedule");
-            System.out.println("3. Add new FAQ");
-            System.out.println("4. Edit User Information");
-            System.out.println("5. Create new Camp");
-            System.out.println("6. Log out");
+            System.out.println("2. Add new FAQ");
+            System.out.println("3. Edit User Information");
+            System.out.println("4. Create new Camp");
+            System.out.println("5. Log out");
 
             option = getValidInput(6);
 
@@ -333,20 +332,7 @@ public class CampUI {
 
                 System.out.println("You have succesfully added an activity");
 
-            } else if (option == 2) {
-                // System.out.println("Enter the date of the camp would you like to generate the schedules for: ");
-                // String date = keyboard.nextLine();
-                // String pattern = "MM/dd/yyyy";
-                // new SimpleDateFormat(pattern).format(date);
-                // campSystem.getCampByDate(date);
-                
-                
-
-                
-                // add schedule return
-                
-
-            } else if (option == 3) {
+            else if (option == 2) {
 
                 System.out.println("****** Adding new FAQ ******");
 
@@ -355,12 +341,13 @@ public class CampUI {
                 System.out.print("Enter answer:");
                 String FAQanswer = keyboard.nextLine();
                 campSystem.addToFAQ(FAQquestion, FAQanswer);;
-            } else if (option == 4) {
+                
+            } else if (option == 3) {
                 changeInfoUser();
             }
 
             // create new theme scenerio
-            else if (option == 5) {
+            else if (option == 4) {
                 System.out.println("****** Create-a-camp ******");
 
                 System.out.println("Date");
@@ -380,7 +367,7 @@ public class CampUI {
                 String theme = keyboard.nextLine();
                 Camp camp = new Camp(date, Price, theme);
                 
-            } else if (option == 6) {
+            } else if (option == 5) {
                 campSystem.logOff();
             }
 
