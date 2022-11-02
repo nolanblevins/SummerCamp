@@ -16,7 +16,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveGroups();
+        DataWriter.saveUsers();
     }
 
     private static void loadingScreen() {
@@ -65,15 +65,15 @@ public class CampUI {
             } else if (option == 4) {
                 displayFAQ();
             } else if (option == 5) {
-				clearScreen();
-				System.out.println("   ____    U  ___ u   U  ___ u  ____          ____   __   __U _____ u ");
-				System.out.println("U /'___|u   \\/'_ \\/    \\/'_ \\/ |  _'\\      U | __')u \\ \\ / /\\| ___'|/ ");
-				System.out.println("\\| |  _ /   | | | |    | | | |/| | | |      \\|  _ \\/  \\ V /  |  _|'   ");
-				System.out.println(" | |_| |.-,_| |_| |.-,_| |_| |U| |_| |\\      | |_) | U_|'|_u | |___   ");
-				System.out.println("  \\____| \\_)-\\___/  \\_)-\\___/  |____/ u      |____/    |_|   |_____|  ");
-				System.out.println("  _)(|_       \\\\         \\     |||_        _|| \\\\_.-,//|(_  <<   >>  ");
-				System.out.println(" (__)__)     (__)       (__)   (__)_)      (__) (__)\\_) (__)(__) (__) ");
-				return;
+                clearScreen();
+                System.out.println("   ____    U  ___ u   U  ___ u  ____          ____   __   __U _____ u ");
+                System.out.println("U /'___|u   \\/'_ \\/    \\/'_ \\/ |  _'\\      U | __')u \\ \\ / /\\| ___'|/ ");
+                System.out.println("\\| |  _ /   | | | |    | | | |/| | | |      \\|  _ \\/  \\ V /  |  _|'   ");
+                System.out.println(" | |_| |.-,_| |_| |.-,_| |_| |U| |_| |\\      | |_) | U_|'|_u | |___   ");
+                System.out.println("  \\____| \\_)-\\___/  \\_)-\\___/  |____/ u      |____/    |_|   |_____|  ");
+                System.out.println("  _)(|_       \\\\         \\     |||_        _|| \\\\_.-,//|(_  <<   >>  ");
+                System.out.println(" (__)__)     (__)       (__)   (__)_)      (__) (__)\\_) (__)(__) (__) ");
+                return;
             } else {
                 System.out.println("Menu option not valid, choose again...");
             }
@@ -88,51 +88,48 @@ public class CampUI {
         clearScreen();
         System.out.println("************ Account Registration ************\n");
         System.out.println("Please enter the following information: ");
-        
+
         System.out.print("First name: ");
         String firstname = keyboard.nextLine();
-        
+
         System.out.print("Last name: ");
         String lastname = keyboard.nextLine();
-        
+
         System.out.print("Email: ");
         String emailInput = keyboard.nextLine();
-        while(!campSystem.isEmailValid(emailInput)){
+        while (!campSystem.isEmailValid(emailInput)) {
             System.out.println("Invalid Email, please try again");
             emailInput = keyboard.nextLine();
-        
+
         }
-        
-        System.out.print("Phone number (###-###-####) : ");
+
+        System.out.print("Phone number (###-###-####): ");
         String phoneNumber = keyboard.nextLine();
-        while(!campSystem.isPhoneValid(phoneNumber)){
+        while (!campSystem.isPhoneValid(phoneNumber)) {
             System.out.println("Invalid Email, please try again");
             phoneNumber = keyboard.nextLine();
         }
-   
-        System.out.print("Password reqs: \n+ contains at least 8 characters and at most 20 characters ");
-        System.out.println("+ contains one digit, one upperCase alphabet, one special character (!@#$%&*()-+=^.)");
-        System.out.println("Password:");
+
+//        System.out.print("Password reqs: \n+ contains at least 8 characters and at most 20 characters ");
+//        System.out.println("+ contains one digit, one upperCase alphabet, one special character (!@#$%&*()-+=^.)");
+        System.out.print("Password: ");
         String password = keyboard.nextLine();
-        while(!campSystem.isValidPassword(password)){
-            System.out.println("Invalid Email, please try again");
-            password = keyboard.nextLine();
-        }
+//        while (!campSystem.isValidPassword(password)) {
+//            System.out.println("Invalid Email, please try again");
+//            password = keyboard.nextLine();
+//        }
 
         campSystem.createAccount(firstname, lastname, phoneNumber, emailInput, password);
         clearScreen();
         System.out.println("****** Account Creation Success ******");
         System.out.println("Hit enter to continue...");
         keyboard.nextLine();
-        }
-        
     }
 
     private static void loginPortal() {
         clearScreen();
 
         Scanner keyboard = new Scanner(System.in);
-
 
         int option;
         String emailInput;
@@ -347,7 +344,8 @@ public class CampUI {
                 String FAQquestion = keyboard.nextLine();
                 System.out.print("Enter answer:");
                 String FAQanswer = keyboard.nextLine();
-                campSystem.addToFAQ(FAQquestion, FAQanswer);;
+                campSystem.addToFAQ(FAQquestion, FAQanswer);
+                ;
             } else if (option == 4) {
                 campSystem.changeUserInfo(null, null, null, null, null);
             }
@@ -591,20 +589,19 @@ public class CampUI {
             if (input == count) {
                 break;
             }
-            if(campPreferences.contains(validCamps.get(input - 1))){
+            if (campPreferences.contains(validCamps.get(input - 1))) {
                 System.out.println("Child already registered for this camp...\n");
-            }
-            else {
+            } else {
                 campPreferences.add(validCamps.get(input - 1));
             }
             System.out.print("Would you like to add another camp?(y/n): ");
             String choice = keyboard.nextLine();
             System.out.println();
-            if(choice.equalsIgnoreCase("y")){
+            if (choice.equalsIgnoreCase("y")) {
                 moreCamps = true;
             }
 
-        } while(moreCamps);
+        } while (moreCamps);
 
         return campPreferences;
     }
