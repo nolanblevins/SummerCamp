@@ -237,8 +237,6 @@ public class CampUI {
                 break;
             }
         }
-        menuSelect();
-
     }
 
     private static void clearScreen() {
