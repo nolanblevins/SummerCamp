@@ -19,7 +19,7 @@ public class CampUI {
         menuSelect();
 
         DataWriter.saveCamps();
-        DataWriter.saveGroups();
+//        DataWriter.saveGroups();
     }
 
     private static void loadingScreen() {
@@ -231,7 +231,7 @@ public class CampUI {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("***** Frequently Asked Questions *****");
-        // show camp FAQs from JSON
+        System.out.println(campSystem.getFAQ());
 
         System.out.println("Enter 1 to go back to main menu");
 
@@ -380,15 +380,13 @@ public class CampUI {
             option = getValidInput(6);
 
             if (option == 1) {
-
-                // todo error checking
                 System.out.println("****** Adding New Activity ******");
                 System.out.println("Please enter the following information: ");
                 System.out.print("Title: ");
                 String Title = keyboard.nextLine();
                 System.out.print("Duration (minutes): ");
                 int Duration = keyboard.nextInt();
-                System.out.print("Description ");
+                System.out.print("Description: ");
                 String Description = keyboard.nextLine();
                 System.out.print("Location : ");
                 String Location = keyboard.nextLine();

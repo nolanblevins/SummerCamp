@@ -7,13 +7,13 @@ import java.util.regex.*;
 public class CampSystemFacade {
     private String campName;
     private User user;
-    private ArrayList<FAQ> FAQ;
     private String campInfo;
     private CampList campList;
     private UserList userList;
     private ActivityList activityList;
     private ChildList childList;
     private GroupList groupList;
+    private FAQList faqList;
 
     /**
      * Parameterized Constructor for Camp Facade
@@ -31,6 +31,7 @@ public class CampSystemFacade {
         this.activityList = ActivityList.getInstance();
         this.childList = ChildList.getInstance();
         this.groupList = GroupList.getInstance();
+        this.faqList = FAQList.getInstance();
     }
 
     /**
@@ -317,7 +318,7 @@ public class CampSystemFacade {
      */
     public void addToFAQ(String question, String answer) {
         FAQ faq = new FAQ(question, answer);
-        FAQ.add(faq);
+        faqList.addFAQ(faq);
     }
 
     /**
@@ -327,6 +328,7 @@ public class CampSystemFacade {
      */
     public String getFAQ() {
         String ret = "";
+        ArrayList<FAQ> FAQ = faqList.getFaqs();
         for (int i = 0; i < FAQ.size(); i++) {
             FAQ temp = FAQ.get(i);
             ret += i + " - " + temp.toString();
