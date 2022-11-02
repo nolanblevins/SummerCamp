@@ -1,1 +1,39 @@
-[{"birthday":"03:01:2012","allergies":["peanut butter","gluten"],"firstName":"Tammy","lastName":"Snow","address":"123 Fake Address Court","notes":["Got in fight with Oliver"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}},{"birthday":"05:19:2012","allergies":[],"firstName":"Oliver","lastName":"Sun","address":"123 Fake Address Court","notes":["Got in fight with Tammy"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"8aa8050e-0528-40a7-8184-4f9efb6fc0db","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}},{"birthday":"03:12:2010","allergies":[],"firstName":"Justin","lastName":"Snow","address":"123 Fake Address Court","notes":["scared of water"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"6a41ac71-10be-4bf3-9180-6fa7c14af6d0","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}},{"birthday":"07:19:2010","allergies":[],"firstName":"Tom","lastName":"Snow","address":"123 Fake Address Court","notes":["hates kayaking"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"c7f76c3f-62d8-4dad-9383-75d2f63fba35","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}}]
+[
+  {
+    "date": "06:23:2022",
+    "price": 255.99,
+    "groupID": [
+      "d06ea8de-a4e1-4f12-86d7-c0ebe4978ec2",
+      "738d5b85-059e-44bc-ac06-21b0ebdfd64b",
+      "d0fa0661-9b7c-45c4-ba46-1d95636c3dd1",
+      "7b6cf128-7809-4f8c-9bf4-06be855eb41c",
+      "73ceeeb3-ce1c-42db-bb64-9a3eed692016",
+      "13d94936-b8ec-4003-8fdc-77bf5c2e4943"
+    ],
+    "theme": "Example Theme for the Week",
+    "UUID": "4dc53ed7-7aba-47bd-b770-9db41cee24b5"
+  },
+  {
+    "date": "06:01:2022",
+    "price": 255.99,
+    "groupID": [
+      "4d96aade-1674-4116-a41d-0aec6f22cbaa"
+    ],
+    "theme": "Example Theme for the Week",
+    "UUID": "31813c22-84d4-4775-a0d6-a0513b247731"
+  },
+  {
+    "date": "06:08:2023",
+    "price": 255.99,
+    "groupID": [
+      "c59bd117-f477-4146-81b4-34c2715cb373",
+      "57199cff-2d22-41d1-892c-ad49e9f5fb50",
+      "b863197e-0808-4b13-9478-8e1679e8389e",
+      "2dfbda45-900f-4c97-8938-514df6472ea6",
+      "3d6fbfd2-4c57-4b3e-93b5-e7265bb73f5e",
+      "42c75b66-1c45-4dd6-aa83-2c2d8d23f255"
+    ],
+    "theme": "Theme",
+    "UUID": "ecacb99b-732e-4467-b04e-1b7dbc4992e5"
+  }
+]

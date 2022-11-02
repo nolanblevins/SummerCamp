@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Formatter;  
 
 public class Schedule {
     private ArrayList<Activity> schedule;
@@ -131,14 +132,36 @@ public class Schedule {
     /**
      * This method returns all the Schedule parameters in a String
      * @return     String   schedule properties'
-        */
+    */
     public String toString() {
+        /* 
         String ret = "";
         for(int i = 0; i < schedule.size(); i++) {
             ret += "day: "+day + "\n\t";
             ret += "Schedule: "+schedule.get(i);
         }
         return ret;
+        */
+
+
+        String[] activities = new String[schedule.size()];
+        String[] location = new String[schedule.size()];
+
+        schedule.get(0).getTitle();
+
+        Formatter fmt = new Formatter();
+        fmt.format("%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s\n", "8:00", "9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00");
+
+        fmt.format( "%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s\n", schedule.get(0).getTitle(), schedule.get(1).getTitle(), schedule.get(2).getTitle(), schedule.get(3).getTitle(), schedule.get(4).getTitle(), 
+        schedule.get(5).getTitle(), schedule.get(6).getTitle(), schedule.get(7).getTitle(), schedule.get(8).getTitle(), schedule.get(9).getTitle(), schedule.get(10).getTitle(), schedule.get(11).getTitle(), schedule.get(12).getTitle(), 
+        schedule.get(13).getTitle());
+
+        fmt.format( "%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s\n", schedule.get(0).getLocation(), schedule.get(1).getLocation(), schedule.get(2).getLocation(), schedule.get(3).getLocation(), schedule.get(4).getLocation(), 
+        schedule.get(5).getLocation(), schedule.get(6).getLocation(), schedule.get(7).getLocation(), schedule.get(8).getLocation(), schedule.get(9).getLocation(), schedule.get(10).getLocation(), schedule.get(11).getLocation(), schedule.get(12).getLocation(), 
+        schedule.get(13).getLocation());
+
+        return fmt.toString();
+
     }
 
 }
