@@ -441,7 +441,7 @@ public class CampUI {
                 }
                 campSystem.removeChild(input);
             } else if (option == 5) {
-                changeInfo();
+                changeInfoUser();
             } else if (option == 6) {
                 campSystem.logOff();
                 break;
@@ -450,7 +450,7 @@ public class CampUI {
 
     }
 
-    private static void changeInfo() {
+    private static void changeInfoUser() {
         clearScreen();
         System.out.println("****** Change Information ******");
         Scanner in = new Scanner(System.in);
