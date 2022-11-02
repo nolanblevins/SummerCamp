@@ -86,7 +86,8 @@ public class Activity {
     }
 
     /**
-     * This method returns all of the parameters for activity in the form of a string
+     * This method returns all of the parameters for activity in the form of a
+     * string
      * 
      * @return a concatenate string of the activity properties
      */
