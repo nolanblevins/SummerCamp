@@ -38,7 +38,6 @@ public class FAQ {
      * 
      */
     public String toString() {
-        return "FAQ:" + "\n" + "\t" + "question:" + question + "\n" + "\t" + "answer:" + answer;
+        return "Question:" + question + "\n" + "\t" + "Answer:" + answer;
     }
-
 }
