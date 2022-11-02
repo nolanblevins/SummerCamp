@@ -73,7 +73,7 @@ public class DataWriter extends DataConstants{
         }
 
         try{
-            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            FileWriter file = new FileWriter("./JSON/Test2.JSON");
             file.write(jsonGroups.toJSONString());
             file.flush();
         } catch (Exception e){

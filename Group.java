@@ -25,6 +25,18 @@ public class Group {
         this.campers = new ArrayList<>();
     }
 
+    public Group(String groupName, int cabin, int groupSize, Counselor counselor,
+                 int min, int max) {
+        this.groupName = groupName;
+        this.cabin = cabin;
+        this.groupSize = groupSize;
+        this.id = UUID.randomUUID();
+        this.campers = new ArrayList<>();
+        this.counselor = counselor;
+        this.min = min;
+        this.max = max;
+    }
+
     public Group(UUID id, String groupName, int cabin, int groupSize) {
         this.groupName = groupName;
         this.cabin = cabin;

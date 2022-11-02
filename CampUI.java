@@ -18,7 +18,8 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveUsers();
+        DataWriter.saveCamps();
+        DataWriter.saveGroups();
     }
 
     private static void loadingScreen() {
@@ -362,13 +363,13 @@ public class CampUI {
         keyboard.nextLine();
     }
     private static void directorPortal() {
-        clearScreen();
-
         Scanner keyboard = new Scanner(System.in);
 
         int option;
 
         do {
+            clearScreen();
+
             System.out.println("****** Welcome to Director Portal ******");
             System.out.println("1. Add new Activity");
             System.out.println("2. Add new FAQ");
@@ -413,7 +414,7 @@ public class CampUI {
             else if (option == 4) {
                 System.out.println("****** Create-a-camp ******");
 
-                System.out.println("Date: ");
+                System.out.print("Date(mm/dd/yyyy): ");
                 String strDate = keyboard.nextLine();
                 String pattern = "MM/dd/yyyy";
                 Date date = new Date();
@@ -424,8 +425,9 @@ public class CampUI {
                 }
                 System.out.print("Price: ");
                 double price = keyboard.nextDouble();
+                keyboard.nextLine();
 
-                System.out.println("Theme");
+                System.out.print("Theme: ");
                 String theme = keyboard.nextLine();
                 campSystem.createCamp(date, price, theme);
                 clearScreen();
@@ -434,6 +436,7 @@ public class CampUI {
                 keyboard.nextLine();
             } else if (option == 5) {
                 campSystem.logOff();
+                return;
             }
 
         }while(true);

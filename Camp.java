@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import java.util.Date;
+import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class Camp {
@@ -24,9 +21,15 @@ public class Camp {
         this.price = price;
         this.theme = theme;
         this.groups = new ArrayList<>();
+        UserList userList = UserList.getInstance();
+        ArrayList<User> counselors = userList.getUsersByType(UserType.COUNSELOR);
+        Random rand = new Random();
         for(int i = 0; i < 6; i++) {
-            Group group = new Group(groupNames[i], i + 1, 0);
+            int random = rand.nextInt(counselors.size());
+            Group group = new Group(groupNames[i], i + 1, 0,
+                    (Counselor)counselors.get(random), (i+4)*2-1, (i+4)*2);
             groups.add(group);
+            counselors.remove(random);
         }
         for(int i = 0; i < groups.size(); i++) {
             groups.get(i).createSchedule();
