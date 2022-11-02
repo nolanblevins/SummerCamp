@@ -85,23 +85,40 @@ public class CampSystemFacade {
         user.changeInfo(firstName, lastName, phoneNumber, email, password);
     }
 
-    public void generateSchedules(Camp camp) {
+    public String getSchedules(Camp camp) {
         ArrayList<Group> groups = camp.getGroups();
+        String ret = "";
         for (int i = 0; i < groups.size(); i++) {
-            groups.get(i).getSchedule();
+            groups.get(i).createSchedule();
+            ret += groups.get(i).getGroupName() + "\n"+ "\t" +groups.get(i).getSchedule().toString();
         }
+        return ret;
     }
-
-    public ArrayList<Schedule> viewSchedule() {
-        Group group = new Group(campName, 0, 0);
-
-        return group.getSchedule();
+    public String getCampsToString() {
+        CampList campList = CampList.getInstance();
+        ArrayList<Camp> camps = campList.getAllCamps();
+        String ret = "";
+        for(int i = 0; i < camps.size(); i++) {
+            ret += camps.get(i).toString() + "\n";
+        }
+        return ret;
     }
 
     public ArrayList<Group> viewGroups(Camp camp) {
         ArrayList<Group> groups = new ArrayList<>();
         groups = camp.getGroups();
         return groups;
+    }
+    public Camp getCampByDate(Date date) {
+        CampList campList = CampList.getInstance();
+        ArrayList<Camp> camps = campList.getAllCamps();
+        Camp c = new Camp(null, 0, null);
+        for(int i = 0; i < camps.size(); i++) {
+            if(camps.get(i).getDate()==date) {
+                c = camps.get(i);
+            }
+        }
+        return c;
     }
 
     public String viewCounselors() {
@@ -164,7 +181,16 @@ public class CampSystemFacade {
     }
 
     public String viewGroup() {
-        return "";
+        GroupList groupList = GroupList.getInstance();
+        ArrayList<Group> groups = groupList.getAllGroups();
+        String ret = "";
+        for(int i = 0; i < groups.size(); i++) {
+            Group g = groups.get(i);
+            ret += (i + 1) + " - " + g.toString() + "\n";
+        }
+        ret += "\n\n";
+        return ret;
+
     }
 
     public String viewCamperRegistration(){

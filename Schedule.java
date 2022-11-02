@@ -100,7 +100,12 @@ public class Schedule {
     }
 
     public String toString() {
-        return "Schedule:" + schedule + " day:" + day;
+        String ret = "";
+        for(int i = 0; i < schedule.size(); i++) {
+            ret += "day: "+day + "\n\t";
+            ret += "Schedule: "+schedule.get(i);
+        }
+        return ret;
     }
 
 }

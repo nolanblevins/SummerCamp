@@ -57,5 +57,15 @@ public class UserList {
         DataWriter.saveUsers();
     }
 
+    public ArrayList<User> getUsersByType(UserType userType){
+        ArrayList<User> typeUsers = new ArrayList<>();
+        for(User u : this.users){
+            if(u.getUserType() == userType){
+                typeUsers.add(u);
+            }
+        }
+        return typeUsers;
+    }
+
     
 }
