@@ -35,6 +35,20 @@ public class CampList {
         return ret;
     }
 
+    public ArrayList<Camp> getCamp(Counselor counselor){
+        ArrayList<Camp> ret = new ArrayList<>();
+        for(Camp c : camps){
+            ArrayList<Group> groups = c.getGroups();
+            for(Group g : groups){
+                if(g.getGroupByCounselor(counselor) != null){
+                    ret.add(c);
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+
     public ArrayList<Camp> getAllCamps(){
         return this.camps;
     }

@@ -97,6 +97,15 @@ public class Camp {
         return uuid;
     }
 
+    public ArrayList<Schedule> getCounselorSchedule(Counselor counselor){
+        for(Group g : groups){
+            if(g.getGroupByCounselor(counselor) != null){
+                return g.getSchedule();
+            }
+        }
+        return null;
+    }
+
     public void addChild(Child child){
         for(Group g : groups){
             if(g.childFits(child)){

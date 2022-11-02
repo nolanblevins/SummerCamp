@@ -62,23 +62,18 @@ public class Group {
         return this.campers;
     }
 
-    public Group getGroupByCounselor(Counselor counselor) {
-        Camp c = new Camp(null, 0, null);
-        ArrayList<Group> groups = new ArrayList<Group>();
-        groups = c.getGroups();
-        for (int i = 0; i < groups.size(); i++) {
-            if (groups.get(i).getCounselor() == counselor) {
-                return groups.get(i);
-            }
-        }
-        return null;
-    }
-
     public Group getGroupByChild(Child child) {
         for (Child c : campers) {
             if (c.getUUID().compareTo(child.getUUID()) == 0) {
                 return this;
             }
+        }
+        return null;
+    }
+
+    public Group getGroupByCounselor(Counselor counselor){
+        if(this.counselor.getID().compareTo(counselor.getID()) == 0){
+            return this;
         }
         return null;
     }

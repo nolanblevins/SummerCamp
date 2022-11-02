@@ -282,7 +282,19 @@ public class CampUI {
                 campSystem.changeCounselorMedInfo(medicalInfo);
 
             } else if (option == 3) {
+                clearScreen();
+                System.out.println("****** View Schedule ******");
+                System.out.println("Which camp do you want to view the schedule for?");
                 // view schedule
+                ArrayList<Camp> camps = campSystem.getCounselorCamps();
+                for(int i = 1; i <= camps.size(); i++){
+                    System.out.println(i + " - " + camps.get(i-1));
+                }
+                int input = getValidInput(camps.size());
+                ArrayList<Schedule> schedule = campSystem.getCounselorSchedule(camps.get(input - 1));
+                for(Schedule s : schedule){
+                    System.out.println(s);
+                }
 
                 // option to print out
                 System.out.println("Do you want to print this schedule out?");

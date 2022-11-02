@@ -420,6 +420,10 @@ public class CampSystemFacade {
         return ret;
     }
 
+    public ArrayList<Camp> getCounselorCamps(){
+        return campList.getCamp(((Counselor)user));
+    }
+
     /**
      * Method to check for valid formatting of phone number
      *
@@ -518,6 +522,10 @@ public class CampSystemFacade {
      */
     public int getNumChildren() {
         return ((RegisteredUser) user).getChildren().size();
+    }
+
+    public ArrayList<Schedule> getCounselorSchedule(Camp camp) {
+        return camp.getCounselorSchedule(((Counselor)user));
     }
 }
 
