@@ -312,8 +312,6 @@ public class CampUI {
             System.out.println("4. Edit User Information");
             System.out.println("5. Create new Camp");
             System.out.println("6. Log out");
-            option = keyboard.nextInt();
-            keyboard.nextLine();
 
             option = getValidInput(6);
 
