@@ -1,4 +1,6 @@
 import java.sql.Array;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Date;
@@ -11,8 +13,8 @@ public class Group {
     private int groupSize;
     private Counselor counselor;
     private UUID id;
-    private Date max;
-    private Date min;
+    private int max;
+    private int min;
 
     public Group(String groupName, int cabin, int groupSize) {
         this.groupName = groupName;
@@ -31,7 +33,7 @@ public class Group {
     }
 
     public Group(UUID id, String groupName, int cabin, int groupSize, User counselor,
-            ArrayList<Child> campers, ArrayList<Schedule> schedule, Date min, Date max) {
+            ArrayList<Child> campers, ArrayList<Schedule> schedule, int min, int max) {
         this.groupName = groupName;
         this.cabin = cabin;
         this.groupSize = groupSize;
@@ -61,7 +63,7 @@ public class Group {
     }
 
     public Group getGroupByCounselor(Counselor counselor) {
-        Camp c = new Camp(null, 0, null, null);
+        Camp c = new Camp(null, 0, null);
         ArrayList<Group> groups = new ArrayList<Group>();
         groups = c.getGroups();
         for (int i = 0; i < groups.size(); i++) {
@@ -97,11 +99,11 @@ public class Group {
         return groupSize;
     }
 
-    public Date getMax(){
+    public int getMax(){
         return this.max;
     }
 
-    public Date getMin(){
+    public int getMin(){
         return this.min;
     }
 
@@ -109,14 +111,24 @@ public class Group {
         campers.add(child);
         groupSize++;
     }
+    
 
     public boolean childFits(Child child){
-        Date bday = child.getBirthday();
-        if(groupSize <= 8 && max.after(bday) && min.before(bday)){
+        int childAge = calculateAge(child);
+        if(groupSize <= 8 && max > (childAge) && min < (childAge)){
             return true;
         }
         return false;
     }
+
+    public int calculateAge(Child child) {
+        LocalDate curDate = LocalDate.now();
+        String childBday = child.getBirthday().toString();
+        LocalDate dob = LocalDate.parse(childBday);
+        return Period.between(dob, curDate).getYears();
+    }
+
+    
 
     public void removeChild(Child child){
         for(Child c : campers){
