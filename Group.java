@@ -56,7 +56,7 @@ public class Group {
      * @param groupSize      Size of the group
      * @param counselor      Group Counselor
      * @param campers        Campers
-     * @param Schedule       Schedule for the Group
+     * @param schedule       Schedule for the Group
      * @param min
      * @param max
         */
