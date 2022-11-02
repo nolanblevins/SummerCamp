@@ -18,8 +18,8 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveCamps();
-//        DataWriter.saveGroups();
+        DataWriter.saveGroups();
+        DataWriter.saveChildren();
     }
 
     private static void loadingScreen() {
@@ -164,7 +164,7 @@ public class CampUI {
                     sleep(2000);
                 } else {
                     clearScreen();
-                    conselorPortal();
+                    counselorPortal();
                 }
 
             } else if (option == 2) {
@@ -257,7 +257,7 @@ public class CampUI {
         }
     }
 
-    private static void conselorPortal() {
+    private static void counselorPortal() {
         clearScreen();
 
         Scanner keyboard = new Scanner(System.in);
@@ -375,26 +375,33 @@ public class CampUI {
             System.out.println("2. Add new FAQ");
             System.out.println("3. Edit User Information");
             System.out.println("4. Create new Camp");
-            System.out.println("5. Log out");
+            System.out.println("5. View Group Schedule");
+            System.out.println("6. Log out");
 
             option = getValidInput(6);
 
             if (option == 1) {
+                clearScreen();
                 System.out.println("****** Adding New Activity ******");
                 System.out.println("Please enter the following information: ");
                 System.out.print("Title: ");
                 String Title = keyboard.nextLine();
-                System.out.print("Duration (minutes): ");
+                System.out.print("Duration(hours): ");
                 int Duration = keyboard.nextInt();
+                keyboard.nextLine();
                 System.out.print("Description: ");
                 String Description = keyboard.nextLine();
-                System.out.print("Location : ");
+                System.out.print("Location: ");
                 String Location = keyboard.nextLine();
                 campSystem.addActivity(Title, Duration, Description, Location);
 
                 System.out.println("You have succesfully added an activity");
+                clearScreen();
+                System.out.println("****** Activity Added ******");
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
             } else if (option == 2) {
-
+                clearScreen();
                 System.out.println("****** Adding new FAQ ******");
 
                 System.out.print("Enter question:");
@@ -402,14 +409,17 @@ public class CampUI {
                 System.out.print("Enter answer:");
                 String FAQanswer = keyboard.nextLine();
                 campSystem.addToFAQ(FAQquestion, FAQanswer);
-                ;
+                clearScreen();
+                System.out.println("****** FAQ Added ******");
+                System.out.println("Hit enter to continue...");
+                keyboard.nextLine();
 
             } else if (option == 3) {
                 changeInfoUser();
             }
 
-            // create new theme scenerio
             else if (option == 4) {
+                clearScreen();
                 System.out.println("****** Create-a-camp ******");
 
                 System.out.print("Date(mm/dd/yyyy): ");
@@ -432,7 +442,9 @@ public class CampUI {
                 System.out.println("****** Camp Created ******");
                 System.out.println("Hit enter to continue...");
                 keyboard.nextLine();
-            } else if (option == 5) {
+            } else if(option == 5){
+
+            } else if (option == 6) {
                 campSystem.logOff();
                 return;
             }

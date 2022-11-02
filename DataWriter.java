@@ -19,7 +19,7 @@ public class DataWriter extends DataConstants{
         }
 
         try{
-            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            FileWriter file = new FileWriter("./JSON/User.JSON");
             file.write(jsonUsers.toJSONString());
             file.flush();
         } catch (Exception e){
@@ -37,7 +37,7 @@ public class DataWriter extends DataConstants{
         }
 
         try{
-            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            FileWriter file = new FileWriter("./JSON/Child.JSON");
             file.write(jsonChildren.toJSONString());
             file.flush();
         } catch (Exception e){
@@ -55,7 +55,7 @@ public class DataWriter extends DataConstants{
         }
 
         try{
-            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            FileWriter file = new FileWriter("./JSON/Camp.JSON");
             file.write(jsonChildren.toJSONString());
             file.flush();
         } catch (Exception e){
@@ -73,7 +73,7 @@ public class DataWriter extends DataConstants{
         }
 
         try{
-            FileWriter file = new FileWriter("./JSON/Test2.JSON");
+            FileWriter file = new FileWriter("./JSON/Group.JSON");
             file.write(jsonGroups.toJSONString());
             file.flush();
         } catch (Exception e){
@@ -91,7 +91,7 @@ public class DataWriter extends DataConstants{
         }
 
         try{
-            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            FileWriter file = new FileWriter("./JSON/Activity.JSON");
             file.write(jsonActivity.toJSONString());
             file.flush();
         } catch (Exception e){
@@ -106,6 +106,14 @@ public class DataWriter extends DataConstants{
 
         for(FAQ f : faqs){
             jsonFAQs.add(getFAQJSON(f));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/faq.JSON");
+            file.write(jsonFAQs.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
