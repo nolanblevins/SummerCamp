@@ -98,18 +98,18 @@
   {
     "birthday": "12:13:2001",
     "allergies": [],
-    "lastName": "Ward",
+    "lastName": "Gonzalez",
     "address": "231 Fake Address Street",
     "emergencyContact": [
       {
         "firstName": "John",
-        "lastName": "smith",
+        "lastName": "Gonzalez",
         "phoneNumber": "123-123-1234",
         "relationship": "Father"
       },
       {
         "firstName": "Amy",
-        "lastName": "smith",
+        "lastName": "Gonzalez",
         "phoneNumber": "123-456-7890",
         "relationship": "mother"
       }
@@ -120,13 +120,13 @@
       "phoneNumber": "803-455-6767",
       "business": "Palmetto Pediatrics"
     },
-    "firstName": "Grant",
+    "firstName": "Kix",
     "password": "1234567",
     "phoneNumber": "123-345-5678",
     "userType": "Counselor",
     "UUID": "5064ef97-eb56-44ce-805a-732381d35ce1",
     "conditions": [],
-    "email": "GrantWard@xxxxx.com"
+    "email": "KGonzalez@xxxxx.com"
   },
   {
     "birthday": "07:19:2002",

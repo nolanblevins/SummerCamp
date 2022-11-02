@@ -117,7 +117,6 @@
     "groupName": "Wildcats",
     "min": 7,
     "children": [
-      "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78"
     ],
     "max": 8,
     "cabin": 1,
@@ -366,7 +365,11 @@
     },
     "groupName": "Eagles",
     "min": 11,
-    "children": [],
+    "children": [
+      "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
+      "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",
+      "c7f76c3f-62d8-4dad-9383-75d2f63fba35"
+    ],
     "max": 12,
     "cabin": 3,
     "groupSize": 0,
