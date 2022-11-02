@@ -1,1 +1,141 @@
-[{"birthday":"03:01:2012","allergies":["peanut butter","gluten"],"firstName":"Tammy","lastName":"Snow","address":"123 Fake Address Court","notes":["Got in fight with Oliver"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}},{"birthday":"05:19:2012","allergies":[],"firstName":"Oliver","lastName":"Sun","address":"123 Fake Address Court","notes":["Got in fight with Tammy"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"8aa8050e-0528-40a7-8184-4f9efb6fc0db","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}},{"birthday":"03:12:2010","allergies":[],"firstName":"Justin","lastName":"Snow","address":"123 Fake Address Court","notes":["scared of water"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"6a41ac71-10be-4bf3-9180-6fa7c14af6d0","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}},{"birthday":"07:19:2010","allergies":[],"firstName":"Tom","lastName":"Snow","address":"123 Fake Address Court","notes":["hates kayaking"],"emergencyContact":[{"firstName":"amy","lastName":"smith","phoneNumber":"123-123-1234","relationship":"Mother"},{"firstName":"nick","lastName":"smith","phoneNumber":"123-456-7890","relationship":"Father"}],"UUID":"c7f76c3f-62d8-4dad-9383-75d2f63fba35","conditions":["History of passing out"],"pediatrician":{"firstName":"Megan","lastName":"Martin","phoneNumber":"803-455-6767","business":"Palmetto Pediatrics"}}]
+[
+  {
+    "birthday": "03:01:2012",
+    "allergies": [
+      "peanut butter",
+      "gluten"
+    ],
+    "firstName": "Tammy",
+    "lastName": "Snow",
+    "address": "123 Fake Address Court",
+    "notes": [
+      "Got in fight with Oliver"
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "UUID": "6f6f1747-c1f4-4f9f-a879-0f0dbcc67f78",
+    "conditions": [
+      "History of passing out"
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
+  },
+  {
+    "birthday": "05:19:2012",
+    "allergies": [],
+    "firstName": "Oliver",
+    "lastName": "Sun",
+    "address": "123 Fake Address Court",
+    "notes": [
+      "Got in fight with Tammy"
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "UUID": "8aa8050e-0528-40a7-8184-4f9efb6fc0db",
+    "conditions": [
+      "History of passing out"
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
+  },
+  {
+    "birthday": "03:12:2010",
+    "allergies": [],
+    "firstName": "Justin",
+    "lastName": "Snow",
+    "address": "123 Fake Address Court",
+    "notes": [
+      "scared of water"
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "UUID": "6a41ac71-10be-4bf3-9180-6fa7c14af6d0",
+    "conditions": [
+      "History of passing out"
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
+  },
+  {
+    "birthday": "07:19:2010",
+    "allergies": [],
+    "firstName": "Tom",
+    "lastName": "Snow",
+    "address": "123 Fake Address Court",
+    "notes": [
+      "hates kayaking"
+    ],
+    "emergencyContact": [
+      {
+        "firstName": "amy",
+        "lastName": "smith",
+        "phoneNumber": "123-123-1234",
+        "relationship": "Mother"
+      },
+      {
+        "firstName": "nick",
+        "lastName": "smith",
+        "phoneNumber": "123-456-7890",
+        "relationship": "Father"
+      }
+    ],
+    "UUID": "c7f76c3f-62d8-4dad-9383-75d2f63fba35",
+    "conditions": [
+      "History of passing out"
+    ],
+    "pediatrician": {
+      "firstName": "Megan",
+      "lastName": "Martin",
+      "phoneNumber": "803-455-6767",
+      "business": "Palmetto Pediatrics"
+    }
+  }
+]

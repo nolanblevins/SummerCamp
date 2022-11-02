@@ -265,8 +265,9 @@ public class Group {
      * @return String Summarized of Group's Information
      */
     public String toString() {
-        return "Group [groupName=" + groupName + ", schedule=" + schedule + ", cabin=" + cabin + ", campers=" + campers
-                + ", groupSize=" + groupSize + ", counselor=" + counselor + ", id=" + id + "]";
+        return "Cabin Number: " + this.cabin +
+                "\n\tGroup Name: " + this.groupName +
+                "\n\tGroup Size: " + this.groupSize;
     }
 
     public String scheduleToString(){
