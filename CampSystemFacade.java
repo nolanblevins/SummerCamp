@@ -85,6 +85,11 @@ public class CampSystemFacade {
         user.changeInfo(firstName, lastName, phoneNumber, email, password);
     }
 
+    public void changeChildInfo(int childInput, String firstName, String lastName, MedicalInfo medicalInfo){
+        Child child = ((RegisteredUser)user).getChildren().get(childInput);
+        child.changeInfo(firstName, lastName, medicalInfo);
+    }
+
     public String getSchedules(Camp camp) {
         ArrayList<Group> groups = camp.getGroups();
         String ret = "";

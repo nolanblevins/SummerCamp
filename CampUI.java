@@ -17,7 +17,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveGroups();
+        DataWriter.saveChildren();
     }
 
     private static void loadingScreen() {
@@ -399,9 +399,10 @@ public class CampUI {
             System.out.println("3. Register Camper");
             System.out.println("4. Remove Camper");
             System.out.println("5. Change User Information");
-            System.out.println("6. Log Out");
+            System.out.println("6. Change Child Information");
+            System.out.println("7. Log Out");
 
-            option = getValidInput(6);
+            option = getValidInput(7);
 
             if (option == 1) {
                 clearScreen();
@@ -447,7 +448,9 @@ public class CampUI {
                 campSystem.removeChild(input);
             } else if (option == 5) {
                 changeInfoUser();
-            } else if (option == 6) {
+            } else if(option == 6){
+                changeChildInfo();
+            } else if (option == 7) {
                 campSystem.logOff();
                 break;
             }
@@ -499,26 +502,58 @@ public class CampUI {
         }
     }
 
-    private static Child getChildInput() {
+    private static void changeChildInfo(){
+        Scanner keyboard = new Scanner(System.in);
         clearScreen();
-        System.out.println("****** Child Information ******");
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter child's first name:");
-        String fName = in.nextLine();
-        System.out.println("Enter child's last name:");
-        String lName = in.nextLine();
-        System.out.println("Enter child's birthday (MM/DD/YYYY):");
-        Date bday = null;
-        boolean next = true;
-        while (next) {
-            try {
-                bday = new SimpleDateFormat("MM/dd/yyyy").parse(in.nextLine());
-                next = false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("Incorrect format or date");
-            }
+        System.out.println("****** Change Child Information ******");
+        System.out.println("For what child would you like to change information?");
+        System.out.println(campSystem.viewCamperRegistration());
+        int childInput = getValidInput(campSystem.getNumChildren());
+        System.out.println();
+        System.out.println("What would you like to change?");
+        clearScreen();
+        System.out.println("****** Change Child Information ******");
+        System.out.println("What information would you like to change?" +
+                "\n" + "\t" + "1 - First Name" +
+                "\n" + "\t" + "2 - Last Name" +
+                "\n" + "\t" + "3 - Medical Info" +
+                "\n" + "\t" + "4 - Camps Registration" +
+                "\n" + "\t" + "5 - No Change");
+
+        int changeInput = getValidInput(5);
+        if(changeInput == 1){
+            System.out.println("Input First Name: ");
+            String firstName = keyboard.nextLine();
+            campSystem.changeChildInfo(childInput - 1, firstName, null, null);
         }
+        else if(changeInput == 2){
+            System.out.println("Input Second Name: ");
+            String lastName = keyboard.nextLine();
+            campSystem.changeChildInfo(childInput - 1, null, lastName, null);
+        }
+        else if(changeInput == 3){
+            MedicalInfo mInfo = getMedicalInfo();
+            campSystem.changeChildInfo(childInput - 1, null, null, mInfo);
+        }
+        else if(changeInput == 4){
+
+        }
+        else if(changeInput == 5){
+            clearScreen();
+            System.out.println("****** Child Data Not Changed ******");
+            System.out.println("Hit enter to continue");
+            keyboard.nextLine();
+            return;
+        }
+        clearScreen();
+        System.out.println("******* Child Data Changed ******");
+        System.out.println("Hit enter to continue...");
+        keyboard.nextLine();
+    }
+
+    private static MedicalInfo getMedicalInfo(){
+        Scanner in = new Scanner(System.in);
+
         ArrayList<Contact> emergencyContact = new ArrayList<Contact>();
         boolean yes = true;
         while (yes) {
@@ -576,6 +611,35 @@ public class CampUI {
         Pediatrician childPediatrician = new Pediatrician(pFirstName, pLastName, pPhoneNumber, pBusiness);
 
         MedicalInfo mInfo = new MedicalInfo(emergencyContact, address, allergies, conditions, childPediatrician);
+
+        return mInfo;
+    }
+
+    private static void changeCampRegistration(int childInput){
+
+    }
+
+    private static Child getChildInput() {
+        clearScreen();
+        System.out.println("****** Child Information ******");
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter child's first name:");
+        String fName = in.nextLine();
+        System.out.println("Enter child's last name:");
+        String lName = in.nextLine();
+        System.out.println("Enter child's birthday (MM/DD/YYYY):");
+        Date bday = null;
+        boolean next = true;
+        while (next) {
+            try {
+                bday = new SimpleDateFormat("MM/dd/yyyy").parse(in.nextLine());
+                next = false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Incorrect format or date");
+            }
+        }
+        MedicalInfo mInfo = getMedicalInfo();
 
         return new Child(fName, lName, mInfo, bday);
     }
