@@ -5,13 +5,21 @@ public class Schedule {
     private ArrayList<Activity> schedule;
     private WeekDay day;
 
+    /**
+     * This method is a Constructor for Schedule
+     * @param schedule      schedule
+     * @param day           enum Days Of Week
+        */
     public Schedule(ArrayList<Activity> schedule, WeekDay day) {
         this.schedule = schedule;
         this.day = day;
     }
 
     /**
-     * @return
+     * This method generate a Schedule with random Activity
+     * 
+     * @return weeklySchedule 
+     * 
      */
     public ArrayList<Schedule> generateSchedule() {
         /*
@@ -71,7 +79,11 @@ public class Schedule {
         }
         return weeklySchedule;
     }
-
+    
+    /**
+     * This method returns dailySchedule from a WeeklySchedule
+     * @return      dailySchedule
+        */
     public Schedule getDailySchedule(WeekDay weekDay) {
         ArrayList<Schedule> weeklySchedule = new ArrayList<Schedule>();
         Schedule dailySchedule = new Schedule(schedule, weekDay);
@@ -100,15 +112,26 @@ public class Schedule {
         return dailySchedule;
 
     }
-
+    /**
+     * Accessor for Schedule
+     * @return      schedule
+        */
     public ArrayList<Activity> getSchedule() {
         return schedule;
     }
 
+    /**
+     * Accessor for Weekday
+     * @return      day
+        */
     public WeekDay getDay() {
         return day;
     }
-
+    
+    /**
+     * This method returns all the Schedule parameters in a String
+     * @return     String   schedule properties'
+        */
     public String toString() {
         String ret = "";
         for(int i = 0; i < schedule.size(); i++) {
