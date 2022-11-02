@@ -26,8 +26,7 @@ public class Camp {
         Random rand = new Random();
         for(int i = 0; i < 6; i++) {
             int random = rand.nextInt(counselors.size());
-            Group group = new Group(groupNames[i], i + 1, 0,
-                    (Counselor)counselors.get(random), (i+4)*2-1, (i+4)*2);
+            Group group = new Group(groupNames[i], i + 1, 0,(Counselor)counselors.get(random), (i+4)*2-1, (i+4)*2);
             groups.add(group);
             counselors.remove(random);
         }
