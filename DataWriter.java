@@ -107,6 +107,14 @@ public class DataWriter extends DataConstants{
         for(FAQ f : faqs){
             jsonFAQs.add(getFAQJSON(f));
         }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonFAQs.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private static JSONObject getFAQJSON(FAQ faq){

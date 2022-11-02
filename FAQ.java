@@ -34,10 +34,10 @@ public class FAQ {
     /**
      * This method returns all of the parameters for faq in the form of a string
      * 
-     * @return a concatenate string of the faq properties
+     * @return a concatenated string of the faq properties
      * 
      */
     public String toString() {
-        return "Question:" + question + "\n" + "\t" + "Answer:" + answer;
+        return "Question:" + question + "\n" + "Answer:" + answer;
     }
 }

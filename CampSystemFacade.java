@@ -331,7 +331,7 @@ public class CampSystemFacade {
         ArrayList<FAQ> FAQ = faqList.getFaqs();
         for (int i = 0; i < FAQ.size(); i++) {
             FAQ temp = FAQ.get(i);
-            ret += (i+1) + " - " + temp.toString() + "\n\n";
+            ret += temp.toString() + "\n\n";
         }
         ret += "\n\n";
         return ret;
