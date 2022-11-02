@@ -108,7 +108,7 @@ public class CampUI {
         System.out.print("Phone number (###-###-####): ");
         String phoneNumber = keyboard.nextLine();
         while (!campSystem.isPhoneValid(phoneNumber)) {
-            System.out.println("Invalid Email, please try again");
+            System.out.println("Invalid Phone Number, please try again");
             phoneNumber = keyboard.nextLine();
         }
 
@@ -292,7 +292,7 @@ public class CampUI {
                 System.out.println("Invalid input, please try again");
 
             } else if (option == 4) {
-                campSystem.changeUserInfo(null, null, null, null, null);
+                changeInfoUser();
             }
             campSystem.logOff();
         } while (true);
@@ -356,7 +356,7 @@ public class CampUI {
                 String FAQanswer = keyboard.nextLine();
                 campSystem.addToFAQ(FAQquestion, FAQanswer);;
             } else if (option == 4) {
-                campSystem.changeUserInfo(null, null, null, null, null);
+                changeInfoUser();
             }
 
             // create new theme scenerio
