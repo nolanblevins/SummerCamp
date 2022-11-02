@@ -103,6 +103,10 @@ public class Counselor extends User {
 
     }
 
+    public void setMedicalInfo(MedicalInfo medicalInfo){
+        this.medicalInfo = medicalInfo;
+    }
+
     public Date getBirthday() {
         return birthday;
     }

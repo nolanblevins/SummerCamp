@@ -90,6 +90,10 @@ public class CampSystemFacade {
         child.changeInfo(firstName, lastName, medicalInfo);
     }
 
+    public void changeCounselorMedInfo(MedicalInfo medicalInfo){
+        ((Counselor)user).setMedicalInfo(medicalInfo);
+    }
+
     public String getSchedules(Camp camp) {
         ArrayList<Group> groups = camp.getGroups();
         String ret = "";

@@ -17,7 +17,7 @@ public class CampUI {
 
         menuSelect();
 
-        DataWriter.saveGroups();
+        DataWriter.saveUsers();
     }
 
     private static void loadingScreen() {
@@ -149,6 +149,7 @@ public class CampUI {
             option = getValidInput(4);
 
             if (option == 1) {
+                clearScreen();
                 System.out.println("***** Counselor Login Portal *****");
                 System.out.print("Email: ");
                 emailInput = keyboard.nextLine();
@@ -165,6 +166,7 @@ public class CampUI {
                 }
 
             } else if (option == 2) {
+                clearScreen();
                 System.out.println("***** Director Login Portal *****");
                 System.out.print("Email: ");
                 emailInput = keyboard.nextLine();
@@ -254,14 +256,13 @@ public class CampUI {
     }
 
     private static void conselorPortal() {
-        clearScreen();
-
         Scanner keyboard = new Scanner(System.in);
 
         int option;
 
         do {
-            System.out.println("***** Welcome to Conselor Portal ******");
+            clearScreen();
+            System.out.println("***** Welcome to Counselor Portal ******");
             System.out.println("1. View Group");
             System.out.println("2. Edit Medical Info");
             System.out.println("3. View Schedule");
@@ -275,26 +276,26 @@ public class CampUI {
                 System.out.println(campSystem.viewGroup());
 
             } else if (option == 2) {
-                // edit med info
+                MedicalInfo medicalInfo = getMedicalInfo();
+                campSystem.changeCounselorMedInfo(medicalInfo);
 
             } else if (option == 3) {
                 // view schedule
 
                 // option to print out
                 System.out.println("Do you want to print this schedule out?");
-                System.out.println("1. Yes \n 2. No");
+                System.out.println("1. Yes \n2. No");
                 int choice = keyboard.nextInt();
                 if (choice == 1) {
                     // convert to txt method
-                } else if (choice == 2) {
-                    conselorPortal();
                 }
-                System.out.println("Invalid input, please try again");
-
             } else if (option == 4) {
-                campSystem.changeUserInfo(null, null, null, null, null);
+                changeInfoUser();
+            } else if (option == 5){
+                campSystem.logOff();
+                return;
             }
-            campSystem.logOff();
+
         } while (true);
     }
 
@@ -356,7 +357,7 @@ public class CampUI {
                 String FAQanswer = keyboard.nextLine();
                 campSystem.addToFAQ(FAQquestion, FAQanswer);;
             } else if (option == 4) {
-                campSystem.changeUserInfo(null, null, null, null, null);
+                changeInfoUser();
             }
 
             // create new theme scenerio
