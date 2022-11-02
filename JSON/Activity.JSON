@@ -103,5 +103,61 @@
     "duration": 1,
     "description": "Everyone plays a fun game of manhunt",
     "location": "The Woods"
+  },
+  {
+    "UUID": "7aa9893a-c0cc-4d85-9e5e-7131dd2abef6",
+    "title": "Capture the Flag",
+    "duration": 1,
+    "description": "Everyone plays a fun game of capture the flag",
+    "location": "The Woods"
+  },
+  {
+    "UUID": "e3308d02-61da-4540-b7ca-cc79c3d6f528",
+    "title": "Cornhole",
+    "duration": 1,
+    "description": "Everyone plays in a cornhole competition",
+    "location": "The field"
+  },
+  {
+    "UUID": "818a309f-b3e8-46fa-b366-6677f8cf43ab",
+    "title": "Hide and Seek",
+    "duration": 1,
+    "description": "Everyone plays hide and seek in the woods",
+    "location": "The Woods"
+  },
+  {
+    "UUID": "c4aafaa9-86e5-475a-98aa-13da6df9f29c",
+    "title": "Tag",
+    "duration": 1,
+    "description": "Everyone plays a fun game of tag",
+    "location": "The field"
+  },
+  {
+    "UUID": "4637118d-a802-4620-ae20-186aa212468e",
+    "title": "Assassin",
+    "duration": 1,
+    "description": "Everyone gets assigned a person and has to mark them with a marker",
+    "location": "The whole camp"
+  },
+  {
+    "UUID": "f273da89-48a5-42da-98bf-a3e479c259f6",
+    "title": "Ping pong",
+    "duration": 1,
+    "description": "A classic game of ping pong",
+    "location": "The main pavillion"
+  },
+  {
+    "UUID": "566f9fd8-be57-4ac8-809c-91b466c43503",
+    "title": "Chess",
+    "duration": 1,
+    "description": "A chess tournament",
+    "location": "The main pavillion"
+  },
+  {
+    "UUID": "c41712bc-5f01-4d6d-9bc7-d9583a659447",
+    "title": "Spikeball",
+    "duration": 1,
+    "description": "Game where ball gets bounced on net and they have to keep it bouncing",
+    "location": "The field"
   }
 ]
