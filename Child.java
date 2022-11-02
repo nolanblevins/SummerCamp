@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 
+/*
+ * This class is the manager of a Child
+ */
 public class Child {
     private UUID id;
     private String firstName;
@@ -12,7 +15,6 @@ public class Child {
     private ArrayList<String> notes;
     private MedicalInfo medicalInfo;
     private Date birthday;
-    
 
     /**
      * Parameterized constructor that generates Random UUID
@@ -41,7 +43,8 @@ public class Child {
      * @param birthday    child bday
      * @param notes
      */
-    public Child(UUID id, String firstName, String lastName, MedicalInfo medicalInfo, Date birthday, ArrayList<String> notes) {
+    public Child(UUID id, String firstName, String lastName, MedicalInfo medicalInfo, Date birthday,
+            ArrayList<String> notes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -67,20 +70,39 @@ public class Child {
     public MedicalInfo getMedInfo() {
         return medicalInfo;
     }
-   
 
+    /**
+     * Accesses Child first name
+     * 
+     * @return will return child first name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Accesses Child last night
+     * 
+     * @return will return child last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Accesses Child notes
+     * 
+     * @return will return child notes
+     */
     public ArrayList<String> getNotes() {
         return notes;
     }
 
+    /**
+     * Accesses Child birthday
+     * 
+     * @return will return child birthday
+     */
     public Date getBirthday() {
         return birthday;
     }
@@ -90,21 +112,29 @@ public class Child {
      * 
      * @return will return the child UUID
      */
-    public UUID getUUID(){
+    public UUID getUUID() {
         return this.id;
     }
 
-    public void changeInfo(String firstName, String lastName, MedicalInfo medicalInfo){
-        if(firstName != null){
+    /**
+     * This method makes sure nothing is null and assigns it to the correct variable
+     * 
+     * @param firstName   is first name of child
+     * @param lastName    is last name of child
+     * @param medicalInfo is medical info of child
+     */
+    public void changeInfo(String firstName, String lastName, MedicalInfo medicalInfo) {
+        if (firstName != null) {
             this.firstName = firstName;
         }
-        if(lastName != null){
+        if (lastName != null) {
             this.lastName = lastName;
         }
-        if(medicalInfo != null){
+        if (medicalInfo != null) {
             this.medicalInfo = medicalInfo;
         }
     }
+
     /**
      * A concatenated toString of Child values
      * 

@@ -210,6 +210,26 @@ public class CampSystemFacade {
     }
 
     /**
+     * Method to retrieve a camp based upon the passed through camp
+     * 
+     * @param child is the child to retieve the camps by
+     * @return will return a camp based upon @param child
+     */
+    public ArrayList<Camp> getCampsByChild(Child child){
+        return campList.getCamp(child);
+    }
+
+    /**
+     * Method to get a child based upon index 
+     * 
+     * @param childInput is the index of the child in the list
+     * @return will return the child based upon @param childInput
+     */
+    public Child getChild(int childInput){
+        return ((RegisteredUser)user).getChildren().get(childInput);
+    }
+
+    /**
      * Method returns all counselors in passed through camp
      * 
      * @param camp is the camp of the desired counselors to retrieve
