@@ -1,16 +1,1 @@
-[
-  {
-    "date": "06:25:2023",
-    "price": 255.99,
-    "groupID": [
-      "d06ea8de-a4e1-4f12-86d7-c0ebe4978ec2",
-      "738d5b85-059e-44bc-ac06-21b0ebdfd64b",
-      "d0fa0661-9b7c-45c4-ba46-1d95636c3dd1",
-      "7b6cf128-7809-4f8c-9bf4-06be855eb41c",
-      "73ceeeb3-ce1c-42db-bb64-9a3eed692016",
-      "13d94936-b8ec-4003-8fdc-77bf5c2e4943"
-    ],
-    "theme": "Ninja Warriors 1",
-    "UUID": "4dc53ed7-7aba-47bd-b770-9db41cee24b5"
-  }
-]
+[{"date":"06:25:2023","price":255.99,"groupID":["d06ea8de-a4e1-4f12-86d7-c0ebe4978ec2","738d5b85-059e-44bc-ac06-21b0ebdfd64b","d0fa0661-9b7c-45c4-ba46-1d95636c3dd1","7b6cf128-7809-4f8c-9bf4-06be855eb41c","73ceeeb3-ce1c-42db-bb64-9a3eed692016","13d94936-b8ec-4003-8fdc-77bf5c2e4943"],"theme":"Ninja Warriors 1","UUID":"4dc53ed7-7aba-47bd-b770-9db41cee24b5"}]

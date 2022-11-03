@@ -21,6 +21,11 @@ public class CampUI {
         campSystem.saveInformation();
     }
 
+    /**
+     *
+     * Loading Screen while the app is loading in
+     *
+     */
     private static void loadingScreen() {
         clearScreen();
         System.out.println("           (                 ,&&&.");
@@ -45,6 +50,9 @@ public class CampUI {
         clearScreen();
     }
 
+    /**
+     * The starting menu that will be displayed when no user is logged on
+     */
     private static void menuSelect() {
 
         Scanner keyboard = new Scanner(System.in);
@@ -84,6 +92,9 @@ public class CampUI {
         } while (true);
     }
 
+    /**
+     * The menu for creating an account
+     */
     private static void createAccountMenu() {
         Scanner keyboard = new Scanner(System.in);
 
@@ -130,6 +141,9 @@ public class CampUI {
 
     }
 
+    /**
+     * The portal for deciding what to login to
+     */
     private static void loginPortal() {
         clearScreen();
 
@@ -206,6 +220,9 @@ public class CampUI {
 
     }
 
+    /**
+     * Portal for displaying the camp info
+     */
     private static void campInfo() {
         clearScreen();
 
@@ -224,6 +241,9 @@ public class CampUI {
         }
     }
 
+    /**
+     * Displays FAQs for the camp
+     */
     private static void displayFAQ() {
         clearScreen();
 
@@ -243,11 +263,19 @@ public class CampUI {
         }
     }
 
+    /**
+     * Clears the screen
+     */
     private static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
+    /**
+     * The program will pause for the amount "num"
+     *
+     * @param num   The amount MS the program will sleep
+     */
     private static void sleep(int num) {
         try {
             TimeUnit.MILLISECONDS.sleep(num);
@@ -256,6 +284,9 @@ public class CampUI {
         }
     }
 
+    /**
+     * Displays the portal for a counselor
+     */
     private static void counselorPortal() {
         clearScreen();
 
@@ -339,6 +370,13 @@ public class CampUI {
         } while (true);
     }
 
+    /**
+     * Asks the user if they want to print out a string
+     * to a text file. Then prompts them for the name of
+     * the text file if yes
+     *
+     * @param string    The String to be printed
+     */
     private static void printToTxt(String string){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Do you want to print this out?");
@@ -364,6 +402,10 @@ public class CampUI {
         System.out.println("Hit enter to continue...");
         keyboard.nextLine();
     }
+
+    /**
+     * The portal for the director
+     */
     private static void directorPortal() {
         Scanner keyboard = new Scanner(System.in);
 
@@ -477,6 +519,9 @@ public class CampUI {
         }while(true);
     }
 
+    /**
+     * The portal for the User
+     */
     private static void userPortal() {
         Scanner keyboard = new Scanner(System.in);
 
@@ -549,6 +594,9 @@ public class CampUI {
 
     }
 
+    /**
+     * Change the info for the users
+     */
     private static void changeInfoUser() {
         clearScreen();
         System.out.println("****** Change Information ******");
@@ -593,6 +641,9 @@ public class CampUI {
         }
     }
 
+    /**
+     * Change the info for a child
+     */
     private static void changeChildInfo() {
         Scanner keyboard = new Scanner(System.in);
         clearScreen();
@@ -639,6 +690,11 @@ public class CampUI {
         keyboard.nextLine();
     }
 
+    /**
+     * Asks the user for inputs to get a MedicalInfo
+     *
+     * @return  The inputted medical info
+     */
     private static MedicalInfo getMedicalInfo() {
         Scanner in = new Scanner(System.in);
 
@@ -703,6 +759,11 @@ public class CampUI {
         return mInfo;
     }
 
+    /**
+     * Allows the user to change the camp registration for their child
+     *
+     * @param child     The inputted child
+     */
     private static void changeCampRegistration(Child child) {
         Scanner keyboard = new Scanner(System.in);
         clearScreen();
@@ -751,6 +812,11 @@ public class CampUI {
         }
     }
 
+    /**
+     * Gets the inputs from a user for a child
+     *
+     * @return  the inputted child
+     */
     private static Child getChildInput() {
         clearScreen();
         System.out.println("****** Child Information ******");
@@ -777,6 +843,13 @@ public class CampUI {
         return new Child(fName, lName, mInfo, bday);
     }
 
+    /**
+     * Goes through and gets a list of camps that the user wants to sign
+     * their child up for
+     *
+     * @param child     The child being signed up for camp
+     * @return          Camps to sign the child up for
+     */
     private static ArrayList<Camp> getCampPreference(Child child) {
         clearScreen();
         Scanner keyboard = new Scanner(System.in);
@@ -818,6 +891,12 @@ public class CampUI {
         return campPreferences;
     }
 
+    /**
+     * Make sure inputs from the user are valid
+     *
+     * @param num   The upper bound for the input
+     * @return      The inputted number
+     */
     private static int getValidInput(int num) {
         Scanner keyboard = new Scanner(System.in);
         int input = -1;

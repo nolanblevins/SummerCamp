@@ -53,12 +53,10 @@ public class Group {
      * This method is a constructor for Group including UUID, conselor, camps, and
      * schedule
      *
-     * @param id        Group ID
      * @param groupName Group Name
      * @param cabin     Cabin numbers
      * @param groupSize Size of the group
      * @param counselor Group Counselor
-     * @param campers   Campers
      * @param min
      * @param max
      */
