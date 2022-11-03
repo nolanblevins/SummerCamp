@@ -3,10 +3,18 @@ public class CampList {
     private ArrayList<Camp> camps;
     private static CampList campList;
 
+    /**
+     * Camplist constructor
+     */
     private CampList(){
         camps = DataReader.loadCamps();
     }
 
+    /**
+     * Gets an instance of CampList - constructs it first if it is null
+     *
+     * @return  Instance of campList
+     */
     public static CampList getInstance(){
         if(campList == null){
             campList = new CampList();
@@ -14,6 +22,11 @@ public class CampList {
         return campList;
     }
 
+    /**
+     * Adds a camp to campList
+     *
+     * @param camp  The camp to be added
+     */
     public void addCamp(Camp camp){
         this.camps.add(camp);
     }
@@ -35,6 +48,12 @@ public class CampList {
         return ret;
     }
 
+    /**
+     * Gets all the camps that a counselor works at
+     *
+     * @param counselor     The counselor that is being checked for
+     * @return              The camps the counselor works at
+     */
     public ArrayList<Camp> getCamp(Counselor counselor){
         ArrayList<Camp> ret = new ArrayList<>();
         for(Camp c : camps){
@@ -49,10 +68,20 @@ public class CampList {
         return ret;
     }
 
+    /**
+     * Returns a list of every camp
+     *
+     * @return  ArrayList of camps
+     */
     public ArrayList<Camp> getAllCamps(){
         return this.camps;
     }
 
+    /**
+     * Method to edit camps
+     *
+     * @param camp  The camp that is being changed
+     */
     public void editCamp(Camp camp){
         for(Camp c : camps){
             if(camp.getUuid().compareTo(c.getUuid()) == 0){

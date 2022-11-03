@@ -51,6 +51,11 @@ public class DataReader extends DataConstants{
         return users;
     }
 
+    /**
+     * Reads in a List of camps from the JSON file, then returns that arrayList
+     *
+     * @return  ArrayList of camps
+     */
     public static ArrayList<Camp> loadCamps(){
         ArrayList<Camp> camps = new ArrayList<>();
 
@@ -75,6 +80,12 @@ public class DataReader extends DataConstants{
         return camps;
     }
 
+    /**
+     * Reads in an arrayList of groups from the JSON file,
+     * then returns the list of groups
+     *
+     * @return  ArrayList of groups
+     */
     public static ArrayList<Group> loadGroups(){
         ArrayList<Group> groups = new ArrayList<>();
 
@@ -105,6 +116,12 @@ public class DataReader extends DataConstants{
         return groups;
     }
 
+    /**
+     * Loads in a list of activities from the JSON file, then returns an
+     * ArrayList of those activities
+     *
+     * @return  ArrayList of activities
+     */
     public static ArrayList<Activity> loadActivities(){
         ArrayList<Activity> activities = new ArrayList<>();
         try{
@@ -130,6 +147,12 @@ public class DataReader extends DataConstants{
         return activities;
     }
 
+    /**
+     * Reads the children in from a JSON file, then returns an arraylist of
+     * the children
+     *
+     * @return  ArrayList of children
+     */
     public static ArrayList<Child> loadChild(){
         ArrayList<Child> children = new ArrayList<>();
 
@@ -158,6 +181,11 @@ public class DataReader extends DataConstants{
         return children;
     }
 
+    /**
+     * Loads in the FAQs from a JSON file, then returns them in an ArrayList
+     *
+     * @return  FAQs in an ArrayList
+     */
     public static ArrayList<FAQ> loadFAQs(){
         ArrayList<FAQ> faqs = new ArrayList<>();
 
@@ -197,6 +225,12 @@ public class DataReader extends DataConstants{
         return children;
     }
 
+    /**
+     * Gets the groups from a camp JSONObject
+     *
+     * @param jsonObject    JSONObject for a camp
+     * @return  The groups for a camp
+     */
     private static ArrayList<Group> getGroups(JSONObject jsonObject){
         GroupList groupList = GroupList.getInstance();
         ArrayList<Group> groups = new ArrayList<>();
@@ -233,6 +267,12 @@ public class DataReader extends DataConstants{
         return contacts;
     }
 
+    /**
+     * Gets the schedules for all the groups
+     *
+     * @param groupJSON     A jsonObject for the group
+     * @return              The schedules for the groups
+     */
     private static ArrayList<Schedule> getSchedules(JSONObject groupJSON){
         ActivityList activitylist = ActivityList.getInstance();
         ArrayList<Schedule> schedules = new ArrayList<>();
@@ -251,6 +291,12 @@ public class DataReader extends DataConstants{
         return schedules;
     }
 
+    /**
+     * Gets the medical info from a JSONObject
+     *
+     * @param jsonObject    The JSONObject that has medical info
+     * @return  The Medical info for the object
+     */
     private static MedicalInfo getMedInfo(JSONObject jsonObject){
         ArrayList<String> allergies = parseStringList(jsonObject, ALLERGIES);
         ArrayList<Contact> contacts = getContacts(jsonObject);
@@ -298,12 +344,24 @@ public class DataReader extends DataConstants{
         return ret;
     }
 
+    /**
+     * Gets the counselor from a group
+     *
+     * @param groupJSON JSONObject for a group
+     * @return          The counselor for the group
+     */
     private static User getCounselor(JSONObject groupJSON) {
         UUID uuid = UUID.fromString((String)groupJSON.get(GROUP_COUNSELOR));
         UserList userList = UserList.getInstance();
         return userList.getUser(uuid);
     }
 
+    /**
+     * Gets the pediatrician from a pediatrician jSON
+     *
+     * @param pJSON     Pediatrician JSON
+     * @return          Returns a pediatrician object
+     */
     private static Pediatrician getPediatrician(JSONObject pJSON){
         String firstName = (String)pJSON.get(FIRST_NAME);
         String lastName = (String)pJSON.get(LAST_NAME);

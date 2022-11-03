@@ -7,6 +7,9 @@ import java.text.SimpleDateFormat;
 public class DataWriter extends DataConstants{
     public static final String pattern = "MM:dd:yyyy";
 
+    /**
+     * Saves the users
+     */
     public static void saveUsers(){
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
@@ -25,6 +28,9 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * Saves the children
+     */
     public static void saveChildren(){
         ChildList childList = ChildList.getInstance();
         ArrayList<Child> children = childList.getChildren();
@@ -43,6 +49,9 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * Saves the camps
+     */
     public static void saveCamps(){
         CampList campList = CampList.getInstance();
         ArrayList<Camp> camps = campList.getAllCamps();
@@ -61,6 +70,9 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * Saves the groups
+     */
     public static void saveGroups(){
         GroupList groupList = GroupList.getInstance();
         ArrayList<Group> groups = groupList.getAllGroups();
@@ -79,6 +91,9 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * Saves the activities
+     */
     public static void saveActivies(){
         ActivityList activityList = ActivityList.getInstance();
         ArrayList<Activity> activities = activityList.getAllActivities();
@@ -97,6 +112,9 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * Saves the FAQs
+     */
     public static void saveFAQs(){
         FAQList faqList = FAQList.getInstance();
         ArrayList<FAQ> faqs = faqList.getFaqs();
@@ -115,6 +133,12 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * Gets the JSONObject for an FAQ
+     *
+     * @param faq   The input FAQ
+     * @return      JSONObject for FAQ
+     */
     private static JSONObject getFAQJSON(FAQ faq){
         JSONObject faqDetails = new JSONObject();
         faqDetails.put(FAQ_QUESTION, faq.getQuestion());
@@ -123,6 +147,12 @@ public class DataWriter extends DataConstants{
         return faqDetails;
     }
 
+    /**
+     * Gets the JSONObject for the JSON
+     *
+     * @param user  The input User
+     * @return      The JSONObject for the User
+     */
     private static JSONObject getUserJSON(User user){
         JSONObject userDetails = new JSONObject();
         userDetails.put(FIRST_NAME, user.getFirstName());
@@ -161,6 +191,12 @@ public class DataWriter extends DataConstants{
         return userDetails;
     }
 
+    /**
+     * Gets the JSONObject for a child
+     *
+     * @param child     The input child
+     * @return          The JSONObject for the child
+     */
     private static JSONObject getChildJSON(Child child){
         JSONObject childDetails = new JSONObject();
 
@@ -181,6 +217,12 @@ public class DataWriter extends DataConstants{
         return childDetails;
     }
 
+    /**
+     * The JSONObject for the activity
+     *
+     * @param activity      The inputted activity
+     * @return              The activity JSON
+     */
     private static JSONObject getActivityJSON(Activity activity){
         JSONObject activityJSON = new JSONObject();
         activityJSON.put(LIST_UUID, activity.getUuid().toString());
@@ -192,6 +234,12 @@ public class DataWriter extends DataConstants{
         return activityJSON;
     }
 
+    /**
+     * Gets the JSONObject for the camp
+     *
+     * @param camp  The inputted camp
+     * @return      The JSONObject for the camp
+     */
     private static JSONObject getCampJSON(Camp camp){
         JSONObject campJSON = new JSONObject();
         campJSON.put(LIST_UUID, camp.getUuid().toString());
@@ -204,6 +252,12 @@ public class DataWriter extends DataConstants{
         return campJSON;
     }
 
+    /**
+     * The JSONObject for the group
+     *
+     * @param group     The input group
+     * @return          The JSONObject for the group
+     */
     private static JSONObject getGroupJSON(Group group){
         JSONObject groupJSON = new JSONObject();
         groupJSON.put(LIST_UUID, group.getUUID().toString());
@@ -218,6 +272,13 @@ public class DataWriter extends DataConstants{
 
         return groupJSON;
     }
+
+    /**
+     * Gets a JSONArray of childIDs
+     *
+     * @param children  The arrayList of children to get ids from
+     * @return          JSONArray of child UUIDs
+     */
     private static JSONArray getChildrenIDS(ArrayList<Child> children){
         JSONArray uuids = new JSONArray();
         for(Child c : children){
@@ -226,6 +287,11 @@ public class DataWriter extends DataConstants{
         return uuids;
     }
 
+    /**
+     * Gets the UUIDs for an ArrayList of groups
+     * @param groups    The inputted groups
+     * @return          JSONArray of the group IDs
+     */
     private static JSONArray getGroupIDS(ArrayList<Group> groups){
         JSONArray uuids = new JSONArray();
         for(Group g : groups){
@@ -234,6 +300,13 @@ public class DataWriter extends DataConstants{
         return uuids;
     }
 
+    /**
+     * Gets the schedules for a group
+     *
+     * @param schedules Schedule ArrayList input
+     * @param group     Group input for error checking
+     * @return          Return JSONObject of the schedule
+     */
     private static JSONObject getSchedule(ArrayList<Schedule> schedules, Group group){
         JSONObject scheduleJSON = new JSONObject();
 
@@ -254,7 +327,12 @@ public class DataWriter extends DataConstants{
         return scheduleJSON;
     }
 
-
+    /**
+     * Takes an ArrayList of strings and puts it in a JSONArray
+     *
+     * @param strings   The input of strings
+     * @return          JSONArray of strings
+     */
     private static JSONArray stringsToArray(ArrayList<String> strings){
         JSONArray jsonStrings = new JSONArray();
 
@@ -265,6 +343,11 @@ public class DataWriter extends DataConstants{
         return jsonStrings;
     }
 
+    /**
+     * Gets the JSONArray of Contact Objects
+     * @param contacts  The inputted contacts
+     * @return          JSONArray of contacts
+     */
     private static JSONArray getContactObject(ArrayList<Contact> contacts){
         JSONArray contactArray = new JSONArray();
         for(Contact c : contacts){
@@ -278,6 +361,12 @@ public class DataWriter extends DataConstants{
         return contactArray;
     }
 
+    /**
+     * Returns the JSONObject for a pediatrician
+     *
+     * @param pediatrician  The inputted Pediatrician
+     * @return              The JSONObject for a pediatrician
+     */
     private static JSONObject getPediatricianObject(Pediatrician pediatrician){
         JSONObject pJSON = new JSONObject();
         pJSON.put(FIRST_NAME, pediatrician.getFirstName());
