@@ -110,5 +110,11 @@ public class UserList {
         return typeUsers;
     }
 
-    
+    /**
+     * Added for testing
+     */
+    public void clear(){
+        users = new ArrayList<>();
+    }
+
 }
