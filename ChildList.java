@@ -111,4 +111,11 @@ public class ChildList{
     public void saveChildren(){
         DataWriter.saveChildren();
     }
+
+    /**
+     * Added for testing
+     */
+    public void clear(){
+        children.clear();
+    }
 }

@@ -95,4 +95,11 @@ public class CampList {
         DataWriter.saveCamps();
     }
 
+    /**
+     * Added for testing
+     */
+    public void clear(){
+        camps.clear();
+    }
+
 }

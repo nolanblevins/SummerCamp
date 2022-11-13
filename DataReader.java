@@ -17,7 +17,6 @@ public class DataReader extends DataConstants{
      */
     public static ArrayList<User> loadUsers(){
         ArrayList<User> users = new ArrayList<>();
-
         try{
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
@@ -368,5 +367,169 @@ public class DataReader extends DataConstants{
         String phoneNumber = (String)pJSON.get(PHONE_NUMBER);
         String business = (String)pJSON.get(PEDIATRICIAN_BUSINESS);
         return new Pediatrician(firstName, lastName, phoneNumber, business);
+    }
+
+    public static ArrayList<User> loadUsersTest(){
+        ArrayList<User> users = new ArrayList<>();
+        try{
+            FileReader reader = new FileReader("./JSON/Test.JSON");
+            JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (Object userObject : usersJSON) {
+                JSONObject userJSON = (JSONObject)userObject;
+                UUID uuid = UUID.fromString((String) userJSON.get(LIST_UUID));
+                String userType = (String) userJSON.get(USER_TYPE);
+                String firstName = (String) userJSON.get(FIRST_NAME);
+                String lastName = (String) userJSON.get(LAST_NAME);
+                String email = (String) userJSON.get(USER_EMAIL);
+                String phoneNumber = (String) userJSON.get(PHONE_NUMBER);
+                String password = (String) userJSON.get(USER_PASSWORD);
+                if (userType.equals("Director")) {
+                    users.add(new Director(uuid, firstName, lastName, email, phoneNumber, password));
+                } else if (userType.equals("Counselor")) {
+                    Date birthday = objectToDate(userJSON.get(BIRTHDAY));
+                    MedicalInfo medicalInfo = getMedInfo(userJSON);
+                    users.add(new Counselor(uuid, firstName, lastName, email,
+                            phoneNumber, password, birthday, medicalInfo));
+                } else if (userType.equals("RegisteredUser")) {
+                    ArrayList<Child> ruChildren = getChildren(userJSON);
+                    users.add(new RegisteredUser(uuid, firstName, lastName, email, phoneNumber,
+                            password, ruChildren));
+                }
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
+
+    public static ArrayList<Camp> loadCampsTest(){
+        ArrayList<Camp> camps = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader("./JSON/Test.JSON");
+            JSONArray campsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object campObject : campsJSON){
+                JSONObject campJSON = (JSONObject)campObject;
+                UUID uuid = UUID.fromString((String)campJSON.get(LIST_UUID));
+                Date date = objectToDate(campJSON.get(CAMP_DATE));
+                String theme = (String)campJSON.get(CAMP_THEME);
+                double price = (double)campJSON.get(CAMP_PRICE);
+                ArrayList<Group> groups = getGroups(campJSON);
+
+                camps.add(new Camp(uuid, date, theme, price, groups));
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return camps;
+    }
+
+    public static ArrayList<Group> loadGroupsTest(){
+        ArrayList<Group> groups = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader("./JSON/Test.JSON");
+            JSONArray groupsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object groupObject : groupsJSON){
+                JSONObject groupJSON = (JSONObject)groupObject;
+                UUID uuid = UUID.fromString((String) groupJSON.get(LIST_UUID));
+                String groupName = (String)groupJSON.get(GROUP_NAME);
+                long cabinL = (long)groupJSON.get(GROUP_CABIN);
+                int cabin = (int)cabinL;
+                long groupSizeL = (long)groupJSON.get(GROUP_SIZE);
+                int groupSize = (int)groupSizeL;
+                User counselor = getCounselor(groupJSON);
+                ArrayList<Child> campers = getChildren(groupJSON);
+                ArrayList<Schedule> schedule = getSchedules(groupJSON);
+                int max = (int)(long)groupJSON.get(GROUP_MAX);
+                int min = (int)(long)groupJSON.get(GROUP_MIN);
+
+                groups.add(new Group(uuid, groupName, cabin, groupSize, counselor, campers, schedule, min, max));
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return groups;
+    }
+
+    public static ArrayList<Activity> loadActivitiesTest(){
+        ArrayList<Activity> activities = new ArrayList<>();
+        try{
+            FileReader reader = new FileReader("./JSON/Test.JSON");
+            JSONArray activitiesJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object activityObject : activitiesJSON){
+                JSONObject activityJSON = (JSONObject)activityObject;
+                UUID uuid = UUID.fromString((String) activityJSON.get(LIST_UUID));
+                String title = (String)activityJSON.get(ACTIVITY_TITLE);
+                int duration = (int)(long)activityJSON.get(ACTIVITY_DURATION);
+                String description = (String)activityJSON.get(ACTIVITY_DESCRIPTION);
+                String location = (String)activityJSON.get(ACTIVITY_LOCATION);
+
+                activities.add(new Activity(uuid, title, duration, description,
+                        location));
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return activities;
+    }
+
+    public static ArrayList<Child> loadChildTest(){
+        ArrayList<Child> children = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader("./JSON/Test.JSON");
+            JSONArray childrenJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object childObject : childrenJSON){
+                JSONObject childJSON = (JSONObject)childObject;
+                UUID uuid = UUID.fromString((String)childJSON.get(LIST_UUID));
+                String firstName = (String)childJSON.get(FIRST_NAME);
+                String lastName = (String)childJSON.get(LAST_NAME);
+                ArrayList<String> notes = parseStringList(childJSON, NOTES);
+                Date birthday = objectToDate(childJSON.get(BIRTHDAY));
+                MedicalInfo medicalInfo = getMedInfo(childJSON);
+
+                Child child = new Child(uuid, firstName, lastName, medicalInfo,
+                        birthday, notes);
+
+                children.add(child);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return children;
+    }
+
+    public static ArrayList<FAQ> loadFAQsTest(){
+        ArrayList<FAQ> faqs = new ArrayList<>();
+
+        try{
+            FileReader reader = new FileReader("./JSON/Test.JSON");
+            JSONArray faqsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(Object faqObject : faqsJSON){
+                JSONObject faqJSON = (JSONObject)faqObject;
+                String question = (String)faqJSON.get(FAQ_QUESTION);
+                String answer = (String)faqJSON.get(FAQ_ANSWER);
+
+                faqs.add(new FAQ(question, answer));
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return faqs;
     }
 }

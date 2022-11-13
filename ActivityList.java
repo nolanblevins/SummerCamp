@@ -148,4 +148,11 @@ public class ActivityList {
         }
         return null;
     }
+
+    /**
+     * Added for testing
+     */
+    public void clear(){
+        activities.clear();
+    }
 }

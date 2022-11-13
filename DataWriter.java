@@ -375,4 +375,127 @@ public class DataWriter extends DataConstants{
         pJSON.put(PEDIATRICIAN_BUSINESS, pediatrician.getBusiness());
         return pJSON;
     }
+
+    public static void saveUsersTest(){
+        UserList userList = UserList.getInstance();
+        ArrayList<User> users = userList.getUsers();
+        JSONArray jsonUsers = new JSONArray();
+
+        for(User u : users){
+            jsonUsers.add(getUserJSON(u));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Saves the children
+     */
+    public static void saveChildrenTest(){
+        ChildList childList = ChildList.getInstance();
+        ArrayList<Child> children = childList.getChildren();
+        JSONArray jsonChildren = new JSONArray();
+
+        for(Child c : children){
+            jsonChildren.add(getChildJSON(c));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonChildren.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Saves the camps
+     */
+    public static void saveCampsTest(){
+        CampList campList = CampList.getInstance();
+        ArrayList<Camp> camps = campList.getAllCamps();
+        JSONArray jsonChildren = new JSONArray();
+
+        for(Camp c : camps){
+            jsonChildren.add(getCampJSON(c));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonChildren.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Saves the groups
+     */
+    public static void saveGroupsTest(){
+        GroupList groupList = GroupList.getInstance();
+        ArrayList<Group> groups = groupList.getAllGroups();
+        JSONArray jsonGroups = new JSONArray();
+
+        for(Group g : groups){
+            jsonGroups.add(getGroupJSON(g));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonGroups.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Saves the activities
+     */
+    public static void saveActiviesTest(){
+        ActivityList activityList = ActivityList.getInstance();
+        ArrayList<Activity> activities = activityList.getAllActivities();
+        JSONArray jsonActivity = new JSONArray();
+
+        for(Activity a : activities){
+            jsonActivity.add(getActivityJSON(a));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonActivity.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Saves the FAQs
+     */
+    public static void saveFAQsTest(){
+        FAQList faqList = FAQList.getInstance();
+        ArrayList<FAQ> faqs = faqList.getFaqs();
+        JSONArray jsonFAQs = new JSONArray();
+
+        for(FAQ f : faqs){
+            jsonFAQs.add(getFAQJSON(f));
+        }
+
+        try{
+            FileWriter file = new FileWriter("./JSON/Test.JSON");
+            file.write(jsonFAQs.toJSONString());
+            file.flush();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

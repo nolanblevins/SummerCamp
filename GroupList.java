@@ -75,5 +75,12 @@ public class GroupList {
     public void saveGroups(){
         DataWriter.saveGroups();
     }
+
+    /**
+     * Added for testing
+     */
+    public void clear(){
+        groups.clear();
+    }
 }
 

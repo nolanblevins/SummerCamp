@@ -38,4 +38,11 @@ public class FAQList {
         this.faqs.add(faq);
     }
 
+    /**
+     * Added for testing
+     */
+
+    public void clear(){
+        faqs.clear();
+    }
 }

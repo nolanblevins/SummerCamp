@@ -114,7 +114,7 @@ public class UserList {
      * Added for testing
      */
     public void clear(){
-        users = new ArrayList<>();
+        users.clear();
     }
 
 }
