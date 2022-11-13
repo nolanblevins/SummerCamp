@@ -1,3 +1,7 @@
+/*
+ * Tested by Jonah Andrews
+ */
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
@@ -16,7 +20,7 @@ public class TestCampList {
 
     @BeforeEach
     public void setUp() {
-        
+        campList.clear();
     }
 
     @AfterEach
@@ -25,10 +29,10 @@ public class TestCampList {
     }
 
     @Test
-    public void addCampTestNullDate() {
-        Camp camp = new Camp(null, 0, "sharks");
+    public void addNullCampTest() {
+        Camp camp = null;
         campList.addCamp(camp);
-        assertEquals(camp, campList.getCamp("sharks"));
+        assertEquals(0, campList.getAllCamps().size());
     }
 
     @Test
@@ -36,8 +40,21 @@ public class TestCampList {
         Date date = new Date(19-23-2022);
         Camp camp = new Camp(date, 0, "dogs");
         campList.addCamp(camp);
-        assertEquals(camp, campList.getCamp("dogs"));
+        assertEquals(1, campList.getAllCamps().size());
     }
+
+    @Test
+    public void addCampTestInvalidDate() {
+        Date date = null;
+        Camp camp = new Camp(date, 0, "puppy");
+        campList.addCamp(camp);
+        assertEquals(0, campList.getAllCamps().size());
+    }
+
+    @Test
+    public void add
+
+
 
 
 }
