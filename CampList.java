@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 public class CampList {
     private ArrayList<Camp> camps;
     private static CampList campList;
@@ -32,6 +33,15 @@ public class CampList {
     }
 
     public Camp getCamp(String theme){
+        return null;
+    }
+
+    public Camp getCamp(UUID uuid){
+        for(Camp c: camps){
+            if(c.getUuid().compareTo(uuid) == 0){
+                return c;
+            }
+        }
         return null;
     }
     public ArrayList<Camp> getCamp(Child child){
