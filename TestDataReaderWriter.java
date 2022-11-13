@@ -6,12 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Date;
 
-public class TestDataWriter {
+public class TestDataReaderWriter {
     private UserList userList = UserList.getInstance();
     private GroupList groupList = GroupList.getInstance();
     private CampList campList = CampList.getInstance();
