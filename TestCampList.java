@@ -51,9 +51,6 @@ public class TestCampList {
         assertEquals(0, campList.getAllCamps().size());
     }
 
-    @Test
-    public void add
-
 
 
 

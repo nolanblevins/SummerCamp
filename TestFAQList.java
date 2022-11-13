@@ -34,5 +34,23 @@ public class TestFAQList {
         assertEquals(0, faqList.getFaqs().size());
     }
 
+    @Test
+    public void testAddValidFAQs() {
+        FAQ faq = new FAQ("sun vs lions", "lions");
+        FAQ faq2 = new FAQ("hotdog a sandwhich", "sure");
+        faqList.addFAQ(faq);
+        faqList.addFAQ(faq2);
+        assertEquals(2, faqList.getFaqs().size());
+    }
+
+    @Test
+    public void testAddDuplicateFAQ() {
+        FAQ faq = new FAQ("sun vs lions", "lions");
+        FAQ faq2 = new FAQ("sun vs lions", "lions");
+        faqList.addFAQ(faq);
+        faqList.addFAQ(faq2);
+        assertEquals(1, faqList.getFaqs().size());
+    }
+
 
 }
