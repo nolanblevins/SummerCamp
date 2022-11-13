@@ -1,7 +1,5 @@
 /**
  * Tested by Matthew Hughes
- * Tested all the "save" methods as that will provide proficient testing
- * for all the included methods
  */
 
 import static org.junit.jupiter.api.Assertions.*;

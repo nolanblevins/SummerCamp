@@ -1,6 +1,5 @@
 /**
  * Tested by Matthew Hughes
- * Tested each isolated method within the class
  */
 
 import static org.junit.jupiter.api.Assertions.*;
