@@ -27,13 +27,29 @@ class TestSchedule{
     @Test
     public void testGetDailySchedule() {
         Schedule testSchedule = schedule.getDailySchedule(WeekDay.MONDAY);
-        assertEquals(testSchedule, schedule.getSchedule());
+        assertEquals(testSchedule, schedule.getDailySchedule(WeekDay.MONDAY));
     }
     @Test
     public void testGenerateSchedule() {
         ArrayList<Schedule> schedules = schedule.generateSchedule();
-        assertEquals(schedule.generateSchedule(), schedules);
+        assertEquals(schedule.generateSchedule().size(), schedules.size());
     }
+    @Test
+    public void testGenerateScheduleWithNullActivityList() {
+        activityList.clear();
+        schedule.generateSchedule();
+        assertEquals(null , schedule.getSchedule());
+    }
+    @Test
+    public void testGenerateScheduleWithOneActivity() {
+        activityList.clear();
+        Activity activity = new Activity("Swimming", 1, "Swimming in the lake", "Lake");
+        activityList.addActivity(activity);
+        schedule.generateSchedule();
+        assertEquals(activity, schedule.generateSchedule().get(0));
+    }
+    
+
 
 
 
