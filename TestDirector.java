@@ -4,6 +4,8 @@
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.beans.Transient;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,6 +34,14 @@ public class TestDirector {
         
     }
 
+    @Test
+    public void testaddMultipleActivity(){
+        Activity activity1 = new Activity("1", 2, "3", "4");
+        Activity activity2 = new Activity("5", 6, "7", "8");
+        activityList.addActivity(activity1);
+        activityList.addActivity(activity2);
+        assertEquals(2, activityList.getAllActivities().size());
+    }
     @Test
     public void testaddValidFAQ(){
         FAQ validFaq = new FAQ("hi","how are you");
