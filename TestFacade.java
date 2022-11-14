@@ -18,12 +18,14 @@ public class TestFacade {
     static CampSystemFacade campSystem = new CampSystemFacade(null, null, null);
     private UserList userList = UserList.getInstance();
     private CampList campList = CampList.getInstance();
+    private ActivityList activityList = ActivityList.getInstance();
 
 @BeforeEach
 public void setup() {
     UserList.getInstance();
     CampList.getInstance();
-
+    ActivityList.getInstance();
+    activityList.clear();
 }
 
 @Test
@@ -203,5 +205,44 @@ public void testNullChangeCounselorMedInfo() {
    assertEquals(medicalInfo.toString(), campSystem.getCounselorMedInfo((Counselor) userList.getUser("BobAller@xxxxx.com", "1234567")));
 }
 // end of Nolan Blevins testing for facade
+
+@Test
+public void testgetCampToString(){
+    
+}
+
+@Test
+public void testViewGroup(){
+    
+    
+}
+
+@Test
+public void testgetCampByDate(){
+
+}
+
+@Test
+public void testgetCampByChild(){
+    
+}
+
+@Test
+public void testgetCounselors(){
+
+}
+
+@Test 
+public void testAddValidActivity(){
+    Activity validActivity = new Activity("Magic", 2, "fun", "lake");
+    activityList.addActivity(validActivity);
+    assertEquals(1, activityList.getAllActivities().size());
+}
+
+@Test
+public void testAddNullActivity(){
+    activityList.addActivity(null);
+    assertEquals(0, activityList.getAllActivities().size());
+}
 
 }
