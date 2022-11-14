@@ -202,6 +202,6 @@ public void testNullChangeCounselorMedInfo() {
     campSystem.changeCounselorMedInfo(medicalInfo);
    assertEquals(medicalInfo.toString(), campSystem.getCounselorMedInfo((Counselor) userList.getUser("BobAller@xxxxx.com", "1234567")));
 }
-
+// end of Nolan Blevins testing for facade
 
 }
