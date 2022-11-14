@@ -203,5 +203,18 @@ public void testNullChangeCounselorMedInfo() {
    assertEquals(medicalInfo.toString(), campSystem.getCounselorMedInfo((Counselor) userList.getUser("BobAller@xxxxx.com", "1234567")));
 }
 
+@Test
+
+public void TestRegisterChild()
+{
+    Child child = new Child(null, null, null, null);
+    CampList campList = CampList.getInstance();
+    ArrayList<Camp> camps = campList.getAllCamps();
+    ArrayList<Camp> addCamps = new ArrayList<>();
+    addCamps.add(camps.get(0));
+    campSystem.registerChild(child,addCamps);
+    assertEquals(true, ChildList.getInstance().getChildren().contains(child));
+}
+
 
 }
