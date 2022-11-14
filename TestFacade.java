@@ -206,13 +206,6 @@ public void testNullChangeCounselorMedInfo() {
 }
 // end of Nolan Blevins testing for facade
 
-@Test
-public void testgetCampToString(){
-    
-}
-
-@Test
-public void testViewGroup(){}
 
 @Test
 public void TestRegisterChild()
@@ -224,21 +217,6 @@ public void TestRegisterChild()
     addCamps.add(camps.get(0));
     campSystem.registerChild(child,addCamps);
     assertEquals(true, ChildList.getInstance().getChildren().contains(child));
-}
-
-@Test
-public void testgetCampByDate(){
-
-}
-
-@Test
-public void testgetCampByChild(){
-    
-}
-
-@Test
-public void testgetCounselors(){
-
 }
 
 @Test 
