@@ -91,12 +91,9 @@ public class TestCounselor {
     }
     @Test
     public void testViewSchedule() {
-        Schedule schedule;
-        schedule = new Schedule(null, null);
         Schedule testSchedule = counselor.viewSchedule(WeekDay.MONDAY);
-        schedule.generateSchedule();
-        schedule = schedule.getDailySchedule(WeekDay.MONDAY);
-        assertEquals(schedule.getSchedule(), testSchedule.getSchedule());
+        Schedule testSchedule2 = counselor.viewSchedule(WeekDay.MONDAY);
+        assertEquals(testSchedule2.getSchedule(), testSchedule.getSchedule());
     }
 
     @Test
