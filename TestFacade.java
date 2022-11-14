@@ -1,3 +1,8 @@
+
+/**
+ * Nolan Blevins
+ */
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.text.SimpleDateFormat;
@@ -110,11 +115,93 @@ public void testNullRegUserLogin() {
 }
 @Test
 public void testChangeUserInfoValid() {
-    User user1 = new User("tomothy", "timberland", "tomothyTimber@gmail.com", "803-867-5309", "tomothyPassword123");
-    userList.addUser(user1);
-        campSystem.loginRegisteredUser(null, null)
-        assertEquals("tomothy", user1.getFirstName());
-    assertEquals(null, null);
+        campSystem.createAccount("tomothy", "timberland", "803-867-5309","tomothyTimber@gmail.com" , "tomothyPassword123");
+        campSystem.loginRegisteredUser("tomothyTimber@gmail.com", "tomothyPassword123");
+        campSystem.changeUserInfo("John", "timberland", "803-867-5309","tomothyTimber@gmail.com" , "tomothyPassword123");
+        User user = userList.getUser("tomothyTimber@gmail.com", "tomothyPassword123");
+        assertEquals("John", user.getFirstName());
 }
+@Test
+public void testChangeUserInfoNull() {
+        campSystem.createAccount("tomothy", "timberland", "803-867-5309","tomothyTimber@gmail.com" , "tomothyPassword123");
+        campSystem.loginRegisteredUser("tomothyTimber@gmail.com", "tomothyPassword123");
+        campSystem.changeUserInfo(null, "timberland", "803-867-5309","tomothyTimber@gmail.com" , "tomothyPassword123");
+        User user = userList.getUser("tomothyTimber@gmail.com", "tomothyPassword123");
+        assertEquals("tomothy", user.getFirstName());
+}
+@Test
+public void testChangeUserInfoInvalid() {
+        campSystem.createAccount("tomothy", "timberland", "803-867-5309","tomothyTimber@gmail.com" , "tomothyPassword123");
+        campSystem.loginRegisteredUser("tomothyTimber@gmail.com", "tomothyPassword123");
+        campSystem.changeUserInfo(" ", "timberland", "803-867-5309","tomothyTimber@gmail.com" , "tomothyPassword123");
+        User user = userList.getUser("tomothyTimber@gmail.com", "tomothyPassword123");
+        assertEquals("tomothy", user.getFirstName());
+}
+@Test
+public void testValidChangeChildInfo() {
+    campSystem.loginRegisteredUser("JohnSnow@xxxxx.com", "1234567");
+    campSystem.changeChildInfo(0, "tam", "Snow", null);
+    Child c = campSystem.getChild(0);
+    assertEquals("tam", c.getFirstName());
+}
+@Test
+public void testNullChangeChildInfo() {
+    campSystem.loginRegisteredUser("JohnSnow@xxxxx.com", "1234567");
+    campSystem.changeChildInfo(0, null, "Snow", null);
+    Child c = campSystem.getChild(0);
+    assertEquals("Tammy", c.getFirstName());
+}
+@Test
+public void testInvalidChangeChildInfo() {
+    campSystem.loginRegisteredUser("JohnSnow@xxxxx.com", "1234567");
+    campSystem.changeChildInfo(0, " ", "Snow", null);
+    Child c = campSystem.getChild(0);
+    assertEquals("Tammy", c.getFirstName());
+}
+@Test
+public void testValidChangeCounselorMedInfo() {
+    campSystem.loginCounselor("BobAller@xxxxx.com", "1234567");
+        Pediatrician pediatrician = new Pediatrician("FName", "LName",
+        "555-444-3333", "Business");
+        Contact c = new Contact("f", "l", "555-5555", "cousin");
+        ArrayList<Contact> cs = new ArrayList<>();
+        cs.add(c);
+        ArrayList<String> allergies = new ArrayList<>();
+        allergies.add("Peanut");
+        ArrayList<String> cond = new ArrayList<>();
+        cond.add("ADD");
+    MedicalInfo medicalInfo = new MedicalInfo(
+        cs,
+        "Address",
+        allergies,
+        cond,
+        pediatrician
+    );
+    campSystem.changeCounselorMedInfo(medicalInfo);
+   assertEquals(medicalInfo.toString(), campSystem.getCounselorMedInfo((Counselor) userList.getUser("BobAller@xxxxx.com", "1234567")));
+}
+@Test
+public void testNullChangeCounselorMedInfo() {
+    campSystem.loginCounselor("BobAller@xxxxx.com", "1234567");
+        Pediatrician pediatrician = new Pediatrician("FName", "LName",
+        "555-444-3333", "Business");
+        Contact c = new Contact("f", "l", "555-5555", "cousin");
+        ArrayList<Contact> cs = new ArrayList<>();
+        cs.add(c);
+        ArrayList<String> allergies = new ArrayList<>();
+        allergies.add("Peanut");
+        ArrayList<String> cond = new ArrayList<>();
+        cond.add("ADD");
+    MedicalInfo medicalInfo = new MedicalInfo(
+        null,
+        null,
+        null,
+        null,
+        null
+    );
+    campSystem.changeCounselorMedInfo(medicalInfo);
+   assertEquals(medicalInfo.toString(), campSystem.getCounselorMedInfo((Counselor) userList.getUser("BobAller@xxxxx.com", "1234567")));
+}
+
 
 }
