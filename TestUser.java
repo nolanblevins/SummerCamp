@@ -19,14 +19,21 @@ public class TestUser {
     }
     
     @Test
-    public void changeUserWithNullValuesTest() {
+    public void changeUserWithAllNullValuesTest() {
         User user1 = new User("tomothy", "timberland", "tomothyTimber@gmail.com", "803-867-5309", "tomothyPassword123");
         user1.changeInfo(null, null, null, null, null);
         assertEquals("tomothy", user1.getFirstName());
     }
 
     @Test
-    public void changeUserWithNonNullValuesTest() {
+    public void changeUserWithNullValuesTest() {
+        User user1 = new User("tomothy", "timberland", "tomothyTimber@gmail.com", "803-867-5309", "tomothyPassword123");
+        user1.changeInfo("chadwhick", null, null, null, null);
+        assertEquals("chadwhick", user1.getFirstName());
+    }
+
+    @Test
+    public void changeUserWithAllNonNullValuesTest() {
         User user1 = new User("tomothy", "timberland", "tomothyTimber@gmail.com", "803-867-5309", "tomothyPassword123");
         user1.changeInfo("tim", "timber", "555-554-3342", "timtimber@gmail.com", "passthatword123");
         assertEquals("tim", user1.getFirstName());
